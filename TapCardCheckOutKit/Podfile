@@ -1,0 +1,19 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'TapCardCheckoutExample' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for TapCardCheckoutExample
+
+end
+
+target 'TapCardCheckOutKit' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for TapCardCheckOutKit
+pod 'TapCardInputKit-iOS' 
+
+end

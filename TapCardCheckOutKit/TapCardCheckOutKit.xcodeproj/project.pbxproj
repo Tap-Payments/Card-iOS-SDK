@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4630C9E98983B0A1A514926A /* Pods_TapCardCheckOutKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95BD0FD8D531C7E28085527C /* Pods_TapCardCheckOutKit.framework */; };
+		BBADB5ABAA6C652F7D3A3BCB /* Pods_TapCardCheckoutExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93326734CE10E55531CF012C /* Pods_TapCardCheckoutExample.framework */; };
 		E83262E627E88B6E005F3AAF /* TapCardCheckOutKit.docc in Sources */ = {isa = PBXBuildFile; fileRef = E83262E527E88B6E005F3AAF /* TapCardCheckOutKit.docc */; };
 		E83262E727E88B6E005F3AAF /* TapCardCheckOutKit.h in Headers */ = {isa = PBXBuildFile; fileRef = E83262E427E88B6E005F3AAF /* TapCardCheckOutKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E83262F827E88C6F005F3AAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83262F727E88C6F005F3AAF /* AppDelegate.swift */; };
@@ -17,6 +19,10 @@
 		E832630427E88C71005F3AAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E832630227E88C71005F3AAF /* LaunchScreen.storyboard */; };
 		E832630A27E88C91005F3AAF /* TapCardCheckOutKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E83262E127E88B6E005F3AAF /* TapCardCheckOutKit.framework */; platformFilter = ios; };
 		E832630B27E88C91005F3AAF /* TapCardCheckOutKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E83262E127E88B6E005F3AAF /* TapCardCheckOutKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E832631027E89420005F3AAF /* TapCardInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E832630F27E89420005F3AAF /* TapCardInputView.xib */; };
+		E832631227E89435005F3AAF /* TapCardInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832631127E89435005F3AAF /* TapCardInputView.swift */; };
+		E832631427E8950D005F3AAF /* CardInputExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832631327E8950D005F3AAF /* CardInputExtensions.swift */; };
+		E832631627E8993C005F3AAF /* Theme.json in Resources */ = {isa = PBXBuildFile; fileRef = E832631527E8993C005F3AAF /* Theme.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +50,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4AA042CE7F6CE843C5D822BB /* Pods-TapCardCheckOutKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TapCardCheckOutKit.debug.xcconfig"; path = "Target Support Files/Pods-TapCardCheckOutKit/Pods-TapCardCheckOutKit.debug.xcconfig"; sourceTree = "<group>"; };
+		69D577F56116879A8D8D1BE9 /* Pods-TapCardCheckOutKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TapCardCheckOutKit.release.xcconfig"; path = "Target Support Files/Pods-TapCardCheckOutKit/Pods-TapCardCheckOutKit.release.xcconfig"; sourceTree = "<group>"; };
+		7DC6A926CF6319E834F34AC8 /* Pods-TapCardCheckoutExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TapCardCheckoutExample.debug.xcconfig"; path = "Target Support Files/Pods-TapCardCheckoutExample/Pods-TapCardCheckoutExample.debug.xcconfig"; sourceTree = "<group>"; };
+		93326734CE10E55531CF012C /* Pods_TapCardCheckoutExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TapCardCheckoutExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95BD0FD8D531C7E28085527C /* Pods_TapCardCheckOutKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TapCardCheckOutKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2067D162FDFC067773A11B1 /* Pods-TapCardCheckoutExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TapCardCheckoutExample.release.xcconfig"; path = "Target Support Files/Pods-TapCardCheckoutExample/Pods-TapCardCheckoutExample.release.xcconfig"; sourceTree = "<group>"; };
 		E83262E127E88B6E005F3AAF /* TapCardCheckOutKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TapCardCheckOutKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E83262E427E88B6E005F3AAF /* TapCardCheckOutKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TapCardCheckOutKit.h; sourceTree = "<group>"; };
 		E83262E527E88B6E005F3AAF /* TapCardCheckOutKit.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = TapCardCheckOutKit.docc; sourceTree = "<group>"; };
@@ -55,6 +67,10 @@
 		E832630027E88C71005F3AAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E832630327E88C71005F3AAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E832630527E88C71005F3AAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E832630F27E89420005F3AAF /* TapCardInputView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TapCardInputView.xib; sourceTree = "<group>"; };
+		E832631127E89435005F3AAF /* TapCardInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCardInputView.swift; sourceTree = "<group>"; };
+		E832631327E8950D005F3AAF /* CardInputExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInputExtensions.swift; sourceTree = "<group>"; };
+		E832631527E8993C005F3AAF /* Theme.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Theme.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4630C9E98983B0A1A514926A /* Pods_TapCardCheckOutKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +87,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				E832630A27E88C91005F3AAF /* TapCardCheckOutKit.framework in Frameworks */,
+				BBADB5ABAA6C652F7D3A3BCB /* Pods_TapCardCheckoutExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0328E0E230783A68A6A8646D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4AA042CE7F6CE843C5D822BB /* Pods-TapCardCheckOutKit.debug.xcconfig */,
+				69D577F56116879A8D8D1BE9 /* Pods-TapCardCheckOutKit.release.xcconfig */,
+				7DC6A926CF6319E834F34AC8 /* Pods-TapCardCheckoutExample.debug.xcconfig */,
+				D2067D162FDFC067773A11B1 /* Pods-TapCardCheckoutExample.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E83262D727E88B6E005F3AAF = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +112,7 @@
 				E83262F627E88C6F005F3AAF /* TapCardCheckoutExample */,
 				E83262E227E88B6E005F3AAF /* Products */,
 				E832630927E88C91005F3AAF /* Frameworks */,
+				0328E0E230783A68A6A8646D /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -118,6 +148,8 @@
 		E83262EE27E88BE7005F3AAF /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				E832631527E8993C005F3AAF /* Theme.json */,
+				E832630F27E89420005F3AAF /* TapCardInputView.xib */,
 			);
 			path = assets;
 			sourceTree = "<group>";
@@ -125,6 +157,7 @@
 		E83262EF27E88BEC005F3AAF /* private */ = {
 			isa = PBXGroup;
 			children = (
+				E832631327E8950D005F3AAF /* CardInputExtensions.swift */,
 			);
 			path = private;
 			sourceTree = "<group>";
@@ -132,6 +165,7 @@
 		E83262F027E88BF2005F3AAF /* public */ = {
 			isa = PBXGroup;
 			children = (
+				E832631127E89435005F3AAF /* TapCardInputView.swift */,
 			);
 			path = public;
 			sourceTree = "<group>";
@@ -153,6 +187,8 @@
 		E832630927E88C91005F3AAF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				95BD0FD8D531C7E28085527C /* Pods_TapCardCheckOutKit.framework */,
+				93326734CE10E55531CF012C /* Pods_TapCardCheckoutExample.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -175,6 +211,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E83262EA27E88B6E005F3AAF /* Build configuration list for PBXNativeTarget "TapCardCheckOutKit" */;
 			buildPhases = (
+				B4B70A58F9192E91B5248E7F /* [CP] Check Pods Manifest.lock */,
 				E83262DC27E88B6E005F3AAF /* Headers */,
 				E83262DD27E88B6E005F3AAF /* Sources */,
 				E83262DE27E88B6E005F3AAF /* Frameworks */,
@@ -193,10 +230,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E832630627E88C71005F3AAF /* Build configuration list for PBXNativeTarget "TapCardCheckoutExample" */;
 			buildPhases = (
+				DF7220F0C211DC1FF410D228 /* [CP] Check Pods Manifest.lock */,
 				E83262F127E88C6F005F3AAF /* Sources */,
 				E83262F227E88C6F005F3AAF /* Frameworks */,
 				E83262F327E88C6F005F3AAF /* Resources */,
 				E832630E27E88C92005F3AAF /* Embed Frameworks */,
+				AA15B857EBA4BFE9ACDAB2AC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -250,6 +289,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E832631027E89420005F3AAF /* TapCardInputView.xib in Resources */,
+				E832631627E8993C005F3AAF /* Theme.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,12 +306,78 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		AA15B857EBA4BFE9ACDAB2AC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TapCardCheckoutExample/Pods-TapCardCheckoutExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TapCardCheckoutExample/Pods-TapCardCheckoutExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TapCardCheckoutExample/Pods-TapCardCheckoutExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B4B70A58F9192E91B5248E7F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TapCardCheckOutKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF7220F0C211DC1FF410D228 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TapCardCheckoutExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E83262DD27E88B6E005F3AAF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				E83262E627E88B6E005F3AAF /* TapCardCheckOutKit.docc in Sources */,
+				E832631427E8950D005F3AAF /* CardInputExtensions.swift in Sources */,
+				E832631227E89435005F3AAF /* TapCardInputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +544,7 @@
 		};
 		E83262EB27E88B6E005F3AAF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4AA042CE7F6CE843C5D822BB /* Pods-TapCardCheckOutKit.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -467,6 +575,7 @@
 		};
 		E83262EC27E88B6E005F3AAF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69D577F56116879A8D8D1BE9 /* Pods-TapCardCheckOutKit.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -497,7 +606,9 @@
 		};
 		E832630727E88C71005F3AAF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7DC6A926CF6319E834F34AC8 /* Pods-TapCardCheckoutExample.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -526,7 +637,9 @@
 		};
 		E832630827E88C71005F3AAF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2067D162FDFC067773A11B1 /* Pods-TapCardCheckoutExample.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;

@@ -9,12 +9,52 @@
 /* Begin PBXBuildFile section */
 		E83262E627E88B6E005F3AAF /* TapCardCheckOutKit.docc in Sources */ = {isa = PBXBuildFile; fileRef = E83262E527E88B6E005F3AAF /* TapCardCheckOutKit.docc */; };
 		E83262E727E88B6E005F3AAF /* TapCardCheckOutKit.h in Headers */ = {isa = PBXBuildFile; fileRef = E83262E427E88B6E005F3AAF /* TapCardCheckOutKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E83262F827E88C6F005F3AAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83262F727E88C6F005F3AAF /* AppDelegate.swift */; };
+		E83262FA27E88C6F005F3AAF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83262F927E88C6F005F3AAF /* SceneDelegate.swift */; };
+		E83262FC27E88C6F005F3AAF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83262FB27E88C6F005F3AAF /* ViewController.swift */; };
+		E83262FF27E88C6F005F3AAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E83262FD27E88C6F005F3AAF /* Main.storyboard */; };
+		E832630127E88C71005F3AAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E832630027E88C71005F3AAF /* Assets.xcassets */; };
+		E832630427E88C71005F3AAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E832630227E88C71005F3AAF /* LaunchScreen.storyboard */; };
+		E832630A27E88C91005F3AAF /* TapCardCheckOutKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E83262E127E88B6E005F3AAF /* TapCardCheckOutKit.framework */; platformFilter = ios; };
+		E832630B27E88C91005F3AAF /* TapCardCheckOutKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E83262E127E88B6E005F3AAF /* TapCardCheckOutKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E832630C27E88C91005F3AAF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E83262D827E88B6E005F3AAF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E83262E027E88B6E005F3AAF;
+			remoteInfo = TapCardCheckOutKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E832630E27E88C92005F3AAF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E832630B27E88C91005F3AAF /* TapCardCheckOutKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		E83262E127E88B6E005F3AAF /* TapCardCheckOutKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TapCardCheckOutKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E83262E427E88B6E005F3AAF /* TapCardCheckOutKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TapCardCheckOutKit.h; sourceTree = "<group>"; };
 		E83262E527E88B6E005F3AAF /* TapCardCheckOutKit.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = TapCardCheckOutKit.docc; sourceTree = "<group>"; };
+		E83262F527E88C6F005F3AAF /* TapCardCheckoutExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TapCardCheckoutExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E83262F727E88C6F005F3AAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E83262F927E88C6F005F3AAF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E83262FB27E88C6F005F3AAF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E83262FE27E88C6F005F3AAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E832630027E88C71005F3AAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E832630327E88C71005F3AAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E832630527E88C71005F3AAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -25,6 +65,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E83262F227E88C6F005F3AAF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E832630A27E88C91005F3AAF /* TapCardCheckOutKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -32,7 +80,9 @@
 			isa = PBXGroup;
 			children = (
 				E83262E327E88B6E005F3AAF /* TapCardCheckOutKit */,
+				E83262F627E88C6F005F3AAF /* TapCardCheckoutExample */,
 				E83262E227E88B6E005F3AAF /* Products */,
+				E832630927E88C91005F3AAF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -40,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				E83262E127E88B6E005F3AAF /* TapCardCheckOutKit.framework */,
+				E83262F527E88C6F005F3AAF /* TapCardCheckoutExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -85,6 +136,27 @@
 			path = public;
 			sourceTree = "<group>";
 		};
+		E83262F627E88C6F005F3AAF /* TapCardCheckoutExample */ = {
+			isa = PBXGroup;
+			children = (
+				E83262F727E88C6F005F3AAF /* AppDelegate.swift */,
+				E83262F927E88C6F005F3AAF /* SceneDelegate.swift */,
+				E83262FB27E88C6F005F3AAF /* ViewController.swift */,
+				E83262FD27E88C6F005F3AAF /* Main.storyboard */,
+				E832630027E88C71005F3AAF /* Assets.xcassets */,
+				E832630227E88C71005F3AAF /* LaunchScreen.storyboard */,
+				E832630527E88C71005F3AAF /* Info.plist */,
+			);
+			path = TapCardCheckoutExample;
+			sourceTree = "<group>";
+		};
+		E832630927E88C91005F3AAF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -117,6 +189,25 @@
 			productReference = E83262E127E88B6E005F3AAF /* TapCardCheckOutKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		E83262F427E88C6F005F3AAF /* TapCardCheckoutExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E832630627E88C71005F3AAF /* Build configuration list for PBXNativeTarget "TapCardCheckoutExample" */;
+			buildPhases = (
+				E83262F127E88C6F005F3AAF /* Sources */,
+				E83262F227E88C6F005F3AAF /* Frameworks */,
+				E83262F327E88C6F005F3AAF /* Resources */,
+				E832630E27E88C92005F3AAF /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E832630D27E88C91005F3AAF /* PBXTargetDependency */,
+			);
+			name = TapCardCheckoutExample;
+			productName = TapCardCheckoutExample;
+			productReference = E83262F527E88C6F005F3AAF /* TapCardCheckoutExample.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -124,9 +215,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1330;
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
 					E83262E027E88B6E005F3AAF = {
+						CreatedOnToolsVersion = 13.3;
+					};
+					E83262F427E88C6F005F3AAF = {
 						CreatedOnToolsVersion = 13.3;
 					};
 				};
@@ -145,6 +240,7 @@
 			projectRoot = "";
 			targets = (
 				E83262E027E88B6E005F3AAF /* TapCardCheckOutKit */,
+				E83262F427E88C6F005F3AAF /* TapCardCheckoutExample */,
 			);
 		};
 /* End PBXProject section */
@@ -154,6 +250,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E83262F327E88C6F005F3AAF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E832630427E88C71005F3AAF /* LaunchScreen.storyboard in Resources */,
+				E832630127E88C71005F3AAF /* Assets.xcassets in Resources */,
+				E83262FF27E88C6F005F3AAF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,7 +274,45 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E83262F127E88C6F005F3AAF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E83262FC27E88C6F005F3AAF /* ViewController.swift in Sources */,
+				E83262F827E88C6F005F3AAF /* AppDelegate.swift in Sources */,
+				E83262FA27E88C6F005F3AAF /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E832630D27E88C91005F3AAF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = E83262E027E88B6E005F3AAF /* TapCardCheckOutKit */;
+			targetProxy = E832630C27E88C91005F3AAF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E83262FD27E88C6F005F3AAF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E83262FE27E88C6F005F3AAF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E832630227E88C71005F3AAF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E832630327E88C71005F3AAF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		E83262E827E88B6E005F3AAF /* Debug */ = {
@@ -351,6 +495,64 @@
 			};
 			name = Release;
 		};
+		E832630727E88C71005F3AAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G46S76PUH4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TapCardCheckoutExample/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tap.TapCardCheckoutExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E832630827E88C71005F3AAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G46S76PUH4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TapCardCheckoutExample/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tap.TapCardCheckoutExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -368,6 +570,15 @@
 			buildConfigurations = (
 				E83262EB27E88B6E005F3AAF /* Debug */,
 				E83262EC27E88B6E005F3AAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E832630627E88C71005F3AAF /* Build configuration list for PBXNativeTarget "TapCardCheckoutExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E832630727E88C71005F3AAF /* Debug */,
+				E832630827E88C71005F3AAF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

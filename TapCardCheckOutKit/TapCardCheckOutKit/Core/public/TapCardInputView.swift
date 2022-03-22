@@ -42,6 +42,15 @@ import TapThemeManager2020
     // MARK:- Public functions
     
     /**
+     Handles assigning a custom theme for the tap card forum UIView
+     - Parameter customTapCardForumTheme : The theme object which contains the path to the local or to the remote custom light and dark themes
+     */
+    @objc public func applyCustomTheme(with customTapCardForumTheme:TapCardForumTheme) {
+        // Init the theme manager
+        configureThemeManager(customTheme:customTapCardForumTheme)
+    }
+    
+    /**
      Handles initializing the card forum engine with the required data to be able to tokenize on demand. It calls the Init api
      - Parameter dataConfig: The data configured by you as a merchant (e.g. secret key, locale, etc.)
      */
@@ -106,7 +115,26 @@ import TapThemeManager2020
         // Let us listen to the card input ui callbacks if needed
         tapCardInput.delegate = self
     }
+    
+    
+    /** Configures the theme manager by setting the provided custom theme file names
+     - Parameter customTheme: Please pass the tap checkout theme object with the names of your custom theme files if needed. If not set, the normal and default TAP theme will be used
+     */
+    private func configureThemeManager(customTheme:TapCardForumTheme? = nil) {
+        guard let nonNullCustomTheme = customTheme else {
+            TapThemeManager.setDefaultTapTheme()
+            return
+        }
+        switch nonNullCustomTheme.themeType {
+        case .LocalJsonFile: TapThemeManager.setDefaultTapTheme(lightModeJSONTheme: nonNullCustomTheme.lightModeThemeFileName ?? "", darkModeJSONTheme: nonNullCustomTheme.darkModeThemeFileName ?? "")
+        case .RemoteJsonFile: TapThemeManager.setDefaultTapTheme(lightModeURLTheme: URL(string:nonNullCustomTheme.lightModeThemeFileName ?? "") ?? nil, darkModeURLTheme: URL(string: nonNullCustomTheme.darkModeThemeFileName ?? "") ?? nil)
+        case .none:
+            TapThemeManager.setDefaultTapTheme(lightModeJSONTheme: nonNullCustomTheme.lightModeThemeFileName ?? "", darkModeJSONTheme: nonNullCustomTheme.darkModeThemeFileName ?? "")
+        }
+    }
 }
+
+// MARK:- Card Forum UI delegate
 
 extension TapCardInputView : TapCardInputProtocol {
     public func cardDataChanged(tapCard: TapCard) {

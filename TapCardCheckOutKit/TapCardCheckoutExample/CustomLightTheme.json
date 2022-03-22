@@ -1,0 +1,85 @@
+{"inlineCard": {
+    "commonAttributes": {
+        "backgroundColor": "#FFFFFF",
+        "borderColor": "#00000000",
+        "cornerRadius": 0,
+        "borderWidth": 0,
+        "itemSpacing": 5,
+        "cvvPlaceHolder": "CvvPlaceholder",
+        "shadow":{
+            "color": "#00000000",
+            "radius": 0,
+            "offsetWidth": 0,
+            "offsetHeight": 0,
+            "opacity": 0
+        },
+        "widthMargin": 7
+    },
+    "iconImage": {
+        "image": "card",
+        "width": 32
+    },
+    "scanImage": {
+        "image": "scanIcon",
+        "selected": "selectedScan",
+        "width": 32
+    },
+    "clearImage": {
+        "image": "clearFormIcon",
+        "width": 32
+    },
+    "textFields": {
+        "textColor": "#FF4847",
+        "errorTextColor": "#FF0000",
+        "font" : "Roboto-Light,17",
+        "placeHolderColor" : "#ffb2b2"
+    },
+    "saveCardOption": {
+        "labelTextColor": "#000000",
+        "labelTextFont": "20",
+        "switchTintColor": "#FFFFFF",
+        "switchThumbColor": "#FFFFFF",
+        "switchOnThumbColor": "#2ACE00"
+    }
+},
+"fullCard": {
+    "commonAttributes": {
+        "backgroundColor": "#FFFFFF",
+        "borderColor": "#00000000",
+        "cornerRadius":0,
+        "borderWidth": 0,
+        "itemSpacing": 0,
+        "separatorColor": "#0000001E",
+        "cvvPlaceHolder": "CvvPlaceholder",
+        "shadow":{
+            "color": "#2ACE00",
+            "radius": 3,
+            "offsetWidth": 0,
+            "offsetHeight": 0,
+            "opacity": 1
+        },
+        "widthMargin": 15
+    },
+    "iconImage": {
+        "image": "bank",
+        "width": 32
+    },
+    "scanImage": {
+        "image": "scanIcon",
+        "width": 32
+    },
+    "textFields": {
+        "textColor": "#000000",
+        "errorTextColor": "#FF0000",
+        "font": "15",
+        "placeHolderColor" : "#00000055"
+    },
+    "saveCardOption": {
+        "labelTextColor": "#000000",
+        "labelTextFont": "15",
+        "switchTintColor": "#FFFFFF",
+        "switchThumbColor": "#FFFFFF",
+        "switchOnThumbColor": "#2ACE00"
+    }
+    }
+}

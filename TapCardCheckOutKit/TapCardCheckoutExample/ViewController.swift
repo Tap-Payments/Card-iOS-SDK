@@ -24,5 +24,12 @@ class ViewController: UIViewController {
         tapCardForum.initCardForm(with: cardDataConfig)
     }
 
+    @IBAction func tokenizeCardClicked(_ sender: Any) {
+        tapCardForum.tokenizeCard { token in
+            print(token.card)
+        } onErrorOccured: { error in
+            print(error)
+        }
+    }
 }
 

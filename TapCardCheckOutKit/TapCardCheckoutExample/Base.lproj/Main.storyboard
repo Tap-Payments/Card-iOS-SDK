@@ -24,12 +24,22 @@
                                     <constraint firstAttribute="height" constant="45" id="Srx-S9-le4"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPG-Lj-Fqc">
+                                <rect key="frame" x="150.5" y="139" width="113.5" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Tokenize card"/>
+                                <connections>
+                                    <action selector="tokenizeCardClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jn9-Qy-QQM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="aPG-Lj-Fqc" firstAttribute="top" secondItem="FDp-Ru-IEn" secondAttribute="bottom" constant="30" id="8gn-7H-a5o"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FDp-Ru-IEn" secondAttribute="trailing" id="ETE-e7-ecc"/>
                             <constraint firstItem="FDp-Ru-IEn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Hcr-Ct-0TG"/>
+                            <constraint firstItem="aPG-Lj-Fqc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mzl-AT-BEx"/>
                             <constraint firstItem="FDp-Ru-IEn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="s0o-3W-y7I"/>
                         </constraints>
                     </view>

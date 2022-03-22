@@ -18,16 +18,13 @@ import TapThemeManager2020
     /// Represents the UI part of the embedded card entry forum
     @IBOutlet weak var tapCardInput: TapCardInput!
     
-    
-    /// Represents the mode of the sdk . Whether sandbox or production
-    public var sdkMode:SDKMode = .sandbox
-    /// The ISO 639-1 Code language identefier, please note if the passed locale is wrong or not found in the localisation files, we will show the keys instead of the values
-    public var localeIdentifier:String = "en"
-    /// The secret keys providede to your business from TAP.
-    public var secretKey:SecretKey = .init(sandbox: "", production: "")
-    
     /// Holds the latest card info provided by the user
     private var currentTapCard:TapCard?
+    
+    /// Holds the latest detected card brand
+    private var cardBrand: CardBrand?
+    /// Holds the latest validation status for the entered card data
+    private var validation: CrardInputTextFieldStatusEnum = .Invalid
     
     // Mark:- Init methods
     override init(frame: CGRect) {
@@ -54,6 +51,30 @@ import TapThemeManager2020
         // Infotm the network manager to init itself from the init api
         NetworkManager.shared.initialiseSDKFromAPI()
     }
+    
+    
+    /**
+     Handles tokenizing the current card data.
+     - Parameter onResponeReady: A callback to listen when a token is successfully generated
+     - Parameter onErrorOccured: A callback to listen when tokenization fails.
+     */
+    @objc public func tokenizeCard(onResponeReady: @escaping (Token) -> () = {_ in}, onErrorOccured: @escaping(Error)->() = {_ in}) {
+        // Check that the card kit is already initilzed
+        guard let _ = NetworkManager.shared.dataConfig.sdkSettings else {
+            onErrorOccured("You have to call the initCardForm method first. This allows the card form to get the data needed to communicate with Tap's backend apis.")
+            return
+        }
+        // Check that the user entered a valid card data first
+        guard let nonNullCard = currentTapCard,
+              validation == .Valid,
+        let nonNullTokenizeCard:CreateTokenCard = try? .init(card: nonNullCard, address: nil) else {
+            onErrorOccured("The user didn't enter a valid card data to tokenize. Please prompt the user to do so first.")
+            return
+        }
+        
+        NetworkManager.shared.callCardTokenAPI(cardTokenRequestModel: TapCreateTokenWithCardDataRequest(card: nonNullTokenizeCard),onResponeReady: onResponeReady, onErrorOccured: onErrorOccured)
+    }
+    
     
     
     // MARK:- Private functions
@@ -93,7 +114,8 @@ extension TapCardInputView : TapCardInputProtocol {
     }
     
     public func brandDetected(for cardBrand: CardBrand, with validation: CrardInputTextFieldStatusEnum) {
-        
+        self.cardBrand = cardBrand
+        self.validation = validation
     }
     
     public func scanCardClicked() {

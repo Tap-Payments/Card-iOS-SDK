@@ -48,6 +48,7 @@
 		E832643A27E9E1EE005F3AAF /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832643827E9E1EE005F3AAF /* Token.swift */; };
 		E832643B27E9E1EE005F3AAF /* TokenizedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832643927E9E1EE005F3AAF /* TokenizedCard.swift */; };
 		E832643D27E9E20A005F3AAF /* TokenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832643C27E9E20A005F3AAF /* TokenType.swift */; };
+		E832643F27E9EBBC005F3AAF /* TapCardDataConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832643E27E9EBBC005F3AAF /* TapCardDataConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,7 @@
 		E832643827E9E1EE005F3AAF /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		E832643927E9E1EE005F3AAF /* TokenizedCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenizedCard.swift; sourceTree = "<group>"; };
 		E832643C27E9E20A005F3AAF /* TokenType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenType.swift; sourceTree = "<group>"; };
+		E832643E27E9EBBC005F3AAF /* TapCardDataConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCardDataConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +283,7 @@
 				E832642127E9DFB3005F3AAF /* Permissions.swift */,
 				E832641827E9DE35005F3AAF /* SecretKey.swift */,
 				E832641A27E9DEFF005F3AAF /* ApiErrorModel.swift */,
+				E832643E27E9EBBC005F3AAF /* TapCardDataConfiguration.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 				E832640827E9DBE0005F3AAF /* NetworkManagerExtension.swift in Sources */,
 				E832643727E9E193005F3AAF /* NetworkManagerApiCallsExtension.swift in Sources */,
 				E832641B27E9DEFF005F3AAF /* ApiErrorModel.swift in Sources */,
+				E832643F27E9EBBC005F3AAF /* TapCardDataConfiguration.swift in Sources */,
 				E832640E27E9DC06005F3AAF /* Crypter.swift in Sources */,
 				E832643027E9E0D6005F3AAF /* Country.swift in Sources */,
 				E832643D27E9E20A005F3AAF /* TokenType.swift in Sources */,

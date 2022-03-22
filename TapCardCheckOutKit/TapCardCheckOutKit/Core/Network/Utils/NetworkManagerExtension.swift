@@ -32,7 +32,7 @@ internal extension NetworkManager {
             Constants.HTTPHeaderKey.contentTypeHeaderName: Constants.HTTPHeaderValueKey.jsonContentTypeHeaderValue
         ]
         
-        if let sessionToken = NetworkManager.shared.sessionToken, !sessionToken.isEmpty {
+        if let sessionToken = NetworkManager.shared.dataConfig.sdkSettings?.sessionToken, !sessionToken.isEmpty {
             
             result[Constants.HTTPHeaderKey.sessionToken] = sessionToken
         }
@@ -45,7 +45,7 @@ internal extension NetworkManager {
         
         var applicationDetails = NetworkManager.applicationStaticDetails()
         
-        let localeIdentifier = NetworkManager.shared.localeIdentifier
+        let localeIdentifier = NetworkManager.shared.dataConfig.localeIdentifier
         
         applicationDetails[Constants.HTTPHeaderValueKey.appLocale] = localeIdentifier
         
@@ -64,7 +64,7 @@ internal extension NetworkManager {
      - Returns: The sandbox or production secret key based on the SDK mode
      */
     static func secretKey() -> String {
-        return (NetworkManager.shared.sdkMode == .sandbox) ?  NetworkManager.shared.secretKey.sandbox : NetworkManager.shared.secretKey.production
+        return (NetworkManager.shared.dataConfig.sdkMode == .sandbox) ?  NetworkManager.shared.dataConfig.secretKey.sandbox : NetworkManager.shared.dataConfig.secretKey.production
     }
     
     

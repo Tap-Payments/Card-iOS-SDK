@@ -33,6 +33,9 @@
                             <constraint firstItem="FDp-Ru-IEn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="s0o-3W-y7I"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tapCardForum" destination="FDp-Ru-IEn" id="ufr-Kh-aZS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

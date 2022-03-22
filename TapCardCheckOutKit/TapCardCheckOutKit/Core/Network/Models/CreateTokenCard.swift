@@ -125,7 +125,7 @@ internal extension SecureEncodable {
             throw "Secure encoding wrong data parsed to string"
         }
         
-        guard let encryptionKey = NetworkManager.shared.encryptionKey else {
+        guard let encryptionKey = NetworkManager.shared.dataConfig.sdkSettings?.encryptionKey else {
             
             throw "Secure encoding wrong data missing encryption key"
         }

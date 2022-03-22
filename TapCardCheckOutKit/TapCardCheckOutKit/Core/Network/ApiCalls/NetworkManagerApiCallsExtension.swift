@@ -15,11 +15,11 @@ internal extension NetworkManager {
     func initialiseSDKFromAPI(onCheckOutReady: @escaping () -> () = {}) {
         // As per the backend logic, we will have to hit INIT then Payment options APIs
         NetworkManager.shared.makeApiCall(routing: .InitAPI, resultType: TapInitResponseModel.self) { [weak self] (session, result, error) in
-            guard let initModel:TapInitResponseModel = result as? TapInitResponseModel else { //self?.handleError(error: "Unexpected error when parsing into TapInitResponseModel")
+            guard let initModel:TapInitResponseModel = result as? TapInitResponseModel else { self?.handleError(error: "Unexpected error when parsing into TapInitResponseModel")
                 return }
-            //self?.handleInitResponse(initModel: initModel)
+            self?.handleInitResponse(initModel: initModel)
         } onError: { (session, result, errorr) in
-            //self.handleError(error: errorr)
+            self.handleError(error: errorr)
         }
     }
     
@@ -53,6 +53,24 @@ internal extension NetworkManager {
         }
     }
     
+    
+    
+    /**
+     Handles the response of init api call. Stores the data for further access
+     - Parameter initModel: The init response model from the latest INIT api call
+     */
+    func handleInitResponse(initModel: TapInitResponseModel) {
+        NetworkManager.shared.dataConfig.sdkSettings = initModel.data
+    }
+    
+    
+    /**
+     Handles error occured during an api call
+     - Parameter error: The occured error
+     */
+    func handleError(error: Error?) {
+        print(error ?? "Unknown error occured")
+    }
     
     
     /// Converts Encodable model into its dictionary representation. Calls completion closure in case of failure.

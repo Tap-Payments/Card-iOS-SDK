@@ -28,20 +28,12 @@ internal class NetworkManager: NSObject {
     /// The server base url
     private let baseURL = "https://api.tap.company/v2/"
     /// Defines if loging api calls to server
-    public var enableLogging = false
+    internal var enableLogging = false
     /// Defines if logging apu calls to console
-    public var consoleLogging = false
+    internal var consoleLogging = true
     
-    /// Represents the mode of the sdk . Whether sandbox or production
-    public var sdkMode:SDKMode = .sandbox
-    /// Session token.
-    internal var sessionToken: String?
-    /// The ISO 639-1 Code language identefier, please note if the passed locale is wrong or not found in the localisation files, we will show the keys instead of the values
-    public var localeIdentifier:String = "en"
-    /// The secret keys providede to your business from TAP.
-    public var secretKey:SecretKey = .init(sandbox: "", production: "")
-    /// Encryption key.
-    internal var encryptionKey: String?
+    /// The datasource configiation required so the card kit can perform Init call api
+    internal var dataConfig: TapCardDataConfiguration = .init()
     
     internal var loggedApis:[TapLogStackTraceEntryModel] {
         return networkManager.loggedInApiCalls

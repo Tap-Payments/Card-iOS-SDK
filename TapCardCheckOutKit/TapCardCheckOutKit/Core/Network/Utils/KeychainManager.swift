@@ -16,12 +16,12 @@ internal class KeychainManager {
         
         get {
             
-            let key = self.deviceIDKey(for: NetworkManager.shared.sdkMode)
+            let key = self.deviceIDKey(for: NetworkManager.shared.dataConfig.sdkMode)
             return Keychain.read(for: key)
         }
         set {
             
-            let key = self.deviceIDKey(for: NetworkManager.shared.sdkMode)
+            let key = self.deviceIDKey(for: NetworkManager.shared.dataConfig.sdkMode)
             Keychain.write(newValue, for: key)
         }
     }

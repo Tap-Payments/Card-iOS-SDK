@@ -12,11 +12,19 @@ import CommonDataModelsKit_iOS
 import TapThemeManager2020
 
 /// Represents the on the shelf card forum entry view
-public class TapCardInputView : UIView {
+@objc public class TapCardInputView : UIView {
     /// Represents the main holding view
     @IBOutlet var contentView: UIView!
     /// Represents the UI part of the embedded card entry forum
     @IBOutlet weak var tapCardInput: TapCardInput!
+    
+    
+    /// Represents the mode of the sdk . Whether sandbox or production
+    public var sdkMode:SDKMode = .sandbox
+    /// The ISO 639-1 Code language identefier, please note if the passed locale is wrong or not found in the localisation files, we will show the keys instead of the values
+    public var localeIdentifier:String = "en"
+    /// The secret keys providede to your business from TAP.
+    public var secretKey:SecretKey = .init(sandbox: "", production: "")
     
     /// Holds the latest card info provided by the user
     private var currentTapCard:TapCard?
@@ -36,7 +44,16 @@ public class TapCardInputView : UIView {
     
     // MARK:- Public functions
     
-    
+    /**
+     Handles initializing the card forum engine with the required data to be able to tokenize on demand. It calls the Init api
+     - Parameter dataConfig: The data configured by you as a merchant (e.g. secret key, locale, etc.)
+     */
+    @objc public func initCardForm(with dataConfig:TapCardDataConfiguration) {
+        // Store the configueation data for further access
+        NetworkManager.shared.dataConfig = dataConfig
+        // Infotm the network manager to init itself from the init api
+        NetworkManager.shared.initialiseSDKFromAPI()
+    }
     
     
     // MARK:- Private functions

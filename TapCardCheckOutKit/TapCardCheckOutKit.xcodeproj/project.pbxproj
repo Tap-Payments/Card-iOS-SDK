@@ -51,7 +51,10 @@
 		E832643F27E9EBBC005F3AAF /* TapCardDataConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832643E27E9EBBC005F3AAF /* TapCardDataConfiguration.swift */; };
 		E832644327EA04A8005F3AAF /* CustomLightTheme.json in Resources */ = {isa = PBXBuildFile; fileRef = E832644227EA04A8005F3AAF /* CustomLightTheme.json */; };
 		E832644527EA04C5005F3AAF /* CustomDarkTheme.json in Resources */ = {isa = PBXBuildFile; fileRef = E832644427EA04C5005F3AAF /* CustomDarkTheme.json */; };
-		E832644727EA09BD005F3AAF /* TapCheckOutTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832644627EA09BD005F3AAF /* TapCheckOutTheme.swift */; };
+		E832644727EA09BD005F3AAF /* TapCardForumTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832644627EA09BD005F3AAF /* TapCardForumTheme.swift */; };
+		E832644927EA0EE8005F3AAF /* TapCardForumLocalisation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832644827EA0EE8005F3AAF /* TapCardForumLocalisation.swift */; };
+		E832644D27EA10FD005F3AAF /* CustomLocalisation.json in Resources */ = {isa = PBXBuildFile; fileRef = E832644C27EA10FD005F3AAF /* CustomLocalisation.json */; };
+		E832644F27EA20F3005F3AAF /* TapCardForumConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832644E27EA20F3005F3AAF /* TapCardForumConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,7 +131,10 @@
 		E832643E27E9EBBC005F3AAF /* TapCardDataConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCardDataConfiguration.swift; sourceTree = "<group>"; };
 		E832644227EA04A8005F3AAF /* CustomLightTheme.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CustomLightTheme.json; sourceTree = "<group>"; };
 		E832644427EA04C5005F3AAF /* CustomDarkTheme.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CustomDarkTheme.json; sourceTree = "<group>"; };
-		E832644627EA09BD005F3AAF /* TapCheckOutTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCheckOutTheme.swift; sourceTree = "<group>"; };
+		E832644627EA09BD005F3AAF /* TapCardForumTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCardForumTheme.swift; sourceTree = "<group>"; };
+		E832644827EA0EE8005F3AAF /* TapCardForumLocalisation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCardForumLocalisation.swift; sourceTree = "<group>"; };
+		E832644C27EA10FD005F3AAF /* CustomLocalisation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CustomLocalisation.json; sourceTree = "<group>"; };
+		E832644E27EA20F3005F3AAF /* TapCardForumConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCardForumConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				E832631127E89435005F3AAF /* TapCardInputView.swift */,
+				E832644E27EA20F3005F3AAF /* TapCardForumConfiguration.swift */,
 			);
 			path = public;
 			sourceTree = "<group>";
@@ -241,6 +248,7 @@
 				E832630527E88C71005F3AAF /* Info.plist */,
 				E832644227EA04A8005F3AAF /* CustomLightTheme.json */,
 				E832644427EA04C5005F3AAF /* CustomDarkTheme.json */,
+				E832644C27EA10FD005F3AAF /* CustomLocalisation.json */,
 			);
 			path = TapCardCheckoutExample;
 			sourceTree = "<group>";
@@ -292,7 +300,8 @@
 				E832641827E9DE35005F3AAF /* SecretKey.swift */,
 				E832641A27E9DEFF005F3AAF /* ApiErrorModel.swift */,
 				E832643E27E9EBBC005F3AAF /* TapCardDataConfiguration.swift */,
-				E832644627EA09BD005F3AAF /* TapCheckOutTheme.swift */,
+				E832644627EA09BD005F3AAF /* TapCardForumTheme.swift */,
+				E832644827EA0EE8005F3AAF /* TapCardForumLocalisation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -451,6 +460,7 @@
 			files = (
 				E832644527EA04C5005F3AAF /* CustomDarkTheme.json in Resources */,
 				E832630427E88C71005F3AAF /* LaunchScreen.storyboard in Resources */,
+				E832644D27EA10FD005F3AAF /* CustomLocalisation.json in Resources */,
 				E832630127E88C71005F3AAF /* Assets.xcassets in Resources */,
 				E83262FF27E88C6F005F3AAF /* Main.storyboard in Resources */,
 				E832644327EA04A8005F3AAF /* CustomLightTheme.json in Resources */,
@@ -538,12 +548,13 @@
 				E832643F27E9EBBC005F3AAF /* TapCardDataConfiguration.swift in Sources */,
 				E832640E27E9DC06005F3AAF /* Crypter.swift in Sources */,
 				E832643027E9E0D6005F3AAF /* Country.swift in Sources */,
+				E832644927EA0EE8005F3AAF /* TapCardForumLocalisation.swift in Sources */,
 				E832643D27E9E20A005F3AAF /* TokenType.swift in Sources */,
 				E832641527E9DD72005F3AAF /* TapNetworkPath.swift in Sources */,
 				E832642B27E9E079005F3AAF /* TapCreateTokenWithCardDataRequest.swift in Sources */,
 				E832643A27E9E1EE005F3AAF /* Token.swift in Sources */,
 				E832641027E9DC07005F3AAF /* RSAUtils.swift in Sources */,
-				E832644727EA09BD005F3AAF /* TapCheckOutTheme.swift in Sources */,
+				E832644727EA09BD005F3AAF /* TapCardForumTheme.swift in Sources */,
 				E832641327E9DD31005F3AAF /* SDKMode.swift in Sources */,
 				E832642D27E9E0AC005F3AAF /* CreateTokenCard.swift in Sources */,
 				E832643527E9E162005F3AAF /* AddressFormat.swift in Sources */,
@@ -553,6 +564,7 @@
 				E832642427E9DFB4005F3AAF /* Permissions.swift in Sources */,
 				E832642527E9DFB4005F3AAF /* Merchant.swift in Sources */,
 				E832643327E9E14D005F3AAF /* AddressType.swift in Sources */,
+				E832644F27EA20F3005F3AAF /* TapCardForumConfiguration.swift in Sources */,
 				E832640D27E9DC06005F3AAF /* ErrorUtils.swift in Sources */,
 				E832642027E9DF96005F3AAF /* SDKSettings.swift in Sources */,
 				E832631227E89435005F3AAF /* TapCardInputView.swift in Sources */,

@@ -10,6 +10,8 @@ import TapCardInputKit_iOS
 import TapCardVlidatorKit_iOS
 import CommonDataModelsKit_iOS
 import TapThemeManager2020
+import LocalisationManagerKit_iOS
+import MOLH
 
 /// Represents the on the shelf card forum entry view
 @objc public class TapCardInputView : UIView {
@@ -25,6 +27,8 @@ import TapThemeManager2020
     private var cardBrand: CardBrand?
     /// Holds the latest validation status for the entered card data
     private var validation: CrardInputTextFieldStatusEnum = .Invalid
+    /// A reference to the localisation manager
+    private var sharedLocalisationManager = TapLocalisationManager.shared
     
     // Mark:- Init methods
     override init(frame: CGRect) {
@@ -40,27 +44,6 @@ import TapThemeManager2020
     
     
     // MARK:- Public functions
-    
-    /**
-     Handles assigning a custom theme for the tap card forum UIView
-     - Parameter customTapCardForumTheme : The theme object which contains the path to the local or to the remote custom light and dark themes
-     */
-    @objc public func applyCustomTheme(with customTapCardForumTheme:TapCardForumTheme) {
-        // Init the theme manager
-        configureThemeManager(customTheme:customTapCardForumTheme)
-    }
-    
-    /**
-     Handles initializing the card forum engine with the required data to be able to tokenize on demand. It calls the Init api
-     - Parameter dataConfig: The data configured by you as a merchant (e.g. secret key, locale, etc.)
-     */
-    @objc public func initCardForm(with dataConfig:TapCardDataConfiguration) {
-        // Store the configueation data for further access
-        NetworkManager.shared.dataConfig = dataConfig
-        // Infotm the network manager to init itself from the init api
-        NetworkManager.shared.initialiseSDKFromAPI()
-    }
-    
     
     /**
      Handles tokenizing the current card data.
@@ -105,32 +88,36 @@ import TapThemeManager2020
     }
     
     
+    /**
+     Handles initializing the card forum engine with the required data to be able to tokenize on demand. It calls the Init api
+     - Parameter dataConfig: The data configured by you as a merchant (e.g. secret key, locale, etc.)
+     */
+    private func initCardForm() {
+        // Check first of the data manager was already populated with required data
+        guard let nonNullConfiguration = TapCardForumConfiguration.shared.dataConfig else {
+            // This means the app didn't populate reuired data to talk to backend correctly before loading the view. Hence, we hide it
+            DispatchQueue.main.async { [weak self] in
+                self?.tapCardInput.isHidden = true
+                print("Tap Card Forum error : Please populate data in TapCardForumConfiguration.shared first before showing the view")
+            }
+            return
+        }
+        // Store the configueation data for further access
+        NetworkManager.shared.dataConfig = nonNullConfiguration
+        // Infotm the network manager to init itself from the init api
+        NetworkManager.shared.initialiseSDKFromAPI()
+    }
+    
+    
     ///  Initiates the card input forum by adjusting the UI and defining the card brands
     private func configureCardInputUI() {
-        // Set the default
-        TapThemeManager.setDefaultTapTheme()
         // As per the requirement, the card forum kit will not care about allowed card brands,
         // Hence we declare it to accept all cards.
         tapCardInput.setup(for: .InlineCardInput, allowedCardBrands: CardBrand.allCases.map{ $0.rawValue })
         // Let us listen to the card input ui callbacks if needed
         tapCardInput.delegate = self
-    }
-    
-    
-    /** Configures the theme manager by setting the provided custom theme file names
-     - Parameter customTheme: Please pass the tap checkout theme object with the names of your custom theme files if needed. If not set, the normal and default TAP theme will be used
-     */
-    private func configureThemeManager(customTheme:TapCardForumTheme? = nil) {
-        guard let nonNullCustomTheme = customTheme else {
-            TapThemeManager.setDefaultTapTheme()
-            return
-        }
-        switch nonNullCustomTheme.themeType {
-        case .LocalJsonFile: TapThemeManager.setDefaultTapTheme(lightModeJSONTheme: nonNullCustomTheme.lightModeThemeFileName ?? "", darkModeJSONTheme: nonNullCustomTheme.darkModeThemeFileName ?? "")
-        case .RemoteJsonFile: TapThemeManager.setDefaultTapTheme(lightModeURLTheme: URL(string:nonNullCustomTheme.lightModeThemeFileName ?? "") ?? nil, darkModeURLTheme: URL(string: nonNullCustomTheme.darkModeThemeFileName ?? "") ?? nil)
-        case .none:
-            TapThemeManager.setDefaultTapTheme(lightModeJSONTheme: nonNullCustomTheme.lightModeThemeFileName ?? "", darkModeJSONTheme: nonNullCustomTheme.darkModeThemeFileName ?? "")
-        }
+        // Call init api to be ready for token api on demand
+        initCardForm()
     }
 }
 

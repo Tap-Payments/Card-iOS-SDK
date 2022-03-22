@@ -23,6 +23,31 @@
 		E832631227E89435005F3AAF /* TapCardInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832631127E89435005F3AAF /* TapCardInputView.swift */; };
 		E832631427E8950D005F3AAF /* CardInputExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832631327E8950D005F3AAF /* CardInputExtensions.swift */; };
 		E832631627E8993C005F3AAF /* Theme.json in Resources */ = {isa = PBXBuildFile; fileRef = E832631527E8993C005F3AAF /* Theme.json */; };
+		E832640627E9DB05005F3AAF /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832640527E9DB05005F3AAF /* NetworkManager.swift */; };
+		E832640827E9DBE0005F3AAF /* NetworkManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832640727E9DBE0005F3AAF /* NetworkManagerExtension.swift */; };
+		E832640D27E9DC06005F3AAF /* ErrorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832640927E9DC06005F3AAF /* ErrorUtils.swift */; };
+		E832640E27E9DC06005F3AAF /* Crypter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832640A27E9DC06005F3AAF /* Crypter.swift */; };
+		E832640F27E9DC06005F3AAF /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832640B27E9DC06005F3AAF /* KeychainManager.swift */; };
+		E832641027E9DC07005F3AAF /* RSAUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832640C27E9DC06005F3AAF /* RSAUtils.swift */; };
+		E832641327E9DD31005F3AAF /* SDKMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832641227E9DD31005F3AAF /* SDKMode.swift */; };
+		E832641527E9DD72005F3AAF /* TapNetworkPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832641427E9DD72005F3AAF /* TapNetworkPath.swift */; };
+		E832641927E9DE35005F3AAF /* SecretKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832641827E9DE35005F3AAF /* SecretKey.swift */; };
+		E832641B27E9DEFF005F3AAF /* ApiErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832641A27E9DEFF005F3AAF /* ApiErrorModel.swift */; };
+		E832642027E9DF96005F3AAF /* SDKSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832641F27E9DF96005F3AAF /* SDKSettings.swift */; };
+		E832642427E9DFB4005F3AAF /* Permissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832642127E9DFB3005F3AAF /* Permissions.swift */; };
+		E832642527E9DFB4005F3AAF /* Merchant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832642227E9DFB3005F3AAF /* Merchant.swift */; };
+		E832642627E9DFB4005F3AAF /* InternalSDKSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832642327E9DFB3005F3AAF /* InternalSDKSettings.swift */; };
+		E832642A27E9E079005F3AAF /* TapCreateTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832642827E9E079005F3AAF /* TapCreateTokenRequest.swift */; };
+		E832642B27E9E079005F3AAF /* TapCreateTokenWithCardDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832642927E9E079005F3AAF /* TapCreateTokenWithCardDataRequest.swift */; };
+		E832642D27E9E0AC005F3AAF /* CreateTokenCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832642C27E9E0AC005F3AAF /* CreateTokenCard.swift */; };
+		E832643027E9E0D6005F3AAF /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832642E27E9E0D6005F3AAF /* Country.swift */; };
+		E832643127E9E0D6005F3AAF /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832642F27E9E0D6005F3AAF /* Address.swift */; };
+		E832643327E9E14D005F3AAF /* AddressType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832643227E9E14D005F3AAF /* AddressType.swift */; };
+		E832643527E9E162005F3AAF /* AddressFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832643427E9E162005F3AAF /* AddressFormat.swift */; };
+		E832643727E9E193005F3AAF /* NetworkManagerApiCallsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832643627E9E193005F3AAF /* NetworkManagerApiCallsExtension.swift */; };
+		E832643A27E9E1EE005F3AAF /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832643827E9E1EE005F3AAF /* Token.swift */; };
+		E832643B27E9E1EE005F3AAF /* TokenizedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832643927E9E1EE005F3AAF /* TokenizedCard.swift */; };
+		E832643D27E9E20A005F3AAF /* TokenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832643C27E9E20A005F3AAF /* TokenType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +96,31 @@
 		E832631127E89435005F3AAF /* TapCardInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCardInputView.swift; sourceTree = "<group>"; };
 		E832631327E8950D005F3AAF /* CardInputExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInputExtensions.swift; sourceTree = "<group>"; };
 		E832631527E8993C005F3AAF /* Theme.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Theme.json; sourceTree = "<group>"; };
+		E832640527E9DB05005F3AAF /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		E832640727E9DBE0005F3AAF /* NetworkManagerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerExtension.swift; sourceTree = "<group>"; };
+		E832640927E9DC06005F3AAF /* ErrorUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorUtils.swift; sourceTree = "<group>"; };
+		E832640A27E9DC06005F3AAF /* Crypter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Crypter.swift; sourceTree = "<group>"; };
+		E832640B27E9DC06005F3AAF /* KeychainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		E832640C27E9DC06005F3AAF /* RSAUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSAUtils.swift; sourceTree = "<group>"; };
+		E832641227E9DD31005F3AAF /* SDKMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKMode.swift; sourceTree = "<group>"; };
+		E832641427E9DD72005F3AAF /* TapNetworkPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapNetworkPath.swift; sourceTree = "<group>"; };
+		E832641827E9DE35005F3AAF /* SecretKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKey.swift; sourceTree = "<group>"; };
+		E832641A27E9DEFF005F3AAF /* ApiErrorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiErrorModel.swift; sourceTree = "<group>"; };
+		E832641F27E9DF96005F3AAF /* SDKSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDKSettings.swift; sourceTree = "<group>"; };
+		E832642127E9DFB3005F3AAF /* Permissions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Permissions.swift; sourceTree = "<group>"; };
+		E832642227E9DFB3005F3AAF /* Merchant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Merchant.swift; sourceTree = "<group>"; };
+		E832642327E9DFB3005F3AAF /* InternalSDKSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternalSDKSettings.swift; sourceTree = "<group>"; };
+		E832642827E9E079005F3AAF /* TapCreateTokenRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapCreateTokenRequest.swift; sourceTree = "<group>"; };
+		E832642927E9E079005F3AAF /* TapCreateTokenWithCardDataRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapCreateTokenWithCardDataRequest.swift; sourceTree = "<group>"; };
+		E832642C27E9E0AC005F3AAF /* CreateTokenCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTokenCard.swift; sourceTree = "<group>"; };
+		E832642E27E9E0D6005F3AAF /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		E832642F27E9E0D6005F3AAF /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		E832643227E9E14D005F3AAF /* AddressType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressType.swift; sourceTree = "<group>"; };
+		E832643427E9E162005F3AAF /* AddressFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressFormat.swift; sourceTree = "<group>"; };
+		E832643627E9E193005F3AAF /* NetworkManagerApiCallsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerApiCallsExtension.swift; sourceTree = "<group>"; };
+		E832643827E9E1EE005F3AAF /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		E832643927E9E1EE005F3AAF /* TokenizedCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenizedCard.swift; sourceTree = "<group>"; };
+		E832643C27E9E20A005F3AAF /* TokenType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +188,7 @@
 		E83262ED27E88BCF005F3AAF /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				E832640427E9DAE1005F3AAF /* Network */,
 				E83262F027E88BF2005F3AAF /* public */,
 				E83262EF27E88BEC005F3AAF /* private */,
 				E83262EE27E88BE7005F3AAF /* assets */,
@@ -191,6 +242,94 @@
 				93326734CE10E55531CF012C /* Pods_TapCardCheckoutExample.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E832640427E9DAE1005F3AAF /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E832641C27E9DF59005F3AAF /* ApiCalls */,
+				E832641727E9DE22005F3AAF /* Utils */,
+				E832641627E9DE1E005F3AAF /* Models */,
+				E832641127E9DD2A005F3AAF /* Enums */,
+				E832640527E9DB05005F3AAF /* NetworkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E832641127E9DD2A005F3AAF /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				E832643C27E9E20A005F3AAF /* TokenType.swift */,
+				E832643427E9E162005F3AAF /* AddressFormat.swift */,
+				E832643227E9E14D005F3AAF /* AddressType.swift */,
+				E832641227E9DD31005F3AAF /* SDKMode.swift */,
+				E832641427E9DD72005F3AAF /* TapNetworkPath.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		E832641627E9DE1E005F3AAF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E832643827E9E1EE005F3AAF /* Token.swift */,
+				E832643927E9E1EE005F3AAF /* TokenizedCard.swift */,
+				E832642F27E9E0D6005F3AAF /* Address.swift */,
+				E832642E27E9E0D6005F3AAF /* Country.swift */,
+				E832642C27E9E0AC005F3AAF /* CreateTokenCard.swift */,
+				E832642327E9DFB3005F3AAF /* InternalSDKSettings.swift */,
+				E832642227E9DFB3005F3AAF /* Merchant.swift */,
+				E832642127E9DFB3005F3AAF /* Permissions.swift */,
+				E832641827E9DE35005F3AAF /* SecretKey.swift */,
+				E832641A27E9DEFF005F3AAF /* ApiErrorModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E832641727E9DE22005F3AAF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E832640A27E9DC06005F3AAF /* Crypter.swift */,
+				E832640927E9DC06005F3AAF /* ErrorUtils.swift */,
+				E832640B27E9DC06005F3AAF /* KeychainManager.swift */,
+				E832640C27E9DC06005F3AAF /* RSAUtils.swift */,
+				E832640727E9DBE0005F3AAF /* NetworkManagerExtension.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E832641C27E9DF59005F3AAF /* ApiCalls */ = {
+			isa = PBXGroup;
+			children = (
+				E832642727E9E01E005F3AAF /* TapTokenRequest */,
+				E832641D27E9DF7D005F3AAF /* Init */,
+				E832643627E9E193005F3AAF /* NetworkManagerApiCallsExtension.swift */,
+			);
+			path = ApiCalls;
+			sourceTree = "<group>";
+		};
+		E832641D27E9DF7D005F3AAF /* Init */ = {
+			isa = PBXGroup;
+			children = (
+				E832641E27E9DF83005F3AAF /* TapInitResponsdeModel */,
+			);
+			path = Init;
+			sourceTree = "<group>";
+		};
+		E832641E27E9DF83005F3AAF /* TapInitResponsdeModel */ = {
+			isa = PBXGroup;
+			children = (
+				E832641F27E9DF96005F3AAF /* SDKSettings.swift */,
+			);
+			path = TapInitResponsdeModel;
+			sourceTree = "<group>";
+		};
+		E832642727E9E01E005F3AAF /* TapTokenRequest */ = {
+			isa = PBXGroup;
+			children = (
+				E832642827E9E079005F3AAF /* TapCreateTokenRequest.swift */,
+				E832642927E9E079005F3AAF /* TapCreateTokenWithCardDataRequest.swift */,
+			);
+			path = TapTokenRequest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -375,9 +514,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E832642627E9DFB4005F3AAF /* InternalSDKSettings.swift in Sources */,
+				E832640627E9DB05005F3AAF /* NetworkManager.swift in Sources */,
+				E832641927E9DE35005F3AAF /* SecretKey.swift in Sources */,
 				E83262E627E88B6E005F3AAF /* TapCardCheckOutKit.docc in Sources */,
+				E832640827E9DBE0005F3AAF /* NetworkManagerExtension.swift in Sources */,
+				E832643727E9E193005F3AAF /* NetworkManagerApiCallsExtension.swift in Sources */,
+				E832641B27E9DEFF005F3AAF /* ApiErrorModel.swift in Sources */,
+				E832640E27E9DC06005F3AAF /* Crypter.swift in Sources */,
+				E832643027E9E0D6005F3AAF /* Country.swift in Sources */,
+				E832643D27E9E20A005F3AAF /* TokenType.swift in Sources */,
+				E832641527E9DD72005F3AAF /* TapNetworkPath.swift in Sources */,
+				E832642B27E9E079005F3AAF /* TapCreateTokenWithCardDataRequest.swift in Sources */,
+				E832643A27E9E1EE005F3AAF /* Token.swift in Sources */,
+				E832641027E9DC07005F3AAF /* RSAUtils.swift in Sources */,
+				E832641327E9DD31005F3AAF /* SDKMode.swift in Sources */,
+				E832642D27E9E0AC005F3AAF /* CreateTokenCard.swift in Sources */,
+				E832643527E9E162005F3AAF /* AddressFormat.swift in Sources */,
+				E832643B27E9E1EE005F3AAF /* TokenizedCard.swift in Sources */,
 				E832631427E8950D005F3AAF /* CardInputExtensions.swift in Sources */,
+				E832642A27E9E079005F3AAF /* TapCreateTokenRequest.swift in Sources */,
+				E832642427E9DFB4005F3AAF /* Permissions.swift in Sources */,
+				E832642527E9DFB4005F3AAF /* Merchant.swift in Sources */,
+				E832643327E9E14D005F3AAF /* AddressType.swift in Sources */,
+				E832640D27E9DC06005F3AAF /* ErrorUtils.swift in Sources */,
+				E832642027E9DF96005F3AAF /* SDKSettings.swift in Sources */,
 				E832631227E89435005F3AAF /* TapCardInputView.swift in Sources */,
+				E832643127E9E0D6005F3AAF /* Address.swift in Sources */,
+				E832640F27E9DC06005F3AAF /* KeychainManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

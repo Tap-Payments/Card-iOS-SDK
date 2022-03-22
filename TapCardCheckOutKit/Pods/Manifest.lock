@@ -5,8 +5,13 @@ PODS:
   - MOLH (1.4.3)
   - Nuke (10.7.1)
   - SnapKit (5.0.1)
+  - SwiftyRSA (1.7.0):
+    - SwiftyRSA/ObjC (= 1.7.0)
+  - SwiftyRSA/ObjC (1.7.0)
   - TapAdditionsKitV2 (0.0.8):
     - TapSwiftFixesV2
+  - TapApplicationV2 (0.0.2):
+    - TapAdditionsKitV2
   - TapCardInputKit-iOS (1.0.24):
     - CommonDataModelsKit-iOS
     - LocalisationManagerKit-iOS
@@ -18,6 +23,9 @@ PODS:
   - TapCardVlidatorKit-iOS (1.0.15)
   - TapFontKit-iOS (0.0.9):
     - TapSwiftFixesV2
+  - TapKeychain (1.0.5)
+  - TapNetworkKit-iOS (1.0.8):
+    - TapAdditionsKitV2
   - TapSwiftFixesV2 (1.0.0):
     - TapSwiftFixesV2/CoreGraphics (= 1.0.0)
     - TapSwiftFixesV2/Exceptions (= 1.0.0)
@@ -30,7 +38,12 @@ PODS:
     - TapFontKit-iOS
 
 DEPENDENCIES:
+  - CommonDataModelsKit-iOS
+  - SwiftyRSA
+  - TapApplicationV2
   - TapCardInputKit-iOS
+  - TapKeychain
+  - TapNetworkKit-iOS
 
 SPEC REPOS:
   trunk:
@@ -39,10 +52,14 @@ SPEC REPOS:
     - MOLH
     - Nuke
     - SnapKit
+    - SwiftyRSA
     - TapAdditionsKitV2
+    - TapApplicationV2
     - TapCardInputKit-iOS
     - TapCardVlidatorKit-iOS
     - TapFontKit-iOS
+    - TapKeychain
+    - TapNetworkKit-iOS
     - TapSwiftFixesV2
     - TapThemeManager2020
 
@@ -52,13 +69,17 @@ SPEC CHECKSUMS:
   MOLH: e45827d200aeb1310641090fd8cd03ad2b42ae72
   Nuke: 279f17a599fd1c83cf51de5e0e1f2db143a287b0
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SwiftyRSA: 8c6dd1ea7db1b8dc4fb517a202f88bb1354bc2c6
   TapAdditionsKitV2: ba369802e9575c3475ce6d5af228cf60c68edfc9
+  TapApplicationV2: aee3d046c4272778431e1535de6cab34e1269f8c
   TapCardInputKit-iOS: fc3bd4fbac14b22fd315437ca2c8930d87cc8dcf
   TapCardVlidatorKit-iOS: 3cf41059e6496f02ca1c2a78a8cd000d3643cd13
   TapFontKit-iOS: 51ed2ddbe9f2b5ece1cc587ed45af9147e5c6fc1
+  TapKeychain: 143aa70bb2d1b094e0298e944660264034c79849
+  TapNetworkKit-iOS: d1a6110b4f43e9b1cceafe469cf6cc3fb775a2cf
   TapSwiftFixesV2: a8623a7273c6790b9754ec7e272e96fce7d3a800
   TapThemeManager2020: d27a89804a3e950eae889033dcf40fe3a2cde187
 
-PODFILE CHECKSUM: 281aa5384b6e09ffdbb4754280fce7893ef2c0ba
+PODFILE CHECKSUM: d7e7f10fc4ad1a6adcb22a2f8942062b84dce2da
 
 COCOAPODS: 1.11.2

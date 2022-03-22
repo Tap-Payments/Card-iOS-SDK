@@ -36,19 +36,10 @@ public class TapCardInputView : UIView {
     
     // MARK:- Public functions
     
-    ///  Initiates the card input forum by adjusting the UI and defining the card brands
-    public func configureCardInput() {
-        // Set the default
-        TapThemeManager.setDefaultTapTheme()
-        // As per the requirement, the card forum kit will not care about allowed card brands,
-        // Hence we declare it to accept all cards.
-        tapCardInput.setup(for: .InlineCardInput, allowedCardBrands: CardBrand.allCases.map{ $0.rawValue })
-        // Let us listen to the card input ui callbacks if needed
-        tapCardInput.delegate = self
-    }
+    
+    
     
     // MARK:- Private functions
-    
     /// Used as a consolidated method to do all the needed steps upon creating the view
     private func commonInit() {
         self.contentView = setupXIB()
@@ -57,10 +48,25 @@ public class TapCardInputView : UIView {
     
     /// Does the needed pre logic to shape the card input UI forum
     private func initUI() {
+        // Let it go with the UI constraints
         tapCardInput.translatesAutoresizingMaskIntoConstraints = false
+        // No saving card and no scanning option for the card kit
         tapCardInput.showSaveCardOption = false
         tapCardInput.showScanningOption = false
-        configureCardInput()
+        // Let us configure the theming and the internal variabls of the card input forum
+        configureCardInputUI()
+    }
+    
+    
+    ///  Initiates the card input forum by adjusting the UI and defining the card brands
+    private func configureCardInputUI() {
+        // Set the default
+        TapThemeManager.setDefaultTapTheme()
+        // As per the requirement, the card forum kit will not care about allowed card brands,
+        // Hence we declare it to accept all cards.
+        tapCardInput.setup(for: .InlineCardInput, allowedCardBrands: CardBrand.allCases.map{ $0.rawValue })
+        // Let us listen to the card input ui callbacks if needed
+        tapCardInput.delegate = self
     }
 }
 

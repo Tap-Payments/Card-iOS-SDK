@@ -14,6 +14,11 @@ target 'TapCardCheckOutKit' do
   use_frameworks!
 
   # Pods for TapCardCheckOutKit
-pod 'TapCardInputKit-iOS' 
+pod 'TapCardInputKit-iOS'
+pod 'TapNetworkKit-iOS'
+pod 'TapApplicationV2'
+pod 'CommonDataModelsKit-iOS'
+pod 'SwiftyRSA'
+pod 'TapKeychain'
 
 end

@@ -16,7 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         let cardDataConfig:TapCardDataConfiguration = .init(sdkMode: .sandbox, localeIdentifier: "en", secretKey: .init(sandbox: "sk_test_cvSHaplrPNkJO7dhoUxDYjqA", production: "sk_live_V4UDhitI0r7sFwHCfNB6xMKp"))
-        TapCardForumConfiguration.shared.configure(dataConfig: cardDataConfig, customTheme: .init(with: "CustomLightTheme", and: "CustomDarkTheme"))
+        //TapCardForumConfiguration.shared.configure(dataConfig: cardDataConfig, customLocalisation: .init(shouldFlip:true,localeIdentifier: "ar"))
+        TapCardForumConfiguration.shared.configure(dataConfig: cardDataConfig)
         
         return true
     }

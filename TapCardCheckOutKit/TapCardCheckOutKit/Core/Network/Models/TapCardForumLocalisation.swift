@@ -33,7 +33,7 @@ import LocalisationManagerKit_iOS
      - Parameter shouldFlip: Represents if the parent app wants the card forum to flip itself horizontally. Default is false
      - Parameter localeIdentifier: The ISO 639-1 Code language identefier, please note if the passed locale is wrong or not found in the localisation files, we will show the keys instead of the values
      */
-    @objc public init(with filePath:URL?,from localisationType:TapLocalisationType = .LocalJsonFile, shouldFlip:Bool = false, localeIdentifier:String = "en") {
+    @objc public init(with filePath:URL? = nil,from localisationType:TapLocalisationType = .LocalJsonFile, shouldFlip:Bool = false, localeIdentifier:String = "en") {
         super.init()
         
         self.localisationType = localisationType

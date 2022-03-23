@@ -202,21 +202,19 @@
 		E83262ED27E88BCF005F3AAF /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				E832640427E9DAE1005F3AAF /* Network */,
-				E83262F027E88BF2005F3AAF /* public */,
-				E83262EF27E88BEC005F3AAF /* private */,
-				E83262EE27E88BE7005F3AAF /* assets */,
+				E8ED36EA27EAFC900050589E /* Logic */,
+				E83262EE27E88BE7005F3AAF /* Assets */,
 			);
 			path = Core;
 			sourceTree = "<group>";
 		};
-		E83262EE27E88BE7005F3AAF /* assets */ = {
+		E83262EE27E88BE7005F3AAF /* Assets */ = {
 			isa = PBXGroup;
 			children = (
 				E832631527E8993C005F3AAF /* Theme.json */,
 				E832630F27E89420005F3AAF /* TapCardInputView.xib */,
 			);
-			path = assets;
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		E83262EF27E88BEC005F3AAF /* private */ = {
@@ -351,6 +349,16 @@
 				E832642927E9E079005F3AAF /* TapCreateTokenWithCardDataRequest.swift */,
 			);
 			path = TapTokenRequest;
+			sourceTree = "<group>";
+		};
+		E8ED36EA27EAFC900050589E /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				E832640427E9DAE1005F3AAF /* Network */,
+				E83262F027E88BF2005F3AAF /* public */,
+				E83262EF27E88BEC005F3AAF /* private */,
+			);
+			path = Logic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

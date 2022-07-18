@@ -14,14 +14,34 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Apply the configurations
+        configureCardInput()
         // Do any additional setup after loading the view.
     }
 
+    
+    /// Apply the configurations
+    func configureCardInput() {
+        tapCardForum.setupCardForm(with: sharedConfigurationSharedManager.selectedLocale)
+    }
+    
     @IBAction func tokenizeCardClicked(_ sender: Any) {
-        tapCardForum.tokenizeCard { token in
+        tapCardForum.tokenizeCard { [weak self] token in
             print(token.card)
-        } onErrorOccured: { error in
+            self?.showAlert(title: "Tokenized", message: token.identifier)
+        } onErrorOccured: { [weak self] error in
             print(error)
+            self?.showAlert(title: "Error", message: error.localizedDescription)
+        }
+        
+    }
+    
+    
+    func showAlert(title:String, message:String) {
+        DispatchQueue.main.async { [weak self] in
+            let alert:UIAlertController = .init(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(.init(title: "OK", style: .cancel))
+            self?.present(alert, animated: true)
         }
     }
 }

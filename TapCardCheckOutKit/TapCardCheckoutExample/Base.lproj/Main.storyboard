@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Oqm-ex-1gl">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -14,18 +14,18 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TapCardCheckoutExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FDp-Ru-IEn" customClass="TapCardInputView" customModule="TapCardCheckOutKit">
-                                <rect key="frame" x="0.0" y="64" width="414" height="45"/>
+                                <rect key="frame" x="0.0" y="94" width="414" height="100"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="Srx-S9-le4"/>
+                                    <constraint firstAttribute="height" constant="100" id="Srx-S9-le4"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPG-Lj-Fqc">
-                                <rect key="frame" x="150.5" y="139" width="113.5" height="31"/>
+                                <rect key="frame" x="150.5" y="224" width="113.5" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Tokenize card"/>
                                 <connections>
@@ -40,7 +40,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FDp-Ru-IEn" secondAttribute="trailing" id="ETE-e7-ecc"/>
                             <constraint firstItem="FDp-Ru-IEn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Hcr-Ct-0TG"/>
                             <constraint firstItem="aPG-Lj-Fqc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mzl-AT-BEx"/>
-                            <constraint firstItem="FDp-Ru-IEn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="s0o-3W-y7I"/>
+                            <constraint firstItem="FDp-Ru-IEn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="s0o-3W-y7I"/>
                         </constraints>
                     </view>
                     <connections>
@@ -50,6 +50,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139" y="135"/>
+        </scene>
+        <!--Demp Settings View Controller-->
+        <scene sceneID="Tux-Jm-qCQ">
+            <objects>
+                <viewController id="Oqm-ex-1gl" customClass="DempSettingsViewController" customModule="TapCardCheckoutExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YJD-vH-v39">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Localisation : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oT9-Fr-sdV">
+                                <rect key="frame" x="20" y="49" width="104" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oV1-HD-FTX">
+                                <rect key="frame" x="144" y="44" width="238" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="EN"/>
+                                <connections>
+                                    <action selector="localisationButtonClicked:" destination="Oqm-ex-1gl" eventType="touchUpInside" id="ZDi-e5-p1P"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DT3-3z-Atu">
+                                <rect key="frame" x="20" y="818" width="374" height="38"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Show the card form">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" id="HlH-cx-M2N"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="XHI-6f-edN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oT9-Fr-sdV" firstAttribute="leading" secondItem="XHI-6f-edN" secondAttribute="leading" constant="20" id="DsC-06-4Gb"/>
+                            <constraint firstItem="oV1-HD-FTX" firstAttribute="leading" secondItem="oT9-Fr-sdV" secondAttribute="trailing" constant="20" id="GTT-CN-THV"/>
+                            <constraint firstItem="XHI-6f-edN" firstAttribute="trailing" secondItem="DT3-3z-Atu" secondAttribute="trailing" constant="20" id="ZRB-95-NTw"/>
+                            <constraint firstAttribute="bottom" secondItem="DT3-3z-Atu" secondAttribute="bottom" constant="40" id="f1d-Gn-o5f"/>
+                            <constraint firstItem="XHI-6f-edN" firstAttribute="trailing" secondItem="oV1-HD-FTX" secondAttribute="trailing" constant="32" id="hFd-D5-If6"/>
+                            <constraint firstItem="DT3-3z-Atu" firstAttribute="leading" secondItem="XHI-6f-edN" secondAttribute="leading" constant="20" id="jZQ-eU-Eh4"/>
+                            <constraint firstItem="oV1-HD-FTX" firstAttribute="top" secondItem="XHI-6f-edN" secondAttribute="top" id="kKc-qV-ALD"/>
+                            <constraint firstItem="oT9-Fr-sdV" firstAttribute="centerY" secondItem="oV1-HD-FTX" secondAttribute="centerY" id="w2u-fP-GcF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="localisationButton" destination="oV1-HD-FTX" id="D7H-Py-B2q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vIO-SY-TYw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="894" y="648"/>
         </scene>
     </scenes>
     <resources>

@@ -55,6 +55,8 @@
 		E832644927EA0EE8005F3AAF /* TapCardForumLocalisation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832644827EA0EE8005F3AAF /* TapCardForumLocalisation.swift */; };
 		E832644D27EA10FD005F3AAF /* CustomLocalisation.json in Resources */ = {isa = PBXBuildFile; fileRef = E832644C27EA10FD005F3AAF /* CustomLocalisation.json */; };
 		E832644F27EA20F3005F3AAF /* TapCardForumConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832644E27EA20F3005F3AAF /* TapCardForumConfiguration.swift */; };
+		E874F804288585B70067DB3E /* DempSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874F803288585B70067DB3E /* DempSettingsViewController.swift */; };
+		E874F806288586C50067DB3E /* ConfigurationSharedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874F805288586C50067DB3E /* ConfigurationSharedManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +137,8 @@
 		E832644827EA0EE8005F3AAF /* TapCardForumLocalisation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCardForumLocalisation.swift; sourceTree = "<group>"; };
 		E832644C27EA10FD005F3AAF /* CustomLocalisation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CustomLocalisation.json; sourceTree = "<group>"; };
 		E832644E27EA20F3005F3AAF /* TapCardForumConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCardForumConfiguration.swift; sourceTree = "<group>"; };
+		E874F803288585B70067DB3E /* DempSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DempSettingsViewController.swift; sourceTree = "<group>"; };
+		E874F805288586C50067DB3E /* ConfigurationSharedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationSharedManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +251,8 @@
 				E832644227EA04A8005F3AAF /* CustomLightTheme.json */,
 				E832644427EA04C5005F3AAF /* CustomDarkTheme.json */,
 				E832644C27EA10FD005F3AAF /* CustomLocalisation.json */,
+				E874F803288585B70067DB3E /* DempSettingsViewController.swift */,
+				E874F805288586C50067DB3E /* ConfigurationSharedManager.swift */,
 			);
 			path = TapCardCheckoutExample;
 			sourceTree = "<group>";
@@ -586,7 +592,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E83262FC27E88C6F005F3AAF /* ViewController.swift in Sources */,
+				E874F806288586C50067DB3E /* ConfigurationSharedManager.swift in Sources */,
 				E83262F827E88C6F005F3AAF /* AppDelegate.swift in Sources */,
+				E874F804288585B70067DB3E /* DempSettingsViewController.swift in Sources */,
 				E83262FA27E88C6F005F3AAF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

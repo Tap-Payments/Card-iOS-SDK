@@ -116,7 +116,3 @@ internal class NetworkManager: NSObject {
         return nil
     }
 }
-
-extension String: LocalizedError {
-    public var errorDescription: String? { return self }
-}

@@ -11,6 +11,7 @@ import TapCardVlidatorKit_iOS
 import CommonDataModelsKit_iOS
 import TapThemeManager2020
 import LocalisationManagerKit_iOS
+import TapUIKit_iOS
 import MOLH
 
 /// Represents the on the shelf card forum entry view
@@ -19,6 +20,13 @@ import MOLH
     @IBOutlet var contentView: UIView!
     /// Represents the UI part of the embedded card entry forum
     @IBOutlet weak var tapCardInput: TapCardInput!
+    /// Represents the UI part of showing the card brands bar
+    @IBOutlet weak var tapCardPhoneListView: TapCardPhoneBarList!
+        
+    /// Represents the view model for handling the card brands bar
+    let tapCardPhoneListViewModel:TapCardPhoneBarListViewModel = .init()
+    /// Represents the data source for the card brands bar
+    var dataSource:[TapCardPhoneIconViewModel] = []
     
     /// Holds the latest card info provided by the user
     private var currentTapCard:TapCard?
@@ -26,9 +34,20 @@ import MOLH
     /// Holds the latest detected card brand
     private var cardBrand: CardBrand?
     /// Holds the latest validation status for the entered card data
-    private var validation: CrardInputTextFieldStatusEnum = .Invalid
+    private var validation: CrardInputTextFieldStatusEnum = .Invalid {
+        didSet{
+            selectCorrectBrand()
+        }
+    }
     /// A reference to the localisation manager
-    private var sharedLocalisationManager = TapLocalisationManager.shared
+    private var locale:String = "en" {
+        didSet {
+            TapLocalisationManager.shared.localisationLocale = locale
+            initUI()
+        }
+    }
+    
+    
     
     // Mark:- Init methods
     override init(frame: CGRect) {
@@ -44,6 +63,15 @@ import MOLH
     
     
     // MARK:- Public functions
+    
+    /**
+     Call this method for optional attributes defining and configueation for the card form
+     - Parameter with: The locale identifer(e.g. en, ar, etc.0 Default value is en
+     */
+    @objc public func setupCardForm(with locale:String = "en") {
+        // Set the locale
+        self.locale = locale
+    }
     
     /**
      Handles tokenizing the current card data.
@@ -74,6 +102,42 @@ import MOLH
     private func commonInit() {
         self.contentView = setupXIB()
         initUI()
+        // Init the card brands bar
+        setupCardBrandsBar()
+    }
+    
+    /// DOes the needed logic to fill in the card brands bar
+    private func setupCardBrandsBar() {
+        // Dummy data source data for now
+        dataSource.append(.init(associatedCardBrand: .visa, tapCardPhoneIconUrl: "https://img.icons8.com/color/2x/visa.png"))
+        dataSource.append(.init(associatedCardBrand: .masterCard, tapCardPhoneIconUrl: "https://img.icons8.com/color/2x/mastercard.png"))
+        dataSource.append(.init(associatedCardBrand: .americanExpress, tapCardPhoneIconUrl: "https://img.icons8.com/color/2x/amex.png"))
+        dataSource.append(.init(associatedCardBrand: .mada, tapCardPhoneIconUrl: "https://i.ibb.co/S3VhxmR/796px-Mada-Logo-svg.png"))
+        dataSource.append(.init(associatedCardBrand: .viva, tapCardPhoneIconUrl: "https://i.ibb.co/cw5y89V/unnamed.png"))
+        dataSource.append(.init(associatedCardBrand: .wataniya, tapCardPhoneIconUrl: "https://i.ibb.co/PCYd8Xm/ooredoo-3x.png"))
+        dataSource.append(.init(associatedCardBrand: .zain, tapCardPhoneIconUrl: "https://i.ibb.co/mvkJXwF/zain-3x.png"))
+        
+        // Setup the card brands bar view with the data source
+        tapCardPhoneListView.setupView(with: tapCardPhoneListViewModel)
+        
+        tapCardPhoneListViewModel.dataSource = Array(dataSource.prefix(upTo: 3))
+        
+        
+        // Auto select the card section
+        tapCardPhoneListViewModel.select(segment: "cards")
+    }
+    
+    /// Responsible for deciding which card brand should be underlined if any
+    private func selectCorrectBrand() {
+        // Check what type of brands do we have
+        guard let cardBrand = cardBrand,
+              cardBrand != .unknown else {
+                  // We just reset the selection for now
+                  tapCardPhoneListViewModel.resetCurrentSegment()
+                  return
+        }
+        // let us highlight the detected brand with its validation status
+        tapCardPhoneListViewModel.select(brand: cardBrand, with: validation == .Valid)
     }
     
     /// Does the needed pre logic to shape the card input UI forum

@@ -51,6 +51,17 @@ import MOLH
         self.dataConfig = dataConfig
         self.customTheme = customTheme
         self.customLocalisation = customLocalisation
+        configureSDK()
+    }
+    
+    
+    /// Calls the init api and make all the data for card brands and tokenization availbe
+    private func configureSDK() {
+        guard let nonNullDataConfig = self.dataConfig else { return }
+        // Store the configueation data for further access
+        NetworkManager.shared.dataConfig = nonNullDataConfig
+        // Infotm the network manager to init itself from the init api
+        NetworkManager.shared.configSDK()
     }
     
     

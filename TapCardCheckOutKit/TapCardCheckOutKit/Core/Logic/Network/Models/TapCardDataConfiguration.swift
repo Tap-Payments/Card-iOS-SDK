@@ -35,6 +35,8 @@ import Foundation
     
     /// Holding the latest init response model to fetch requierd data when needed like session token or encryption key
     internal var sdkSettings:SDKSettings?
+    /// Holding the allowed card brands to process for the logged in merchant
+    internal var paymentOptions:[PaymentOption]?
     
     /// Holding the latest Config response from the middleware
     internal var configModelResponse: TapConfigResponseModel?

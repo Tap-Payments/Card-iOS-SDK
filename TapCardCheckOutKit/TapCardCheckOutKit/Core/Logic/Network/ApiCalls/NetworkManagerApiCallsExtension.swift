@@ -95,6 +95,7 @@ internal extension NetworkManager {
      */
     func handleInitResponse(initModel: TapInitResponseModel) {
         NetworkManager.shared.dataConfig.sdkSettings = initModel.data
+        NetworkManager.shared.dataConfig.paymentOptions = initModel.cardPaymentOptions.paymentOptions
     }
     
     

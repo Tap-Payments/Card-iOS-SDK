@@ -195,7 +195,7 @@ import MOLH
      */
     private func initCardForm() {
         // Check first of the data manager was already populated with required data
-        guard let nonNullConfiguration = TapCardForumConfiguration.shared.dataConfig else {
+        guard let _ = TapCardForumConfiguration.shared.dataConfig?.sdkSettings else {
             // This means the app didn't populate reuired data to talk to backend correctly before loading the view. Hence, we hide it
             DispatchQueue.main.async { [weak self] in
                 self?.tapCardInput.isHidden = true
@@ -203,10 +203,6 @@ import MOLH
             }
             return
         }
-        // Store the configueation data for further access
-        NetworkManager.shared.dataConfig = nonNullConfiguration
-        // Infotm the network manager to init itself from the init api
-        NetworkManager.shared.configSDK()
     }
     
     
@@ -217,8 +213,6 @@ import MOLH
         tapCardInput.setup(for: .InlineCardInput, showCardName: collectCardHolderName, allowedCardBrands: CardBrand.allCases.map{ $0.rawValue })
         // Let us listen to the card input ui callbacks if needed
         tapCardInput.delegate = self
-        // Call init api to be ready for token api on demand
-        initCardForm()
     }
 }
 

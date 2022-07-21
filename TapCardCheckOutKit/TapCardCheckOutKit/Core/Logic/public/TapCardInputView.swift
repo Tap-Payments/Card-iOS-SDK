@@ -39,6 +39,7 @@ import MOLH
             selectCorrectBrand()
         }
     }
+    
     /// A reference to the localisation manager
     private var locale:String = "en" {
         didSet {
@@ -47,7 +48,21 @@ import MOLH
         }
     }
     
+    /// Indicates whether ot not the card form will ask for the card holder name
+    private var collectCardHolderName:Bool = false {
+        didSet {
+            initUI()
+        }
+    }
+    /// This is the height constraing of the card brands view. We will use to control its height based on its visibility
+    @IBOutlet weak var carddbrandsBarHeightConstraint: NSLayoutConstraint!
     
+    /// Indicates whether ot not the card form will show the card brands bar
+    private var showCardBrands:Bool = false {
+        didSet {
+            setupCardBrandsBar()
+        }
+    }
     
     // Mark:- Init methods
     override init(frame: CGRect) {
@@ -66,11 +81,17 @@ import MOLH
     
     /**
      Call this method for optional attributes defining and configueation for the card form
-     - Parameter with: The locale identifer(e.g. en, ar, etc.0 Default value is en
+     - Parameter locale: The locale identifer(e.g. en, ar, etc.0 Default value is en
+     - Parameter collectCardHolderName: Indicates whether ot not the card form will ask for the card holder name
+     - Parameter showCardBrandsBar: Indicates whether ot not the card form will show the card brands bar
      */
-    @objc public func setupCardForm(with locale:String = "en") {
+    @objc public func setupCardForm(locale:String = "en", collectCardHolderName:Bool = false, showCardBrandsBar:Bool = false) {
         // Set the locale
         self.locale = locale
+        // Set the collection name ability
+        self.collectCardHolderName = collectCardHolderName
+        // Set the card bar ability
+        self.showCardBrands = showCardBrandsBar
     }
     
     /**
@@ -108,6 +129,16 @@ import MOLH
     
     /// DOes the needed logic to fill in the card brands bar
     private func setupCardBrandsBar() {
+        
+        // based on the value we decide whether we will show it or we will hide it
+        tapCardPhoneListView.isHidden = !showCardBrands
+        
+        // Afterwords, we need to set its height constraint based on its visibility
+        DispatchQueue.main.async { [weak self] in
+            self?.carddbrandsBarHeightConstraint.constant = (self?.showCardBrands ?? false) ? 49 : 0
+            self?.tapCardPhoneListView.layoutIfNeeded()
+            self?.layoutIfNeeded()
+        }
         // Dummy data source data for now
         dataSource.append(.init(associatedCardBrand: .visa, tapCardPhoneIconUrl: "https://img.icons8.com/color/2x/visa.png"))
         dataSource.append(.init(associatedCardBrand: .masterCard, tapCardPhoneIconUrl: "https://img.icons8.com/color/2x/mastercard.png"))
@@ -177,7 +208,7 @@ import MOLH
     private func configureCardInputUI() {
         // As per the requirement, the card forum kit will not care about allowed card brands,
         // Hence we declare it to accept all cards.
-        tapCardInput.setup(for: .InlineCardInput, allowedCardBrands: CardBrand.allCases.map{ $0.rawValue })
+        tapCardInput.setup(for: .InlineCardInput, showCardName: collectCardHolderName, allowedCardBrands: CardBrand.allCases.map{ $0.rawValue })
         // Let us listen to the card input ui callbacks if needed
         tapCardInput.delegate = self
         // Call init api to be ready for token api on demand

@@ -83,14 +83,64 @@
                                     <segue destination="BYZ-38-t0r" kind="presentation" id="HlH-cx-M2N"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collect name :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2d9-fC-fmF">
+                                <rect key="frame" x="20" y="97" width="109" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OjC-Mh-7J6">
+                                <rect key="frame" x="333" y="92" width="51" height="31"/>
+                                <connections>
+                                    <action selector="collectNameSwitchValueChanged:" destination="Oqm-ex-1gl" eventType="valueChanged" id="Tuh-K7-Umh"/>
+                                </connections>
+                            </switch>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K18-SB-nMz">
+                                <rect key="frame" x="40" y="83" width="334" height="1"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="E6I-pL-LtE"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show brands bar:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XdH-6n-IRy">
+                                <rect key="frame" x="20" y="157" width="133.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="75u-Gt-OoI">
+                                <rect key="frame" x="333" y="152" width="51" height="31"/>
+                                <connections>
+                                    <action selector="cardBrandsSwitchValueChanged:" destination="Oqm-ex-1gl" eventType="valueChanged" id="pPV-XW-9eS"/>
+                                </connections>
+                            </switch>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v5L-Yh-XDU">
+                                <rect key="frame" x="46" y="143" width="334" height="1"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="M0R-ye-s7r"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XHI-6f-edN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="XdH-6n-IRy" firstAttribute="centerY" secondItem="75u-Gt-OoI" secondAttribute="centerY" id="1dW-Pd-iBe"/>
+                            <constraint firstItem="75u-Gt-OoI" firstAttribute="trailing" secondItem="OjC-Mh-7J6" secondAttribute="trailing" id="1jN-Ei-bsN"/>
+                            <constraint firstItem="v5L-Yh-XDU" firstAttribute="top" secondItem="OjC-Mh-7J6" secondAttribute="bottom" constant="20" id="AKB-I5-y2Q"/>
+                            <constraint firstItem="XdH-6n-IRy" firstAttribute="leading" secondItem="2d9-fC-fmF" secondAttribute="leading" id="DUw-3t-C9f"/>
                             <constraint firstItem="oT9-Fr-sdV" firstAttribute="leading" secondItem="XHI-6f-edN" secondAttribute="leading" constant="20" id="DsC-06-4Gb"/>
                             <constraint firstItem="oV1-HD-FTX" firstAttribute="leading" secondItem="oT9-Fr-sdV" secondAttribute="trailing" constant="20" id="GTT-CN-THV"/>
+                            <constraint firstItem="75u-Gt-OoI" firstAttribute="top" secondItem="v5L-Yh-XDU" secondAttribute="bottom" constant="8" symbolic="YES" id="H6h-b6-xic"/>
+                            <constraint firstItem="K18-SB-nMz" firstAttribute="leading" secondItem="YJD-vH-v39" secondAttribute="leadingMargin" constant="20" id="HqQ-kF-WuM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="K18-SB-nMz" secondAttribute="trailing" constant="20" id="MBG-i4-vIh"/>
+                            <constraint firstItem="2d9-fC-fmF" firstAttribute="leading" secondItem="oT9-Fr-sdV" secondAttribute="leading" id="MsL-Mf-j16"/>
+                            <constraint firstItem="OjC-Mh-7J6" firstAttribute="top" secondItem="K18-SB-nMz" secondAttribute="bottom" constant="8" symbolic="YES" id="X8H-DL-Zxe"/>
+                            <constraint firstItem="OjC-Mh-7J6" firstAttribute="trailing" secondItem="oV1-HD-FTX" secondAttribute="trailing" id="YZg-gu-z20"/>
                             <constraint firstItem="XHI-6f-edN" firstAttribute="trailing" secondItem="DT3-3z-Atu" secondAttribute="trailing" constant="20" id="ZRB-95-NTw"/>
+                            <constraint firstItem="K18-SB-nMz" firstAttribute="top" secondItem="oV1-HD-FTX" secondAttribute="bottom" constant="8" symbolic="YES" id="e3w-2S-pLA"/>
                             <constraint firstAttribute="bottom" secondItem="DT3-3z-Atu" secondAttribute="bottom" constant="40" id="f1d-Gn-o5f"/>
+                            <constraint firstItem="2d9-fC-fmF" firstAttribute="centerY" secondItem="OjC-Mh-7J6" secondAttribute="centerY" id="gT8-1p-Xwv"/>
                             <constraint firstItem="XHI-6f-edN" firstAttribute="trailing" secondItem="oV1-HD-FTX" secondAttribute="trailing" constant="32" id="hFd-D5-If6"/>
                             <constraint firstItem="DT3-3z-Atu" firstAttribute="leading" secondItem="XHI-6f-edN" secondAttribute="leading" constant="20" id="jZQ-eU-Eh4"/>
                             <constraint firstItem="oV1-HD-FTX" firstAttribute="top" secondItem="XHI-6f-edN" secondAttribute="top" id="kKc-qV-ALD"/>
@@ -98,12 +148,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cardBrandsSwitch" destination="75u-Gt-OoI" id="qTZ-Ki-N3A"/>
+                        <outlet property="collectNameSwitch" destination="OjC-Mh-7J6" id="ZhW-na-dVa"/>
                         <outlet property="localisationButton" destination="oV1-HD-FTX" id="D7H-Py-B2q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vIO-SY-TYw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="894" y="648"/>
+            <point key="canvasLocation" x="892.75362318840587" y="647.54464285714278"/>
         </scene>
     </scenes>
     <resources>

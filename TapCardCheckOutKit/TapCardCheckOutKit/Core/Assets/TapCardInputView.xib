@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TapCardInputView" customModule="TapCardCheckOutKit" customModuleProvider="target">
             <connections>
+                <outlet property="carddbrandsBarHeightConstraint" destination="BPe-Zr-nb2" id="Kcf-V4-iDy"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="h0S-St-I0m"/>
                 <outlet property="tapCardInput" destination="My5-45-bho" id="nld-jQ-Jw6"/>
                 <outlet property="tapCardPhoneListView" destination="VSb-EW-TmS" id="IL5-0V-m1M"/>
@@ -24,6 +25,9 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="My5-45-bho" customClass="TapCardInput" customModule="TapCardInputKit_iOS">
                     <rect key="frame" x="0.0" y="49" width="414" height="51"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="51" id="ejh-ra-n0H"/>
+                    </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VSb-EW-TmS" customClass="TapCardPhoneBarList" customModule="TapUIKit_iOS">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -38,7 +42,6 @@
             <constraints>
                 <constraint firstItem="My5-45-bho" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="8RZ-pB-Pkl"/>
                 <constraint firstItem="VSb-EW-TmS" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="BfK-Rw-iuk"/>
-                <constraint firstAttribute="bottom" secondItem="My5-45-bho" secondAttribute="bottom" id="EeK-xh-ysS"/>
                 <constraint firstItem="VSb-EW-TmS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Pih-Bu-iCb"/>
                 <constraint firstItem="My5-45-bho" firstAttribute="top" secondItem="VSb-EW-TmS" secondAttribute="bottom" id="V7S-td-h93"/>
                 <constraint firstAttribute="trailing" secondItem="My5-45-bho" secondAttribute="trailing" id="sGN-eT-JGc"/>

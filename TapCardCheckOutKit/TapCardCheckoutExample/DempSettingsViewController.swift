@@ -11,6 +11,8 @@ class DempSettingsViewController: UIViewController {
     // MARK: - The outlets
     /// The button to choose the demo localisation value
     @IBOutlet weak var localisationButton: UIButton!
+    @IBOutlet weak var collectNameSwitch: UISwitch!
+    @IBOutlet weak var cardBrandsSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,10 @@ class DempSettingsViewController: UIViewController {
     private func preload() {
         // define the locale button title
         localisationButton.setTitle(sharedConfigurationSharedManager.selectedLocale, for: .normal)
+        // Set the collect card holder name switch
+        collectNameSwitch.isOn = sharedConfigurationSharedManager.collectCardHolderName
+        // Set the show card brand switch
+        cardBrandsSwitch.isOn = sharedConfigurationSharedManager.showCardBrands
     }
     
     
@@ -53,6 +59,16 @@ class DempSettingsViewController: UIViewController {
         
     }
     
+    
+    @IBAction func collectNameSwitchValueChanged(_ sender: Any) {
+        
+        sharedConfigurationSharedManager.collectCardHolderName = collectNameSwitch.isOn
+    }
+    
+    @IBAction func cardBrandsSwitchValueChanged(_ sender: Any) {
+        
+        sharedConfigurationSharedManager.showCardBrands = cardBrandsSwitch.isOn
+    }
     /*
     // MARK: - Navigation
 

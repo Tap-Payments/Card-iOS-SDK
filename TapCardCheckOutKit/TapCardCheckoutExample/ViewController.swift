@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     
     /// Apply the configurations
     func configureCardInput() {
-        tapCardForum.setupCardForm(with: sharedConfigurationSharedManager.selectedLocale)
+        tapCardForum.setupCardForm(locale: sharedConfigurationSharedManager.selectedLocale, collectCardHolderName: sharedConfigurationSharedManager.collectCardHolderName)
     }
     
     @IBAction func tokenizeCardClicked(_ sender: Any) {

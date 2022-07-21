@@ -36,4 +36,6 @@ import Foundation
     /// Holding the latest init response model to fetch requierd data when needed like session token or encryption key
     internal var sdkSettings:SDKSettings?
     
+    /// Holding the latest Config response from the middleware
+    internal var configModelResponse: TapConfigResponseModel?
 }

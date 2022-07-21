@@ -64,6 +64,10 @@ import MOLH
         }
     }
     
+    /// The currency you want to show the card brands that accepts it. Default is KWD
+    private var transactionCurrency: TapCurrencyCode = .KWD
+    
+    
     // Mark:- Init methods
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -82,10 +86,12 @@ import MOLH
     /**
      Call this method for optional attributes defining and configueation for the card form
      - Parameter locale: The locale identifer(e.g. en, ar, etc.0 Default value is en
-     - Parameter collectCardHolderName: Indicates whether ot not the card form will ask for the card holder name
-     - Parameter showCardBrandsBar: Indicates whether ot not the card form will show the card brands bar
+     - Parameter collectCardHolderName: Indicates whether ot not the card form will ask for the card holder name. Default is false
+     - Parameter showCardBrandsBar: Indicates whether ot not the card form will show the card brands bar. Default is false
+     - Parameter transactionCurrency: The currency you want to show the card brands that accepts it. Default is KWD
      */
-    @objc public func setupCardForm(locale:String = "en", collectCardHolderName:Bool = false, showCardBrandsBar:Bool = false) {
+    
+    @objc public func setupCardForm(locale:String = "en", collectCardHolderName:Bool = false, showCardBrandsBar:Bool = false, transactionCurrency:TapCurrencyCode = .KWD) {
         // Set the locale
         self.locale = locale
         // Set the collection name ability
@@ -200,7 +206,7 @@ import MOLH
         // Store the configueation data for further access
         NetworkManager.shared.dataConfig = nonNullConfiguration
         // Infotm the network manager to init itself from the init api
-        NetworkManager.shared.initialiseSDKFromAPI()
+        NetworkManager.shared.configSDK()
     }
     
     

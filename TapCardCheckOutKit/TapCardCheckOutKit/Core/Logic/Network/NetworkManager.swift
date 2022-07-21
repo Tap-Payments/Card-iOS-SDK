@@ -26,7 +26,7 @@ internal class NetworkManager: NSObject {
     }
     private var networkManager: TapNetworkManager
     /// The server base url
-    private let baseURL = "https://api.tap.company/v2/"
+    private let baseURL = "https://checkout-mw-java.dev.tap.company/api/"
     /// Defines if loging api calls to server
     internal var enableLogging = false
     /// Defines if logging apu calls to console
@@ -47,6 +47,15 @@ internal class NetworkManager: NSObject {
     /// Used to clear any previous api stack trace log
     internal func resetStackTrace() {
         networkManager.loggedInApiCalls = []
+    }
+    
+    /**
+     Creates the config api request
+     - Returns:The config api request
+     */
+    func createConfigRequestModel() -> TapConfigRequestModel {
+        // the config request will include the merchant id, secret key and the static headers
+        return TapConfigRequestModel(gateway: .init(config: .init(application: NetworkManager.applicationHeaderValue), merchantId: "1124340" , publicKey: NetworkManager.secretKey()))
     }
     
     /**

@@ -55,6 +55,10 @@
 		E832644927EA0EE8005F3AAF /* TapCardForumLocalisation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832644827EA0EE8005F3AAF /* TapCardForumLocalisation.swift */; };
 		E832644D27EA10FD005F3AAF /* CustomLocalisation.json in Resources */ = {isa = PBXBuildFile; fileRef = E832644C27EA10FD005F3AAF /* CustomLocalisation.json */; };
 		E832644F27EA20F3005F3AAF /* TapCardForumConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832644E27EA20F3005F3AAF /* TapCardForumConfiguration.swift */; };
+		E83FD08D28896FFD00057F22 /* TapConfigRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83FD08B28896FFD00057F22 /* TapConfigRequestModel.swift */; };
+		E83FD08E28896FFD00057F22 /* TapConfigResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83FD08C28896FFD00057F22 /* TapConfigResponseModel.swift */; };
+		E83FD0902889713500057F22 /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83FD08F2889713500057F22 /* Gateway.swift */; };
+		E83FD0922889714500057F22 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83FD0912889714500057F22 /* Config.swift */; };
 		E874F804288585B70067DB3E /* DempSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874F803288585B70067DB3E /* DempSettingsViewController.swift */; };
 		E874F806288586C50067DB3E /* ConfigurationSharedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874F805288586C50067DB3E /* ConfigurationSharedManager.swift */; };
 /* End PBXBuildFile section */
@@ -137,6 +141,10 @@
 		E832644827EA0EE8005F3AAF /* TapCardForumLocalisation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCardForumLocalisation.swift; sourceTree = "<group>"; };
 		E832644C27EA10FD005F3AAF /* CustomLocalisation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CustomLocalisation.json; sourceTree = "<group>"; };
 		E832644E27EA20F3005F3AAF /* TapCardForumConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCardForumConfiguration.swift; sourceTree = "<group>"; };
+		E83FD08B28896FFD00057F22 /* TapConfigRequestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapConfigRequestModel.swift; sourceTree = "<group>"; };
+		E83FD08C28896FFD00057F22 /* TapConfigResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapConfigResponseModel.swift; sourceTree = "<group>"; };
+		E83FD08F2889713500057F22 /* Gateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gateway.swift; sourceTree = "<group>"; };
+		E83FD0912889714500057F22 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		E874F803288585B70067DB3E /* DempSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DempSettingsViewController.swift; sourceTree = "<group>"; };
 		E874F805288586C50067DB3E /* ConfigurationSharedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationSharedManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -326,6 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				E832642727E9E01E005F3AAF /* TapTokenRequest */,
+				E83FD08A28896FD000057F22 /* Config */,
 				E832641D27E9DF7D005F3AAF /* Init */,
 				E832643627E9E193005F3AAF /* NetworkManagerApiCallsExtension.swift */,
 			);
@@ -355,6 +364,17 @@
 				E832642927E9E079005F3AAF /* TapCreateTokenWithCardDataRequest.swift */,
 			);
 			path = TapTokenRequest;
+			sourceTree = "<group>";
+		};
+		E83FD08A28896FD000057F22 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				E83FD08F2889713500057F22 /* Gateway.swift */,
+				E83FD0912889714500057F22 /* Config.swift */,
+				E83FD08B28896FFD00057F22 /* TapConfigRequestModel.swift */,
+				E83FD08C28896FFD00057F22 /* TapConfigResponseModel.swift */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 		E8ED36EA27EAFC900050589E /* Logic */ = {
@@ -561,6 +581,7 @@
 				E832641B27E9DEFF005F3AAF /* ApiErrorModel.swift in Sources */,
 				E832643F27E9EBBC005F3AAF /* TapCardDataConfiguration.swift in Sources */,
 				E832640E27E9DC06005F3AAF /* Crypter.swift in Sources */,
+				E83FD0902889713500057F22 /* Gateway.swift in Sources */,
 				E832643027E9E0D6005F3AAF /* Country.swift in Sources */,
 				E832644927EA0EE8005F3AAF /* TapCardForumLocalisation.swift in Sources */,
 				E832643D27E9E20A005F3AAF /* TokenType.swift in Sources */,
@@ -570,14 +591,17 @@
 				E832641027E9DC07005F3AAF /* RSAUtils.swift in Sources */,
 				E832644727EA09BD005F3AAF /* TapCardForumTheme.swift in Sources */,
 				E832641327E9DD31005F3AAF /* SDKMode.swift in Sources */,
+				E83FD08E28896FFD00057F22 /* TapConfigResponseModel.swift in Sources */,
 				E832642D27E9E0AC005F3AAF /* CreateTokenCard.swift in Sources */,
 				E832643527E9E162005F3AAF /* AddressFormat.swift in Sources */,
 				E832643B27E9E1EE005F3AAF /* TokenizedCard.swift in Sources */,
 				E832631427E8950D005F3AAF /* CardInputExtensions.swift in Sources */,
 				E832642A27E9E079005F3AAF /* TapCreateTokenRequest.swift in Sources */,
+				E83FD08D28896FFD00057F22 /* TapConfigRequestModel.swift in Sources */,
 				E832642427E9DFB4005F3AAF /* Permissions.swift in Sources */,
 				E832642527E9DFB4005F3AAF /* Merchant.swift in Sources */,
 				E832643327E9E14D005F3AAF /* AddressType.swift in Sources */,
+				E83FD0922889714500057F22 /* Config.swift in Sources */,
 				E832644F27EA20F3005F3AAF /* TapCardForumConfiguration.swift in Sources */,
 				E832640D27E9DC06005F3AAF /* ErrorUtils.swift in Sources */,
 				E832642027E9DF96005F3AAF /* SDKSettings.swift in Sources */,

@@ -37,11 +37,16 @@ internal extension NetworkManager {
             result[Constants.HTTPHeaderKey.sessionToken] = sessionToken
         }
         
+        if let middleWareToken = NetworkManager.shared.dataConfig.configModelResponse?.token {
+            
+            result[Constants.HTTPHeaderKey.token] = "Bearer \(middleWareToken)"
+        }
+        
         return result
     }
     
     /// HTTP headers that contains the device and app info
-    static private var applicationHeaderValue: String {
+    static var applicationHeaderValue: String {
         
         var applicationDetails = NetworkManager.applicationStaticDetails()
         
@@ -136,6 +141,7 @@ internal extension NetworkManager {
             fileprivate static let application      = "application"
             fileprivate static let sessionToken     = "session_token"
             fileprivate static let contentTypeHeaderName        = "Content-Type"
+            fileprivate static let token                = "token"
             
             //@available(*, unavailable) private init() { }
         }

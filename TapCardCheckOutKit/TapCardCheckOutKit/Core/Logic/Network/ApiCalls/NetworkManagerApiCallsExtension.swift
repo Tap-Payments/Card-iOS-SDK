@@ -12,9 +12,35 @@ internal extension NetworkManager {
     
     
     /// Responsible for making the network calls needed to boot the SDK like init and payment options
+    func configSDK(onCheckOutReady: @escaping () -> () = {}) {
+        
+        // As per the backend logic, we will have to hit Config, then Init.
+        
+        // Create the Config request with the configured data from the user
+        let configRequest = NetworkManager.shared.createConfigRequestModel()
+        
+        // Change the model into a dictionary
+        guard let bodyDictionary = NetworkManager.convertModelToDictionary(configRequest, callingCompletionOnFailure: { error in
+            return
+        }) else { return }
+        
+        
+        NetworkManager.shared.makeApiCall(routing: .ConfigAPI, resultType: TapConfigResponseModel.self, body: .init(body: bodyDictionary), httpMethod: .POST) { [weak self] (session, result, error) in
+            guard let configModel:TapConfigResponseModel = result as? TapConfigResponseModel else { self?.handleError(error: "Unexpected error when parsing into TapConfigResponseModel")
+                return }
+            // Let us store the config object for further access
+            self?.handleConfigResponse(configModel: configModel)
+            // We got the middleware token, now let us init the SDK and get the merchant and payment types details
+            self?.initialiseSDKFromAPI(onCheckOutReady: onCheckOutReady)
+        } onError: { (session, result, errorr) in
+            self.handleError(error: errorr)
+        }
+    }
+    
+    /// Responsible for making the network calls needed to boot the SDK like init and payment options
     func initialiseSDKFromAPI(onCheckOutReady: @escaping () -> () = {}) {
-        // As per the backend logic, we will have to hit INIT then Payment options APIs
-        NetworkManager.shared.makeApiCall(routing: .InitAPI, resultType: TapInitResponseModel.self) { [weak self] (session, result, error) in
+        // As per the backend logic, we will have to hit INIT
+        NetworkManager.shared.makeApiCall(routing: .InitAPI, resultType: TapInitResponseModel.self, httpMethod: .POST) { [weak self] (session, result, error) in
             guard let initModel:TapInitResponseModel = result as? TapInitResponseModel else { self?.handleError(error: "Unexpected error when parsing into TapInitResponseModel")
                 return }
             self?.handleInitResponse(initModel: initModel)
@@ -54,6 +80,14 @@ internal extension NetworkManager {
     }
     
     
+    /**
+     Handles the result of the config api by storing it in the right place to be further processed
+     - Parameter configModel: The response model from backend we need to deal with
+     */
+    func handleConfigResponse(configModel:TapConfigResponseModel) {
+        // Store the config model for further access
+        NetworkManager.shared.dataConfig.configModelResponse = configModel
+    }
     
     /**
      Handles the response of init api call. Stores the data for further access

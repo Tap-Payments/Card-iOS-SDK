@@ -101,11 +101,14 @@ internal struct TapInitResponseModel:Decodable {
     
     /// Data.
     internal var data: SDKSettings
+    /// Payment options.
+    internal var cardPaymentOptions: TapPaymentOptionsReponseModel
     
     // MARK: - Private -
     
     private enum CodingKeys: String, CodingKey {
         
-        case data = "merchant"
+        case data               = "merchant"
+        case cardPaymentOptions = "payment_options"
     }
 }

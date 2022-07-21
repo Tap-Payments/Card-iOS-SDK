@@ -59,6 +59,8 @@
 		E83FD08E28896FFD00057F22 /* TapConfigResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83FD08C28896FFD00057F22 /* TapConfigResponseModel.swift */; };
 		E83FD0902889713500057F22 /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83FD08F2889713500057F22 /* Gateway.swift */; };
 		E83FD0922889714500057F22 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83FD0912889714500057F22 /* Config.swift */; };
+		E83FD09628897C2F00057F22 /* TapPaymentOptionsReponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83FD09528897C2F00057F22 /* TapPaymentOptionsReponseModel.swift */; };
+		E83FD09828897C6900057F22 /* TapPaymentOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83FD09728897C6800057F22 /* TapPaymentOption.swift */; };
 		E874F804288585B70067DB3E /* DempSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874F803288585B70067DB3E /* DempSettingsViewController.swift */; };
 		E874F806288586C50067DB3E /* ConfigurationSharedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874F805288586C50067DB3E /* ConfigurationSharedManager.swift */; };
 /* End PBXBuildFile section */
@@ -145,6 +147,8 @@
 		E83FD08C28896FFD00057F22 /* TapConfigResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapConfigResponseModel.swift; sourceTree = "<group>"; };
 		E83FD08F2889713500057F22 /* Gateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gateway.swift; sourceTree = "<group>"; };
 		E83FD0912889714500057F22 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		E83FD09528897C2F00057F22 /* TapPaymentOptionsReponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapPaymentOptionsReponseModel.swift; sourceTree = "<group>"; };
+		E83FD09728897C6800057F22 /* TapPaymentOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapPaymentOption.swift; sourceTree = "<group>"; };
 		E874F803288585B70067DB3E /* DempSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DempSettingsViewController.swift; sourceTree = "<group>"; };
 		E874F805288586C50067DB3E /* ConfigurationSharedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationSharedManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -352,6 +356,8 @@
 		E832641E27E9DF83005F3AAF /* TapInitResponsdeModel */ = {
 			isa = PBXGroup;
 			children = (
+				E83FD09728897C6800057F22 /* TapPaymentOption.swift */,
+				E83FD09528897C2F00057F22 /* TapPaymentOptionsReponseModel.swift */,
 				E832641F27E9DF96005F3AAF /* SDKSettings.swift */,
 			);
 			path = TapInitResponsdeModel;
@@ -572,6 +578,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E83FD09628897C2F00057F22 /* TapPaymentOptionsReponseModel.swift in Sources */,
 				E832642627E9DFB4005F3AAF /* InternalSDKSettings.swift in Sources */,
 				E832640627E9DB05005F3AAF /* NetworkManager.swift in Sources */,
 				E832641927E9DE35005F3AAF /* SecretKey.swift in Sources */,
@@ -586,6 +593,7 @@
 				E832644927EA0EE8005F3AAF /* TapCardForumLocalisation.swift in Sources */,
 				E832643D27E9E20A005F3AAF /* TokenType.swift in Sources */,
 				E832641527E9DD72005F3AAF /* TapNetworkPath.swift in Sources */,
+				E83FD09828897C6900057F22 /* TapPaymentOption.swift in Sources */,
 				E832642B27E9E079005F3AAF /* TapCreateTokenWithCardDataRequest.swift in Sources */,
 				E832643A27E9E1EE005F3AAF /* Token.swift in Sources */,
 				E832641027E9DC07005F3AAF /* RSAUtils.swift in Sources */,

@@ -175,6 +175,8 @@ import MOLH
     private func setupCardBrandsBarDataSource() {
         // Dummy data source data for now
         dataSource = Array(sharedNetworkManager.dataConfig.paymentOptions?.toTapCardPhoneIconViewModel(supportsCurrency: transactionCurrency) ?? [])
+        // Update the card input brands
+        tapCardInput.allowedCardBrands = dataSource.map{ $0.associatedCardBrand.rawValue }
         
         DispatchQueue.main.async { [weak self] in
             UIView.animate(withDuration: 1, delay: 0, options: []) {
@@ -189,6 +191,23 @@ import MOLH
             }
 
         }
+    }
+    
+    
+    /**
+     Used to fetch the card brand with all the supported schemes under it as per the payment options api response
+     - Parameter for cardBrand: The card brand we need to know all the schemes it supports
+     - Returns: List of supported schemes by the provided brand
+     */
+    private func fetchSupportedCardSchemes(for cardBrand:CardBrand?) -> CardBrandWithSchemes? {
+        
+        guard let cardBrand = cardBrand,
+              let _ = sharedNetworkManager.dataConfig.paymentOptions,
+              let _ = sharedNetworkManager.dataConfig.tapBinLookUpResponse else {
+            return nil
+        }
+        
+        return .init(sharedNetworkManager.dataConfig.paymentOptions?.filter{  $0.brand == cardBrand  }.first?.supportedCardBrands ?? [], cardBrand)
     }
     
     /// Responsible for deciding which card brand should be underlined if any
@@ -246,6 +265,8 @@ import MOLH
     private func postCardDataChange() {
         // let us call binlook up if possible
         sharedNetworkManager.callBinLookup(for: currentTapCard?.tapCardNumber)
+        // Set the favorite card brand as per the binlook up response
+        CardValidator.favoriteCardBrand = fetchSupportedCardSchemes(for: sharedNetworkManager.dataConfig.tapBinLookUpResponse?.scheme?.cardBrand)
     }
 }
 

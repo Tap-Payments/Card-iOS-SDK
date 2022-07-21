@@ -7,6 +7,7 @@
 
 import Foundation
 import CommonDataModelsKit_iOS
+import TapCardVlidatorKit_iOS
 
 internal extension NetworkManager {
     

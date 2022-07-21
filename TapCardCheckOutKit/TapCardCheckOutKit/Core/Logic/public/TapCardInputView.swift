@@ -29,7 +29,11 @@ import MOLH
     var dataSource:[TapCardPhoneIconViewModel] = []
     
     /// Holds the latest card info provided by the user
-    private var currentTapCard:TapCard?
+    private var currentTapCard:TapCard? {
+        didSet{
+            postCardDataChange()
+        }
+    }
     
     /// Holds the latest detected card brand
     private var cardBrand: CardBrand?
@@ -122,7 +126,7 @@ import MOLH
      */
     @objc public func tokenizeCard(onResponeReady: @escaping (Token) -> () = {_ in}, onErrorOccured: @escaping(Error)->() = {_ in}) {
         // Check that the card kit is already initilzed
-        guard let _ = NetworkManager.shared.dataConfig.sdkSettings else {
+        guard let _ = sharedNetworkManager.dataConfig.sdkSettings else {
             onErrorOccured("You have to call the initCardForm method first. This allows the card form to get the data needed to communicate with Tap's backend apis.")
             return
         }
@@ -134,7 +138,7 @@ import MOLH
             return
         }
         
-        NetworkManager.shared.callCardTokenAPI(cardTokenRequestModel: TapCreateTokenWithCardDataRequest(card: nonNullTokenizeCard),onResponeReady: onResponeReady, onErrorOccured: onErrorOccured)
+        sharedNetworkManager.callCardTokenAPI(cardTokenRequestModel: TapCreateTokenWithCardDataRequest(card: nonNullTokenizeCard),onResponeReady: onResponeReady, onErrorOccured: onErrorOccured)
     }
     
     
@@ -170,9 +174,7 @@ import MOLH
     /// Will fetch the correct card brands from the loaded payment options based on the transaction currency
     private func setupCardBrandsBarDataSource() {
         // Dummy data source data for now
-        dataSource = Array(NetworkManager.shared.dataConfig.paymentOptions?.toTapCardPhoneIconViewModel(supportsCurrency: transactionCurrency) ?? [])
-        
-        
+        dataSource = Array(sharedNetworkManager.dataConfig.paymentOptions?.toTapCardPhoneIconViewModel(supportsCurrency: transactionCurrency) ?? [])
         
         DispatchQueue.main.async { [weak self] in
             UIView.animate(withDuration: 1, delay: 0, options: []) {
@@ -186,12 +188,7 @@ import MOLH
                 }
             }
 
-        }/*
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(250)) { [weak self] in
-            self?.tapCardPhoneListViewModel.dataSource = self?.dataSource ?? []
-            // Auto select the card section
-            self?.tapCardPhoneListViewModel.select(segment: "cards")
-        }*/
+        }
     }
     
     /// Responsible for deciding which card brand should be underlined if any
@@ -243,6 +240,12 @@ import MOLH
         tapCardInput.setup(for: .InlineCardInput, showCardName: collectCardHolderName, allowedCardBrands: CardBrand.allCases.map{ $0.rawValue })
         // Let us listen to the card input ui callbacks if needed
         tapCardInput.delegate = self
+    }
+    
+    /// Handles logic needed to be done after changing the card data
+    private func postCardDataChange() {
+        // let us call binlook up if possible
+        sharedNetworkManager.callBinLookup(for: currentTapCard?.tapCardNumber)
     }
 }
 

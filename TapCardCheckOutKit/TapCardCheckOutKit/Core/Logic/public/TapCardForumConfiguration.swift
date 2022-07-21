@@ -22,7 +22,7 @@ import MOLH
     internal var dataConfig:TapCardDataConfiguration? {
         didSet{
             if let nonNullConfig = dataConfig {
-                NetworkManager.shared.dataConfig = nonNullConfig
+                sharedNetworkManager.dataConfig = nonNullConfig
             }
         }
     }
@@ -59,9 +59,9 @@ import MOLH
     private func configureSDK() {
         guard let nonNullDataConfig = self.dataConfig else { return }
         // Store the configueation data for further access
-        NetworkManager.shared.dataConfig = nonNullDataConfig
+        sharedNetworkManager.dataConfig = nonNullDataConfig
         // Infotm the network manager to init itself from the init api
-        NetworkManager.shared.configSDK()
+        sharedNetworkManager.configSDK()
     }
     
     

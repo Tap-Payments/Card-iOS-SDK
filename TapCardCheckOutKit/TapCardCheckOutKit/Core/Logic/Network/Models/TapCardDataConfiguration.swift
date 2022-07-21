@@ -40,4 +40,7 @@ import Foundation
     
     /// Holding the latest Config response from the middleware
     internal var configModelResponse: TapConfigResponseModel?
+    
+    /// Holding the latest look up response from the middleware
+    internal var tapBinLookUpResponse: TapBinResponseModel?
 }

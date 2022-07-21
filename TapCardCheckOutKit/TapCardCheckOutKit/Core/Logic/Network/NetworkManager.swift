@@ -14,10 +14,12 @@ internal protocol NetworkManagerDelegate {
     func apiCallInProgress(status:Bool)
 }
 
+/// The singletong network manager
+let sharedNetworkManager = NetworkManager()
+
 /// The shared network manager related to configure the network/api class between the SDK and the Server
 internal class NetworkManager: NSObject {
-    /// The singletong network manager
-    static let shared = NetworkManager()
+    
     /// The network manager delegate
     var delegate:NetworkManagerDelegate?
     /// The static headers to be sent with every call/request
@@ -31,21 +33,13 @@ internal class NetworkManager: NSObject {
     internal var enableLogging = false
     /// Defines if logging apu calls to console
     internal var consoleLogging = true
-    
     /// The datasource configiation required so the card kit can perform Init call api
     internal var dataConfig: TapCardDataConfiguration = .init()
+    /// indicates what is the latest number we are calling binlookup tp
+    internal var binLookUpInProcessNumber:String?
     
-    internal var loggedApis:[TapLogStackTraceEntryModel] {
-        return networkManager.loggedInApiCalls
-    }
-    
-    private override init () {
+    fileprivate override init () {
         networkManager = TapNetworkManager(baseURL: URL(string: baseURL)!)
-        networkManager.loggedInApiCalls = []
-    }
-    
-    /// Used to clear any previous api stack trace log
-    internal func resetStackTrace() {
         networkManager.loggedInApiCalls = []
     }
     
@@ -56,6 +50,31 @@ internal class NetworkManager: NSObject {
     func createConfigRequestModel() -> TapConfigRequestModel {
         // the config request will include the merchant id, secret key and the static headers
         return TapConfigRequestModel(gateway: .init(config: .init(application: NetworkManager.applicationHeaderValue), merchantId: "1124340" , publicKey: NetworkManager.secretKey()))
+    }
+    
+    /**
+     Indicates whether we need to call the binlookup api for the provided card.
+     - Parameter with cardNumber: The card number to check it
+     - Returns: True of the provided card has different 6 digits prefix than the last time called binlook up response. False otherwise.
+     */
+    func shouldWeCallBinLookUpAgain(with cardNumber:String?) -> Bool {
+        
+        // We call the binlook up only when we have at least 6 digits
+        guard let cardNumber:String = cardNumber,
+              cardNumber.count >= 6 else {
+            // Then for a reason the user deleted some of the charachters then we need to reset the binlook up we have if any
+            binLookUpInProcessNumber = ""
+            dataConfig.tapBinLookUpResponse = nil
+            return false
+        }
+        
+        // Let us make sure we are didn't already request for the same number or
+        // we are not currently checking it
+        guard dataConfig.tapBinLookUpResponse?.binNumber    != cardNumber.tap_substring(to: 6),
+              binLookUpInProcessNumber                      != cardNumber.tap_substring(to: 6) else { return false }
+        
+        // This means we should call the bin look as we didn't call it before
+        return true
     }
     
     /**

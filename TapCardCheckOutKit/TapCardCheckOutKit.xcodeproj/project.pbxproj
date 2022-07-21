@@ -61,6 +61,8 @@
 		E83FD0922889714500057F22 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83FD0912889714500057F22 /* Config.swift */; };
 		E83FD09628897C2F00057F22 /* TapPaymentOptionsReponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83FD09528897C2F00057F22 /* TapPaymentOptionsReponseModel.swift */; };
 		E83FD09828897C6900057F22 /* TapPaymentOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83FD09728897C6800057F22 /* TapPaymentOption.swift */; };
+		E83FD09B2889E77000057F22 /* TapBinResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83FD09A2889E77000057F22 /* TapBinResponseModel.swift */; };
+		E83FD09D2889E7AB00057F22 /* CardScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83FD09C2889E7AB00057F22 /* CardScheme.swift */; };
 		E874F804288585B70067DB3E /* DempSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874F803288585B70067DB3E /* DempSettingsViewController.swift */; };
 		E874F806288586C50067DB3E /* ConfigurationSharedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874F805288586C50067DB3E /* ConfigurationSharedManager.swift */; };
 /* End PBXBuildFile section */
@@ -149,6 +151,8 @@
 		E83FD0912889714500057F22 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		E83FD09528897C2F00057F22 /* TapPaymentOptionsReponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapPaymentOptionsReponseModel.swift; sourceTree = "<group>"; };
 		E83FD09728897C6800057F22 /* TapPaymentOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapPaymentOption.swift; sourceTree = "<group>"; };
+		E83FD09A2889E77000057F22 /* TapBinResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapBinResponseModel.swift; sourceTree = "<group>"; };
+		E83FD09C2889E7AB00057F22 /* CardScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardScheme.swift; sourceTree = "<group>"; };
 		E874F803288585B70067DB3E /* DempSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DempSettingsViewController.swift; sourceTree = "<group>"; };
 		E874F805288586C50067DB3E /* ConfigurationSharedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationSharedManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -337,6 +341,7 @@
 		E832641C27E9DF59005F3AAF /* ApiCalls */ = {
 			isa = PBXGroup;
 			children = (
+				E83FD0992889E77000057F22 /* TapBinRequest */,
 				E832642727E9E01E005F3AAF /* TapTokenRequest */,
 				E83FD08A28896FD000057F22 /* Config */,
 				E832641D27E9DF7D005F3AAF /* Init */,
@@ -381,6 +386,15 @@
 				E83FD08C28896FFD00057F22 /* TapConfigResponseModel.swift */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		E83FD0992889E77000057F22 /* TapBinRequest */ = {
+			isa = PBXGroup;
+			children = (
+				E83FD09C2889E7AB00057F22 /* CardScheme.swift */,
+				E83FD09A2889E77000057F22 /* TapBinResponseModel.swift */,
+			);
+			path = TapBinRequest;
 			sourceTree = "<group>";
 		};
 		E8ED36EA27EAFC900050589E /* Logic */ = {
@@ -588,6 +602,7 @@
 				E832641B27E9DEFF005F3AAF /* ApiErrorModel.swift in Sources */,
 				E832643F27E9EBBC005F3AAF /* TapCardDataConfiguration.swift in Sources */,
 				E832640E27E9DC06005F3AAF /* Crypter.swift in Sources */,
+				E83FD09D2889E7AB00057F22 /* CardScheme.swift in Sources */,
 				E83FD0902889713500057F22 /* Gateway.swift in Sources */,
 				E832643027E9E0D6005F3AAF /* Country.swift in Sources */,
 				E832644927EA0EE8005F3AAF /* TapCardForumLocalisation.swift in Sources */,
@@ -607,6 +622,7 @@
 				E832642A27E9E079005F3AAF /* TapCreateTokenRequest.swift in Sources */,
 				E83FD08D28896FFD00057F22 /* TapConfigRequestModel.swift in Sources */,
 				E832642427E9DFB4005F3AAF /* Permissions.swift in Sources */,
+				E83FD09B2889E77000057F22 /* TapBinResponseModel.swift in Sources */,
 				E832642527E9DFB4005F3AAF /* Merchant.swift in Sources */,
 				E832643327E9E14D005F3AAF /* AddressType.swift in Sources */,
 				E83FD0922889714500057F22 /* Config.swift in Sources */,

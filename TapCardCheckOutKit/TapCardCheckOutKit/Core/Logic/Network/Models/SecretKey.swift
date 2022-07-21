@@ -22,7 +22,7 @@ import Foundation
     
     /// The used key based on the  selected mode production or sandbox
     internal var usedKey:String {
-        switch NetworkManager.shared.dataConfig.sdkMode {
+        switch sharedNetworkManager.dataConfig.sdkMode {
         case .production:
             return production
         case .sandbox:

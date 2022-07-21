@@ -147,8 +147,14 @@ import MOLH
             self?.tapCardPhoneListView.layoutIfNeeded()
             self?.layoutIfNeeded()
         }
+        // Set card brands datasource
+        setupCardBrandsBarDataSource()
+    }
+    
+    /// Will fetch the correct card brands from the loaded payment options based on the transaction currency
+    private func setupCardBrandsBarDataSource() {
         // Dummy data source data for now
-        dataSource = Array(NetworkManager.shared.dataConfig.paymentOptions?.toTapCardPhoneIconViewModel() ?? [])
+        dataSource = Array(NetworkManager.shared.dataConfig.paymentOptions?.toTapCardPhoneIconViewModel(supportsCurrency: transactionCurrency) ?? [])
         
         // Setup the card brands bar view with the data source
         tapCardPhoneListView.setupView(with: tapCardPhoneListViewModel)

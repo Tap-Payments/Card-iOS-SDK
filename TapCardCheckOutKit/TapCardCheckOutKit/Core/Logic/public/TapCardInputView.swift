@@ -103,6 +103,19 @@ import MOLH
     }
     
     /**
+     Call this method to change the currency at run time. Please note that this will reset the card data and change the visible card brands.
+     - Parameter to currency: The new transaction currency
+     */
+    @objc public func updateTransactionCurrenct(to currency:TapCurrencyCode) {
+        // set the new currency
+        self.transactionCurrency = currency
+        // reset card form data
+        tapCardInput.reset()
+        // reload the bar view
+        setupCardBrandsBar()
+    }
+    
+    /**
      Handles tokenizing the current card data.
      - Parameter onResponeReady: A callback to listen when a token is successfully generated
      - Parameter onErrorOccured: A callback to listen when tokenization fails.
@@ -147,6 +160,9 @@ import MOLH
             self?.tapCardPhoneListView.layoutIfNeeded()
             self?.layoutIfNeeded()
         }
+        // Setup the card brands bar view with the data source
+        tapCardPhoneListView.setupView(with: tapCardPhoneListViewModel)
+        
         // Set card brands datasource
         setupCardBrandsBarDataSource()
     }
@@ -156,14 +172,26 @@ import MOLH
         // Dummy data source data for now
         dataSource = Array(NetworkManager.shared.dataConfig.paymentOptions?.toTapCardPhoneIconViewModel(supportsCurrency: transactionCurrency) ?? [])
         
-        // Setup the card brands bar view with the data source
-        tapCardPhoneListView.setupView(with: tapCardPhoneListViewModel)
-        
-        tapCardPhoneListViewModel.dataSource = dataSource
         
         
-        // Auto select the card section
-        tapCardPhoneListViewModel.select(segment: "cards")
+        DispatchQueue.main.async { [weak self] in
+            UIView.animate(withDuration: 1, delay: 0, options: []) {
+                self?.tapCardPhoneListView.alpha = 0
+            } completion: { _ in
+                self?.tapCardPhoneListViewModel.dataSource = self?.dataSource ?? []
+                // Auto select the card section
+                self?.tapCardPhoneListViewModel.select(segment: "cards")
+                UIView.animate(withDuration: 1, delay: 1, options: []) {
+                    self?.tapCardPhoneListView.alpha = 1
+                }
+            }
+
+        }/*
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(250)) { [weak self] in
+            self?.tapCardPhoneListViewModel.dataSource = self?.dataSource ?? []
+            // Auto select the card section
+            self?.tapCardPhoneListViewModel.select(segment: "cards")
+        }*/
     }
     
     /// Responsible for deciding which card brand should be underlined if any

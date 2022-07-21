@@ -11,6 +11,7 @@ import TapCardCheckOutKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var tapCardForum: TapCardInputView!
+    @IBOutlet weak var currencySegment: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,15 @@ class ViewController: UIViewController {
     }
     
     
+    @IBAction func changeCurrency(_ sender: Any) {
+        switch currencySegment.selectedSegmentIndex {
+        case 0: tapCardForum.updateTransactionCurrenct(to: .KWD)
+        case 1: tapCardForum.updateTransactionCurrenct(to: .EGP)
+        case 2: tapCardForum.updateTransactionCurrenct(to: .SAR)
+        default:
+            break
+        }
+    }
     func showAlert(title:String, message:String) {
         DispatchQueue.main.async { [weak self] in
             let alert:UIAlertController = .init(title: title, message: message, preferredStyle: .alert)

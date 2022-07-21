@@ -32,18 +32,33 @@
                                     <action selector="tokenizeCardClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jn9-Qy-QQM"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9km-nu-X9C">
+                                <rect key="frame" x="20" y="275" width="374" height="32"/>
+                                <segments>
+                                    <segment title="KWD"/>
+                                    <segment title="EGP"/>
+                                    <segment title="SAR"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeCurrency:" destination="BYZ-38-t0r" eventType="valueChanged" id="pVB-cp-Aeu"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="9km-nu-X9C" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="2fn-iS-g09"/>
                             <constraint firstItem="aPG-Lj-Fqc" firstAttribute="top" secondItem="FDp-Ru-IEn" secondAttribute="bottom" constant="30" id="8gn-7H-a5o"/>
+                            <constraint firstItem="9km-nu-X9C" firstAttribute="top" secondItem="aPG-Lj-Fqc" secondAttribute="bottom" constant="20" id="9um-m1-RX1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FDp-Ru-IEn" secondAttribute="trailing" id="ETE-e7-ecc"/>
                             <constraint firstItem="FDp-Ru-IEn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Hcr-Ct-0TG"/>
                             <constraint firstItem="aPG-Lj-Fqc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mzl-AT-BEx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9km-nu-X9C" secondAttribute="trailing" constant="20" id="V9Y-Di-sS4"/>
                             <constraint firstItem="FDp-Ru-IEn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="s0o-3W-y7I"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="currencySegment" destination="9km-nu-X9C" id="SOR-xC-XRi"/>
                         <outlet property="tapCardForum" destination="FDp-Ru-IEn" id="ufr-Kh-aZS"/>
                     </connections>
                 </viewController>

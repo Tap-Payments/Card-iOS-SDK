@@ -10,6 +10,7 @@ import Foundation
 import struct PassKit.PKPaymentNetwork
 import CommonDataModelsKit_iOS
 import TapCardVlidatorKit_iOS
+import class TapUIKit_iOS.TapCardPhoneIconViewModel
 
 /// Payment Option model.
 internal struct PaymentOption: IdentifiableWithString {
@@ -159,4 +160,13 @@ internal protocol FilterableByCurrency {
 internal protocol SortableByOrder {
     
     var orderBy: Int { get }
+}
+
+extension Array where Element == PaymentOption {
+    
+    /// Converts a list of card payment options to understandable format class datasrouce for the card brands list
+    func toTapCardPhoneIconViewModel() -> [TapCardPhoneIconViewModel] {
+        return self.map{ .init(associatedCardBrand: $0.brand , tapCardPhoneIconUrl: $0.backendImageURL.absoluteString) }
+    }
+    
 }

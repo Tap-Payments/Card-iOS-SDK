@@ -98,6 +98,8 @@ import MOLH
         self.collectCardHolderName = collectCardHolderName
         // Set the card bar ability
         self.showCardBrands = showCardBrandsBar
+        // Set the needed currency
+        self.transactionCurrency = transactionCurrency
     }
     
     /**
@@ -146,18 +148,12 @@ import MOLH
             self?.layoutIfNeeded()
         }
         // Dummy data source data for now
-        dataSource.append(.init(associatedCardBrand: .visa, tapCardPhoneIconUrl: "https://img.icons8.com/color/2x/visa.png"))
-        dataSource.append(.init(associatedCardBrand: .masterCard, tapCardPhoneIconUrl: "https://img.icons8.com/color/2x/mastercard.png"))
-        dataSource.append(.init(associatedCardBrand: .americanExpress, tapCardPhoneIconUrl: "https://img.icons8.com/color/2x/amex.png"))
-        dataSource.append(.init(associatedCardBrand: .mada, tapCardPhoneIconUrl: "https://i.ibb.co/S3VhxmR/796px-Mada-Logo-svg.png"))
-        dataSource.append(.init(associatedCardBrand: .viva, tapCardPhoneIconUrl: "https://i.ibb.co/cw5y89V/unnamed.png"))
-        dataSource.append(.init(associatedCardBrand: .wataniya, tapCardPhoneIconUrl: "https://i.ibb.co/PCYd8Xm/ooredoo-3x.png"))
-        dataSource.append(.init(associatedCardBrand: .zain, tapCardPhoneIconUrl: "https://i.ibb.co/mvkJXwF/zain-3x.png"))
+        dataSource = Array(NetworkManager.shared.dataConfig.paymentOptions?.toTapCardPhoneIconViewModel() ?? [])
         
         // Setup the card brands bar view with the data source
         tapCardPhoneListView.setupView(with: tapCardPhoneListViewModel)
         
-        tapCardPhoneListViewModel.dataSource = Array(dataSource.prefix(upTo: 3))
+        tapCardPhoneListViewModel.dataSource = dataSource
         
         
         // Auto select the card section

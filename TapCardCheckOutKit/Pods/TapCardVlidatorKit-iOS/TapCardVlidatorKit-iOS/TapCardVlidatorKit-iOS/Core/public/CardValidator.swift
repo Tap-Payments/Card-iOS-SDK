@@ -213,7 +213,7 @@ public final class CardValidator {
             let odd = index % 2 == 1
             
             switch (odd, digit) {
-            
+                
             case (true, 9):
                 
                 sum += 9

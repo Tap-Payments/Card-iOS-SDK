@@ -179,17 +179,15 @@ import MOLH
         tapCardInput.allowedCardBrands = dataSource.map{ $0.associatedCardBrand.rawValue }
         
         DispatchQueue.main.async { [weak self] in
-            UIView.animate(withDuration: 1, delay: 0, options: []) {
-                self?.tapCardPhoneListView.alpha = 0
-            } completion: { _ in
+            self?.tapCardPhoneListView.alpha = 0
+            UIView.animate(withDuration: 0.2, delay: 0.2, options: []) {
+                // Apply the new data source
                 self?.tapCardPhoneListViewModel.dataSource = self?.dataSource ?? []
                 // Auto select the card section
                 self?.tapCardPhoneListViewModel.select(segment: "cards")
-                UIView.animate(withDuration: 1, delay: 1, options: []) {
-                    self?.tapCardPhoneListView.alpha = 1
-                }
+                // Show it now
+                self?.tapCardPhoneListView.alpha = 1
             }
-
         }
     }
     

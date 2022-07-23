@@ -13,7 +13,9 @@ internal extension NetworkManager {
     
     
     /// Responsible for making the network calls needed to boot the SDK like init and payment options
-    func configSDK(onCheckOutReady: @escaping () -> () = {}) {
+    /// - Parameter onCheckoutRead: A block to execure upon completion
+    /// - Parameter onErrorOccured: A block to execure upon error
+    func configSDK(onCheckOutReady: @escaping () -> () = {},onErrorOccured: @escaping(Error?)->() = {_ in}) {
         
         // As per the backend logic, we will have to hit Config, then Init.
         
@@ -34,18 +36,23 @@ internal extension NetworkManager {
             // We got the middleware token, now let us init the SDK and get the merchant and payment types details
             self?.initialiseSDKFromAPI(onCheckOutReady: onCheckOutReady)
         } onError: { (session, result, errorr) in
+            onErrorOccured(errorr)
             self.handleError(error: errorr)
         }
     }
     
     /// Responsible for making the network calls needed to boot the SDK like init and payment options
-    func initialiseSDKFromAPI(onCheckOutReady: @escaping () -> () = {}) {
+    /// /// - Parameter onCheckoutRead: A block to execure upon completion
+    /// - Parameter onErrorOccured: A block to execure upon error
+    func initialiseSDKFromAPI(onCheckOutReady: @escaping () -> () = {} ,onErrorOccured: @escaping(Error?)->() = {_ in}) {
         // As per the backend logic, we will have to hit INIT
         sharedNetworkManager.makeApiCall(routing: .InitAPI, resultType: TapInitResponseModel.self, httpMethod: .POST) { [weak self] (session, result, error) in
             guard let initModel:TapInitResponseModel = result as? TapInitResponseModel else { self?.handleError(error: "Unexpected error when parsing into TapInitResponseModel")
                 return }
             self?.handleInitResponse(initModel: initModel)
+            onCheckOutReady()
         } onError: { (session, result, errorr) in
+            onErrorOccured(errorr)
             self.handleError(error: errorr)
         }
     }

@@ -46,22 +46,26 @@ import MOLH
      - Parameter dataConfig: The data configured by you as a merchant (e.g. secret key, locale, etc.). Required
      - Parameter cusomTheme: The theme object which contains the path to the local or to the remote custom light and dark themes. Optional
      - Parameter customLocalisation: The localisation object which contains the path to the local or to the remote custom localisation files. Optional
+     - Parameter onCheckoutRead: A block to execure upon completion
+     - Parameter onErrorOccured: A block to execure upon error
      */
-    @objc public func configure(dataConfig: TapCardDataConfiguration, customTheme: TapCardForumTheme? = nil, customLocalisation: TapCardForumLocalisation? = nil) {
+    @objc public func configure(dataConfig: TapCardDataConfiguration, customTheme: TapCardForumTheme? = nil, customLocalisation: TapCardForumLocalisation? = nil,onCheckOutReady: @escaping () -> () = {} ,onErrorOccured: @escaping(Error?)->() = {_ in}) {
         self.dataConfig = dataConfig
         self.customTheme = customTheme
         self.customLocalisation = customLocalisation
-        configureSDK()
+        configureSDK(onCheckOutReady: onCheckOutReady, onErrorOccured: onErrorOccured)
     }
     
     
     /// Calls the init api and make all the data for card brands and tokenization availbe
-    private func configureSDK() {
+    /// - Parameter onCheckoutRead: A block to execure upon completion
+    /// - Parameter onErrorOccured: A block to execure upon error
+    private func configureSDK(onCheckOutReady: @escaping () -> () = {} ,onErrorOccured: @escaping(Error?)->() = {_ in}) {
         guard let nonNullDataConfig = self.dataConfig else { return }
         // Store the configueation data for further access
         sharedNetworkManager.dataConfig = nonNullDataConfig
         // Infotm the network manager to init itself from the init api
-        sharedNetworkManager.configSDK()
+        sharedNetworkManager.configSDK(onCheckOutReady: onCheckOutReady, onErrorOccured: onErrorOccured)
     }
     
     

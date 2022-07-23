@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import TapCardCheckOutKit
 
 class DempSettingsViewController: UIViewController {
     // MARK: - The outlets
@@ -13,6 +14,7 @@ class DempSettingsViewController: UIViewController {
     @IBOutlet weak var localisationButton: UIButton!
     @IBOutlet weak var collectNameSwitch: UISwitch!
     @IBOutlet weak var cardBrandsSwitch: UISwitch!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +22,32 @@ class DempSettingsViewController: UIViewController {
         // Do any additional setup after loading the view.
         // Preload
         preload()
+        // load merchant data
+        configureSDK()
     }
+    
+    
+    private func configureSDK() {
+        loadingIndicator.isHidden = false
+        // Override point for customization after application launch.
+        let cardDataConfig:TapCardDataConfiguration = .init(sdkMode: .sandbox, localeIdentifier: "en", secretKey: .init(sandbox: "sk_test_cvSHaplrPNkJO7dhoUxDYjqA", production: "sk_live_V4UDhitI0r7sFwHCfNB6xMKp"))
+        TapCardForumConfiguration.shared.configure(dataConfig: cardDataConfig) {
+            DispatchQueue.main.async { [weak self] in
+                self?.loadingIndicator.isHidden = true
+            }
+        } onErrorOccured: { error in
+            DispatchQueue.main.async { [weak self] in
+                let uiAlertController:UIAlertController = .init(title: "Error from middleware", message: error?.localizedDescription ?? "", preferredStyle: .actionSheet)
+                let uiAlertAction:UIAlertAction = .init(title: "Retry", style: .destructive) { _ in
+                    self?.configureSDK()
+                }
+                uiAlertController.addAction(uiAlertAction)
+                self?.present(uiAlertController, animated: true)
+            }
+        }
+        
+    }
+    
     
     
     /// Preloads the configurtions with the last selected ones

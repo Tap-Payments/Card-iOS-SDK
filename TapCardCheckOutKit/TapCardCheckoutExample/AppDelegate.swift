@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import TapCardCheckOutKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,11 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        let cardDataConfig:TapCardDataConfiguration = .init(sdkMode: .sandbox, localeIdentifier: "en", secretKey: .init(sandbox: "sk_test_cvSHaplrPNkJO7dhoUxDYjqA", production: "sk_live_V4UDhitI0r7sFwHCfNB6xMKp"))
-        TapCardForumConfiguration.shared.configure(dataConfig: cardDataConfig)
-        //TapCardForumConfiguration.shared.configure(dataConfig: cardDataConfig, customLocalisation: .init(shouldFlip:true,localeIdentifier: "ar"))
-        
         return true
     }
     

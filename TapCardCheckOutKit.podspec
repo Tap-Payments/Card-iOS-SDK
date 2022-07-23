@@ -133,12 +133,12 @@ Pod::Spec.new do |spec|
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # spec.dependency "JSONKit", "~> 1.4"
 
-  spec.dependency "TapCardInputKit-iOS"
-  spec.dependency "TapNetworkKit-iOS"
-  spec.dependency "TapApplicationV2"
-  spec.dependency "SwiftyRSA"
-  spec.dependency "TapKeychain"
-  spec.dependency "CommonDataModelsKit-iOS"
+  spec.dependency'TapUIKit-iOS'
+  spec.dependency'TapNetworkKit-iOS'
+  spec.dependency'TapApplicationV2'
+  spec.dependency'SwiftyRSA'
+  spec.dependency'TapKeychain'
+
   
   spec.pod_target_xcconfig = {
     'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'

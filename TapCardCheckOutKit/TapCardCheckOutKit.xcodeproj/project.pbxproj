@@ -63,6 +63,13 @@
 		E83FD09828897C6900057F22 /* TapPaymentOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83FD09728897C6800057F22 /* TapPaymentOption.swift */; };
 		E83FD09B2889E77000057F22 /* TapBinResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83FD09A2889E77000057F22 /* TapBinResponseModel.swift */; };
 		E83FD09D2889E7AB00057F22 /* CardScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83FD09C2889E7AB00057F22 /* CardScheme.swift */; };
+		E83FD0B2288BCCCA00057F22 /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83FD0AC288BCCCA00057F22 /* CreditCard.swift */; };
+		E83FD0B3288BCCCA00057F22 /* ImageAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83FD0AD288BCCCA00057F22 /* ImageAnalyzer.swift */; };
+		E83FD0B4288BCCCA00057F22 /* ImageRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83FD0AE288BCCCA00057F22 /* ImageRatio.swift */; };
+		E83FD0B5288BCCCA00057F22 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83FD0AF288BCCCA00057F22 /* CameraView.swift */; };
+		E83FD0B6288BCCCA00057F22 /* CreditCardScannerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83FD0B0288BCCCA00057F22 /* CreditCardScannerError.swift */; };
+		E83FD0B7288BCCCA00057F22 /* CreditCardScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83FD0B1288BCCCA00057F22 /* CreditCardScannerViewController.swift */; };
+		E83FD0BA288BCD0500057F22 /* Sukar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83FD0B9288BCD0500057F22 /* Sukar.swift */; };
 		E874F804288585B70067DB3E /* DempSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874F803288585B70067DB3E /* DempSettingsViewController.swift */; };
 		E874F806288586C50067DB3E /* ConfigurationSharedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874F805288586C50067DB3E /* ConfigurationSharedManager.swift */; };
 /* End PBXBuildFile section */
@@ -153,6 +160,13 @@
 		E83FD09728897C6800057F22 /* TapPaymentOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapPaymentOption.swift; sourceTree = "<group>"; };
 		E83FD09A2889E77000057F22 /* TapBinResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapBinResponseModel.swift; sourceTree = "<group>"; };
 		E83FD09C2889E7AB00057F22 /* CardScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardScheme.swift; sourceTree = "<group>"; };
+		E83FD0AC288BCCCA00057F22 /* CreditCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
+		E83FD0AD288BCCCA00057F22 /* ImageAnalyzer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAnalyzer.swift; sourceTree = "<group>"; };
+		E83FD0AE288BCCCA00057F22 /* ImageRatio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRatio.swift; sourceTree = "<group>"; };
+		E83FD0AF288BCCCA00057F22 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		E83FD0B0288BCCCA00057F22 /* CreditCardScannerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCardScannerError.swift; sourceTree = "<group>"; };
+		E83FD0B1288BCCCA00057F22 /* CreditCardScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCardScannerViewController.swift; sourceTree = "<group>"; };
+		E83FD0B9288BCD0500057F22 /* Sukar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sukar.swift; sourceTree = "<group>"; };
 		E874F803288585B70067DB3E /* DempSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DempSettingsViewController.swift; sourceTree = "<group>"; };
 		E874F805288586C50067DB3E /* ConfigurationSharedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationSharedManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -222,6 +236,7 @@
 		E83262ED27E88BCF005F3AAF /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				E83FD0AB288BCCCA00057F22 /* CreditCardScanner */,
 				E8ED36EA27EAFC900050589E /* Logic */,
 				E83262EE27E88BE7005F3AAF /* Assets */,
 			);
@@ -395,6 +410,28 @@
 				E83FD09A2889E77000057F22 /* TapBinResponseModel.swift */,
 			);
 			path = TapBinRequest;
+			sourceTree = "<group>";
+		};
+		E83FD0AB288BCCCA00057F22 /* CreditCardScanner */ = {
+			isa = PBXGroup;
+			children = (
+				E83FD0B8288BCD0500057F22 /* Sukar */,
+				E83FD0AC288BCCCA00057F22 /* CreditCard.swift */,
+				E83FD0AD288BCCCA00057F22 /* ImageAnalyzer.swift */,
+				E83FD0AE288BCCCA00057F22 /* ImageRatio.swift */,
+				E83FD0AF288BCCCA00057F22 /* CameraView.swift */,
+				E83FD0B0288BCCCA00057F22 /* CreditCardScannerError.swift */,
+				E83FD0B1288BCCCA00057F22 /* CreditCardScannerViewController.swift */,
+			);
+			path = CreditCardScanner;
+			sourceTree = "<group>";
+		};
+		E83FD0B8288BCD0500057F22 /* Sukar */ = {
+			isa = PBXGroup;
+			children = (
+				E83FD0B9288BCD0500057F22 /* Sukar.swift */,
+			);
+			path = Sukar;
 			sourceTree = "<group>";
 		};
 		E8ED36EA27EAFC900050589E /* Logic */ = {
@@ -593,11 +630,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				E83FD09628897C2F00057F22 /* TapPaymentOptionsReponseModel.swift in Sources */,
+				E83FD0B3288BCCCA00057F22 /* ImageAnalyzer.swift in Sources */,
 				E832642627E9DFB4005F3AAF /* InternalSDKSettings.swift in Sources */,
 				E832640627E9DB05005F3AAF /* NetworkManager.swift in Sources */,
 				E832641927E9DE35005F3AAF /* SecretKey.swift in Sources */,
+				E83FD0B4288BCCCA00057F22 /* ImageRatio.swift in Sources */,
 				E83262E627E88B6E005F3AAF /* TapCardCheckOutKit.docc in Sources */,
+				E83FD0B5288BCCCA00057F22 /* CameraView.swift in Sources */,
 				E832640827E9DBE0005F3AAF /* NetworkManagerExtension.swift in Sources */,
+				E83FD0B6288BCCCA00057F22 /* CreditCardScannerError.swift in Sources */,
 				E832643727E9E193005F3AAF /* NetworkManagerApiCallsExtension.swift in Sources */,
 				E832641B27E9DEFF005F3AAF /* ApiErrorModel.swift in Sources */,
 				E832643F27E9EBBC005F3AAF /* TapCardDataConfiguration.swift in Sources */,
@@ -606,6 +647,7 @@
 				E83FD0902889713500057F22 /* Gateway.swift in Sources */,
 				E832643027E9E0D6005F3AAF /* Country.swift in Sources */,
 				E832644927EA0EE8005F3AAF /* TapCardForumLocalisation.swift in Sources */,
+				E83FD0B7288BCCCA00057F22 /* CreditCardScannerViewController.swift in Sources */,
 				E832643D27E9E20A005F3AAF /* TokenType.swift in Sources */,
 				E832641527E9DD72005F3AAF /* TapNetworkPath.swift in Sources */,
 				E83FD09828897C6900057F22 /* TapPaymentOption.swift in Sources */,
@@ -623,6 +665,7 @@
 				E83FD08D28896FFD00057F22 /* TapConfigRequestModel.swift in Sources */,
 				E832642427E9DFB4005F3AAF /* Permissions.swift in Sources */,
 				E83FD09B2889E77000057F22 /* TapBinResponseModel.swift in Sources */,
+				E83FD0BA288BCD0500057F22 /* Sukar.swift in Sources */,
 				E832642527E9DFB4005F3AAF /* Merchant.swift in Sources */,
 				E832643327E9E14D005F3AAF /* AddressType.swift in Sources */,
 				E83FD0922889714500057F22 /* Config.swift in Sources */,
@@ -630,6 +673,7 @@
 				E832640D27E9DC06005F3AAF /* ErrorUtils.swift in Sources */,
 				E832642027E9DF96005F3AAF /* SDKSettings.swift in Sources */,
 				E832631227E89435005F3AAF /* TapCardInputView.swift in Sources */,
+				E83FD0B2288BCCCA00057F22 /* CreditCard.swift in Sources */,
 				E832643127E9E0D6005F3AAF /* Address.swift in Sources */,
 				E832640F27E9DC06005F3AAF /* KeychainManager.swift in Sources */,
 			);

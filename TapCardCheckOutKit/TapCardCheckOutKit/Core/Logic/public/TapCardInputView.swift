@@ -297,7 +297,15 @@ import AVFoundation
             return
         }
 
-        // First grant the authorization to use the camera
+        if #available(iOS 13, *) {
+            let creditCardScannerViewController = CreditCardScannerViewController(delegate: self)
+            presentScannerInViewController.present(creditCardScannerViewController, animated: true)
+        } else {
+            // Fallback on earlier versions
+        }
+        
+        
+        /*// First grant the authorization to use the camera
         AVCaptureDevice.requestAccess(for: AVMediaType.video) { [weak self] response in
             if response {
                 //access granted
@@ -322,7 +330,7 @@ import AVFoundation
             }else {
                 
             }
-        }
+        }*/
     }
 }
 
@@ -353,4 +361,21 @@ extension TapCardInputView : TapCardInputProtocol {
     public func shouldAllowChange(with cardNumber: String) -> Bool {
         return true
     }
+}
+
+@available(iOS 13, *)
+extension TapCardInputView: CreditCardScannerViewControllerDelegate {
+    public func creditCardScannerViewControllerDidCancel(_ viewController: CreditCardScannerViewController) {
+        
+    }
+    
+    public func creditCardScannerViewController(_ viewController: CreditCardScannerViewController, didErrorWith error: CreditCardScannerError) {
+        print(error.localizedDescription ?? "ERROR")
+    }
+    
+    public func creditCardScannerViewController(_ viewController: CreditCardScannerViewController, didFinishWith card: CreditCard) {
+        print("\(card.name ?? "")\n\(card.number ?? "")\n\(card.expireDate?.month)\n\(card.expireDate?.year)")
+    }
+    
+    
 }

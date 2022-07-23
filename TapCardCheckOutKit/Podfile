@@ -19,5 +19,6 @@ pod 'TapNetworkKit-iOS'
 pod 'TapApplicationV2'
 pod 'SwiftyRSA'
 pod 'TapKeychain'
+pod 'Reg'
 
 end

@@ -1,0 +1,6 @@
+framework module Reg {
+  umbrella header "Reg-umbrella.h"
+
+  export *
+  module * { export * }
+}

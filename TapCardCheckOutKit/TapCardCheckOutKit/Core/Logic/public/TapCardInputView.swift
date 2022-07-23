@@ -164,6 +164,9 @@ import MOLH
             self?.tapCardPhoneListView.layoutIfNeeded()
             self?.layoutIfNeeded()
         }
+        
+        // Make sure we need to show it first
+        guard showCardBrands else { return }
         // Setup the card brands bar view with the data source
         tapCardPhoneListView.setupView(with: tapCardPhoneListViewModel)
         
@@ -180,7 +183,7 @@ import MOLH
         
         DispatchQueue.main.async { [weak self] in
             self?.tapCardPhoneListView.alpha = 0
-            UIView.animate(withDuration: 0.2, delay: 0.2, options: []) {
+            UIView.animate(withDuration: 0.2, delay: 0.1, options: []) {
                 // Apply the new data source
                 self?.tapCardPhoneListViewModel.dataSource = self?.dataSource ?? []
                 // Auto select the card section

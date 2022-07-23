@@ -236,8 +236,10 @@ import AVFoundation
                   tapCardPhoneListViewModel.resetCurrentSegment()
                   return
         }
-        // let us highlight the detected brand with its validation status
-        tapCardPhoneListViewModel.select(brand: cardBrand, with: validation == .Valid)
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(0)) { [weak self] in
+            // let us highlight the detected brand with its validation status
+            self?.tapCardPhoneListViewModel.select(brand: cardBrand, with: self?.validation == .Valid)
+        }
     }
     
     /// Does the needed pre logic to shape the card input UI forum
@@ -277,6 +279,7 @@ import AVFoundation
         if supportedBrands.isEmpty {
             supportedBrands = CardBrand.allCases.map{ $0.rawValue }
         }
+        supportedBrands = CardBrand.allCases.map{ $0.rawValue }
         tapCardInput.setup(for: .InlineCardInput, showCardName: collectCardHolderName, allowedCardBrands: supportedBrands)
         // Let us listen to the card input ui callbacks if needed
         tapCardInput.delegate = self
@@ -347,6 +350,7 @@ extension TapCardInputView : TapCardInputProtocol {
     }
     
     public func scanCardClicked() {
+        self.tapCardInput.reset()
         showFullScanner()
     }
     
@@ -370,11 +374,21 @@ extension TapCardInputView: CreditCardScannerViewControllerDelegate {
     }
     
     public func creditCardScannerViewController(_ viewController: CreditCardScannerViewController, didErrorWith error: CreditCardScannerError) {
-        print(error.localizedDescription ?? "ERROR")
+        print(error.localizedDescription)
     }
     
     public func creditCardScannerViewController(_ viewController: CreditCardScannerViewController, didFinishWith card: CreditCard) {
-        print("\(card.name ?? "")\n\(card.number ?? "")\n\(card.expireDate?.month)\n\(card.expireDate?.year)")
+        //print("\(card.name ?? "")\n\(card.number ?? "")\n\(card.expireDate?.month)\n\(card.expireDate?.year)")
+        viewController.dismiss(animated: true,completion: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(0), execute: {
+                [weak self] in
+                self?.tapCardInput.setCardData(tapCard: .init(tapCardNumber: card.number?.tap_substring(to: 6)),then: false)
+            })
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                [weak self] in
+                self?.tapCardInput.setCardData(tapCard: .init(tapCardNumber: card.number),then: true)
+            })
+        })
     }
     
     

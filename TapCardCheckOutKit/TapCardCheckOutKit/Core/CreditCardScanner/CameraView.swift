@@ -143,10 +143,20 @@ final class CameraView: UIView {
     func setupRegionOfInterest() {
         guard regionOfInterest == nil else { return }
         /// Mask layer that covering area around camera view
-        let backLayer = CALayer()
+        /*let backLayer = CALayer()
         backLayer.frame = bounds
-        backLayer.backgroundColor = maskLayerColor.withAlphaComponent(maskLayerAlpha).cgColor
+        if let blurFilter = CIFilter(name: "CIGaussianBlur",
+                                     parameters: [kCIInputRadiusKey: 2]) {
+            backLayer.backgroundFilters = [blurFilter]
+        }
+        backLayer.backgroundColor = maskLayerColor.withAlphaComponent(maskLayerAlpha).cgColor*/
 
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.prominent)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        addSubview(blurEffectView)
+        
         //  culcurate cutoutted frame
         let cuttedWidth: CGFloat = bounds.width - 40.0
         let cuttedHeight: CGFloat = cuttedWidth * CreditCard.heightRatioAgainstWidth
@@ -160,17 +170,19 @@ final class CameraView: UIView {
                                 width: cuttedWidth,
                                 height: cuttedHeight)
 
+        
         let maskLayer = CAShapeLayer()
         let path = UIBezierPath(roundedRect: cuttedRect, cornerRadius: 10.0)
 
         path.append(UIBezierPath(rect: bounds))
         maskLayer.path = path.cgPath
         maskLayer.fillRule = .evenOdd
-        backLayer.mask = maskLayer
-        layer.addSublayer(backLayer)
+        //backLayer.mask = maskLayer
+        //layer.addSublayer(backLayer)
+        blurEffectView.layer.mask = maskLayer
 
         let strokeLayer = CAShapeLayer()
-        strokeLayer.lineWidth = 3.0
+        strokeLayer.lineWidth = 1.0
         strokeLayer.strokeColor = creditCardFrameStrokeColor.cgColor
         strokeLayer.path = UIBezierPath(roundedRect: cuttedRect, cornerRadius: 10.0).cgPath
         strokeLayer.fillColor = nil
@@ -188,6 +200,11 @@ final class CameraView: UIView {
                                   y: interestY,
                                   width: interestWidth,
                                   height: interestHeight)
+        
+        /*let dummyView:UIView = .init(frame: cuttedRect)
+        dummyView.backgroundColor = .red
+        addSubview(dummyView)
+                                     print(dummyView.frame)*/
     }
 }
 

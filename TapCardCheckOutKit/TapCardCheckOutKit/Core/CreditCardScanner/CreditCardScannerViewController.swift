@@ -34,7 +34,7 @@ open class CreditCardScannerViewController: UIViewController {
     public var cancelButtonTitleTextColor: UIColor = .gray
     public var labelTextColor: UIColor = .white
     public var textBackgroundColor: UIColor = .black
-    public var cameraViewCreditCardFrameStrokeColor: UIColor = .white
+    public var cameraViewCreditCardFrameStrokeColor: UIColor = .green
     public var cameraViewMaskLayerColor: UIColor = .black
     public var cameraViewMaskAlpha: CGFloat = 0.7
 
@@ -107,12 +107,13 @@ private extension CreditCardScannerViewController {
         view.addSubview(cameraView)
         NSLayoutConstraint.activate([
             cameraView.topAnchor.constraint(equalTo: view.topAnchor),
+            cameraView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             cameraView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             cameraView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            cameraView.heightAnchor.constraint(equalTo: cameraView.widthAnchor, multiplier: CreditCard.heightRatioAgainstWidth, constant: 100),
+            //cameraView.heightAnchor.constraint(equalTo: cameraView.widthAnchor, multiplier: CreditCard.heightRatioAgainstWidth, constant: 100),
         ])
 
-        bottomStackView.translatesAutoresizingMaskIntoConstraints = false
+        /*bottomStackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(bottomStackView)
         NSLayoutConstraint.activate([
             bottomStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -134,7 +135,7 @@ private extension CreditCardScannerViewController {
         bottomStackView.distribution = .equalSpacing
         bottomStackView.directionalLayoutMargins = .init(top: 8.0, leading: 8.0, bottom: 8.0, trailing: 8.0)
         let arrangedSubviews: [UIView] = [titleLabel, subtitleLabel]
-        arrangedSubviews.forEach(bottomStackView.addArrangedSubview)
+        arrangedSubviews.forEach(bottomStackView.addArrangedSubview)*/
     }
 
     func setupLabelsAndButtons() {

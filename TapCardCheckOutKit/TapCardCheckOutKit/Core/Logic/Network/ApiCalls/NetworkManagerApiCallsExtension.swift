@@ -95,9 +95,13 @@ internal extension NetworkManager {
     ///   - completion: Completion that will be called when request finishes.
     func callBinLookup(for binNumber: String?, onResponeReady: @escaping (TapBinResponseModel) -> () = {_ in}, onErrorOccured: @escaping(Error)->() = {_ in}) {
         // check if we have to call the api or not
-        guard let binNumber = binNumber,
-              shouldWeCallBinLookUpAgain(with: binNumber) else { return }
+        guard let nonNullbinNumber = binNumber,
+              nonNullbinNumber.count >= 6 else { resetBinData()
+            return }
         
+        guard shouldWeCallBinLookUpAgain(with: nonNullbinNumber.tap_substring(to: 6)) else { return }
+        
+        let binNumber:String = nonNullbinNumber.tap_substring(to: 6)
         let bodyModel = ["bin":binNumber]
         
         // Perform the retrieve request with the computed data
@@ -120,6 +124,10 @@ internal extension NetworkManager {
         
     }
     
+    func resetBinData() {
+        binLookUpInProcessNumber = ""
+        dataConfig.tapBinLookUpResponse = nil
+    }
     
     /**
      Handles the result of the config api by storing it in the right place to be further processed

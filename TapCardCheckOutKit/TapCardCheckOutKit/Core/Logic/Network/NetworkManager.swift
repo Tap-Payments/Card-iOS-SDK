@@ -63,8 +63,7 @@ internal class NetworkManager: NSObject {
         guard let cardNumber:String = cardNumber,
               cardNumber.count >= 6 else {
             // Then for a reason the user deleted some of the charachters then we need to reset the binlook up we have if any
-            binLookUpInProcessNumber = ""
-            dataConfig.tapBinLookUpResponse = nil
+            resetBinData()
             return false
         }
         

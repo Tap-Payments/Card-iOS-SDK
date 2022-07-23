@@ -54,12 +54,12 @@ final class ImageAnalyzer {
         guard let strongSelf = self else { return }
 
         let creditCardNumber: Regex = #"(?:\d[ -]*?){13,16}"#
-        let month: Regex = #"(\d{2})\/\d{2}"#
+        let month: Regex = #"/^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/"#
         let year: Regex = #"\d{2}\/(\d{2})"#
         let wordsToSkip = ["mastercard", "jcb", "visa", "express", "bank", "card", "platinum", "reward"]
         // These may be contained in the date strings, so ignore them only for names
         let invalidNames = ["expiration", "valid", "since", "from", "until", "month", "year"]
-        let name: Regex = #"([A-z]{2,}\h([A-z.]+\h)?[A-z]{2,})"#
+        let name: Regex = #"^[\\p{L}'][\\p{L}' -]{1,25}$"#
 
         guard let results = request.results as? [VNRecognizedTextObservation] else { return }
 
@@ -82,10 +82,13 @@ final class ImageAnalyzer {
                 creditCard.number = cardNumber
 
                 // the first capture is the entire regex match, so using the last
-            } else if let month = month.matches(in: string).last.flatMap(Int.init),
+            } else if let expiry:String = year.matches(in: string).last,
+                      expiry.components(separatedBy: "/").count == 2 {
                 // Appending 20 to year is necessary to get correct century
-                let year = year.matches(in: string).last.flatMap({ Int("20" + $0) }) {
-                creditCard.expireDate = DateComponents(year: year, month: month)
+                let components = expiry.components(separatedBy: "/")
+                if let yearInt:Int = Int(components[1]), let monthInt:Int = Int(components[0]) {
+                    creditCard.expireDate = DateComponents(year: yearInt + ((yearInt < 2000) ? 2000 : 0), month: monthInt)
+                }
 
             } else if let name = name.firstMatch(in: string) {
                 let containsInvalidName = invalidNames.contains { name.lowercased().contains($0) }

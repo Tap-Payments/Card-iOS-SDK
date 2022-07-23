@@ -1,0 +1,23 @@
+{
+  "name": "DGCardScanner",
+  "version": "1.0.1",
+  "summary": "A credit card scanner",
+  "homepage": "https://github.com/donggyushin/DGCardScanner",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.md"
+  },
+  "authors": {
+    "donggyushin": "donggyu9410@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/donggyushin/DGCardScanner.git",
+    "tag": "1.0.1"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "swift_versions": "5.5",
+  "source_files": "Sources/DGCardScanner/**/*",
+  "swift_version": "5.5"
+}

@@ -1,5 +1,6 @@
 ${PODS_ROOT}/Target Support Files/Pods-TapCardCheckoutExample/Pods-TapCardCheckoutExample-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/CommonDataModelsKit-iOS/CommonDataModelsKit_iOS.framework
+${BUILT_PRODUCTS_DIR}/DGCardScanner/DGCardScanner.framework
 ${BUILT_PRODUCTS_DIR}/LocalisationManagerKit-iOS/LocalisationManagerKit_iOS.framework
 ${BUILT_PRODUCTS_DIR}/MOLH/MOLH.framework
 ${BUILT_PRODUCTS_DIR}/McPicker/McPicker.framework

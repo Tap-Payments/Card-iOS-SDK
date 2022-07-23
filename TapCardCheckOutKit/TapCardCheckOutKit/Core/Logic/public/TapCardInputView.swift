@@ -15,6 +15,7 @@ import TapUIKit_iOS
 import MOLH
 import TapCardScanner_iOS
 import AVFoundation
+import DGCardScanner
 
 /// Represents the on the shelf card forum entry view
 @objc public class TapCardInputView : UIView {
@@ -297,7 +298,15 @@ import AVFoundation
             return
         }
 
-        // First grant the authorization to use the camera
+        DGCardScanner.appearance.helperText = "Change helper text"
+        let scannerView = DGCardScanner.getScanner { number, date, name in
+            print("\(number)\n\(date)\n\(name)")
+        }
+        DispatchQueue.main.async {
+            presentScannerInViewController.present(scannerView, animated: true)
+        }
+        
+        /*// First grant the authorization to use the camera
         AVCaptureDevice.requestAccess(for: AVMediaType.video) { [weak self] response in
             if response {
                 //access granted
@@ -322,7 +331,7 @@ import AVFoundation
             }else {
                 
             }
-        }
+        }*/
     }
 }
 

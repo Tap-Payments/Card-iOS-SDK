@@ -1,0 +1,6 @@
+framework module DGCardScanner {
+  umbrella header "DGCardScanner-umbrella.h"
+
+  export *
+  module * { export * }
+}

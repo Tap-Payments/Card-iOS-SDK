@@ -139,6 +139,25 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="8Qa-gm-lu2">
                                 <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show scanning :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUg-p4-4vy">
+                                <rect key="frame" x="20" y="217" width="124" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4A2-4H-tSs">
+                                <rect key="frame" x="333" y="212" width="51" height="31"/>
+                                <connections>
+                                    <action selector="scanningSwitchValueChanged:" destination="Oqm-ex-1gl" eventType="valueChanged" id="KdH-FX-F8h"/>
+                                </connections>
+                            </switch>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uNG-rG-6n3">
+                                <rect key="frame" x="40" y="203" width="334" height="1"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="Yy8-Ge-0s9"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XHI-6f-edN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -146,6 +165,7 @@
                             <constraint firstItem="XdH-6n-IRy" firstAttribute="centerY" secondItem="75u-Gt-OoI" secondAttribute="centerY" id="1dW-Pd-iBe"/>
                             <constraint firstItem="75u-Gt-OoI" firstAttribute="trailing" secondItem="OjC-Mh-7J6" secondAttribute="trailing" id="1jN-Ei-bsN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="v5L-Yh-XDU" secondAttribute="trailing" constant="20" id="4eQ-F5-kyC"/>
+                            <constraint firstItem="uNG-rG-6n3" firstAttribute="leading" secondItem="YJD-vH-v39" secondAttribute="leadingMargin" constant="20" id="6wm-Gb-hFz"/>
                             <constraint firstItem="v5L-Yh-XDU" firstAttribute="top" secondItem="OjC-Mh-7J6" secondAttribute="bottom" constant="20" id="AKB-I5-y2Q"/>
                             <constraint firstItem="XdH-6n-IRy" firstAttribute="leading" secondItem="2d9-fC-fmF" secondAttribute="leading" id="DUw-3t-C9f"/>
                             <constraint firstItem="oT9-Fr-sdV" firstAttribute="leading" secondItem="XHI-6f-edN" secondAttribute="leading" constant="20" id="DsC-06-4Gb"/>
@@ -164,8 +184,14 @@
                             <constraint firstAttribute="bottom" secondItem="DT3-3z-Atu" secondAttribute="bottom" constant="40" id="f1d-Gn-o5f"/>
                             <constraint firstItem="2d9-fC-fmF" firstAttribute="centerY" secondItem="OjC-Mh-7J6" secondAttribute="centerY" id="gT8-1p-Xwv"/>
                             <constraint firstItem="XHI-6f-edN" firstAttribute="trailing" secondItem="oV1-HD-FTX" secondAttribute="trailing" constant="32" id="hFd-D5-If6"/>
+                            <constraint firstItem="4A2-4H-tSs" firstAttribute="top" secondItem="uNG-rG-6n3" secondAttribute="bottom" constant="8" symbolic="YES" id="hXl-W2-WLM"/>
                             <constraint firstItem="DT3-3z-Atu" firstAttribute="leading" secondItem="XHI-6f-edN" secondAttribute="leading" constant="20" id="jZQ-eU-Eh4"/>
                             <constraint firstItem="oV1-HD-FTX" firstAttribute="top" secondItem="XHI-6f-edN" secondAttribute="top" id="kKc-qV-ALD"/>
+                            <constraint firstItem="uNG-rG-6n3" firstAttribute="top" secondItem="75u-Gt-OoI" secondAttribute="bottom" constant="20" id="l4f-82-6Pb"/>
+                            <constraint firstItem="4A2-4H-tSs" firstAttribute="trailing" secondItem="75u-Gt-OoI" secondAttribute="trailing" id="nno-UV-lha"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uNG-rG-6n3" secondAttribute="trailing" constant="20" id="rT6-ID-vS7"/>
+                            <constraint firstItem="gUg-p4-4vy" firstAttribute="leading" secondItem="XdH-6n-IRy" secondAttribute="leading" id="uyP-FQ-9Yv"/>
+                            <constraint firstItem="gUg-p4-4vy" firstAttribute="centerY" secondItem="4A2-4H-tSs" secondAttribute="centerY" id="vEk-go-A3m"/>
                             <constraint firstItem="oT9-Fr-sdV" firstAttribute="centerY" secondItem="oV1-HD-FTX" secondAttribute="centerY" id="w2u-fP-GcF"/>
                         </constraints>
                     </view>
@@ -174,6 +200,7 @@
                         <outlet property="collectNameSwitch" destination="OjC-Mh-7J6" id="ZhW-na-dVa"/>
                         <outlet property="loadingIndicator" destination="8Qa-gm-lu2" id="IpZ-pa-87e"/>
                         <outlet property="localisationButton" destination="oV1-HD-FTX" id="D7H-Py-B2q"/>
+                        <outlet property="scanningSwitch" destination="4A2-4H-tSs" id="4Kc-yx-xpV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vIO-SY-TYw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

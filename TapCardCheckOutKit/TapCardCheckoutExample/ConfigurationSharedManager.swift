@@ -20,4 +20,7 @@ class ConfigurationSharedManager {
     /// Tells if we need to show the card brand or not
     var showCardBrands:Bool = false
     
+    /// Tells if we need to show the card scanning or not
+    var showCardScanning:Bool = false
+    
 }

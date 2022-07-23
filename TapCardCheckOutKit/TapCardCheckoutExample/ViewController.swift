@@ -25,7 +25,9 @@ class ViewController: UIViewController {
     func configureCardInput() {
         tapCardForum.setupCardForm(locale: sharedConfigurationSharedManager.selectedLocale,
                                    collectCardHolderName: sharedConfigurationSharedManager.collectCardHolderName,
-                                   showCardBrandsBar: sharedConfigurationSharedManager.showCardBrands)
+                                   showCardBrandsBar: sharedConfigurationSharedManager.showCardBrands,
+                                   showCardScanner: sharedConfigurationSharedManager.showCardScanning,
+                                   presentScannerInViewController: self)
     }
     
     @IBAction func tokenizeCardClicked(_ sender: Any) {

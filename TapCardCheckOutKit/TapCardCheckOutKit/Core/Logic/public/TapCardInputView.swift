@@ -13,6 +13,8 @@ import TapThemeManager2020
 import LocalisationManagerKit_iOS
 import TapUIKit_iOS
 import MOLH
+import TapCardScanner_iOS
+import AVFoundation
 
 /// Represents the on the shelf card forum entry view
 @objc public class TapCardInputView : UIView {
@@ -44,18 +46,21 @@ import MOLH
         }
     }
     
+    /// The full scanner object that we will use to start scanning on demand
+    private lazy var fullScanner:TapFullScreenCardScanner = TapFullScreenCardScanner()
+    
     /// A reference to the localisation manager
     private var locale:String = "en" {
         didSet {
             TapLocalisationManager.shared.localisationLocale = locale
-            initUI()
+            //initUI()
         }
     }
     
     /// Indicates whether ot not the card form will ask for the card holder name
     private var collectCardHolderName:Bool = false {
         didSet {
-            initUI()
+            //initUI()
         }
     }
     /// This is the height constraing of the card brands view. We will use to control its height based on its visibility
@@ -64,13 +69,17 @@ import MOLH
     /// Indicates whether ot not the card form will show the card brands bar
     private var showCardBrands:Bool = false {
         didSet {
-            setupCardBrandsBar()
+            //setupCardBrandsBar()
         }
     }
+    // Indicates whether ot not the card scanner. Default is false
+    private var showCardScanner:Bool = false
     
     /// The currency you want to show the card brands that accepts it. Default is KWD
     private var transactionCurrency: TapCurrencyCode = .KWD
     
+    /// The UIViewController that will display the scanner into
+    private var presentScannerInViewController:UIViewController?
     
     // Mark:- Init methods
     override init(frame: CGRect) {
@@ -92,10 +101,12 @@ import MOLH
      - Parameter locale: The locale identifer(e.g. en, ar, etc.0 Default value is en
      - Parameter collectCardHolderName: Indicates whether ot not the card form will ask for the card holder name. Default is false
      - Parameter showCardBrandsBar: Indicates whether ot not the card form will show the card brands bar. Default is false
+     - Parameter showCardScanner: Indicates whether ot not the card scanner. Default is false
      - Parameter transactionCurrency: The currency you want to show the card brands that accepts it. Default is KWD
+     - Parameter presentScannerInViewController: The UIViewController that will display the scanner into
      */
     
-    @objc public func setupCardForm(locale:String = "en", collectCardHolderName:Bool = false, showCardBrandsBar:Bool = false, transactionCurrency:TapCurrencyCode = .KWD) {
+    @objc public func setupCardForm(locale:String = "en", collectCardHolderName:Bool = false, showCardBrandsBar:Bool = false, showCardScanner:Bool = false, transactionCurrency:TapCurrencyCode = .KWD, presentScannerInViewController:UIViewController?) {
         // Set the locale
         self.locale = locale
         // Set the collection name ability
@@ -104,6 +115,14 @@ import MOLH
         self.showCardBrands = showCardBrandsBar
         // Set the needed currency
         self.transactionCurrency = transactionCurrency
+        // Indicates whether ot not the card scanner. Default is false
+        self.showCardScanner = showCardScanner
+        // The UIViewController that will display the scanner into
+        self.presentScannerInViewController = presentScannerInViewController
+        // Adjust the UI now
+        initUI()
+        // Init the card brands bar
+        setupCardBrandsBar()
     }
     
     /**
@@ -147,9 +166,6 @@ import MOLH
     /// Used as a consolidated method to do all the needed steps upon creating the view
     private func commonInit() {
         self.contentView = setupXIB()
-        initUI()
-        // Init the card brands bar
-        setupCardBrandsBar()
     }
     
     /// DOes the needed logic to fill in the card brands bar
@@ -230,7 +246,7 @@ import MOLH
         tapCardInput.translatesAutoresizingMaskIntoConstraints = false
         // No saving card and no scanning option for the card kit
         tapCardInput.showSaveCardOption = false
-        tapCardInput.showScanningOption = false
+        tapCardInput.showScanningOption = showCardScanner
         // Let us configure the theming and the internal variabls of the card input forum
         configureCardInputUI()
     }
@@ -257,7 +273,11 @@ import MOLH
     private func configureCardInputUI() {
         // As per the requirement, the card forum kit will not care about allowed card brands,
         // Hence we declare it to accept all cards.
-        tapCardInput.setup(for: .InlineCardInput, showCardName: collectCardHolderName, allowedCardBrands: CardBrand.allCases.map{ $0.rawValue })
+        var supportedBrands = Array(sharedNetworkManager.dataConfig.paymentOptions ?? [] ).map{ $0.brand.rawValue }
+        if supportedBrands.isEmpty {
+            supportedBrands = CardBrand.allCases.map{ $0.rawValue }
+        }
+        tapCardInput.setup(for: .InlineCardInput, showCardName: collectCardHolderName, allowedCardBrands: supportedBrands)
         // Let us listen to the card input ui callbacks if needed
         tapCardInput.delegate = self
     }
@@ -268,6 +288,41 @@ import MOLH
         sharedNetworkManager.callBinLookup(for: currentTapCard?.tapCardNumber)
         // Set the favorite card brand as per the binlook up response
         CardValidator.favoriteCardBrand = fetchSupportedCardSchemes(for: sharedNetworkManager.dataConfig.tapBinLookUpResponse?.scheme?.cardBrand)
+    }
+    
+    /// Handle the click on scan card by the user
+    private func showFullScanner(with customiser: TapFullScreenUICustomizer = .init()) {
+        // Make sure we have a UIViewcontroller to displa the full screen scanner on
+        guard let presentScannerInViewController = presentScannerInViewController else {
+            return
+        }
+
+        // First grant the authorization to use the camera
+        AVCaptureDevice.requestAccess(for: AVMediaType.video) { [weak self] response in
+            if response {
+                //access granted
+                DispatchQueue.main.async {[weak self] in
+                    do {
+                        try self?.fullScanner.showModalScreen(presenter: presentScannerInViewController,tapCardScannerDidFinish: { (scannedCard) in
+                            
+                            let alert:UIAlertController = UIAlertController(title: "Scanned", message: "Card Number : \(scannedCard.tapCardNumber ?? "")\nCard Name : \(scannedCard.tapCardName ?? "")\nCard Expiry : \(scannedCard.tapCardExpiryMonth ?? "")/\(scannedCard.tapCardExpiryYear ?? "")\n", preferredStyle: .alert)
+                            let stopAlertAction:UIAlertAction = UIAlertAction(title: "OK", style: .cancel) { (_) in
+                                
+                            }
+                            
+                            alert.addAction(stopAlertAction)
+                            DispatchQueue.main.async {
+                                presentScannerInViewController.present(alert, animated: true, completion: nil)
+                            }
+                        },scannerUICustomization: customiser)
+                    }catch{
+                        print(error.localizedDescription)
+                    }
+                }
+            }else {
+                
+            }
+        }
     }
 }
 
@@ -284,7 +339,7 @@ extension TapCardInputView : TapCardInputProtocol {
     }
     
     public func scanCardClicked() {
-        
+        showFullScanner()
     }
     
     public func saveCardChanged(enabled: Bool) {

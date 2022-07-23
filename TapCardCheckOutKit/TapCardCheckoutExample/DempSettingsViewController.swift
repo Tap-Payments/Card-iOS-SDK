@@ -14,6 +14,7 @@ class DempSettingsViewController: UIViewController {
     @IBOutlet weak var localisationButton: UIButton!
     @IBOutlet weak var collectNameSwitch: UISwitch!
     @IBOutlet weak var cardBrandsSwitch: UISwitch!
+    @IBOutlet weak var scanningSwitch: UISwitch!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
@@ -58,6 +59,8 @@ class DempSettingsViewController: UIViewController {
         collectNameSwitch.isOn = sharedConfigurationSharedManager.collectCardHolderName
         // Set the show card brand switch
         cardBrandsSwitch.isOn = sharedConfigurationSharedManager.showCardBrands
+        // Set the show card scanning switch
+        scanningSwitch.isOn = sharedConfigurationSharedManager.showCardScanning
     }
     
     
@@ -95,6 +98,10 @@ class DempSettingsViewController: UIViewController {
     @IBAction func cardBrandsSwitchValueChanged(_ sender: Any) {
         
         sharedConfigurationSharedManager.showCardBrands = cardBrandsSwitch.isOn
+    }
+    
+    @IBAction func scanningSwitchValueChanged(_ sender: Any) {
+        sharedConfigurationSharedManager.showCardScanning = scanningSwitch.isOn
     }
     /*
     // MARK: - Navigation

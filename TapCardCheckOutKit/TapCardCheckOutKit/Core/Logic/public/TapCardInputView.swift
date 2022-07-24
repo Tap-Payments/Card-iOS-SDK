@@ -16,6 +16,11 @@ import MOLH
 import TapCardScanner_iOS
 import AVFoundation
 
+
+@objc public protocol TapCardInputDelegate {
+    @objc func errorOccured(with error:CardKitErrorType)
+}
+
 /// Represents the on the shelf card forum entry view
 @objc public class TapCardInputView : UIView {
     /// Represents the main holding view
@@ -87,6 +92,9 @@ import AVFoundation
     /// Decides which cards shall we accept
     private var allowedCardType:cardTypes = .All
     
+    /// A delegate listens for needed actions and callbacks
+    private var tapCardInputDelegate:TapCardInputDelegate?
+    
     // Mark:- Init methods
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -112,9 +120,10 @@ import AVFoundation
      - Parameter presentScannerInViewController: The UIViewController that will display the scanner into
      - Parameter blurCardScannerBackground: The ui customization to the full screen scanner borer color and to show a blur
      - Parameter allowedCardTypes: Decides which cards shall we accept. Default is All
+     - Parameter tapCardInputDelegate: A delegate listens for needed actions and callbacks
      */
     
-    @objc public func setupCardForm(locale:String = "en", collectCardHolderName:Bool = false, showCardBrandsBar:Bool = false, showCardScanner:Bool = false, tapScannerUICustomization:TapFullScreenUICustomizer = .init() , transactionCurrency:TapCurrencyCode = .KWD, presentScannerInViewController:UIViewController?, allowedCardTypes:cardTypes = .All) {
+    @objc public func setupCardForm(locale:String = "en", collectCardHolderName:Bool = false, showCardBrandsBar:Bool = false, showCardScanner:Bool = false, tapScannerUICustomization:TapFullScreenUICustomizer = .init() , transactionCurrency:TapCurrencyCode = .KWD, presentScannerInViewController:UIViewController?, allowedCardTypes:cardTypes = .All, tapCardInputDelegate:TapCardInputDelegate? = nil) {
         // Set the locale
         self.locale = locale
         // Set the collection name ability
@@ -131,6 +140,8 @@ import AVFoundation
         self.presentScannerInViewController = presentScannerInViewController
         // Decides which cards shall we accept
         self.allowedCardType = allowedCardTypes
+        // A delegate listens for needed actions and callbacks
+        self.tapCardInputDelegate = tapCardInputDelegate
         // Adjust the UI now
         initUI()
         // Init the card brands bar
@@ -317,6 +328,7 @@ import AVFoundation
         }else{
             // Let us reset the card data and inform the delegate that the user tried entering a wrong card number
             self.tapCardInput.reset()
+            self.tapCardInputDelegate?.errorOccured(with: .InvalidCardType)
         }
     }
     

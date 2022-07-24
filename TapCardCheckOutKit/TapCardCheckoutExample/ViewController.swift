@@ -8,7 +8,12 @@
 import UIKit
 import TapCardCheckOutKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, TapCardInputDelegate {
+    
+    func errorOccured(with error: CardKitErrorType) {
+        showAlert(title: "Wrong card type", message: "Tap informed us, you tried with a non allowed card type. Please only \(sharedConfigurationSharedManager.allowedCardTypes.description) cards")
+    }
+    
 
     @IBOutlet weak var tapCardForum: TapCardInputView!
     @IBOutlet weak var currencySegment: UISegmentedControl!
@@ -23,13 +28,15 @@ class ViewController: UIViewController {
     
     /// Apply the configurations
     func configureCardInput() {
+        
         tapCardForum.setupCardForm(locale: sharedConfigurationSharedManager.selectedLocale,
                                    collectCardHolderName: sharedConfigurationSharedManager.collectCardHolderName,
                                    showCardBrandsBar: sharedConfigurationSharedManager.showCardBrands,
                                    showCardScanner: sharedConfigurationSharedManager.showCardScanning,
                                    tapScannerUICustomization: .init(blurCardScannerBackground:false),
                                    presentScannerInViewController: self,
-                                   allowedCardTypes: sharedConfigurationSharedManager.allowedCardTypes)
+                                   allowedCardTypes: sharedConfigurationSharedManager.allowedCardTypes,
+                                   tapCardInputDelegate: self)
     }
     
     @IBAction func tokenizeCardClicked(_ sender: Any) {
@@ -60,5 +67,9 @@ class ViewController: UIViewController {
             self?.present(alert, animated: true)
         }
     }
+    
+    
+    
+    
 }
 

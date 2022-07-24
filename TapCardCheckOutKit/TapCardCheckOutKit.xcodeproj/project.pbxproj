@@ -64,6 +64,7 @@
 		E83FD09B2889E77000057F22 /* TapBinResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83FD09A2889E77000057F22 /* TapBinResponseModel.swift */; };
 		E83FD09D2889E7AB00057F22 /* CardScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83FD09C2889E7AB00057F22 /* CardScheme.swift */; };
 		E83FD0DA288D590800057F22 /* amazon.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E83FD0D9288D590800057F22 /* amazon.jpeg */; };
+		E83FD0DC288D629D00057F22 /* CardKitErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83FD0DB288D629D00057F22 /* CardKitErrorType.swift */; };
 		E874F804288585B70067DB3E /* DempSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874F803288585B70067DB3E /* DempSettingsViewController.swift */; };
 		E874F806288586C50067DB3E /* ConfigurationSharedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874F805288586C50067DB3E /* ConfigurationSharedManager.swift */; };
 /* End PBXBuildFile section */
@@ -155,6 +156,7 @@
 		E83FD09A2889E77000057F22 /* TapBinResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapBinResponseModel.swift; sourceTree = "<group>"; };
 		E83FD09C2889E7AB00057F22 /* CardScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardScheme.swift; sourceTree = "<group>"; };
 		E83FD0D9288D590800057F22 /* amazon.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = amazon.jpeg; sourceTree = "<group>"; };
+		E83FD0DB288D629D00057F22 /* CardKitErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardKitErrorType.swift; sourceTree = "<group>"; };
 		E874F803288585B70067DB3E /* DempSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DempSettingsViewController.swift; sourceTree = "<group>"; };
 		E874F805288586C50067DB3E /* ConfigurationSharedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationSharedManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -305,6 +307,7 @@
 				E832643227E9E14D005F3AAF /* AddressType.swift */,
 				E832641227E9DD31005F3AAF /* SDKMode.swift */,
 				E832641427E9DD72005F3AAF /* TapNetworkPath.swift */,
+				E83FD0DB288D629D00057F22 /* CardKitErrorType.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -600,6 +603,7 @@
 				E832642627E9DFB4005F3AAF /* InternalSDKSettings.swift in Sources */,
 				E832640627E9DB05005F3AAF /* NetworkManager.swift in Sources */,
 				E832641927E9DE35005F3AAF /* SecretKey.swift in Sources */,
+				E83FD0DC288D629D00057F22 /* CardKitErrorType.swift in Sources */,
 				E83262E627E88B6E005F3AAF /* TapCardCheckOutKit.docc in Sources */,
 				E832640827E9DBE0005F3AAF /* NetworkManagerExtension.swift in Sources */,
 				E832643727E9E193005F3AAF /* NetworkManagerApiCallsExtension.swift in Sources */,

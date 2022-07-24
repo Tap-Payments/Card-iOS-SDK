@@ -84,6 +84,9 @@ import AVFoundation
     /// The UIViewController that will display the scanner into
     private var presentScannerInViewController:UIViewController?
     
+    /// Decides which cards shall we accept
+    private var allowedCardType:cardTypes = .All
+    
     // Mark:- Init methods
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -108,9 +111,10 @@ import AVFoundation
      - Parameter transactionCurrency: The currency you want to show the card brands that accepts it. Default is KWD
      - Parameter presentScannerInViewController: The UIViewController that will display the scanner into
      - Parameter blurCardScannerBackground: The ui customization to the full screen scanner borer color and to show a blur
+     - Parameter allowedCardTypes: Decides which cards shall we accept. Default is All
      */
     
-    @objc public func setupCardForm(locale:String = "en", collectCardHolderName:Bool = false, showCardBrandsBar:Bool = false, showCardScanner:Bool = false, tapScannerUICustomization:TapFullScreenUICustomizer = .init() , transactionCurrency:TapCurrencyCode = .KWD, presentScannerInViewController:UIViewController?) {
+    @objc public func setupCardForm(locale:String = "en", collectCardHolderName:Bool = false, showCardBrandsBar:Bool = false, showCardScanner:Bool = false, tapScannerUICustomization:TapFullScreenUICustomizer = .init() , transactionCurrency:TapCurrencyCode = .KWD, presentScannerInViewController:UIViewController?, allowedCardTypes:cardTypes = .All) {
         // Set the locale
         self.locale = locale
         // Set the collection name ability
@@ -125,6 +129,8 @@ import AVFoundation
         self.showCardScanner = showCardScanner
         // The UIViewController that will display the scanner into
         self.presentScannerInViewController = presentScannerInViewController
+        // Decides which cards shall we accept
+        self.allowedCardType = allowedCardTypes
         // Adjust the UI now
         initUI()
         // Init the card brands bar

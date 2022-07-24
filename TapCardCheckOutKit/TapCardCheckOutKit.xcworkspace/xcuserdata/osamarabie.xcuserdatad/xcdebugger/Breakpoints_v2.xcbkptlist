@@ -14,8 +14,8 @@
             filePath = "TapCardCheckOutKit/Core/Logic/public/TapCardInputView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "364"
-            endingLineNumber = "364"
+            startingLineNumber = "370"
+            endingLineNumber = "370"
             landmarkName = "creditCardScannerViewController(_:didFinishWith:)"
             landmarkType = "7">
             <Locations>
@@ -94,8 +94,8 @@
             filePath = "TapCardCheckOutKit/Core/Logic/public/TapCardInputView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "372"
-            endingLineNumber = "372"
+            startingLineNumber = "378"
+            endingLineNumber = "378"
             landmarkName = "creditCardScannerViewController(_:didFinishWith:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -126,8 +126,8 @@
             filePath = "TapCardCheckOutKit/Core/Logic/public/TapCardInputView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
             landmarkName = "updateTransactionCurrenct(to:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -142,8 +142,8 @@
             filePath = "TapCardCheckOutKit/Core/Logic/public/TapCardInputView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "328"
-            endingLineNumber = "328"
+            startingLineNumber = "334"
+            endingLineNumber = "334"
             landmarkName = "cardDataChanged(tapCard:)"
             landmarkType = "7">
             <Locations>

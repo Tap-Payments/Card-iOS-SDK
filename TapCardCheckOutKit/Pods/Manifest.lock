@@ -5,9 +5,7 @@ PODS:
   - McPicker (3.0.0)
   - MOLH (1.4.3)
   - Nuke (10.7.1)
-  - PayCardsRecognizer (1.1.7)
   - PullUpController (0.8.0)
-  - Reg (0.2.5)
   - SimpleAnimation (0.4.2)
   - SnapKit (5.6.0)
   - SwiftyRSA (1.7.0):
@@ -27,9 +25,8 @@ PODS:
     - SnapKit
     - TapCardVlidatorKit-iOS
     - TapThemeManager2020
-  - TapCardScanner-iOS (1.0.12):
-    - CommonDataModelsKit-iOS (~> 1.0.1)
-    - PayCardsRecognizer (~> 1.1.7)
+  - TapCardScanner-iOS (1.0.14):
+    - CommonDataModelsKit-iOS
   - TapCardVlidatorKit-iOS (1.0.16)
   - TapFontKit-iOS (0.0.9):
     - TapSwiftFixesV2
@@ -62,7 +59,6 @@ PODS:
     - TapThemeManager2020
 
 DEPENDENCIES:
-  - Reg
   - SwiftyRSA
   - TapApplicationV2
   - TapKeychain
@@ -76,9 +72,7 @@ SPEC REPOS:
     - McPicker
     - MOLH
     - Nuke
-    - PayCardsRecognizer
     - PullUpController
-    - Reg
     - SimpleAnimation
     - SnapKit
     - SwiftyRSA
@@ -101,9 +95,7 @@ SPEC CHECKSUMS:
   McPicker: ba38be56a8194faa5249eca4226c364eed628044
   MOLH: e45827d200aeb1310641090fd8cd03ad2b42ae72
   Nuke: 279f17a599fd1c83cf51de5e0e1f2db143a287b0
-  PayCardsRecognizer: 2e4d1b2fdd5f1528fb56064a91e1d58a1af7a2db
   PullUpController: 2f7ccaa0f35b31b47e3efbe1854c7f781552b3c7
-  Reg: 4413fa2dc9d97bcc9d565537fcc141b7b7c158f2
   SimpleAnimation: 5430010b9548f392e7459290acce01c9ceba7171
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SwiftyRSA: 8c6dd1ea7db1b8dc4fb517a202f88bb1354bc2c6
@@ -111,7 +103,7 @@ SPEC CHECKSUMS:
   TapApplePayKit-iOS: 940ab0575100d21e6080d17851cfe6c36bfebc24
   TapApplicationV2: aee3d046c4272778431e1535de6cab34e1269f8c
   TapCardInputKit-iOS: 6bd65ea209f795432c408fe42a1880d60c2c9dcc
-  TapCardScanner-iOS: baba47bff7daa3db8cb9e86e60fc412f1322fbc6
+  TapCardScanner-iOS: 2195128c347d45c3d689ec77ba076d18c059489d
   TapCardVlidatorKit-iOS: c89d510445a159d9f6967923096115783dcd1cdb
   TapFontKit-iOS: 51ed2ddbe9f2b5ece1cc587ed45af9147e5c6fc1
   TapKeychain: 143aa70bb2d1b094e0298e944660264034c79849
@@ -120,6 +112,6 @@ SPEC CHECKSUMS:
   TapThemeManager2020: d27a89804a3e950eae889033dcf40fe3a2cde187
   TapUIKit-iOS: 374c1c8e03ea7536bcebe070f4048c85053a3a16
 
-PODFILE CHECKSUM: 4a43cf5ba73c12c01b7aba13c0bc5bdde7500007
+PODFILE CHECKSUM: f64cfca9e3aa22d8a0bcfca3f135e209d533f415
 
 COCOAPODS: 1.11.2

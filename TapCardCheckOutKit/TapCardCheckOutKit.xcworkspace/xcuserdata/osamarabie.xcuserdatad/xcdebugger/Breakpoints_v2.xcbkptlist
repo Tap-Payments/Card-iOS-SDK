@@ -14,8 +14,8 @@
             filePath = "TapCardCheckOutKit/Core/Logic/public/TapCardInputView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "381"
-            endingLineNumber = "381"
+            startingLineNumber = "364"
+            endingLineNumber = "364"
             landmarkName = "creditCardScannerViewController(_:didFinishWith:)"
             landmarkType = "7">
             <Locations>
@@ -94,8 +94,8 @@
             filePath = "TapCardCheckOutKit/Core/Logic/public/TapCardInputView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "389"
-            endingLineNumber = "389"
+            startingLineNumber = "372"
+            endingLineNumber = "372"
             landmarkName = "creditCardScannerViewController(_:didFinishWith:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -114,6 +114,70 @@
             endingLineNumber = "128"
             landmarkName = "resetBinData()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3939064D-1207-43CA-8BA5-F5BB9C97310E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TapCardCheckOutKit/Core/Logic/public/TapCardInputView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "updateTransactionCurrenct(to:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "71B85264-FC02-47CF-8149-58EC7D085F60"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TapCardCheckOutKit/Core/Logic/public/TapCardInputView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "328"
+            endingLineNumber = "328"
+            landmarkName = "cardDataChanged(tapCard:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "71B85264-FC02-47CF-8149-58EC7D085F60 - ef06eca8fb9e2089"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TapCardCheckOutKit.TapCardInputView.cardDataChanged(tapCard: CommonDataModelsKit_iOS.TapCard) -&gt; ()"
+                  moduleName = "TapCardCheckOutKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/osamarabie/Desktop/Tap/TapCardCheckOutKit/TapCardCheckOutKit/TapCardCheckOutKit/Core/Logic/public/TapCardInputView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "330"
+                  endingLineNumber = "330"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  uuid = "71B85264-FC02-47CF-8149-58EC7D085F60 - ef06eca8fb9e20cf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TapCardCheckOutKit.TapCardInputView.cardDataChanged(tapCard: CommonDataModelsKit_iOS.TapCard) -&gt; ()"
+                  moduleName = "TapCardCheckOutKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/osamarabie/Desktop/Tap/TapCardCheckOutKit/TapCardCheckOutKit/TapCardCheckOutKit/Core/Logic/public/TapCardInputView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "328"
+                  endingLineNumber = "328"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

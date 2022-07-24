@@ -47,7 +47,7 @@ import AVFoundation
     }
     
     /// The full scanner object that we will use to start scanning on demand
-    private lazy var fullScanner:TapFullScreenCardScanner = TapFullScreenCardScanner()
+    private var fullScanner:TapFullScreenScannerViewController = TapFullScreenScannerViewController()
     
     /// A reference to the localisation manager
     private var locale:String = "en" {
@@ -72,8 +72,11 @@ import AVFoundation
             //setupCardBrandsBar()
         }
     }
-    // Indicates whether ot not the card scanner. Default is false
+    /// Indicates whether ot not the card scanner. Default is false
     private var showCardScanner:Bool = false
+    
+    /// The ui customization to the full screen scanner borer color and to show a blut
+    private var tapScannerUICustomization:TapFullScreenUICustomizer = .init()
     
     /// The currency you want to show the card brands that accepts it. Default is KWD
     private var transactionCurrency: TapCurrencyCode = .KWD
@@ -104,15 +107,18 @@ import AVFoundation
      - Parameter showCardScanner: Indicates whether ot not the card scanner. Default is false
      - Parameter transactionCurrency: The currency you want to show the card brands that accepts it. Default is KWD
      - Parameter presentScannerInViewController: The UIViewController that will display the scanner into
+     - Parameter blurCardScannerBackground: The ui customization to the full screen scanner borer color and to show a blur
      */
     
-    @objc public func setupCardForm(locale:String = "en", collectCardHolderName:Bool = false, showCardBrandsBar:Bool = false, showCardScanner:Bool = false, transactionCurrency:TapCurrencyCode = .KWD, presentScannerInViewController:UIViewController?) {
+    @objc public func setupCardForm(locale:String = "en", collectCardHolderName:Bool = false, showCardBrandsBar:Bool = false, showCardScanner:Bool = false, tapScannerUICustomization:TapFullScreenUICustomizer = .init() , transactionCurrency:TapCurrencyCode = .KWD, presentScannerInViewController:UIViewController?) {
         // Set the locale
         self.locale = locale
         // Set the collection name ability
         self.collectCardHolderName = collectCardHolderName
         // Set the card bar ability
         self.showCardBrands = showCardBrandsBar
+        // The ui customization to the full screen scanner borer color and to show a blur
+        self.tapScannerUICustomization = tapScannerUICustomization
         // Set the needed currency
         self.transactionCurrency = transactionCurrency
         // Indicates whether ot not the card scanner. Default is false
@@ -294,46 +300,24 @@ import AVFoundation
     }
     
     /// Handle the click on scan card by the user
-    private func showFullScanner(with customiser: TapFullScreenUICustomizer = .init()) {
-        // Make sure we have a UIViewcontroller to displa the full screen scanner on
+    private func showFullScanner() {
+        // Make sure we have a UIViewcontroller to display the full screen scanner on
         guard let presentScannerInViewController = presentScannerInViewController else {
             return
         }
 
-        if #available(iOS 13, *) {
-            let creditCardScannerViewController = CreditCardScannerViewController(delegate: self)
-            presentScannerInViewController.present(creditCardScannerViewController, animated: true)
-        } else {
-            // Fallback on earlier versions
-        }
-        
-        
-        /*// First grant the authorization to use the camera
+        // First grant the authorization to use the camera
         AVCaptureDevice.requestAccess(for: AVMediaType.video) { [weak self] response in
             if response {
                 //access granted
                 DispatchQueue.main.async {[weak self] in
-                    do {
-                        try self?.fullScanner.showModalScreen(presenter: presentScannerInViewController,tapCardScannerDidFinish: { (scannedCard) in
-                            
-                            let alert:UIAlertController = UIAlertController(title: "Scanned", message: "Card Number : \(scannedCard.tapCardNumber ?? "")\nCard Name : \(scannedCard.tapCardName ?? "")\nCard Expiry : \(scannedCard.tapCardExpiryMonth ?? "")/\(scannedCard.tapCardExpiryYear ?? "")\n", preferredStyle: .alert)
-                            let stopAlertAction:UIAlertAction = UIAlertAction(title: "OK", style: .cancel) { (_) in
-                                
-                            }
-                            
-                            alert.addAction(stopAlertAction)
-                            DispatchQueue.main.async {
-                                presentScannerInViewController.present(alert, animated: true, completion: nil)
-                            }
-                        },scannerUICustomization: customiser)
-                    }catch{
-                        print(error.localizedDescription)
-                    }
+                    self?.fullScanner = .init(delegate: self, uiCustomization: self?.tapScannerUICustomization ?? .init())
+                    presentScannerInViewController.present((self?.fullScanner)!, animated: true)
                 }
             }else {
                 
             }
-        }*/
+        }
     }
 }
 
@@ -367,26 +351,25 @@ extension TapCardInputView : TapCardInputProtocol {
     }
 }
 
-@available(iOS 13, *)
-extension TapCardInputView: CreditCardScannerViewControllerDelegate {
-    public func creditCardScannerViewControllerDidCancel(_ viewController: CreditCardScannerViewController) {
-        
+extension TapCardInputView: TapCreditCardScannerViewControllerDelegate {
+    public func creditCardScannerViewControllerDidCancel(_ viewController: TapFullScreenScannerViewController) {
+        viewController.dismiss(animated: true)
     }
     
-    public func creditCardScannerViewController(_ viewController: CreditCardScannerViewController, didErrorWith error: CreditCardScannerError) {
-        print(error.localizedDescription)
+    public func creditCardScannerViewController(_ viewController: TapFullScreenScannerViewController, didErrorWith error: Error) {
+        viewController.dismiss(animated: true)
     }
     
-    public func creditCardScannerViewController(_ viewController: CreditCardScannerViewController, didFinishWith card: CreditCard) {
+    public func creditCardScannerViewController(_ viewController: TapFullScreenScannerViewController, didFinishWith card: TapCard) {
         //print("\(card.name ?? "")\n\(card.number ?? "")\n\(card.expireDate?.month)\n\(card.expireDate?.year)")
         viewController.dismiss(animated: true,completion: {
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(0), execute: {
                 [weak self] in
-                self?.tapCardInput.setCardData(tapCard: .init(tapCardNumber: card.number?.tap_substring(to: 6)),then: false)
+                self?.tapCardInput.setCardData(tapCard: .init(tapCardNumber: card.tapCardNumber?.tap_substring(to: 6)),then: false)
             })
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
                 [weak self] in
-                self?.tapCardInput.setCardData(tapCard: .init(tapCardNumber: card.number),then: true)
+                self?.tapCardInput.setCardData(tapCard: .init(tapCardNumber: card.tapCardNumber),then: true)
             })
         })
     }

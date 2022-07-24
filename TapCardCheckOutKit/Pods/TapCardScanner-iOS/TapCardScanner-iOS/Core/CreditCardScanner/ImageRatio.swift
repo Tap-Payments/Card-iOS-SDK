@@ -1,14 +1,14 @@
 //
-//  File.swift
-//
-//
-//  Created by miyasaka on 2020/07/31.
+//  ImageRatio.swift
+//  Created by Osama Rabie on 24/07/2021.
+//  Copyright © 2021 Tap Payments. All rights reserved.
 //
 
 import AVFoundation
 import Foundation
 
-enum ImageRatio {
+/// An enum to define the popular sizes to look into when fetching a card object from within a full screen camera feed
+internal enum ImageRatio {
     case cif352x288
     case vga640x480
     case iFrame960x540

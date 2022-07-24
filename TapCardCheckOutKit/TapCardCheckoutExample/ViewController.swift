@@ -27,6 +27,7 @@ class ViewController: UIViewController {
                                    collectCardHolderName: sharedConfigurationSharedManager.collectCardHolderName,
                                    showCardBrandsBar: sharedConfigurationSharedManager.showCardBrands,
                                    showCardScanner: sharedConfigurationSharedManager.showCardScanning,
+                                   tapScannerUICustomization: .init(blurCardScannerBackground:false),
                                    presentScannerInViewController: self)
     }
     

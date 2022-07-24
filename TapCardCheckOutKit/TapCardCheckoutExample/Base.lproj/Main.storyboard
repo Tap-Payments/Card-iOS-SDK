@@ -17,44 +17,69 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="amazon.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="OFc-Ee-Ngi">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FDp-Ru-IEn" customClass="TapCardInputView" customModule="TapCardCheckOutKit">
-                                <rect key="frame" x="0.0" y="94" width="414" height="100"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="100"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Srx-S9-le4"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ct0-f9-49w">
+                                <rect key="frame" x="0.0" y="742" width="414" height="100"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9km-nu-X9C">
+                                        <rect key="frame" x="0.0" y="34.5" width="414" height="32"/>
+                                        <segments>
+                                            <segment title="KWD"/>
+                                            <segment title="EGP"/>
+                                            <segment title="SAR"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="changeCurrency:" destination="BYZ-38-t0r" eventType="valueChanged" id="pVB-cp-Aeu"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="9km-nu-X9C" firstAttribute="centerX" secondItem="ct0-f9-49w" secondAttribute="centerX" id="80q-jO-BNu"/>
+                                    <constraint firstAttribute="trailing" secondItem="9km-nu-X9C" secondAttribute="trailing" id="A63-Yk-1Db"/>
+                                    <constraint firstItem="9km-nu-X9C" firstAttribute="centerY" secondItem="ct0-f9-49w" secondAttribute="centerY" id="Ajj-VO-cq0"/>
+                                    <constraint firstAttribute="height" constant="100" id="HtT-2t-Equ"/>
+                                    <constraint firstItem="9km-nu-X9C" firstAttribute="leading" secondItem="ct0-f9-49w" secondAttribute="leading" id="cpZ-Pm-IJI"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPG-Lj-Fqc">
-                                <rect key="frame" x="150.5" y="224" width="113.5" height="31"/>
+                                <rect key="frame" x="20" y="128" width="374" height="140"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="wyy-bD-tQt"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Tokenize card"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
                                 <connections>
                                     <action selector="tokenizeCardClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jn9-Qy-QQM"/>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9km-nu-X9C">
-                                <rect key="frame" x="20" y="275" width="374" height="32"/>
-                                <segments>
-                                    <segment title="KWD"/>
-                                    <segment title="EGP"/>
-                                    <segment title="SAR"/>
-                                </segments>
-                                <connections>
-                                    <action selector="changeCurrency:" destination="BYZ-38-t0r" eventType="valueChanged" id="pVB-cp-Aeu"/>
-                                </connections>
-                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="9km-nu-X9C" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="2fn-iS-g09"/>
-                            <constraint firstItem="aPG-Lj-Fqc" firstAttribute="top" secondItem="FDp-Ru-IEn" secondAttribute="bottom" constant="30" id="8gn-7H-a5o"/>
-                            <constraint firstItem="9km-nu-X9C" firstAttribute="top" secondItem="aPG-Lj-Fqc" secondAttribute="bottom" constant="20" id="9um-m1-RX1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ct0-f9-49w" secondAttribute="bottom" id="0tQ-Tz-OTq"/>
+                            <constraint firstItem="ct0-f9-49w" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="5EU-aw-Skt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FDp-Ru-IEn" secondAttribute="trailing" id="ETE-e7-ecc"/>
                             <constraint firstItem="FDp-Ru-IEn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Hcr-Ct-0TG"/>
+                            <constraint firstItem="FDp-Ru-IEn" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="Iqr-ze-dM8"/>
                             <constraint firstItem="aPG-Lj-Fqc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mzl-AT-BEx"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9km-nu-X9C" secondAttribute="trailing" constant="20" id="V9Y-Di-sS4"/>
-                            <constraint firstItem="FDp-Ru-IEn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="s0o-3W-y7I"/>
+                            <constraint firstItem="OFc-Ee-Ngi" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="awl-Qp-EbD"/>
+                            <constraint firstItem="aPG-Lj-Fqc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="cYo-T4-vI6"/>
+                            <constraint firstItem="OFc-Ee-Ngi" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="e8l-mg-U2M"/>
+                            <constraint firstItem="OFc-Ee-Ngi" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="fPc-w5-jtu"/>
+                            <constraint firstItem="OFc-Ee-Ngi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="icV-TV-sEl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aPG-Lj-Fqc" secondAttribute="trailing" constant="20" id="jka-aY-Ilj"/>
+                            <constraint firstItem="aPG-Lj-Fqc" firstAttribute="top" secondItem="FDp-Ru-IEn" secondAttribute="bottom" constant="8" symbolic="YES" id="ona-30-cIH"/>
+                            <constraint firstItem="ct0-f9-49w" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="y11-MG-XpF"/>
                         </constraints>
                     </view>
                     <connections>
@@ -64,7 +89,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="135"/>
+            <point key="canvasLocation" x="137.68115942028987" y="134.59821428571428"/>
         </scene>
         <!--Demp Settings View Controller-->
         <scene sceneID="Tux-Jm-qCQ">
@@ -209,6 +234,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="amazon.jpeg" width="390" height="844"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

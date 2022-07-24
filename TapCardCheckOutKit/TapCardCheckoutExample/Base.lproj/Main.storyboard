@@ -183,6 +183,27 @@
                                     <constraint firstAttribute="height" constant="1" id="Yy8-Ge-0s9"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allowed card type : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kaC-Mk-ewt">
+                                <rect key="frame" x="20" y="272" width="149.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i88-Xx-j99">
+                                <rect key="frame" x="189.5" y="267" width="192.5" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="All"/>
+                                <connections>
+                                    <action selector="allowedCardsClicked:" destination="Oqm-ex-1gl" eventType="touchUpInside" id="C7R-wv-Wk3"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="shi-R8-vsr">
+                                <rect key="frame" x="40" y="251" width="334" height="1"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="Io2-Fo-Gkx"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XHI-6f-edN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -192,6 +213,8 @@
                             <constraint firstAttribute="trailingMargin" secondItem="v5L-Yh-XDU" secondAttribute="trailing" constant="20" id="4eQ-F5-kyC"/>
                             <constraint firstItem="uNG-rG-6n3" firstAttribute="leading" secondItem="YJD-vH-v39" secondAttribute="leadingMargin" constant="20" id="6wm-Gb-hFz"/>
                             <constraint firstItem="v5L-Yh-XDU" firstAttribute="top" secondItem="OjC-Mh-7J6" secondAttribute="bottom" constant="20" id="AKB-I5-y2Q"/>
+                            <constraint firstItem="i88-Xx-j99" firstAttribute="trailing" secondItem="4A2-4H-tSs" secondAttribute="trailing" id="BJ0-vU-i8Y"/>
+                            <constraint firstItem="kaC-Mk-ewt" firstAttribute="leading" secondItem="gUg-p4-4vy" secondAttribute="leading" id="CHQ-ev-3X7"/>
                             <constraint firstItem="XdH-6n-IRy" firstAttribute="leading" secondItem="2d9-fC-fmF" secondAttribute="leading" id="DUw-3t-C9f"/>
                             <constraint firstItem="oT9-Fr-sdV" firstAttribute="leading" secondItem="XHI-6f-edN" secondAttribute="leading" constant="20" id="DsC-06-4Gb"/>
                             <constraint firstItem="oV1-HD-FTX" firstAttribute="leading" secondItem="oT9-Fr-sdV" secondAttribute="trailing" constant="20" id="GTT-CN-THV"/>
@@ -200,6 +223,7 @@
                             <constraint firstItem="K18-SB-nMz" firstAttribute="leading" secondItem="YJD-vH-v39" secondAttribute="leadingMargin" constant="20" id="HqQ-kF-WuM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="K18-SB-nMz" secondAttribute="trailing" constant="20" id="MBG-i4-vIh"/>
                             <constraint firstItem="2d9-fC-fmF" firstAttribute="leading" secondItem="oT9-Fr-sdV" secondAttribute="leading" id="MsL-Mf-j16"/>
+                            <constraint firstItem="kaC-Mk-ewt" firstAttribute="centerY" secondItem="i88-Xx-j99" secondAttribute="centerY" id="Vqa-gg-TVj"/>
                             <constraint firstItem="OjC-Mh-7J6" firstAttribute="top" secondItem="K18-SB-nMz" secondAttribute="bottom" constant="8" symbolic="YES" id="X8H-DL-Zxe"/>
                             <constraint firstItem="v5L-Yh-XDU" firstAttribute="leading" secondItem="YJD-vH-v39" secondAttribute="leadingMargin" constant="20" id="XdQ-Va-o6D"/>
                             <constraint firstItem="8Qa-gm-lu2" firstAttribute="centerY" secondItem="YJD-vH-v39" secondAttribute="centerY" id="Y4b-Hv-Z3d"/>
@@ -215,12 +239,16 @@
                             <constraint firstItem="uNG-rG-6n3" firstAttribute="top" secondItem="75u-Gt-OoI" secondAttribute="bottom" constant="20" id="l4f-82-6Pb"/>
                             <constraint firstItem="4A2-4H-tSs" firstAttribute="trailing" secondItem="75u-Gt-OoI" secondAttribute="trailing" id="nno-UV-lha"/>
                             <constraint firstAttribute="trailingMargin" secondItem="uNG-rG-6n3" secondAttribute="trailing" constant="20" id="rT6-ID-vS7"/>
+                            <constraint firstItem="i88-Xx-j99" firstAttribute="leading" secondItem="kaC-Mk-ewt" secondAttribute="trailing" constant="20" id="u6w-63-6F7"/>
                             <constraint firstItem="gUg-p4-4vy" firstAttribute="leading" secondItem="XdH-6n-IRy" secondAttribute="leading" id="uyP-FQ-9Yv"/>
                             <constraint firstItem="gUg-p4-4vy" firstAttribute="centerY" secondItem="4A2-4H-tSs" secondAttribute="centerY" id="vEk-go-A3m"/>
+                            <constraint firstItem="shi-R8-vsr" firstAttribute="top" secondItem="4A2-4H-tSs" secondAttribute="bottom" constant="8" symbolic="YES" id="vN7-S7-s7c"/>
                             <constraint firstItem="oT9-Fr-sdV" firstAttribute="centerY" secondItem="oV1-HD-FTX" secondAttribute="centerY" id="w2u-fP-GcF"/>
+                            <constraint firstItem="kaC-Mk-ewt" firstAttribute="top" secondItem="shi-R8-vsr" secondAttribute="bottom" constant="20" id="zUG-NO-PvK"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="allowedCardsButton" destination="i88-Xx-j99" id="fPN-Xq-PvI"/>
                         <outlet property="cardBrandsSwitch" destination="75u-Gt-OoI" id="qTZ-Ki-N3A"/>
                         <outlet property="collectNameSwitch" destination="OjC-Mh-7J6" id="ZhW-na-dVa"/>
                         <outlet property="loadingIndicator" destination="8Qa-gm-lu2" id="IpZ-pa-87e"/>

@@ -16,6 +16,7 @@ class DempSettingsViewController: UIViewController {
     @IBOutlet weak var cardBrandsSwitch: UISwitch!
     @IBOutlet weak var scanningSwitch: UISwitch!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var allowedCardsButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,6 +103,34 @@ class DempSettingsViewController: UIViewController {
     
     @IBAction func scanningSwitchValueChanged(_ sender: Any) {
         sharedConfigurationSharedManager.showCardScanning = scanningSwitch.isOn
+    }
+    
+    @IBAction func allowedCardsClicked(_ sender: Any) {
+        let localizationAlertController:UIAlertController = .init(title: "Card Type", message: "Select your allowed card type", preferredStyle: .actionSheet)
+        
+        let allAction:UIAlertAction = .init(title: "All", style: .default) { [weak self] _ in
+            //sharedConfigurationSharedManager.selectedLocale = "en"
+            self?.allowedCardsButton.setTitle("All", for: .normal)
+        }
+        
+        let creditAction:UIAlertAction = .init(title: "Credit", style: .default) { [weak self] _ in
+            //sharedConfigurationSharedManager.selectedLocale = "ar"
+            self?.allowedCardsButton.setTitle("Credit", for: .normal)
+        }
+        
+        let debitAction:UIAlertAction = .init(title: "Debit", style: .default) { [weak self] _ in
+            //sharedConfigurationSharedManager.selectedLocale = "ar"
+            self?.allowedCardsButton.setTitle("Debit", for: .normal)
+        }
+        
+        let cancelAction:UIAlertAction = .init(title: "Cancel", style: .default)
+        
+        localizationAlertController.addAction(allAction)
+        localizationAlertController.addAction(creditAction)
+        localizationAlertController.addAction(debitAction)
+        localizationAlertController.addAction(cancelAction)
+        
+        present(localizationAlertController, animated: true)
     }
     /*
     // MARK: - Navigation

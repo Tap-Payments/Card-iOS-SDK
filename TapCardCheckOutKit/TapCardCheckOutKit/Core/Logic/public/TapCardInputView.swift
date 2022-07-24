@@ -300,9 +300,24 @@ import AVFoundation
     /// Handles logic needed to be done after changing the card data
     private func postCardDataChange() {
         // let us call binlook up if possible
-        sharedNetworkManager.callBinLookup(for: currentTapCard?.tapCardNumber)
-        // Set the favorite card brand as per the binlook up response
-        CardValidator.favoriteCardBrand = fetchSupportedCardSchemes(for: sharedNetworkManager.dataConfig.tapBinLookUpResponse?.scheme?.cardBrand)
+        sharedNetworkManager.callBinLookup(for: currentTapCard?.tapCardNumber,onResponeReady: { [weak self] _ in
+            self?.handleBinLookUp()
+        })
+    }
+    
+    /// Executes needed logic upon recieving a new look up response
+    private func handleBinLookUp() {
+        // Check if the card type is an allowed one
+        guard let binResponse = sharedNetworkManager.dataConfig.tapBinLookUpResponse else { return }
+        
+        if allowedCardType == .All || binResponse.cardType.cardType == allowedCardType {
+            // Then it is allowed to proceed on with it :)
+            // Set the favorite card brand as per the binlook up response
+            CardValidator.favoriteCardBrand = fetchSupportedCardSchemes(for: sharedNetworkManager.dataConfig.tapBinLookUpResponse?.scheme?.cardBrand)
+        }else{
+            // Let us reset the card data and inform the delegate that the user tried entering a wrong card number
+            self.tapCardInput.reset()
+        }
     }
     
     /// Handle the click on scan card by the user

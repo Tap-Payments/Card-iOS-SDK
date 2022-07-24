@@ -28,7 +28,8 @@ class ViewController: UIViewController {
                                    showCardBrandsBar: sharedConfigurationSharedManager.showCardBrands,
                                    showCardScanner: sharedConfigurationSharedManager.showCardScanning,
                                    tapScannerUICustomization: .init(blurCardScannerBackground:false),
-                                   presentScannerInViewController: self)
+                                   presentScannerInViewController: self,
+                                   allowedCardTypes: sharedConfigurationSharedManager.allowedCardTypes)
     }
     
     @IBAction func tokenizeCardClicked(_ sender: Any) {

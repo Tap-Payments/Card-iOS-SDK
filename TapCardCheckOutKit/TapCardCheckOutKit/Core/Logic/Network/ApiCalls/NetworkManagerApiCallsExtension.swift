@@ -113,10 +113,10 @@ internal extension NetworkManager {
                 onErrorOccured("Unexpected error parsing bin details")
                 return
             }
-            // Execute the on complete block
-            onResponeReady(parsedResponse)
             // Store it for further access
             self?.handleBinResponse(binResponseModel: parsedResponse)
+            // Execute the on complete block
+            onResponeReady(parsedResponse)
         } onError: { (session, result, errorr) in
             // In case of an error we execute the on error block
             onErrorOccured(errorr.debugDescription)

@@ -62,6 +62,8 @@ class DempSettingsViewController: UIViewController {
         cardBrandsSwitch.isOn = sharedConfigurationSharedManager.showCardBrands
         // Set the show card scanning switch
         scanningSwitch.isOn = sharedConfigurationSharedManager.showCardScanning
+        // Set the allowed card type
+        allowedCardsButton.setTitle(sharedConfigurationSharedManager.allowedCardTypes.description, for: .normal)
     }
     
     
@@ -109,17 +111,17 @@ class DempSettingsViewController: UIViewController {
         let localizationAlertController:UIAlertController = .init(title: "Card Type", message: "Select your allowed card type", preferredStyle: .actionSheet)
         
         let allAction:UIAlertAction = .init(title: "All", style: .default) { [weak self] _ in
-            //sharedConfigurationSharedManager.selectedLocale = "en"
+            sharedConfigurationSharedManager.allowedCardTypes = .All
             self?.allowedCardsButton.setTitle("All", for: .normal)
         }
         
         let creditAction:UIAlertAction = .init(title: "Credit", style: .default) { [weak self] _ in
-            //sharedConfigurationSharedManager.selectedLocale = "ar"
+            sharedConfigurationSharedManager.allowedCardTypes = .Credit
             self?.allowedCardsButton.setTitle("Credit", for: .normal)
         }
         
         let debitAction:UIAlertAction = .init(title: "Debit", style: .default) { [weak self] _ in
-            //sharedConfigurationSharedManager.selectedLocale = "ar"
+            sharedConfigurationSharedManager.allowedCardTypes = .Debit
             self?.allowedCardsButton.setTitle("Debit", for: .normal)
         }
         

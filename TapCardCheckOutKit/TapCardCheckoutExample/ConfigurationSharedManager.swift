@@ -5,6 +5,8 @@
 //  Created by Osama Rabie on 18/07/2022.
 //
 
+import CommonDataModelsKit_iOS
+
 /// Singleton shared access to the  demo configuration
 let sharedConfigurationSharedManager = ConfigurationSharedManager()
 
@@ -22,5 +24,8 @@ class ConfigurationSharedManager {
     
     /// Tells if we need to show the card scanning or not
     var showCardScanning:Bool = false
+    
+    /// Tells what type of cards should be allowed
+    var allowedCardTypes:cardTypes = .All
     
 }

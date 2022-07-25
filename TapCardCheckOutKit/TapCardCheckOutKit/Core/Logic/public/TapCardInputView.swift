@@ -52,7 +52,7 @@ import AVFoundation
     }
     
     /// The full scanner object that we will use to start scanning on demand
-    private var fullScanner:TapFullScreenScannerViewController = TapFullScreenScannerViewController()
+    private lazy var fullScanner:TapFullScreenScannerViewController = TapFullScreenScannerViewController(dataSource: self)
     
     /// A reference to the localisation manager
     private var locale:String = "en" {
@@ -116,6 +116,7 @@ import AVFoundation
      - Parameter collectCardHolderName: Indicates whether ot not the card form will ask for the card holder name. Default is false
      - Parameter showCardBrandsBar: Indicates whether ot not the card form will show the card brands bar. Default is false
      - Parameter showCardScanner: Indicates whether ot not the card scanner. Default is false
+     - Parameter tapScannerUICustomization: The ui customization to the full screen scanner borer color and to show a blur
      - Parameter transactionCurrency: The currency you want to show the card brands that accepts it. Default is KWD
      - Parameter presentScannerInViewController: The UIViewController that will display the scanner into
      - Parameter blurCardScannerBackground: The ui customization to the full screen scanner borer color and to show a blur
@@ -328,6 +329,7 @@ import AVFoundation
         }else{
             // Let us reset the card data and inform the delegate that the user tried entering a wrong card number
             self.tapCardInput.reset()
+            CardValidator.favoriteCardBrand = nil
             self.tapCardInputDelegate?.errorOccured(with: .InvalidCardType)
         }
     }
@@ -344,7 +346,7 @@ import AVFoundation
             if response {
                 //access granted
                 DispatchQueue.main.async {[weak self] in
-                    self?.fullScanner = .init(delegate: self, uiCustomization: self?.tapScannerUICustomization ?? .init())
+                    self?.fullScanner = .init(delegate: self, uiCustomization: self?.tapScannerUICustomization ?? .init(), dataSource: self)
                     presentScannerInViewController.present((self?.fullScanner)!, animated: true)
                 }
             }else {
@@ -368,6 +370,7 @@ extension TapCardInputView : TapCardInputProtocol {
     
     public func scanCardClicked() {
         self.tapCardInput.reset()
+        CardValidator.favoriteCardBrand = nil
         showFullScanner()
     }
     
@@ -408,4 +411,10 @@ extension TapCardInputView: TapCreditCardScannerViewControllerDelegate {
     }
     
     
+}
+
+extension TapCardInputView: TapScannerDataSource {
+    public func allowedCardBrands() -> [CardBrand] {
+        return dataSource.map{ $0.associatedCardBrand }
+    }
 }

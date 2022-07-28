@@ -67,6 +67,27 @@
 		E83FD0DC288D629D00057F22 /* CardKitErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83FD0DB288D629D00057F22 /* CardKitErrorType.swift */; };
 		E874F804288585B70067DB3E /* DempSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874F803288585B70067DB3E /* DempSettingsViewController.swift */; };
 		E874F806288586C50067DB3E /* ConfigurationSharedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874F805288586C50067DB3E /* ConfigurationSharedManager.swift */; };
+		E89B994F2892628900B03726 /* TapCreateCardVerificationRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B994C2892628900B03726 /* TapCreateCardVerificationRequestModel.swift */; };
+		E89B99502892628900B03726 /* TapAuthenticationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B994D2892628900B03726 /* TapAuthenticationRequest.swift */; };
+		E89B99512892628900B03726 /* TapCreateCardVerificationResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B994E2892628900B03726 /* TapCreateCardVerificationResponseModel.swift */; };
+		E89B9955289262CA00B03726 /* TrackingURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B9952289262CA00B03726 /* TrackingURL.swift */; };
+		E89B9956289262CA00B03726 /* TapCustomer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B9953289262CA00B03726 /* TapCustomer.swift */; };
+		E89B9957289262CA00B03726 /* SourceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B9954289262CA00B03726 /* SourceRequest.swift */; };
+		E89B9959289262FC00B03726 /* URLStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B9958289262FC00B03726 /* URLStatus.swift */; };
+		E89B995D2892631500B03726 /* AuthenticationRequirer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B995A2892631400B03726 /* AuthenticationRequirer.swift */; };
+		E89B995E2892631500B03726 /* AuthenticationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B995B2892631500B03726 /* AuthenticationStatus.swift */; };
+		E89B995F2892631500B03726 /* AuthenticationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B995C2892631500B03726 /* AuthenticationType.swift */; };
+		E89B99612892633800B03726 /* CardVerificationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B99602892633800B03726 /* CardVerificationStatus.swift */; };
+		E89B99672892635200B03726 /* TransactionExpiry.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B99622892635200B03726 /* TransactionExpiry.swift */; };
+		E89B99682892635200B03726 /* TransactionOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B99632892635200B03726 /* TransactionOrder.swift */; };
+		E89B99692892635200B03726 /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B99642892635200B03726 /* Source.swift */; };
+		E89B996A2892635200B03726 /* TransactionDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B99652892635200B03726 /* TransactionDetails.swift */; };
+		E89B996B2892635200B03726 /* SavedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B99662892635200B03726 /* SavedCard.swift */; };
+		E89B996D2892636C00B03726 /* ExpirationDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B996C2892636C00B03726 /* ExpirationDate.swift */; };
+		E89B9971289263D500B03726 /* SourceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B996E289263D400B03726 /* SourceObject.swift */; };
+		E89B9972289263D500B03726 /* SourcePaymentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B996F289263D400B03726 /* SourcePaymentType.swift */; };
+		E89B9973289263D500B03726 /* SourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B9970289263D400B03726 /* SourceType.swift */; };
+		E89B9975289263E800B03726 /* SourceChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B9974289263E800B03726 /* SourceChannel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +180,27 @@
 		E83FD0DB288D629D00057F22 /* CardKitErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardKitErrorType.swift; sourceTree = "<group>"; };
 		E874F803288585B70067DB3E /* DempSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DempSettingsViewController.swift; sourceTree = "<group>"; };
 		E874F805288586C50067DB3E /* ConfigurationSharedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationSharedManager.swift; sourceTree = "<group>"; };
+		E89B994C2892628900B03726 /* TapCreateCardVerificationRequestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapCreateCardVerificationRequestModel.swift; sourceTree = "<group>"; };
+		E89B994D2892628900B03726 /* TapAuthenticationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapAuthenticationRequest.swift; sourceTree = "<group>"; };
+		E89B994E2892628900B03726 /* TapCreateCardVerificationResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapCreateCardVerificationResponseModel.swift; sourceTree = "<group>"; };
+		E89B9952289262CA00B03726 /* TrackingURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingURL.swift; sourceTree = "<group>"; };
+		E89B9953289262CA00B03726 /* TapCustomer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapCustomer.swift; sourceTree = "<group>"; };
+		E89B9954289262CA00B03726 /* SourceRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceRequest.swift; sourceTree = "<group>"; };
+		E89B9958289262FC00B03726 /* URLStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLStatus.swift; sourceTree = "<group>"; };
+		E89B995A2892631400B03726 /* AuthenticationRequirer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationRequirer.swift; sourceTree = "<group>"; };
+		E89B995B2892631500B03726 /* AuthenticationStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationStatus.swift; sourceTree = "<group>"; };
+		E89B995C2892631500B03726 /* AuthenticationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationType.swift; sourceTree = "<group>"; };
+		E89B99602892633800B03726 /* CardVerificationStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardVerificationStatus.swift; sourceTree = "<group>"; };
+		E89B99622892635200B03726 /* TransactionExpiry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionExpiry.swift; sourceTree = "<group>"; };
+		E89B99632892635200B03726 /* TransactionOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionOrder.swift; sourceTree = "<group>"; };
+		E89B99642892635200B03726 /* Source.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
+		E89B99652892635200B03726 /* TransactionDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionDetails.swift; sourceTree = "<group>"; };
+		E89B99662892635200B03726 /* SavedCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedCard.swift; sourceTree = "<group>"; };
+		E89B996C2892636C00B03726 /* ExpirationDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpirationDate.swift; sourceTree = "<group>"; };
+		E89B996E289263D400B03726 /* SourceObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceObject.swift; sourceTree = "<group>"; };
+		E89B996F289263D400B03726 /* SourcePaymentType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourcePaymentType.swift; sourceTree = "<group>"; };
+		E89B9970289263D400B03726 /* SourceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceType.swift; sourceTree = "<group>"; };
+		E89B9974289263E800B03726 /* SourceChannel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceChannel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,6 +344,12 @@
 		E832641127E9DD2A005F3AAF /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				E89B9974289263E800B03726 /* SourceChannel.swift */,
+				E89B996E289263D400B03726 /* SourceObject.swift */,
+				E89B996F289263D400B03726 /* SourcePaymentType.swift */,
+				E89B9970289263D400B03726 /* SourceType.swift */,
+				E89B99602892633800B03726 /* CardVerificationStatus.swift */,
+				E89B9958289262FC00B03726 /* URLStatus.swift */,
 				E832643C27E9E20A005F3AAF /* TokenType.swift */,
 				E832643427E9E162005F3AAF /* AddressFormat.swift */,
 				E832643227E9E14D005F3AAF /* AddressType.swift */,
@@ -315,6 +363,18 @@
 		E832641627E9DE1E005F3AAF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E89B996C2892636C00B03726 /* ExpirationDate.swift */,
+				E89B99662892635200B03726 /* SavedCard.swift */,
+				E89B99642892635200B03726 /* Source.swift */,
+				E89B99652892635200B03726 /* TransactionDetails.swift */,
+				E89B99622892635200B03726 /* TransactionExpiry.swift */,
+				E89B99632892635200B03726 /* TransactionOrder.swift */,
+				E89B995A2892631400B03726 /* AuthenticationRequirer.swift */,
+				E89B995B2892631500B03726 /* AuthenticationStatus.swift */,
+				E89B995C2892631500B03726 /* AuthenticationType.swift */,
+				E89B9954289262CA00B03726 /* SourceRequest.swift */,
+				E89B9953289262CA00B03726 /* TapCustomer.swift */,
+				E89B9952289262CA00B03726 /* TrackingURL.swift */,
 				E832643827E9E1EE005F3AAF /* Token.swift */,
 				E832643927E9E1EE005F3AAF /* TokenizedCard.swift */,
 				E832642F27E9E0D6005F3AAF /* Address.swift */,
@@ -351,6 +411,7 @@
 				E832642727E9E01E005F3AAF /* TapTokenRequest */,
 				E83FD08A28896FD000057F22 /* Config */,
 				E832641D27E9DF7D005F3AAF /* Init */,
+				E89B994B2892628900B03726 /* TapCardVerifyRequest */,
 				E832643627E9E193005F3AAF /* NetworkManagerApiCallsExtension.swift */,
 			);
 			path = ApiCalls;
@@ -401,6 +462,16 @@
 				E83FD09A2889E77000057F22 /* TapBinResponseModel.swift */,
 			);
 			path = TapBinRequest;
+			sourceTree = "<group>";
+		};
+		E89B994B2892628900B03726 /* TapCardVerifyRequest */ = {
+			isa = PBXGroup;
+			children = (
+				E89B994C2892628900B03726 /* TapCreateCardVerificationRequestModel.swift */,
+				E89B994D2892628900B03726 /* TapAuthenticationRequest.swift */,
+				E89B994E2892628900B03726 /* TapCreateCardVerificationResponseModel.swift */,
+			);
+			path = TapCardVerifyRequest;
 			sourceTree = "<group>";
 		};
 		E8ED36EA27EAFC900050589E /* Logic */ = {
@@ -600,7 +671,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E83FD09628897C2F00057F22 /* TapPaymentOptionsReponseModel.swift in Sources */,
+				E89B9959289262FC00B03726 /* URLStatus.swift in Sources */,
 				E832642627E9DFB4005F3AAF /* InternalSDKSettings.swift in Sources */,
+				E89B995D2892631500B03726 /* AuthenticationRequirer.swift in Sources */,
+				E89B9971289263D500B03726 /* SourceObject.swift in Sources */,
 				E832640627E9DB05005F3AAF /* NetworkManager.swift in Sources */,
 				E832641927E9DE35005F3AAF /* SecretKey.swift in Sources */,
 				E83FD0DC288D629D00057F22 /* CardKitErrorType.swift in Sources */,
@@ -611,35 +685,53 @@
 				E832643F27E9EBBC005F3AAF /* TapCardDataConfiguration.swift in Sources */,
 				E832640E27E9DC06005F3AAF /* Crypter.swift in Sources */,
 				E83FD09D2889E7AB00057F22 /* CardScheme.swift in Sources */,
+				E89B9972289263D500B03726 /* SourcePaymentType.swift in Sources */,
 				E83FD0902889713500057F22 /* Gateway.swift in Sources */,
+				E89B995E2892631500B03726 /* AuthenticationStatus.swift in Sources */,
+				E89B99612892633800B03726 /* CardVerificationStatus.swift in Sources */,
 				E832643027E9E0D6005F3AAF /* Country.swift in Sources */,
 				E832644927EA0EE8005F3AAF /* TapCardForumLocalisation.swift in Sources */,
+				E89B9955289262CA00B03726 /* TrackingURL.swift in Sources */,
 				E832643D27E9E20A005F3AAF /* TokenType.swift in Sources */,
+				E89B9956289262CA00B03726 /* TapCustomer.swift in Sources */,
+				E89B995F2892631500B03726 /* AuthenticationType.swift in Sources */,
+				E89B994F2892628900B03726 /* TapCreateCardVerificationRequestModel.swift in Sources */,
 				E832641527E9DD72005F3AAF /* TapNetworkPath.swift in Sources */,
+				E89B99682892635200B03726 /* TransactionOrder.swift in Sources */,
 				E83FD09828897C6900057F22 /* TapPaymentOption.swift in Sources */,
 				E832642B27E9E079005F3AAF /* TapCreateTokenWithCardDataRequest.swift in Sources */,
+				E89B996D2892636C00B03726 /* ExpirationDate.swift in Sources */,
 				E832643A27E9E1EE005F3AAF /* Token.swift in Sources */,
 				E832641027E9DC07005F3AAF /* RSAUtils.swift in Sources */,
 				E832644727EA09BD005F3AAF /* TapCardForumTheme.swift in Sources */,
 				E832641327E9DD31005F3AAF /* SDKMode.swift in Sources */,
 				E83FD08E28896FFD00057F22 /* TapConfigResponseModel.swift in Sources */,
+				E89B99512892628900B03726 /* TapCreateCardVerificationResponseModel.swift in Sources */,
 				E832642D27E9E0AC005F3AAF /* CreateTokenCard.swift in Sources */,
+				E89B99502892628900B03726 /* TapAuthenticationRequest.swift in Sources */,
 				E832643527E9E162005F3AAF /* AddressFormat.swift in Sources */,
+				E89B9975289263E800B03726 /* SourceChannel.swift in Sources */,
 				E832643B27E9E1EE005F3AAF /* TokenizedCard.swift in Sources */,
 				E832631427E8950D005F3AAF /* CardInputExtensions.swift in Sources */,
 				E832642A27E9E079005F3AAF /* TapCreateTokenRequest.swift in Sources */,
+				E89B9957289262CA00B03726 /* SourceRequest.swift in Sources */,
+				E89B9973289263D500B03726 /* SourceType.swift in Sources */,
 				E83FD08D28896FFD00057F22 /* TapConfigRequestModel.swift in Sources */,
+				E89B996B2892635200B03726 /* SavedCard.swift in Sources */,
 				E832642427E9DFB4005F3AAF /* Permissions.swift in Sources */,
 				E83FD09B2889E77000057F22 /* TapBinResponseModel.swift in Sources */,
 				E832642527E9DFB4005F3AAF /* Merchant.swift in Sources */,
 				E832643327E9E14D005F3AAF /* AddressType.swift in Sources */,
+				E89B99672892635200B03726 /* TransactionExpiry.swift in Sources */,
 				E83FD0922889714500057F22 /* Config.swift in Sources */,
+				E89B99692892635200B03726 /* Source.swift in Sources */,
 				E832644F27EA20F3005F3AAF /* TapCardForumConfiguration.swift in Sources */,
 				E832640D27E9DC06005F3AAF /* ErrorUtils.swift in Sources */,
 				E832642027E9DF96005F3AAF /* SDKSettings.swift in Sources */,
 				E832631227E89435005F3AAF /* TapCardInputView.swift in Sources */,
 				E832643127E9E0D6005F3AAF /* Address.swift in Sources */,
 				E832640F27E9DC06005F3AAF /* KeychainManager.swift in Sources */,
+				E89B996A2892635200B03726 /* TransactionDetails.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

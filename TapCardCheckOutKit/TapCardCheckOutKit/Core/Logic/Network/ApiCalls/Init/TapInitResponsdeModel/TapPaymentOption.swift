@@ -162,6 +162,16 @@ internal protocol SortableByOrder {
     var orderBy: Int { get }
 }
 
+/// All models that have identifier are conforming to this protocol.
+internal protocol OptionallyIdentifiableWithString {
+    
+    // MARK: Properties
+    
+    /// Unique identifier of an object.
+    var identifier: String? { get }
+}
+
+
 extension Array where Element == PaymentOption {
     
     /// Converts a list of card payment options to understandable format class datasrouce for the card brands list

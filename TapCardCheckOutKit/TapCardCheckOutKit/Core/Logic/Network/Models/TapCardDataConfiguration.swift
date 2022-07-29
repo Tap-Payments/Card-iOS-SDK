@@ -42,6 +42,8 @@ import CommonDataModelsKit_iOS
     internal var transactionCustomer: TapCustomer?
     /// Metdata object will be a representation of [String:String] dictionary to be used whenever such a common model needed
     internal var metadata:TapMetadata? = nil
+    /// Should we always ask for 3ds while saving the card. Default is true
+    internal var enfroce3DS:Bool = true
     /// Holding the latest init response model to fetch requierd data when needed like session token or encryption key
     internal var sdkSettings:SDKSettings?
     /// Holding the allowed card brands to process for the logged in merchant

@@ -22,7 +22,7 @@ extension NetworkManager {
             return nil
         }
         
-        let requires3DSecure    = true
+        let requires3DSecure    = sharedNetworkManager.dataConfig.enfroce3DS
         let shouldSaveCard      = true
         let metadata            = sharedNetworkManager.dataConfig.metadata
         let source              = SourceRequest(token: token)

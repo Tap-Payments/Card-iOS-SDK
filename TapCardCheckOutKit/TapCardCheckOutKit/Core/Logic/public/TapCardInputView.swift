@@ -203,12 +203,15 @@ internal protocol ThreeDSViewControllerDelegate {
      - Parameter customer: The customer to save the card with.
      - Parameter parentController: The parent controller will be used to present the web view whenever a 3DS is required to save the card details
      - Parameter metadata: Metdata object will be a representation of [String:String] dictionary to be used whenever such a common model needed
+     - Parameter enforce3DS: Should we always ask for 3ds while saving the card. Default is true
      - Parameter onResponeReady: A callback to listen when a the save card is finished successfully. Will provide all the details about the saved card data
      - Parameter onErrorOccured: A callback to listen when tokenization fails.
      - Parameter on3DSWebViewWillAppear: A callback to tell the consumer app the 3ds web view will start
      - Parameter on3DSWebViewDismissed: A callback to tell he consumer app the 3ds web view is over
      */
-    @objc public func saveCard(customer:TapCustomer, parentController:UIViewController, metadata:TapMetadata? = nil,
+    @objc public func saveCard(customer:TapCustomer, parentController:UIViewController,
+                               metadata:TapMetadata? = nil,
+                               enforce3DS:Bool = true,
                                onResponeReady: @escaping (TapCreateCardVerificationResponseModel) -> () = {_ in},
                                onErrorOccured: @escaping(Error?,TapCreateCardVerificationResponseModel?)->() = { _,_ in},
                                on3DSWebViewWillAppear: @escaping()->() = {},
@@ -231,6 +234,7 @@ internal protocol ThreeDSViewControllerDelegate {
         // save to be needed data
         sharedNetworkManager.dataConfig.transactionCustomer = customer
         sharedNetworkManager.dataConfig.metadata = metadata
+        sharedNetworkManager.dataConfig.enfroce3DS = enforce3DS
         sharedNetworkManager.dataConfig.onResponeSaveCardReady = onResponeReady
         sharedNetworkManager.dataConfig.onErrorSaveCardOccured = onErrorOccured
         // To save a card we need to tokenize it first

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import CommonDataModelsKit_iOS
 
 
 /// The datasource configiation required so the card kit can perform Init call api
@@ -25,6 +25,7 @@ import Foundation
     }
     
     
+    // MARK: Public shared values
     /// Represents the mode of the sdk . Whether sandbox or production
     public var sdkMode:SDKMode = .sandbox
     /// The ISO 639-1 Code language identefier, please note if the passed locale is wrong or not found in the localisation files, we will show the keys instead of the values
@@ -33,6 +34,14 @@ import Foundation
     public var secretKey:SecretKey = .init(sandbox: "", production: "")
     
     
+    // MARK: - Private shared values
+    
+    /// The currency you want to show the card brands that accepts it. Default is KWD
+    internal var transactionCurrency: TapCurrencyCode = .KWD
+    /// The attached customer passed for this transaction (e.g. save card)
+    internal var transactionCustomer: TapCustomer?
+    /// Metdata object will be a representation of [String:String] dictionary to be used whenever such a common model needed
+    internal var metadata:TapMetadata? = nil
     /// Holding the latest init response model to fetch requierd data when needed like session token or encryption key
     internal var sdkSettings:SDKSettings?
     /// Holding the allowed card brands to process for the logged in merchant
@@ -43,4 +52,7 @@ import Foundation
     
     /// Holding the latest look up response from the middleware
     internal var tapBinLookUpResponse: TapBinResponseModel?
+    
+    /// Holding the latest card verify response from the middleware
+    internal var cardVerify: TapCreateCardVerificationResponseModel?
 }

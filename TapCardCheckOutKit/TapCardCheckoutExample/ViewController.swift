@@ -50,6 +50,14 @@ class ViewController: UIViewController, TapCardInputDelegate {
         
     }
     
+    @IBAction func saveCardClicked(_ sender: Any) {
+        tapCardForum.saveCard(customer: try! .init(identifier: "cus_TS031720211012r4RM0403926"), parentController: self, metadata: [:]) { card in
+            print("HERE")
+        } onErrorOccured: { error, card in
+            print(error ?? "")
+        }
+
+    }
     
     @IBAction func changeCurrency(_ sender: Any) {
         switch currencySegment.selectedSegmentIndex {

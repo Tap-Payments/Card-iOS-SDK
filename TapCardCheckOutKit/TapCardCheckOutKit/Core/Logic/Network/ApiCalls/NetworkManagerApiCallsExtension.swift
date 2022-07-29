@@ -88,6 +88,41 @@ internal extension NetworkManager {
     }
     
     
+    
+    
+    /**
+     Respinsiboe for calling card verifiy api
+     - Parameter cardVerifyRequestModel: The card verificatin request model to be called with
+     - Parameter onResponseReady: A block to call when getting the response
+     - Parameter onErrorOccured: A block to call when an error occured
+     */
+    func callCardVerifyAPI(cardVerifyRequestModel:TapCreateCardVerificationRequestModel, onResponeReady: @escaping (TapCreateCardVerificationResponseModel) -> () = {_ in}, onErrorOccured: @escaping(Error)->() = {_ in}) {
+        
+        // Change the model into a dictionary
+        guard let bodyDictionary = NetworkManager.convertModelToDictionary(cardVerifyRequestModel, callingCompletionOnFailure: { error in
+            onErrorOccured(error.debugDescription)
+            return
+        }) else { return }
+        
+        // Call the corresponding api based on the transaction mode
+        // Perform the retrieve request with the computed data
+        sharedNetworkManager.makeApiCall(routing: TapNetworkPath.cardVerification, resultType: TapCreateCardVerificationResponseModel.self, body: .init(body: bodyDictionary),httpMethod: .POST, urlModel: .none) { (session, result, error) in
+            // Double check all went fine
+            guard let parsedResponse:TapCreateCardVerificationResponseModel = result as? TapCreateCardVerificationResponseModel else {
+                onErrorOccured("Unexpected error parsing into TapCreateCardVerificationResponseModel")
+                return
+            }
+            self.dataConfig.cardVerify = parsedResponse
+            // Execute the on complete block
+            onResponeReady(parsedResponse)
+        } onError: { (session, result, errorr) in
+            // In case of an error we execute the on error block
+            onErrorOccured(errorr.debugDescription)
+        }
+    }
+    
+    
+    
     /// Retrieves BIN number details for the given `binNumber` and calls `completion` when request finishes.
     ///
     /// - Parameters:
@@ -130,39 +165,15 @@ internal extension NetworkManager {
     }
     
     /**
-     Handles the result of the config api by storing it in the right place to be further processed
-     - Parameter configModel: The response model from backend we need to deal with
-     */
-    func handleConfigResponse(configModel:TapConfigResponseModel) {
-        // Store the config model for further access
-        sharedNetworkManager.dataConfig.configModelResponse = configModel
-    }
-    
-    /**
-     Handles the response of init api call. Stores the data for further access
-     - Parameter initModel: The init response model from the latest INIT api call
-     */
-    func handleInitResponse(initModel: TapInitResponseModel) {
-        sharedNetworkManager.dataConfig.sdkSettings = initModel.data
-        sharedNetworkManager.dataConfig.paymentOptions = initModel.cardPaymentOptions.paymentOptions
-    }
-    
-    /**
-     Handles the response of binlookup api call. Stores the data for further access
-     - Parameter binResponseModel: The bin look up response model from the latest  api call
-     */
-    func handleBinResponse(binResponseModel: TapBinResponseModel) {
-        sharedNetworkManager.dataConfig.tapBinLookUpResponse = binResponseModel
-    }
-    
-    
-    /**
      Handles error occured during an api call
      - Parameter error: The occured error
      */
     func handleError(error: Error?) {
         print(error ?? "Unknown error occured")
     }
+    
+    
+    
     
     
     /// Converts Encodable model into its dictionary representation. Calls completion closure in case of failure.

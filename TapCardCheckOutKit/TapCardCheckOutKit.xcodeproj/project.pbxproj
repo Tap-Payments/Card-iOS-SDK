@@ -88,6 +88,9 @@
 		E89B9972289263D500B03726 /* SourcePaymentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B996F289263D400B03726 /* SourcePaymentType.swift */; };
 		E89B9973289263D500B03726 /* SourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B9970289263D400B03726 /* SourceType.swift */; };
 		E89B9975289263E800B03726 /* SourceChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B9974289263E800B03726 /* SourceChannel.swift */; };
+		E89B99772892818600B03726 /* TapCallsResponseGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B99762892818600B03726 /* TapCallsResponseGenerator.swift */; };
+		E89B99792893A6E700B03726 /* NetworkManager+HandlingResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B99782893A6E700B03726 /* NetworkManager+HandlingResponses.swift */; };
+		E89B997B2893AD2300B03726 /* TapCheckout+WebPaymentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B997A2893AD2300B03726 /* TapCheckout+WebPaymentHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -201,6 +204,9 @@
 		E89B996F289263D400B03726 /* SourcePaymentType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourcePaymentType.swift; sourceTree = "<group>"; };
 		E89B9970289263D400B03726 /* SourceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceType.swift; sourceTree = "<group>"; };
 		E89B9974289263E800B03726 /* SourceChannel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceChannel.swift; sourceTree = "<group>"; };
+		E89B99762892818600B03726 /* TapCallsResponseGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCallsResponseGenerator.swift; sourceTree = "<group>"; };
+		E89B99782893A6E700B03726 /* NetworkManager+HandlingResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkManager+HandlingResponses.swift"; sourceTree = "<group>"; };
+		E89B997A2893AD2300B03726 /* TapCheckout+WebPaymentHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TapCheckout+WebPaymentHandler.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +292,8 @@
 		E83262EF27E88BEC005F3AAF /* private */ = {
 			isa = PBXGroup;
 			children = (
+				E89B997A2893AD2300B03726 /* TapCheckout+WebPaymentHandler.swift */,
+				E832640727E9DBE0005F3AAF /* NetworkManagerExtension.swift */,
 				E832631327E8950D005F3AAF /* CardInputExtensions.swift */,
 			);
 			path = private;
@@ -337,6 +345,7 @@
 				E832641627E9DE1E005F3AAF /* Models */,
 				E832641127E9DD2A005F3AAF /* Enums */,
 				E832640527E9DB05005F3AAF /* NetworkManager.swift */,
+				E89B99762892818600B03726 /* TapCallsResponseGenerator.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -399,7 +408,6 @@
 				E832640927E9DC06005F3AAF /* ErrorUtils.swift */,
 				E832640B27E9DC06005F3AAF /* KeychainManager.swift */,
 				E832640C27E9DC06005F3AAF /* RSAUtils.swift */,
-				E832640727E9DBE0005F3AAF /* NetworkManagerExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -413,6 +421,7 @@
 				E832641D27E9DF7D005F3AAF /* Init */,
 				E89B994B2892628900B03726 /* TapCardVerifyRequest */,
 				E832643627E9E193005F3AAF /* NetworkManagerApiCallsExtension.swift */,
+				E89B99782893A6E700B03726 /* NetworkManager+HandlingResponses.swift */,
 			);
 			path = ApiCalls;
 			sourceTree = "<group>";
@@ -684,6 +693,8 @@
 				E832641B27E9DEFF005F3AAF /* ApiErrorModel.swift in Sources */,
 				E832643F27E9EBBC005F3AAF /* TapCardDataConfiguration.swift in Sources */,
 				E832640E27E9DC06005F3AAF /* Crypter.swift in Sources */,
+				E89B997B2893AD2300B03726 /* TapCheckout+WebPaymentHandler.swift in Sources */,
+				E89B99772892818600B03726 /* TapCallsResponseGenerator.swift in Sources */,
 				E83FD09D2889E7AB00057F22 /* CardScheme.swift in Sources */,
 				E89B9972289263D500B03726 /* SourcePaymentType.swift in Sources */,
 				E83FD0902889713500057F22 /* Gateway.swift in Sources */,
@@ -725,6 +736,7 @@
 				E89B99672892635200B03726 /* TransactionExpiry.swift in Sources */,
 				E83FD0922889714500057F22 /* Config.swift in Sources */,
 				E89B99692892635200B03726 /* Source.swift in Sources */,
+				E89B99792893A6E700B03726 /* NetworkManager+HandlingResponses.swift in Sources */,
 				E832644F27EA20F3005F3AAF /* TapCardForumConfiguration.swift in Sources */,
 				E832640D27E9DC06005F3AAF /* ErrorUtils.swift in Sources */,
 				E832642027E9DF96005F3AAF /* SDKSettings.swift in Sources */,

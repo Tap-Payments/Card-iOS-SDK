@@ -25,7 +25,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ct0-f9-49w">
-                                <rect key="frame" x="0.0" y="240" width="414" height="100"/>
+                                <rect key="frame" x="0.0" y="308" width="414" height="100"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9km-nu-X9C">
                                         <rect key="frame" x="0.0" y="34.5" width="414" height="32"/>
@@ -59,19 +59,33 @@
                                     <action selector="tokenizeCardClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jn9-Qy-QQM"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6L1-j8-Q5j">
+                                <rect key="frame" x="20" y="228" width="374" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="A3u-mZ-WGD"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Save on demand"/>
+                                <connections>
+                                    <action selector="saveCardClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gdz-MX-o8F"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="ct0-f9-49w" firstAttribute="top" secondItem="6L1-j8-Q5j" secondAttribute="bottom" constant="20" id="1BC-DG-c5R"/>
                             <constraint firstItem="ct0-f9-49w" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="5EU-aw-Skt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FDp-Ru-IEn" secondAttribute="trailing" id="ETE-e7-ecc"/>
+                            <constraint firstItem="6L1-j8-Q5j" firstAttribute="top" secondItem="aPG-Lj-Fqc" secondAttribute="bottom" constant="8" symbolic="YES" id="El2-ZC-KfQ"/>
                             <constraint firstItem="FDp-Ru-IEn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Hcr-Ct-0TG"/>
                             <constraint firstItem="FDp-Ru-IEn" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="30" id="Iqr-ze-dM8"/>
                             <constraint firstItem="aPG-Lj-Fqc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mzl-AT-BEx"/>
-                            <constraint firstItem="ct0-f9-49w" firstAttribute="top" secondItem="aPG-Lj-Fqc" secondAttribute="bottom" constant="20" id="Nuf-Bp-kY0"/>
                             <constraint firstItem="aPG-Lj-Fqc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="cYo-T4-vI6"/>
+                            <constraint firstItem="6L1-j8-Q5j" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="gHm-oi-KfE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aPG-Lj-Fqc" secondAttribute="trailing" constant="20" id="jka-aY-Ilj"/>
                             <constraint firstItem="aPG-Lj-Fqc" firstAttribute="top" secondItem="FDp-Ru-IEn" secondAttribute="bottom" constant="30" id="ona-30-cIH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6L1-j8-Q5j" secondAttribute="trailing" constant="20" id="w6E-JP-oF5"/>
                             <constraint firstItem="ct0-f9-49w" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="y11-MG-XpF"/>
                         </constraints>
                     </view>

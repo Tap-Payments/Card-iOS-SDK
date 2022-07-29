@@ -14,8 +14,8 @@
             filePath = "TapCardCheckOutKit/Core/Logic/public/TapCardInputView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "418"
-            endingLineNumber = "418"
+            startingLineNumber = "451"
+            endingLineNumber = "451"
             landmarkName = "allowedCardBrands()"
             landmarkType = "7">
          </BreakpointContent>

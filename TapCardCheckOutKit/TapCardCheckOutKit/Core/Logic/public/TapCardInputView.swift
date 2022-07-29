@@ -83,9 +83,6 @@ import AVFoundation
     /// The ui customization to the full screen scanner borer color and to show a blut
     private var tapScannerUICustomization:TapFullScreenUICustomizer = .init()
     
-    /// The currency you want to show the card brands that accepts it. Default is KWD
-    private var transactionCurrency: TapCurrencyCode = .KWD
-    
     /// The UIViewController that will display the scanner into
     private var presentScannerInViewController:UIViewController?
     
@@ -134,7 +131,7 @@ import AVFoundation
         // The ui customization to the full screen scanner borer color and to show a blur
         self.tapScannerUICustomization = tapScannerUICustomization
         // Set the needed currency
-        self.transactionCurrency = transactionCurrency
+        sharedNetworkManager.dataConfig.transactionCurrency = transactionCurrency
         // Indicates whether ot not the card scanner. Default is false
         self.showCardScanner = showCardScanner
         // The UIViewController that will display the scanner into
@@ -155,7 +152,7 @@ import AVFoundation
      */
     @objc public func updateTransactionCurrenct(to currency:TapCurrencyCode) {
         // set the new currency
-        self.transactionCurrency = currency
+        sharedNetworkManager.dataConfig.transactionCurrency = currency
         // reset card form data
         tapCardInput.reset()
         // reload the bar view
@@ -182,6 +179,42 @@ import AVFoundation
         }
         
         sharedNetworkManager.callCardTokenAPI(cardTokenRequestModel: TapCreateTokenWithCardDataRequest(card: nonNullTokenizeCard),onResponeReady: onResponeReady, onErrorOccured: onErrorOccured)
+    }
+    
+    
+    /**
+     Handles tokenizing the current card data.
+     - Parameter customer: The customer to save the card with.
+     - Parameter parentController: The parent controller will be used to present the web view whenever a 3DS is required to save the card details
+     - Parameter metadata: Metdata object will be a representation of [String:String] dictionary to be used whenever such a common model needed
+     - Parameter onResponeReady: A callback to listen when a the save card is finished successfully. Will provide all the details about the saved card data
+     - Parameter onErrorOccured: A callback to listen when tokenization fails.
+     */
+    @objc public func saveCard(customer:TapCustomer, parentController:UIViewController, metadata:TapMetadata? = nil,onResponeReady: @escaping (TapCreateCardVerificationResponseModel) -> () = {_ in}, onErrorOccured: @escaping(Error?,TapCreateCardVerificationResponseModel?)->() = { _,_ in}) {
+        // Check that the card kit is already initilzed
+        guard let _ = sharedNetworkManager.dataConfig.sdkSettings else {
+            onErrorOccured("You have to call the initCardForm method first. This allows the card form to get the data needed to communicate with Tap's backend apis.",nil)
+            return
+        }
+        // Check that the user entered a valid card data first
+        guard let nonNullCard = currentTapCard,
+              validation == .Valid,
+              let nonNullTokenizeCard:CreateTokenCard = try? .init(card: nonNullCard, address: nil) else {
+            onErrorOccured("The user didn't enter a valid card data to save it. Please prompt the user to do so first.",nil)
+            return
+        }
+        // clear previous needed data
+        sharedNetworkManager.dataConfig.cardVerify = nil
+        // save to be needed data
+        sharedNetworkManager.dataConfig.transactionCustomer = customer
+        sharedNetworkManager.dataConfig.metadata = metadata
+        // To save a card we need to tokenize it first
+        sharedNetworkManager.callCardTokenAPI(cardTokenRequestModel: TapCreateTokenWithCardDataRequest(card: nonNullTokenizeCard),onResponeReady: { cardToken in
+            // Now let us verify the card first
+            sharedNetworkManager.handleTokenCardSave(with: cardToken, onResponeReady: onResponeReady, onErrorOccured: onErrorOccured)
+        }) { error in
+            onErrorOccured(error,nil)
+        }
     }
     
     
@@ -217,7 +250,7 @@ import AVFoundation
     /// Will fetch the correct card brands from the loaded payment options based on the transaction currency
     private func setupCardBrandsBarDataSource() {
         // Dummy data source data for now
-        dataSource = Array(sharedNetworkManager.dataConfig.paymentOptions?.toTapCardPhoneIconViewModel(supportsCurrency: transactionCurrency) ?? [])
+        dataSource = Array(sharedNetworkManager.dataConfig.paymentOptions?.toTapCardPhoneIconViewModel(supportsCurrency: sharedNetworkManager.dataConfig.transactionCurrency) ?? [])
         // Update the card input brands
         tapCardInput.allowedCardBrands = dataSource.map{ $0.associatedCardBrand.rawValue }
         

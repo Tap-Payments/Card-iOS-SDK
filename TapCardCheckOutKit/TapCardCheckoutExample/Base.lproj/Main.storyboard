@@ -55,9 +55,6 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Tokenize on demand"/>
-                                <connections>
-                                    <action selector="tokenizeCardClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jn9-Qy-QQM"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6L1-j8-Q5j">
                                 <rect key="frame" x="20" y="228" width="374" height="60"/>
@@ -68,6 +65,14 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Save on demand"/>
                                 <connections>
                                     <action selector="saveCardClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gdz-MX-o8F"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgP-z0-L5h">
+                                <rect key="frame" x="339" y="243" width="45" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="infoClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mgw-HU-Zfr"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -204,7 +209,7 @@
                                     <action selector="allowedCardsClicked:" destination="Oqm-ex-1gl" eventType="touchUpInside" id="C7R-wv-Wk3"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="shi-R8-vsr">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="shi-R8-vsr">
                                 <rect key="frame" x="40" y="251" width="334" height="1"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -241,11 +246,13 @@
                             <constraint firstItem="2d9-fC-fmF" firstAttribute="centerY" secondItem="OjC-Mh-7J6" secondAttribute="centerY" id="gT8-1p-Xwv"/>
                             <constraint firstItem="XHI-6f-edN" firstAttribute="trailing" secondItem="oV1-HD-FTX" secondAttribute="trailing" constant="32" id="hFd-D5-If6"/>
                             <constraint firstItem="4A2-4H-tSs" firstAttribute="top" secondItem="uNG-rG-6n3" secondAttribute="bottom" constant="8" symbolic="YES" id="hXl-W2-WLM"/>
+                            <constraint firstItem="shi-R8-vsr" firstAttribute="leading" secondItem="uNG-rG-6n3" secondAttribute="leading" id="jRL-4L-qkb"/>
                             <constraint firstItem="DT3-3z-Atu" firstAttribute="leading" secondItem="XHI-6f-edN" secondAttribute="leading" constant="20" id="jZQ-eU-Eh4"/>
                             <constraint firstItem="oV1-HD-FTX" firstAttribute="top" secondItem="XHI-6f-edN" secondAttribute="top" id="kKc-qV-ALD"/>
                             <constraint firstItem="uNG-rG-6n3" firstAttribute="top" secondItem="75u-Gt-OoI" secondAttribute="bottom" constant="20" id="l4f-82-6Pb"/>
                             <constraint firstItem="4A2-4H-tSs" firstAttribute="trailing" secondItem="75u-Gt-OoI" secondAttribute="trailing" id="nno-UV-lha"/>
                             <constraint firstAttribute="trailingMargin" secondItem="uNG-rG-6n3" secondAttribute="trailing" constant="20" id="rT6-ID-vS7"/>
+                            <constraint firstItem="shi-R8-vsr" firstAttribute="trailing" secondItem="uNG-rG-6n3" secondAttribute="trailing" id="tDJ-wO-GxS"/>
                             <constraint firstItem="i88-Xx-j99" firstAttribute="leading" secondItem="kaC-Mk-ewt" secondAttribute="trailing" constant="20" id="u6w-63-6F7"/>
                             <constraint firstItem="gUg-p4-4vy" firstAttribute="leading" secondItem="XdH-6n-IRy" secondAttribute="leading" id="uyP-FQ-9Yv"/>
                             <constraint firstItem="gUg-p4-4vy" firstAttribute="centerY" secondItem="4A2-4H-tSs" secondAttribute="centerY" id="vEk-go-A3m"/>

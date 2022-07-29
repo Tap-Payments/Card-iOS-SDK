@@ -91,6 +91,8 @@
 		E89B99772892818600B03726 /* TapCallsResponseGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B99762892818600B03726 /* TapCallsResponseGenerator.swift */; };
 		E89B99792893A6E700B03726 /* NetworkManager+HandlingResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B99782893A6E700B03726 /* NetworkManager+HandlingResponses.swift */; };
 		E89B997B2893AD2300B03726 /* TapCheckout+WebPaymentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B997A2893AD2300B03726 /* TapCheckout+WebPaymentHandler.swift */; };
+		E89B997E2893C76B00B03726 /* TapWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B997C2893C76B00B03726 /* TapWebViewController.swift */; };
+		E89B997F2893C76B00B03726 /* TapWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E89B997D2893C76B00B03726 /* TapWebViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -207,6 +209,8 @@
 		E89B99762892818600B03726 /* TapCallsResponseGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCallsResponseGenerator.swift; sourceTree = "<group>"; };
 		E89B99782893A6E700B03726 /* NetworkManager+HandlingResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkManager+HandlingResponses.swift"; sourceTree = "<group>"; };
 		E89B997A2893AD2300B03726 /* TapCheckout+WebPaymentHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TapCheckout+WebPaymentHandler.swift"; sourceTree = "<group>"; };
+		E89B997C2893C76B00B03726 /* TapWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapWebViewController.swift; sourceTree = "<group>"; };
+		E89B997D2893C76B00B03726 /* TapWebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TapWebViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,6 +299,8 @@
 				E89B997A2893AD2300B03726 /* TapCheckout+WebPaymentHandler.swift */,
 				E832640727E9DBE0005F3AAF /* NetworkManagerExtension.swift */,
 				E832631327E8950D005F3AAF /* CardInputExtensions.swift */,
+				E89B997C2893C76B00B03726 /* TapWebViewController.swift */,
+				E89B997D2893C76B00B03726 /* TapWebViewController.xib */,
 			);
 			path = private;
 			sourceTree = "<group>";
@@ -591,6 +597,7 @@
 			files = (
 				E832631027E89420005F3AAF /* TapCardInputView.xib in Resources */,
 				E832631627E8993C005F3AAF /* Theme.json in Resources */,
+				E89B997F2893C76B00B03726 /* TapWebViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -738,6 +745,7 @@
 				E89B99692892635200B03726 /* Source.swift in Sources */,
 				E89B99792893A6E700B03726 /* NetworkManager+HandlingResponses.swift in Sources */,
 				E832644F27EA20F3005F3AAF /* TapCardForumConfiguration.swift in Sources */,
+				E89B997E2893C76B00B03726 /* TapWebViewController.swift in Sources */,
 				E832640D27E9DC06005F3AAF /* ErrorUtils.swift in Sources */,
 				E832642027E9DF96005F3AAF /* SDKSettings.swift in Sources */,
 				E832631227E89435005F3AAF /* TapCardInputView.swift in Sources */,

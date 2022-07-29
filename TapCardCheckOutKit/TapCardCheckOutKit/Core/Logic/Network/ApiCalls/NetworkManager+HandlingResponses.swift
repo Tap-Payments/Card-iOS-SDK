@@ -50,9 +50,13 @@ extension NetworkManager {
      - Parameter with cardVerifyResponse: The cardVerifyResponse response we want to analyse and decide the next action based on it
      - Parameter onResponeReady: A callback to listen when a the save card is finished successfully. Will provide all the details about the saved card data
      - Parameter onErrorOccured: A callback to listen when tokenization fails.
+     - Parameter on3DSRedirectURL: A callback to tell the UIView we need to show a web view for 3ds
      */
-    func handleCardVerify(with cardVerifyResponse:TapCreateCardVerificationResponseModel,onResponeReady: @escaping (TapCreateCardVerificationResponseModel) -> () = {_ in}, onErrorOccured: @escaping(Error?,TapCreateCardVerificationResponseModel?)->() = { _,_ in}) {
+    func handleCardVerify(with cardVerifyResponse:TapCreateCardVerificationResponseModel,
+                          on3DSRedirectURL: @escaping(URL)->() = { _ in }) {
         // Based in the card verify response we will proceed
+        dataConfig.cardVerify = cardVerifyResponse
+        
         let verifyStatus = cardVerifyResponse.status
         switch verifyStatus {
         case .valid:
@@ -62,7 +66,7 @@ extension NetworkManager {
             handleCardSaveInValid(for:cardVerifyResponse)
             break
         case .initiated:
-            handleCardSaveInitiated(for:cardVerifyResponse)
+            handleCardSaveInitiated(for:cardVerifyResponse, on3DSRedirectURL: on3DSRedirectURL)
             break
         }
     }
@@ -75,9 +79,9 @@ extension NetworkManager {
      - Parameter onResponeReady: A callback to listen when a the save card is finished successfully. Will provide all the details about the saved card data
      - Parameter onErrorOccured: A callback to listen when tokenization fails.
      */
-    func handleCardSaveValid(for cardVerifyResponse:TapCreateCardVerificationResponseModel,onResponeReady: @escaping (TapCreateCardVerificationResponseModel) -> () = {_ in}, onErrorOccured: @escaping(Error?,TapCreateCardVerificationResponseModel?)->() = {_,_  in}) {
+    func handleCardSaveValid(for cardVerifyResponse:TapCreateCardVerificationResponseModel) {
         // First let us inform the caller app that the save card had been done successfully
-        onResponeReady(cardVerifyResponse)
+        sharedNetworkManager.dataConfig.onResponeSaveCardReady(cardVerifyResponse)
     }
     
     /**
@@ -86,9 +90,9 @@ extension NetworkManager {
      - Parameter onResponeReady: A callback to listen when a the save card is finished successfully. Will provide all the details about the saved card data
      - Parameter onErrorOccured: A callback to listen when tokenization fails.
      */
-    func handleCardSaveInValid(for cardVerifyResponse:TapCreateCardVerificationResponseModel,onResponeReady: @escaping (TapCreateCardVerificationResponseModel) -> () = {_ in}, onErrorOccured: @escaping(Error?,TapCreateCardVerificationResponseModel?)->() = {_,_ in}) {
+    func handleCardSaveInValid(for cardVerifyResponse:TapCreateCardVerificationResponseModel) {
         // First let us inform the caller app that the save card had failed
-        onErrorOccured(nil,cardVerifyResponse)
+        sharedNetworkManager.dataConfig.onErrorSaveCardOccured(nil,cardVerifyResponse)
     }
     
     /**
@@ -96,11 +100,13 @@ extension NetworkManager {
      - Parameter for cardVerifyResponse: The save card object that has all the details
      - Parameter onResponeReady: A callback to listen when a the save card is finished successfully. Will provide all the details about the saved card data
      - Parameter onErrorOccured: A callback to listen when tokenization fails.
+     - Parameter on3DSRedirectURL: A callback to tell the UIView we need to show a web view for 3ds
      */
-    func handleCardSaveInitiated(for cardVerifyResponse:TapCreateCardVerificationResponseModel,onResponeReady: @escaping (TapCreateCardVerificationResponseModel) -> () = {_ in}, onErrorOccured: @escaping(Error?,TapCreateCardVerificationResponseModel?)->() = {_,_ in}) {
+    func handleCardSaveInitiated(for cardVerifyResponse:TapCreateCardVerificationResponseModel,
+                                 on3DSRedirectURL: @escaping(URL)->() = { _ in }) {
         // Check if we need to make a redirection
         if let redirectionURL:URL = cardVerifyResponse.transactionDetails.url {
-            //showWebView(with: redirectionURL)
+            on3DSRedirectURL(redirectionURL)
         }
     }
     
@@ -110,11 +116,13 @@ extension NetworkManager {
      - Parameter with token: The token response we want to analyse and decide the next action based on it
      - Parameter onResponeReady: A callback to listen when a the save card is finished successfully. Will provide all the details about the saved card data
      - Parameter onErrorOccured: A callback to listen when tokenization fails.
+     - Parameter on3DSRedirectURL: A callback to tell the UIView we need to show a web view for 3ds
      */
-    func handleTokenCardSave(with token:Token,onResponeReady: @escaping (TapCreateCardVerificationResponseModel) -> () = {_ in}, onErrorOccured: @escaping(Error?,TapCreateCardVerificationResponseModel?)->() = { _,_ in}) {
+    func handleTokenCardSave(with token:Token,
+                             on3DSRedirectURL: @escaping(URL)->() = { _ in }) {
         // If all good we need to make a call to card verify api
         guard let cardVerifyRequest:TapCreateCardVerificationRequestModel = createCardVerificationRequestModel(for: token) else {
-            onErrorOccured("Failed while creating TapCreateCardVerificationRequestModel",nil)
+            sharedNetworkManager.dataConfig.onErrorSaveCardOccured("Failed while creating TapCreateCardVerificationRequestModel", nil)
             return
         }
         
@@ -123,11 +131,34 @@ extension NetworkManager {
             DispatchQueue.main.async{
                 // Process the card verify response we got from the server
                 guard let nonNullSelf = self else { return }
-                nonNullSelf.handleCardVerify(with: cardVerifyResponse, onResponeReady: onResponeReady, onErrorOccured: onErrorOccured)
+                nonNullSelf.handleCardVerify(with: cardVerifyResponse,
+                                             on3DSRedirectURL: on3DSRedirectURL)
             }
         } onErrorOccured: { [weak self] error in
             self?.handleError(error: error)
         }
+    }
+    
+    
+    /**
+     Handles the logic to be executed when redirection is finished for card saving
+     - Parameter with tapID: The tap id of the object (card saving) generated from the backend in the URL
+     - Parameter onResponeReady: A callback to listen when a the save card is finished successfully. Will provide all the details about the saved card data
+     - Parameter onErrorOccured: A callback to listen when tokenization fails.
+     */
+    func cardPaymentProcessFinished(with tapID:String) {
+        // We need to retrieve the object using the passed id and process it afterwards
+        retrieveObject(with: tapID) { [weak self] (returnVerifiedSaveCard: TapCreateCardVerificationResponseModel?, error: TapSDKError?) in
+            if let error = error {
+                sharedNetworkManager.dataConfig.onErrorSaveCardOccured(error,nil)
+            }else if let returnVerifiedSaveCard = returnVerifiedSaveCard {
+                // No errors occured we need to process the current charge or authorize
+                self?.handleCardVerify(with: returnVerifiedSaveCard)
+            }
+        } onErrorOccured: { error in
+            sharedNetworkManager.dataConfig.onErrorSaveCardOccured(error,nil)
+        }
+        
     }
     
 }

@@ -8,9 +8,12 @@
 import Foundation
 import CommonDataModelsKit_iOS
 import TapCardVlidatorKit_iOS
+import TapNetworkKit_iOS
 
 internal extension NetworkManager {
     
+    
+    typealias Completion<Response: Decodable> = (Response?, TapSDKError?) -> Void
     
     /// Responsible for making the network calls needed to boot the SDK like init and payment options
     /// - Parameter onCheckoutRead: A block to execure upon completion
@@ -87,7 +90,33 @@ internal extension NetworkManager {
         }
     }
     
-    
+    /**
+     Respinsiboe for calling a get request for a retrivable object (e.g. charge, authorization, etc.) by providing its ID
+     - Parameter with identifier: The id of the object we want to retrieve
+     - Parameter onResponseReady: A block to call when getting the response
+     - Parameter onErrorOccured: A block to call when an error occured
+     */
+    func retrieveObject<T: Retrievable>(with identifier: String, completion: @escaping Completion<T>, onErrorOccured: @escaping(Error)->() = {_ in}) {
+        
+        // Create the GET url parameter model
+        let urlModel = TapURLModel.array(parameters: [identifier])
+        // Fetch the retrieve route based on the type of the object the method called on
+        let route = T.retrieveRoute
+        
+        // Perform the retrieve request with the computed data
+        sharedNetworkManager.makeApiCall(routing: route, resultType: T.self, body: .none,httpMethod: .GET, urlModel: urlModel) { (session, result, error) in
+            // Double check all went fine
+            guard let parsedResponse:T = result as? T else {
+                onErrorOccured("Unexpected error parsing into")
+                return
+            }
+            // Execute the on complete block
+            completion(parsedResponse,nil)
+        } onError: { (session, result, errorr) in
+            // In case of an error we execute the on error block
+            onErrorOccured(errorr.debugDescription)
+        }
+    }
     
     
     /**
@@ -162,6 +191,7 @@ internal extension NetworkManager {
     func resetBinData() {
         binLookUpInProcessNumber = ""
         dataConfig.tapBinLookUpResponse = nil
+        CardValidator.favoriteCardBrand = nil
     }
     
     /**

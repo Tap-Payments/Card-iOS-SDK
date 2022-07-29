@@ -11,70 +11,14 @@ import TapUIKit_iOS
 import CommonDataModelsKit_iOS
 import WebKit
 
-/// Logic to handel webviews based gateway
-extension NetworkManager {
+/// Struct to hold the constants related to control the flow of the webview by lookin ginto constants into the loaded URL
+internal struct WebPaymentHandlerConstants {
+    /// Whenever we find this prefix in the URL, the backend is telling we need to stop redirecting
+    static let returnURL = URL(string: "gosellsdk://return_url")!
+    /// Whenever we have this key inside the URL we get the ibject id to retrieve it afterwards
+    static let tapIDKey = "tap_id"
     
-    /// Struct to hold the constants related to control the flow of the webview by lookin ginto constants into the loaded URL
-    struct WebPaymentHandlerConstants {
-        /// Whenever we find this prefix in the URL, the backend is telling we need to stop redirecting
-        static let returnURL = URL(string: "gosellsdk://return_url")!
-        /// Whenever we have this key inside the URL we get the ibject id to retrieve it afterwards
-        static let tapIDKey = "tap_id"
-        
-        //@available(*, unavailable) private init() { fatalError("This struct cannot be instantiated.") }
-    }
-}
-
-extension NetworkManager:TapWebViewModelDelegate {
-    
-    public func willLoad(request: URLRequest) -> WKNavigationActionPolicy {
-        // Double check, there is a url to load :)
-        guard let url = request.url else {
-            return(.cancel)
-        }
-        
-        // First get the decision based on the loaded url
-        let decision = navigationDecision(forWebPayment: url)
-        
-        // If the redirection finished we need to fetch the object id from the url to further process it
-        if decision.redirectionFinished, let tapID = decision.tapID {
-            
-            // Process the web payment upon getting the transaction ID from the backend url based on the transaction mode Charge or Authorize
-            //cardPaymentProcessFinished(with: tapID)
-        }else if decision.shouldCloseWebPaymentScreen {
-            // The backend told us we need to close the web view :)
-            //self.UIDelegate?.closeWebView()
-        }
-        
-        return decision.shouldLoad ? .allow : .cancel
-    }
-    
-    public func didLoad(url: URL?) {}
-    
-    public func didFail(with error: Error, for url: URL?) {
-        // If any error happened, all what we need to do now is to go away :)
-        handleError(error: "Failed to load:\n\(url?.absoluteString ?? "")\nWith Error :\n\(error)")
-    }
-    
-    /**
-     Used to decide the decision the web view should do based in the url being requested
-     - Parameter forWebPayment url: The url being requested we need to decide the flow based on
-     - Returns: The decision based on the url and backend instructions detected inside the url
-     */
-    internal func navigationDecision(forWebPayment url: URL) -> WebPaymentURLDecision {
-        // Detect if the url is the return url (stop redirecting.)
-        let urlIsReturnURL = url.absoluteString.starts(with: WebPaymentHandlerConstants.returnURL.absoluteString)
-        
-        let shouldLoad = !urlIsReturnURL
-        let redirectionFinished = urlIsReturnURL
-        // Check if the backend passed the ID of the object (charge or authorize)
-        let tapID = url[WebPaymentHandlerConstants.tapIDKey]
-        let shouldCloseWebPaymentScreen = redirectionFinished// && self.dataHolder.transactionData.selectedPaymentOption?.paymentType == .Card
-        
-        return WebPaymentURLDecision(shouldLoad: shouldLoad, shouldCloseWebPaymentScreen: shouldCloseWebPaymentScreen, redirectionFinished: redirectionFinished, tapID: tapID)
-    }
-    
-    
+    //@available(*, unavailable) private init() { fatalError("This struct cannot be instantiated.") }
 }
 
 /// Web Payment URL decision.

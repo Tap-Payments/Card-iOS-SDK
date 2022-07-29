@@ -54,23 +54,27 @@ import CommonDataModelsKit_iOS
     /// Saved card.
     public let card: SavedCard
     
+    /// The response message to display an error if any
+    public let response: SaveCardResponse?
+    
     // MARK: - Private -
     
     private enum CodingKeys: String, CodingKey {
         
-        case identifier            = "id"
-        case object                = "object"
-        case isLiveMode            = "live_mode"
-        case status                = "status"
-        case currency            = "currency"
-        case is3DSecureRequired    = "threeDSecure"
-        case shouldSaveCard        = "save_card"
-        case metadata            = "metadata"
-        case transactionDetails    = "transaction"
-        case customer            = "customer"
-        case source                = "source"
-        case redirect            = "redirect"
-        case card                = "card"
+        case identifier             = "id"
+        case object                 = "object"
+        case isLiveMode             = "live_mode"
+        case status                 = "status"
+        case currency               = "currency"
+        case is3DSecureRequired     = "threeDSecure"
+        case shouldSaveCard         = "save_card"
+        case metadata               = "metadata"
+        case transactionDetails     = "transaction"
+        case customer               = "customer"
+        case source                 = "source"
+        case redirect               = "redirect"
+        case card                   = "card"
+        case response               = "response"
     }
 }
 
@@ -89,3 +93,27 @@ internal protocol Retrievable: IdentifiableWithString, Decodable {
     static var retrieveRoute: TapNetworkPath { get }
 }
 
+
+
+
+
+/// Card Verification class.
+@objcMembers public class SaveCardResponse: NSObject, Decodable {
+    
+    // MARK: - Public -
+    // MARK: Properties
+    
+    /// response message
+    public let message: String?
+    
+    /// response code
+    public let code: String?
+    
+    // MARK: - Private -
+    
+    private enum CodingKeys: String, CodingKey {
+        
+        case message                = "message"
+        case code                   = "code"
+    }
+}

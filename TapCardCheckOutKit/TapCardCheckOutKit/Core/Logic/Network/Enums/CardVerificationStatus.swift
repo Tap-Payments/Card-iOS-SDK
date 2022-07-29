@@ -23,7 +23,7 @@ import Foundation
     // MARK: - Private -
     // MARK: Properties
     
-    private var stringValue: String {
+    public var stringValue: String {
         
         switch self {
         

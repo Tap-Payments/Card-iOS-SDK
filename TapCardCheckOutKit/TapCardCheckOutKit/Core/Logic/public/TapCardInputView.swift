@@ -17,6 +17,13 @@ import TapCardScanner_iOS
 import AVFoundation
 
 
+/// A protorocl to communicate with the three ds web view controller
+internal protocol ThreeDSViewControllerDelegate {
+    /// Instruct the controller to dismiss itself
+    func disimiss()
+    
+}
+
 @objc public protocol TapCardInputDelegate {
     @objc func errorOccured(with error:CardKitErrorType)
 }
@@ -53,6 +60,15 @@ import AVFoundation
     
     /// The full scanner object that we will use to start scanning on demand
     private lazy var fullScanner:TapFullScreenScannerViewController = TapFullScreenScannerViewController(dataSource: self)
+    
+    /// The webview model handler
+    private var webViewModel:TapWebViewModel = .init()
+    
+    /// A protorocl to communicate with the three ds web view controller
+    internal var threeDSDelegate: ThreeDSViewControllerDelegate?
+    
+    /// The parent controller will be used to present the web view whenever a 3DS is required to save the card details
+    private var parentController:UIViewController?
     
     /// A reference to the localisation manager
     private var locale:String = "en" {
@@ -189,8 +205,14 @@ import AVFoundation
      - Parameter metadata: Metdata object will be a representation of [String:String] dictionary to be used whenever such a common model needed
      - Parameter onResponeReady: A callback to listen when a the save card is finished successfully. Will provide all the details about the saved card data
      - Parameter onErrorOccured: A callback to listen when tokenization fails.
+     - Parameter on3DSWebViewWillAppear: A callback to tell the consumer app the 3ds web view will start
+     - Parameter on3DSWebViewDismissed: A callback to tell he consumer app the 3ds web view is over
      */
-    @objc public func saveCard(customer:TapCustomer, parentController:UIViewController, metadata:TapMetadata? = nil,onResponeReady: @escaping (TapCreateCardVerificationResponseModel) -> () = {_ in}, onErrorOccured: @escaping(Error?,TapCreateCardVerificationResponseModel?)->() = { _,_ in}) {
+    @objc public func saveCard(customer:TapCustomer, parentController:UIViewController, metadata:TapMetadata? = nil,
+                               onResponeReady: @escaping (TapCreateCardVerificationResponseModel) -> () = {_ in},
+                               onErrorOccured: @escaping(Error?,TapCreateCardVerificationResponseModel?)->() = { _,_ in},
+                               on3DSWebViewWillAppear: @escaping()->() = {},
+                               on3DSWebViewDismissed: @escaping()->() = {}) {
         // Check that the card kit is already initilzed
         guard let _ = sharedNetworkManager.dataConfig.sdkSettings else {
             onErrorOccured("You have to call the initCardForm method first. This allows the card form to get the data needed to communicate with Tap's backend apis.",nil)
@@ -203,15 +225,20 @@ import AVFoundation
             onErrorOccured("The user didn't enter a valid card data to save it. Please prompt the user to do so first.",nil)
             return
         }
+        self.parentController = parentController
         // clear previous needed data
         sharedNetworkManager.dataConfig.cardVerify = nil
         // save to be needed data
         sharedNetworkManager.dataConfig.transactionCustomer = customer
         sharedNetworkManager.dataConfig.metadata = metadata
+        sharedNetworkManager.dataConfig.onResponeSaveCardReady = onResponeReady
+        sharedNetworkManager.dataConfig.onErrorSaveCardOccured = onErrorOccured
         // To save a card we need to tokenize it first
         sharedNetworkManager.callCardTokenAPI(cardTokenRequestModel: TapCreateTokenWithCardDataRequest(card: nonNullTokenizeCard),onResponeReady: { cardToken in
             // Now let us verify the card first
-            sharedNetworkManager.handleTokenCardSave(with: cardToken, onResponeReady: onResponeReady, onErrorOccured: onErrorOccured)
+            sharedNetworkManager.handleTokenCardSave(with: cardToken) { [weak self] redirectionURL in
+                self?.showWebView(with: redirectionURL)
+            }
         }) { error in
             onErrorOccured(error,nil)
         }
@@ -245,6 +272,32 @@ import AVFoundation
         
         // Set card brands datasource
         setupCardBrandsBarDataSource()
+    }
+    
+    /**
+     Handles the logic to display a UIWebview with a given url
+     - Parameter with url: The url to be displayed
+     - Parameter onErrorOccured: A callback to listen when tokenization fails.
+     */
+    private func showWebView(with url:URL,onErrorOccured: @escaping(Error?,TapCreateCardVerificationResponseModel?)->() = { _,_ in}) {
+        // make sure we have a parent controller to navigate with
+        guard let nonNullParentController : UIViewController = parentController else {
+            onErrorOccured("To save a card, you need to tell us what is the parent UIViewController to start the 3ds process with",nil)
+            return
+        }
+        
+        webViewModel = .init()
+        webViewModel.delegate = self
+        
+        let tapViewController = TapWebViewController.init(nibName: "TapWebViewController", bundle: Bundle.current)
+        self.threeDSDelegate = tapViewController
+        
+        DispatchQueue.main.async { [weak self] in
+            nonNullParentController.present(tapViewController, animated: true) {
+                tapViewController.stackView.addArrangedSubview((self?.webViewModel.attachedView)!)
+                self?.webViewModel.load(with: url)
+            }
+        }
     }
     
     /// Will fetch the correct card brands from the loaded payment options based on the transaction currency
@@ -344,6 +397,10 @@ import AVFoundation
     
     /// Handles logic needed to be done after changing the card data
     private func postCardDataChange() {
+        // clear data upon needed
+        if (currentTapCard?.tapCardNumber ?? "").isEmpty {
+            sharedNetworkManager.resetBinData()
+        }
         // let us call binlook up if possible
         sharedNetworkManager.callBinLookup(for: currentTapCard?.tapCardNumber,onResponeReady: { [weak self] _ in
             self?.handleBinLookUp()

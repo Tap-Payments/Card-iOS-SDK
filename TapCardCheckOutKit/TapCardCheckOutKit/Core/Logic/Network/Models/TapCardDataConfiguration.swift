@@ -55,4 +55,10 @@ import CommonDataModelsKit_iOS
     
     /// Holding the latest card verify response from the middleware
     internal var cardVerify: TapCreateCardVerificationResponseModel?
+    
+    /// a block to eecute upon card save is done
+    internal var onResponeSaveCardReady: (TapCreateCardVerificationResponseModel) -> () = {_ in}
+    
+    /// a block to eecute upon card save fails
+    internal var onErrorSaveCardOccured: (Error?,TapCreateCardVerificationResponseModel?)->() = { _,_ in}
 }

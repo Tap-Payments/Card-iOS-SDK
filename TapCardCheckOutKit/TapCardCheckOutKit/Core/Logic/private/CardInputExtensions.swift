@@ -67,11 +67,13 @@ extension TapCardInputView:TapWebViewModelDelegate {
         if decision.redirectionFinished, let tapID = decision.tapID {
             
             // Process the web payment upon getting the transaction ID from the backend url based on the transaction mode Charge or Authorize
+            self.tapCardInputDelegate?.eventHappened(with: .ThreeDSEnded)
             self.threeDSDelegate?.disimiss()
             sharedNetworkManager.cardPaymentProcessFinished(with: tapID)
         }else if decision.shouldCloseWebPaymentScreen {
             // The backend told us we need to close the web view :)
             //self.UIDelegate?.closeWebView()
+            self.tapCardInputDelegate?.eventHappened(with: .ThreeDSEnded)
             self.threeDSDelegate?.disimiss()
         }
         

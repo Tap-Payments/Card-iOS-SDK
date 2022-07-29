@@ -24,8 +24,15 @@ internal protocol ThreeDSViewControllerDelegate {
     
 }
 
+
+/// A protocol to listen to fired events form the card kit
 @objc public protocol TapCardInputDelegate {
-    @objc func errorOccured(with error:CardKitErrorType)
+    @objc func errorOccured(with error:CardKitErrorType, message:String)
+    /**
+     Be updated by listening to events fired from the card kit
+     - Parameter with event: The event just fired
+     */
+    @objc func eventHappened(with event:CardKitEventType)
 }
 
 /// Represents the on the shelf card forum entry view
@@ -106,7 +113,7 @@ internal protocol ThreeDSViewControllerDelegate {
     private var allowedCardType:cardTypes = .All
     
     /// A delegate listens for needed actions and callbacks
-    private var tapCardInputDelegate:TapCardInputDelegate?
+    internal var tapCardInputDelegate:TapCardInputDelegate?
     
     // Mark:- Init methods
     override init(frame: CGRect) {
@@ -181,6 +188,7 @@ internal protocol ThreeDSViewControllerDelegate {
      - Parameter onErrorOccured: A callback to listen when tokenization fails.
      */
     @objc public func tokenizeCard(onResponeReady: @escaping (Token) -> () = {_ in}, onErrorOccured: @escaping(Error)->() = {_ in}) {
+        
         // Check that the card kit is already initilzed
         guard let _ = sharedNetworkManager.dataConfig.sdkSettings else {
             onErrorOccured("You have to call the initCardForm method first. This allows the card form to get the data needed to communicate with Tap's backend apis.")
@@ -193,8 +201,15 @@ internal protocol ThreeDSViewControllerDelegate {
             onErrorOccured("The user didn't enter a valid card data to tokenize. Please prompt the user to do so first.")
             return
         }
-        
-        sharedNetworkManager.callCardTokenAPI(cardTokenRequestModel: TapCreateTokenWithCardDataRequest(card: nonNullTokenizeCard),onResponeReady: onResponeReady, onErrorOccured: onErrorOccured)
+        tapCardInputDelegate?.eventHappened(with: .TokenizeStarted)
+        sharedNetworkManager.callCardTokenAPI(cardTokenRequestModel: TapCreateTokenWithCardDataRequest(card: nonNullTokenizeCard)) { [weak self] token in
+            self?.tapCardInputDelegate?.eventHappened(with: .TokenizeEnded)
+            onResponeReady(token)
+        } onErrorOccured: { [weak self] error in
+            self?.tapCardInputDelegate?.eventHappened(with: .TokenizeEnded)
+            onErrorOccured(error)
+        }
+
     }
     
     
@@ -235,8 +250,15 @@ internal protocol ThreeDSViewControllerDelegate {
         sharedNetworkManager.dataConfig.transactionCustomer = customer
         sharedNetworkManager.dataConfig.metadata = metadata
         sharedNetworkManager.dataConfig.enfroce3DS = enforce3DS
-        sharedNetworkManager.dataConfig.onResponeSaveCardReady = onResponeReady
-        sharedNetworkManager.dataConfig.onErrorSaveCardOccured = onErrorOccured
+        sharedNetworkManager.dataConfig.onResponeSaveCardReady = { [weak self] card in
+            self?.tapCardInputDelegate?.eventHappened(with: .SaveCardEnded)
+            onResponeReady(card)
+        }
+        sharedNetworkManager.dataConfig.onErrorSaveCardOccured = { [weak self] error, card in
+            self?.tapCardInputDelegate?.eventHappened(with: .SaveCardEnded)
+            onErrorOccured(error, card)
+        }
+        tapCardInputDelegate?.eventHappened(with: .SaveCardStarted)
         // To save a card we need to tokenize it first
         sharedNetworkManager.callCardTokenAPI(cardTokenRequestModel: TapCreateTokenWithCardDataRequest(card: nonNullTokenizeCard),onResponeReady: { cardToken in
             // Now let us verify the card first
@@ -281,15 +303,15 @@ internal protocol ThreeDSViewControllerDelegate {
     /**
      Handles the logic to display a UIWebview with a given url
      - Parameter with url: The url to be displayed
-     - Parameter onErrorOccured: A callback to listen when tokenization fails.
      */
-    private func showWebView(with url:URL,onErrorOccured: @escaping(Error?,TapCreateCardVerificationResponseModel?)->() = { _,_ in}) {
+    private func showWebView(with url:URL) {
         // make sure we have a parent controller to navigate with
         guard let nonNullParentController : UIViewController = parentController else {
-            onErrorOccured("To save a card, you need to tell us what is the parent UIViewController to start the 3ds process with",nil)
+            sharedNetworkManager.dataConfig.onErrorSaveCardOccured("To save a card, you need to tell us what is the parent UIViewController to start the 3ds process with",nil)
             return
         }
         
+        self.tapCardInputDelegate?.eventHappened(with: .ThreeDSStarter)
         webViewModel = .init()
         webViewModel.delegate = self
         
@@ -409,6 +431,8 @@ internal protocol ThreeDSViewControllerDelegate {
         sharedNetworkManager.callBinLookup(for: currentTapCard?.tapCardNumber,onResponeReady: { [weak self] _ in
             self?.handleBinLookUp()
         })
+        
+        tapCardInputDelegate?.eventHappened(with: canProcessCard() ? .CardReady : .CardNotReady)
     }
     
     /// Executes needed logic upon recieving a new look up response
@@ -424,8 +448,20 @@ internal protocol ThreeDSViewControllerDelegate {
             // Let us reset the card data and inform the delegate that the user tried entering a wrong card number
             self.tapCardInput.reset()
             CardValidator.favoriteCardBrand = nil
-            self.tapCardInputDelegate?.errorOccured(with: .InvalidCardType)
+            self.tapCardInputDelegate?.errorOccured(with: .InvalidCardType, message: "Card entered is of type \(binResponse.cardType.cardType.description), allowed is: \(allowedCardType.description)")
         }
+    }
+    
+    /// Computes  if the card data is fully entered or not
+    private func canProcessCard() -> Bool {
+        // Check that the user entered a valid card data first
+        guard let nonNullCard = currentTapCard,
+              validation == .Valid,
+              let _ : CreateTokenCard = try? .init(card: nonNullCard, address: nil) else {
+            return false
+        }
+        
+        return true
     }
     
     /// Handle the click on scan card by the user

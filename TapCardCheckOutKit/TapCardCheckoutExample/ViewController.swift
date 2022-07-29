@@ -9,13 +9,27 @@ import UIKit
 import TapCardCheckOutKit
 
 class ViewController: UIViewController, TapCardInputDelegate {
+    func eventHappened(with event: CardKitEventType) {
+        callbackTextView.text = "\(event.description)\n-------\n\(callbackTextView.text ?? "")"
+    }
     
-    func errorOccured(with error: CardKitErrorType) {
-        showAlert(title: "Wrong card type", message: "Tap informed us, you tried with a non allowed card type. Please only \(sharedConfigurationSharedManager.allowedCardTypes.description) cards")
+    
+    func errorOccured(with error: CardKitErrorType, message:String) {
+        var demoTitle:String = ""
+        switch error {
+        case .Network:
+            demoTitle = "Network error"
+        case .InvalidCardType:
+            demoTitle = "Card type error"
+        }
+        showAlert(title: demoTitle, message: message)
     }
     
     @IBOutlet weak var tapCardForum: TapCardInputView!
+    @IBOutlet weak var callbackTextView: UITextView!
     @IBOutlet weak var currencySegment: UISegmentedControl!
+    
+    var savedCustomer:TapCustomer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,10 +67,23 @@ class ViewController: UIViewController, TapCardInputDelegate {
     }
     
     @IBAction func saveCardClicked(_ sender: Any) {
+        let alert:UIAlertController = .init(title: "3DS", message: "Always force 3ds?", preferredStyle: .alert)
+        alert.addAction(.init(title: "Yes", style: .destructive,handler: { [weak self] _ in
+            self?.startSavingCard(enforce3DS: true)
+        }))
+        alert.addAction(.init(title: "No when possible", style: .default,handler: { [weak self] _ in
+            self?.startSavingCard(enforce3DS: false)
+        }))
+        alert.addAction(.init(title: "Cancel", style: .cancel))
+        present(alert, animated: true)
+    }
+    
+    func  startSavingCard(enforce3DS:Bool = true) {
         self.view.isUserInteractionEnabled = false
-        tapCardForum.saveCard(customer: try! .init(emailAddress: .init(emailAddressString: "test@gmailtap.com"), phoneNumber: .init(isdNumber: "20", phoneNumber: "01009366361"), firstName: "OSAMA", middleName: "AHMED", lastName: "HELMY"), parentController: self, metadata: [:]) { [weak self] card in
+        tapCardForum.saveCard(customer: savedCustomer!, parentController: self, metadata: [:]) { [weak self] card in
             print("HERE")
             self?.view.isUserInteractionEnabled = true
+            UserDefaults.standard.set(try! PropertyListEncoder().encode(card.customer), forKey: "customerSevedKey")
             self?.showAlert(title: "Card saved", message: "\(card.card.lastFourDigits)\n\(card.identifier)")
         } onErrorOccured: { [weak self] error, card in
             self?.view.isUserInteractionEnabled = true
@@ -69,7 +96,6 @@ class ViewController: UIViewController, TapCardInputDelegate {
                 self?.showAlert(title: "Card save status \(card.status.stringValue)", message: "Backend error message : \(message)\nWith code : \(errorCode)")
             }
         }
-
     }
     
     @IBAction func infoClicked(_ sender: Any) {

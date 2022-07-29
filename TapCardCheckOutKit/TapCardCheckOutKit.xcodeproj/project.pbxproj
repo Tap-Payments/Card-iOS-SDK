@@ -93,6 +93,7 @@
 		E89B997B2893AD2300B03726 /* TapCheckout+WebPaymentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B997A2893AD2300B03726 /* TapCheckout+WebPaymentHandler.swift */; };
 		E89B997E2893C76B00B03726 /* TapWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B997C2893C76B00B03726 /* TapWebViewController.swift */; };
 		E89B997F2893C76B00B03726 /* TapWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E89B997D2893C76B00B03726 /* TapWebViewController.xib */; };
+		E89B998128940B0900B03726 /* CreateCustomerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B998028940B0800B03726 /* CreateCustomerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -211,6 +212,7 @@
 		E89B997A2893AD2300B03726 /* TapCheckout+WebPaymentHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TapCheckout+WebPaymentHandler.swift"; sourceTree = "<group>"; };
 		E89B997C2893C76B00B03726 /* TapWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapWebViewController.swift; sourceTree = "<group>"; };
 		E89B997D2893C76B00B03726 /* TapWebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TapWebViewController.xib; sourceTree = "<group>"; };
+		E89B998028940B0800B03726 /* CreateCustomerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateCustomerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,6 +319,7 @@
 		E83262F627E88C6F005F3AAF /* TapCardCheckoutExample */ = {
 			isa = PBXGroup;
 			children = (
+				E89B998028940B0800B03726 /* CreateCustomerViewController.swift */,
 				E83262F727E88C6F005F3AAF /* AppDelegate.swift */,
 				E83262F927E88C6F005F3AAF /* SceneDelegate.swift */,
 				E83262FB27E88C6F005F3AAF /* ViewController.swift */,
@@ -763,6 +766,7 @@
 				E874F806288586C50067DB3E /* ConfigurationSharedManager.swift in Sources */,
 				E83262F827E88C6F005F3AAF /* AppDelegate.swift in Sources */,
 				E874F804288585B70067DB3E /* DempSettingsViewController.swift in Sources */,
+				E89B998128940B0900B03726 /* CreateCustomerViewController.swift in Sources */,
 				E83262FA27E88C6F005F3AAF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

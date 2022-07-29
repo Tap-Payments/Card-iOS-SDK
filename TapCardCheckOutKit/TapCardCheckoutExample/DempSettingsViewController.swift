@@ -8,7 +8,9 @@
 import UIKit
 import TapCardCheckOutKit
 
-class DempSettingsViewController: UIViewController {
+class DempSettingsViewController: UIViewController, CreateCustomerDelegate {
+    
+    
     // MARK: - The outlets
     /// The button to choose the demo localisation value
     @IBOutlet weak var localisationButton: UIButton!
@@ -17,6 +19,27 @@ class DempSettingsViewController: UIViewController {
     @IBOutlet weak var scanningSwitch: UISwitch!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var allowedCardsButton: UIButton!
+    @IBOutlet weak var customerButton: UIButton!
+    
+    var savedCustomer:TapCustomer? {
+        if let data = UserDefaults.standard.value(forKey:"customerSevedKey") as? Data {
+            do {
+                return try PropertyListDecoder().decode(TapCustomer.self, from: data)
+            } catch {
+                print("error paymentTypes: \(error.localizedDescription)")
+            }
+        }
+        return try! .init(identifier: "cus_TS075220212320q2RD0707283")
+    }
+    
+    
+    var customerDisplay:String {
+        guard let customerName = savedCustomer?.firstName else {
+            return savedCustomer?.identifier ?? ""
+        }
+        
+        return customerName
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,10 +87,18 @@ class DempSettingsViewController: UIViewController {
         scanningSwitch.isOn = sharedConfigurationSharedManager.showCardScanning
         // Set the allowed card type
         allowedCardsButton.setTitle(sharedConfigurationSharedManager.allowedCardTypes.description, for: .normal)
+        // set the customer name and id
+        customerButton.setTitle(customerDisplay, for: .normal)
     }
     
     
     // MARK: - The ui based events
+    
+    @IBAction func showCardFormClicked(_ sender: Any) {
+        let viewContoller:ViewController = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+        viewContoller.savedCustomer = savedCustomer
+        present(viewContoller, animated: true)
+    }
     
     @IBAction func localisationButtonClicked(_ sender: Any) {
         let localizationAlertController:UIAlertController = .init(title: "Localisation", message: "Select your preferred locale to test with", preferredStyle: .actionSheet)
@@ -92,6 +123,12 @@ class DempSettingsViewController: UIViewController {
         
     }
     
+    
+    @IBAction func customerButtonClicked(_ sender: Any) {
+        let customerCreate:CreateCustomerViewController = self.storyboard?.instantiateViewController(withIdentifier: "CreateCustomerViewController") as! CreateCustomerViewController
+        present(customerCreate, animated: true)
+        customerCreate.customerDelegate = self
+    }
     
     @IBAction func collectNameSwitchValueChanged(_ sender: Any) {
         
@@ -144,4 +181,8 @@ class DempSettingsViewController: UIViewController {
     }
     */
 
+    
+    func customerCreated(customer: TapCustomer) {
+        customerButton.setTitle(customerDisplay, for: .normal)
+    }
 }

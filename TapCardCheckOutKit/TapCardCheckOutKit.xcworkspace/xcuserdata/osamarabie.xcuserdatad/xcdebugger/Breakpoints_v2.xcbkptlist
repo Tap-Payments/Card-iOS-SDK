@@ -3,4 +3,54 @@
    uuid = "7C591549-5AE9-4052-A22C-3CBDE624C8A8"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "659370EA-3A67-459A-ABBE-3B8709541249"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TapCardCheckOutKit/Core/Logic/public/TapCardInputView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
+            landmarkName = "tokenizeCard(onResponeReady:onErrorOccured:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "659370EA-3A67-459A-ABBE-3B8709541249 - 3cb3b984ed3c933a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TapCardCheckOutKit.TapCardInputView.tokenizeCard(onResponeReady: (TapCardCheckOutKit.Token) -&gt; (), onErrorOccured: (Swift.Error) -&gt; ()) -&gt; ()"
+                  moduleName = "TapCardCheckOutKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/osamarabie/Desktop/Tap/TapCardCheckOutKit/TapCardCheckOutKit/TapCardCheckOutKit/Core/Logic/public/TapCardInputView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "193"
+                  endingLineNumber = "193"
+                  offsetFromSymbolStart = "1855">
+               </Location>
+               <Location
+                  uuid = "659370EA-3A67-459A-ABBE-3B8709541249 - 3cb3b984ed3c933a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TapCardCheckOutKit.TapCardInputView.tokenizeCard(onResponeReady: (TapCardCheckOutKit.Token) -&gt; (), onErrorOccured: (Swift.Error) -&gt; ()) -&gt; ()"
+                  moduleName = "TapCardCheckOutKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/osamarabie/Desktop/Tap/TapCardCheckOutKit/TapCardCheckOutKit/TapCardCheckOutKit/Core/Logic/public/TapCardInputView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "193"
+                  endingLineNumber = "193"
+                  offsetFromSymbolStart = "138">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

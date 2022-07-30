@@ -49,7 +49,9 @@ class ViewController: UIViewController, TapCardInputDelegate {
                                    tapScannerUICustomization: .init(blurCardScannerBackground:false),
                                    presentScannerInViewController: self,
                                    allowedCardTypes: sharedConfigurationSharedManager.allowedCardTypes,
-                                   tapCardInputDelegate: self)
+                                   tapCardInputDelegate: self,
+                                   preloadCardHolderName: (sharedConfigurationSharedManager.cardName == "None") ? "" : sharedConfigurationSharedManager.cardName,
+                                   editCardName: sharedConfigurationSharedManager.editCardHolderName)
     }
     
     @IBAction func tokenizeCardClicked(_ sender: Any) {

@@ -112,6 +112,11 @@ internal protocol ThreeDSViewControllerDelegate {
     /// Decides which cards shall we accept
     private var allowedCardType:cardTypes = .All
     
+    /// A preloading value for the card holder name if needed
+    internal var preloadCardHolderName:String = ""
+    /// Indicates whether or not the user can edit the card holder name field. Default is true
+    internal var editCardName:Bool = true
+    
     /// A delegate listens for needed actions and callbacks
     internal var tapCardInputDelegate:TapCardInputDelegate?
     
@@ -142,9 +147,11 @@ internal protocol ThreeDSViewControllerDelegate {
      - Parameter blurCardScannerBackground: The ui customization to the full screen scanner borer color and to show a blur
      - Parameter allowedCardTypes: Decides which cards shall we accept. Default is All
      - Parameter tapCardInputDelegate: A delegate listens for needed actions and callbacks
+     - Parameter preloadCardHolderName:  A preloading value for the card holder name if needed
+     - Parameter editCardName: Indicates whether or not the user can edit the card holder name field. Default is true
      */
     
-    @objc public func setupCardForm(locale:String = "en", collectCardHolderName:Bool = false, showCardBrandsBar:Bool = false, showCardScanner:Bool = false, tapScannerUICustomization:TapFullScreenUICustomizer = .init() , transactionCurrency:TapCurrencyCode = .KWD, presentScannerInViewController:UIViewController?, allowedCardTypes:cardTypes = .All, tapCardInputDelegate:TapCardInputDelegate? = nil) {
+    @objc public func setupCardForm(locale:String = "en", collectCardHolderName:Bool = false, showCardBrandsBar:Bool = false, showCardScanner:Bool = false, tapScannerUICustomization:TapFullScreenUICustomizer = .init() , transactionCurrency:TapCurrencyCode = .KWD, presentScannerInViewController:UIViewController?, allowedCardTypes:cardTypes = .All, tapCardInputDelegate:TapCardInputDelegate? = nil, preloadCardHolderName:String = "", editCardName:Bool = true) {
         // Set the locale
         self.locale = locale
         // Set the collection name ability
@@ -163,6 +170,10 @@ internal protocol ThreeDSViewControllerDelegate {
         self.allowedCardType = allowedCardTypes
         // A delegate listens for needed actions and callbacks
         self.tapCardInputDelegate = tapCardInputDelegate
+        /// Set the preloading value for card name
+        self.preloadCardHolderName = preloadCardHolderName
+        /// Set the editibility for the card name field
+        self.editCardName = editCardName
         // Adjust the UI now
         initUI()
         // Init the card brands bar
@@ -416,7 +427,7 @@ internal protocol ThreeDSViewControllerDelegate {
             supportedBrands = CardBrand.allCases.map{ $0.rawValue }
         }
         supportedBrands = CardBrand.allCases.map{ $0.rawValue }
-        tapCardInput.setup(for: .InlineCardInput, showCardName: collectCardHolderName, allowedCardBrands: supportedBrands)
+        tapCardInput.setup(for: .InlineCardInput, showCardName: collectCardHolderName, allowedCardBrands: supportedBrands, preloadCardHolderName: preloadCardHolderName, editCardName: editCardName)
         // Let us listen to the card input ui callbacks if needed
         tapCardInput.delegate = self
     }

@@ -20,6 +20,8 @@ class DempSettingsViewController: UIViewController, CreateCustomerDelegate {
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var allowedCardsButton: UIButton!
     @IBOutlet weak var customerButton: UIButton!
+    @IBOutlet weak var editCardNameSwitch: UISwitch!
+    @IBOutlet weak var customCardNameButton: UIButton!
     
     var savedCustomer:TapCustomer? {
         if let data = UserDefaults.standard.value(forKey:"customerSevedKey") as? Data {
@@ -89,6 +91,10 @@ class DempSettingsViewController: UIViewController, CreateCustomerDelegate {
         allowedCardsButton.setTitle(sharedConfigurationSharedManager.allowedCardTypes.description, for: .normal)
         // set the customer name and id
         customerButton.setTitle(customerDisplay, for: .normal)
+        // set the card name
+        customCardNameButton.setTitle(sharedConfigurationSharedManager.cardName, for: .normal)
+        // Set the editing card name
+        editCardNameSwitch.isOn = sharedConfigurationSharedManager.editCardHolderName
     }
     
     
@@ -124,10 +130,49 @@ class DempSettingsViewController: UIViewController, CreateCustomerDelegate {
     }
     
     
+    @IBAction func editCardNameSwitchChanged(_ sender: Any) {
+        sharedConfigurationSharedManager.editCardHolderName = editCardNameSwitch.isOn
+    }
+    
     @IBAction func customerButtonClicked(_ sender: Any) {
         let customerCreate:CreateCustomerViewController = self.storyboard?.instantiateViewController(withIdentifier: "CreateCustomerViewController") as! CreateCustomerViewController
         present(customerCreate, animated: true)
         customerCreate.customerDelegate = self
+    }
+    
+    @IBAction func cardNameClicked(_ sender: Any) {
+        
+        let alertController = UIAlertController(title: "Preload the card holder name field", message: "Please note, it has to be alphabet only, more than 2 charachters and less than 27!", preferredStyle: .alert)
+
+        let saveAction = UIAlertAction(title: "Save", style: .default, handler: { [weak self] alert -> Void in
+            let firstTextField = alertController.textFields![0] as UITextField
+            
+            if let passedCardName = firstTextField.text,
+               !passedCardName.isEmpty,
+               self?.alphabetOnly(passedCardName) == passedCardName.lowercased(),
+               passedCardName.count > 2,
+               passedCardName.count <= 26 {
+                sharedConfigurationSharedManager.cardName = passedCardName
+            }else{
+                sharedConfigurationSharedManager.cardName = "None"
+            }
+            self?.customCardNameButton.setTitle(sharedConfigurationSharedManager.cardName, for: .normal)
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alertController.addTextField { (textField : UITextField!) -> Void in
+            textField.placeholder = "Enter the card name"
+        }
+        
+        alertController.addAction(saveAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true)
+
+    }
+    
+    func alphabetOnly(_ string:String) -> String {
+        return string.lowercased().filter { "abcdefghijklmnopqrstuvwxyz ".contains($0) }
     }
     
     @IBAction func collectNameSwitchValueChanged(_ sender: Any) {

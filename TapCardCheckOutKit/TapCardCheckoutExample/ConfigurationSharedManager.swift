@@ -19,6 +19,12 @@ class ConfigurationSharedManager {
     /// Tells if we need to collect the card holder name or not
     var collectCardHolderName:Bool = false
     
+    /// Tells if we need to preload the card name field
+    var cardName:String = "None"
+    
+    /// Tells if the user can edit the card name field
+    var editCardHolderName:Bool = true
+    
     /// Tells if we need to show the card brand or not
     var showCardBrands:Bool = false
     

@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "TapCardCheckOutKit"
-  spec.version      = "0.0.7"
+  spec.version      = "0.0.8"
   spec.summary      = "From the shelf PCI compliant card entry forum."
 
   # This description is used to generate tags and improve search results.
@@ -138,6 +138,7 @@ Pod::Spec.new do |spec|
   spec.dependency'TapApplicationV2'
   spec.dependency'SwiftyRSA'
   spec.dependency'TapKeychain'
+  spec.dependency'Firebase/AnalyticsWithoutAdIdSupport'
 
   
   spec.pod_target_xcconfig = {

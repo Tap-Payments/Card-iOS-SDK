@@ -15,7 +15,8 @@ import TapUIKit_iOS
 import MOLH
 import TapCardScanner_iOS
 import AVFoundation
-import Firebase
+import FirebaseAnalytics
+import FirebaseCore
 
 /// A protorocl to communicate with the three ds web view controller
 internal protocol ThreeDSViewControllerDelegate {

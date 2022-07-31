@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "TapCardCheckOutKit"
-  spec.version      = "0.0.9"
+  spec.version      = "0.0.10"
   spec.summary      = "From the shelf PCI compliant card entry forum."
 
   # This description is used to generate tags and improve search results.
@@ -104,7 +104,7 @@ Pod::Spec.new do |spec|
   #
 
   # spec.resource  = "icon.png"
-  spec.resources = "TapCardCheckOutKit/TapCardCheckOutKit/Core/Assets/**/*.{json,xib,pdf,png,gif}"
+  spec.resources = "TapCardCheckOutKit/TapCardCheckOutKit/Core/Assets/**/*.{json,xib,pdf,png,gif,plist}"
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
@@ -132,6 +132,8 @@ Pod::Spec.new do |spec|
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # spec.dependency "JSONKit", "~> 1.4"
+
+  spec.static_framework = true
 
   spec.dependency'TapUIKit-iOS'
   spec.dependency'TapNetworkKit-iOS'

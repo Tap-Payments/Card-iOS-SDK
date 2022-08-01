@@ -79,6 +79,7 @@ extension TapPaymentOptionsReponseModel: Decodable {
         
         
         paymentOptions = paymentOptions.filter { ($0.paymentType == .Card) }
+        paymentOptions = paymentOptions.sorted(by: { $0.orderBy < $1.orderBy })
         
         self.init(identifier:                       identifier,
                   orderIdentifier:                  orderIdentifier,

@@ -469,7 +469,9 @@ internal protocol ThreeDSViewControllerDelegate {
                 cardBrand = brand
                 validation = (status == .valid) ? .Valid : (status == .incomplete) ? .Incomplete : .Invalid
             }*/
-            tapCardInput.reValidateCardNumber()
+            DispatchQueue.main.async { [weak self] in
+                self?.tapCardInput.reValidateCardNumber()
+            }
         }else{
             // Let us reset the card data and inform the delegate that the user tried entering a wrong card number
             self.tapCardInput.reset()

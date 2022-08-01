@@ -480,7 +480,7 @@ internal protocol TapCardInputCommonProtocol {
     
     
     @objc public func reValidateCardNumber() {
-        cardNumber.didChangeText(textField: cardNumber)
+        cardNumber.reValidate(tapCardNumber:tapCard.tapCardNumber)
     }
     
     @objc func saveCardSwitchChanged(_ sender:Any) {

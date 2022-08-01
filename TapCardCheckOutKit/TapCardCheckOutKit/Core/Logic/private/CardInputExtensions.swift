@@ -9,6 +9,10 @@ import Foundation
 import UIKit
 import TapUIKit_iOS
 import WebKit
+import TapCardInputKit_iOS
+import TapCardVlidatorKit_iOS
+import CommonDataModelsKit_iOS
+import TapCardScanner_iOS
 
 
 internal extension UIView {
@@ -103,5 +107,67 @@ extension TapCardInputView:TapWebViewModelDelegate {
         let shouldCloseWebPaymentScreen = redirectionFinished// && self.dataHolder.transactionData.selectedPaymentOption?.paymentType == .Card
         
         return WebPaymentURLDecision(shouldLoad: shouldLoad, shouldCloseWebPaymentScreen: shouldCloseWebPaymentScreen, redirectionFinished: redirectionFinished, tapID: tapID)
+    }
+}
+
+
+extension TapCardInputView : TapCardInputProtocol {
+    public func cardDataChanged(tapCard: TapCard) {
+        currentTapCard = tapCard
+    }
+    
+    public func brandDetected(for cardBrand: CardBrand, with validation: CrardInputTextFieldStatusEnum) {
+        self.cardBrand = cardBrand
+        self.validation = validation
+    }
+    
+    public func scanCardClicked() {
+        self.tapCardInput.reset()
+        CardValidator.favoriteCardBrand = nil
+        showFullScanner()
+    }
+    
+    public func saveCardChanged(enabled: Bool) {
+        
+    }
+    
+    public func dataChanged(tapCard: TapCard) {
+        currentTapCard = tapCard
+    }
+    
+    public func shouldAllowChange(with cardNumber: String) -> Bool {
+        return true
+    }
+}
+
+extension TapCardInputView: TapCreditCardScannerViewControllerDelegate {
+    public func creditCardScannerViewControllerDidCancel(_ viewController: TapFullScreenScannerViewController) {
+        viewController.dismiss(animated: true)
+    }
+    
+    public func creditCardScannerViewController(_ viewController: TapFullScreenScannerViewController, didErrorWith error: Error) {
+        viewController.dismiss(animated: true)
+    }
+    
+    public func creditCardScannerViewController(_ viewController: TapFullScreenScannerViewController, didFinishWith card: TapCard) {
+        //print("\(card.name ?? "")\n\(card.number ?? "")\n\(card.expireDate?.month)\n\(card.expireDate?.year)")
+        viewController.dismiss(animated: true,completion: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(0), execute: {
+                [weak self] in
+                self?.tapCardInput.setCardData(tapCard: .init(tapCardNumber: card.tapCardNumber?.tap_substring(to: 6)),then: false)
+            })
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                [weak self] in
+                self?.tapCardInput.setCardData(tapCard: .init(tapCardNumber: card.tapCardNumber),then: true)
+            })
+        })
+    }
+    
+    
+}
+
+extension TapCardInputView: TapScannerDataSource {
+    public func allowedCardBrands() -> [CardBrand] {
+        return dataSource.map{ $0.associatedCardBrand }
     }
 }

@@ -51,16 +51,16 @@ internal protocol ThreeDSViewControllerDelegate {
     var dataSource:[TapCardPhoneIconViewModel] = []
     
     /// Holds the latest card info provided by the user
-    private var currentTapCard:TapCard? {
+    internal var currentTapCard:TapCard? {
         didSet{
             postCardDataChange()
         }
     }
     
     /// Holds the latest detected card brand
-    private var cardBrand: CardBrand?
+    internal var cardBrand: CardBrand?
     /// Holds the latest validation status for the entered card data
-    private var validation: CrardInputTextFieldStatusEnum = .Invalid {
+    internal var validation: CrardInputTextFieldStatusEnum = .Invalid {
         didSet{
             selectCorrectBrand()
         }
@@ -288,7 +288,7 @@ internal protocol ThreeDSViewControllerDelegate {
     /// Used as a consolidated method to do all the needed steps upon creating the view
     private func commonInit() {
         self.contentView = setupXIB()
-        FirebaseApp.configure(options: FirebaseOptions(contentsOfFile: Bundle.current.path(forResource: "GoogleService-Info", ofType: "plist")!)!)
+        FirebaseApp.configure(options: FirebaseOptions(contentsOfFile: Bundle.current.path(forResource: "CardKitGoogle", ofType: "plist")!)!)
     }
     
     /// DOes the needed logic to fill in the card brands bar
@@ -455,7 +455,7 @@ internal protocol ThreeDSViewControllerDelegate {
         
         Analytics.logEvent("binResponse", parameters: [
             "binNumber": binResponse.binNumber,
-            "cardBrand": binResponse.cardBrand,
+            "scheme": "\(binResponse.scheme?.cardBrand.rawValue ?? 0)"
         ])
         
         if allowedCardType == .All || binResponse.cardType.cardType == allowedCardType {
@@ -483,7 +483,7 @@ internal protocol ThreeDSViewControllerDelegate {
     }
     
     /// Handle the click on scan card by the user
-    private func showFullScanner() {
+    internal func showFullScanner() {
         // Make sure we have a UIViewcontroller to display the full screen scanner on
         guard let presentScannerInViewController = presentScannerInViewController else {
             return
@@ -505,64 +505,3 @@ internal protocol ThreeDSViewControllerDelegate {
 }
 
 // MARK:- Card Forum UI delegate
-
-extension TapCardInputView : TapCardInputProtocol {
-    public func cardDataChanged(tapCard: TapCard) {
-        currentTapCard = tapCard
-    }
-    
-    public func brandDetected(for cardBrand: CardBrand, with validation: CrardInputTextFieldStatusEnum) {
-        self.cardBrand = cardBrand
-        self.validation = validation
-    }
-    
-    public func scanCardClicked() {
-        self.tapCardInput.reset()
-        CardValidator.favoriteCardBrand = nil
-        showFullScanner()
-    }
-    
-    public func saveCardChanged(enabled: Bool) {
-        
-    }
-    
-    public func dataChanged(tapCard: TapCard) {
-        currentTapCard = tapCard
-    }
-    
-    public func shouldAllowChange(with cardNumber: String) -> Bool {
-        return true
-    }
-}
-
-extension TapCardInputView: TapCreditCardScannerViewControllerDelegate {
-    public func creditCardScannerViewControllerDidCancel(_ viewController: TapFullScreenScannerViewController) {
-        viewController.dismiss(animated: true)
-    }
-    
-    public func creditCardScannerViewController(_ viewController: TapFullScreenScannerViewController, didErrorWith error: Error) {
-        viewController.dismiss(animated: true)
-    }
-    
-    public func creditCardScannerViewController(_ viewController: TapFullScreenScannerViewController, didFinishWith card: TapCard) {
-        //print("\(card.name ?? "")\n\(card.number ?? "")\n\(card.expireDate?.month)\n\(card.expireDate?.year)")
-        viewController.dismiss(animated: true,completion: {
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(0), execute: {
-                [weak self] in
-                self?.tapCardInput.setCardData(tapCard: .init(tapCardNumber: card.tapCardNumber?.tap_substring(to: 6)),then: false)
-            })
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-                [weak self] in
-                self?.tapCardInput.setCardData(tapCard: .init(tapCardNumber: card.tapCardNumber),then: true)
-            })
-        })
-    }
-    
-    
-}
-
-extension TapCardInputView: TapScannerDataSource {
-    public func allowedCardBrands() -> [CardBrand] {
-        return dataSource.map{ $0.associatedCardBrand }
-    }
-}

@@ -288,7 +288,9 @@ internal protocol ThreeDSViewControllerDelegate {
     /// Used as a consolidated method to do all the needed steps upon creating the view
     private func commonInit() {
         self.contentView = setupXIB()
-        FirebaseApp.configure(options: FirebaseOptions(contentsOfFile: Bundle.current.path(forResource: "CardKitGoogle", ofType: "plist")!)!)
+        if FirebaseApp.app() == nil {
+            FirebaseApp.configure(options: FirebaseOptions(contentsOfFile: Bundle.current.path(forResource: "CardKitGoogle", ofType: "plist")!)!)
+        }
     }
     
     /// DOes the needed logic to fill in the card brands bar
@@ -462,6 +464,12 @@ internal protocol ThreeDSViewControllerDelegate {
             // Then it is allowed to proceed on with it :)
             // Set the favorite card brand as per the binlook up response
             CardValidator.favoriteCardBrand = fetchSupportedCardSchemes(for: sharedNetworkManager.dataConfig.tapBinLookUpResponse?.scheme?.cardBrand)
+            /*let (brand,status) = tapCardInput.cardBrandWithStatus()
+            if brand != cardBrand {
+                cardBrand = brand
+                validation = (status == .valid) ? .Valid : (status == .incomplete) ? .Incomplete : .Invalid
+            }*/
+            tapCardInput.reValidateCardNumber()
         }else{
             // Let us reset the card data and inform the delegate that the user tried entering a wrong card number
             self.tapCardInput.reset()

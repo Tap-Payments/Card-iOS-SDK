@@ -18,7 +18,7 @@ import CommonDataModelsKit_iOS
      - Parameter localeIdentifier : The ISO 639-1 Code language identefier, please note if the passed locale is wrong or not found in the localisation files, we will show the keys instead of the values
      - Parameter secretKey: The secret keys providede to your business from TAP.
      */
-    public init(sdkMode: SDKMode = .sandbox, localeIdentifier: String = "en", secretKey: SecretKey = .init(sandbox: "", production: "")) {
+    @objc public init(sdkMode: SDKMode = .sandbox, localeIdentifier: String = "en", secretKey: SecretKey = .init(sandbox: "", production: "")) {
         self.sdkMode = sdkMode
         self.localeIdentifier = localeIdentifier
         self.secretKey = secretKey
@@ -26,15 +26,17 @@ import CommonDataModelsKit_iOS
     
     
     // MARK: Public shared values
-    /// Represents the mode of the sdk . Whether sandbox or production
-    public var sdkMode:SDKMode = .sandbox
-    /// The ISO 639-1 Code language identefier, please note if the passed locale is wrong or not found in the localisation files, we will show the keys instead of the values
-    public var localeIdentifier:String = "en"
-    /// The secret keys providede to your business from TAP.
-    public var secretKey:SecretKey = .init(sandbox: "", production: "")
+    
     
     
     // MARK: - Private shared values
+    
+    /// Represents the mode of the sdk . Whether sandbox or production
+    internal var sdkMode:SDKMode = .sandbox
+    /// The ISO 639-1 Code language identefier, please note if the passed locale is wrong or not found in the localisation files, we will show the keys instead of the values
+    internal var localeIdentifier:String = "en"
+    /// The secret keys providede to your business from TAP.
+    internal var secretKey:SecretKey = .init(sandbox: "", production: "")
     
     /// The currency you want to show the card brands that accepts it. Default is KWD
     internal var transactionCurrency: TapCurrencyCode = .KWD

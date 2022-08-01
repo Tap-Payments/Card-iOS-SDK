@@ -253,7 +253,7 @@ extension CardNumberTextField:UITextFieldDelegate {
         // In card number we only allow digits and spaces. The spaces will come from the formatting we are applying
         guard let filteredText:String = tapCardNumber?.digitsWithSpaces(),
               !filteredText.isEmpty else { return }
-              
+        
         // Validae the state of the number by trimming all non numeric charachters
         let validation = CardValidator.validate(cardNumber: filteredText.onlyDigits(),preferredBrands: allowedBrands.map{ CardBrand.init(rawValue: $0)! })
         

@@ -83,7 +83,7 @@ PODS:
     - CommonDataModelsKit-iOS (~> 1.0.1)
   - TapApplicationV2 (0.0.2):
     - TapAdditionsKitV2
-  - TapCardInputKit-iOS (1.0.29):
+  - TapCardInputKit-iOS (1.0.31):
     - CommonDataModelsKit-iOS
     - LocalisationManagerKit-iOS
     - MOLH
@@ -192,7 +192,7 @@ SPEC CHECKSUMS:
   TapAdditionsKitV2: ba369802e9575c3475ce6d5af228cf60c68edfc9
   TapApplePayKit-iOS: 940ab0575100d21e6080d17851cfe6c36bfebc24
   TapApplicationV2: aee3d046c4272778431e1535de6cab34e1269f8c
-  TapCardInputKit-iOS: 32fc40a6295cb3958f22e150fd412d5ba5ca5f72
+  TapCardInputKit-iOS: a8cbd7dbc93629acbaf7c9d3b90f1e7d85c06cdd
   TapCardScanner-iOS: 4fe77bad44d216353ea083eaf3fb6dd6ff6dbdc8
   TapCardVlidatorKit-iOS: c89d510445a159d9f6967923096115783dcd1cdb
   TapFontKit-iOS: 51ed2ddbe9f2b5ece1cc587ed45af9147e5c6fc1

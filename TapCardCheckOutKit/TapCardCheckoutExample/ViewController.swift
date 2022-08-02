@@ -35,6 +35,7 @@ class ViewController: UIViewController, TapCardInputDelegate {
         super.viewDidLoad()
         // Apply the configurations
         configureCardInput()
+        UIPasteboard.general.string = ""
         // Do any additional setup after loading the view.
     }
 

@@ -17,6 +17,8 @@ import LocalisationManagerKit_iOS
  * Pass their names in this Object
  */
 @objc public class TapCardForumLocalisation: NSObject {
+    /// Represents a direct provided JSON localisation data
+    internal var localisationData:[String:Any]?
     /// Represents the file name of the custom provided localisation file
     internal var filePath:URL?
     /// Represents the type of the provided custom localisation, whether it is local embedded or a remote JSON file
@@ -38,6 +40,21 @@ import LocalisationManagerKit_iOS
         
         self.localisationType = localisationType
         self.filePath = filePath
+        self.shouldFlip = shouldFlip
+        self.localeIdentifier = localeIdentifier
+    }
+    
+    /**
+     Represents a model to pass custom localisation  files if required.
+     - Parameter localisationData: Represents a direct provided JSON localisation data
+     - Parameter shouldFlip: Represents if the parent app wants the card forum to flip itself horizontally. Default is false
+     - Parameter localeIdentifier: The ISO 639-1 Code language identefier, please note if the passed locale is wrong or not found in the localisation files, we will show the keys instead of the values
+     */
+    @objc public init(with localisationData:[String:Any], shouldFlip:Bool = false, localeIdentifier:String = "en") {
+        super.init()
+        
+        self.localisationData = localisationData
+        self.localisationType = .DirectData
         self.shouldFlip = shouldFlip
         self.localeIdentifier = localeIdentifier
     }

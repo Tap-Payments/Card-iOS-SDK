@@ -146,7 +146,9 @@ extension CardExpiryTextField:UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         // attempt to read the range they are trying to change, or exit if we can't
-        guard let currentText = textField.text as NSString? else {
+        // Also check it is only digits
+        guard let currentText = textField.text as NSString?,
+              string.onlyDigits() == string else {
             return false
         }
         // add the new text to the existing text

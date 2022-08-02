@@ -189,7 +189,7 @@ extension CardExpiryTextField:UITextFieldDelegate {
     internal func changeText(with month:String?, year:String?) -> Bool {
         
         if let nonNullMonth = formatMonthPart(with: month),
-            let nonNullYear = formatYearPart(with: year) {
+           let nonNullYear = formatYearPart(with: year) {
             // If the formatter accepted the given month and year, then e can assign those values to the field
             self.text = "\(nonNullMonth)/\(nonNullYear)"
         }

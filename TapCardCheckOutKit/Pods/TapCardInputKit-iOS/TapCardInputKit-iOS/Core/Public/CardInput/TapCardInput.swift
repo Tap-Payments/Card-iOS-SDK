@@ -254,6 +254,8 @@ internal protocol TapCardInputCommonProtocol {
         
     }
     
+    
+    
     /**
      Decicdes the status of the current card number
      - Returns: tuble of(Card brand and Validation state) to tell if there is a brand detected, and if any what is the validation status of this brand
@@ -412,7 +414,7 @@ internal protocol TapCardInputCommonProtocol {
             self?.cardDatachanged()
             //self?.cardName.resignFirstResponder()
         }, preloadCardHolderName: preloadCardHolderName,
-        editCardName: editCardName)
+                       editCardName: editCardName)
         
         // Setup the card expiry field with the needed data and listeners
         cardExpiry.setup(with: 5, placeholder: "",editingStatusChanged: {[weak self] (isEditing) in
@@ -474,6 +476,11 @@ internal protocol TapCardInputCommonProtocol {
                 Nuke.loadImage(with: iconURL,options:options, into: icon)
             }
         }
+    }
+    
+    
+    @objc public func reValidateCardNumber() {
+        cardNumber.reValidate(tapCardNumber:tapCard.tapCardNumber)
     }
     
     @objc func saveCardSwitchChanged(_ sender:Any) {

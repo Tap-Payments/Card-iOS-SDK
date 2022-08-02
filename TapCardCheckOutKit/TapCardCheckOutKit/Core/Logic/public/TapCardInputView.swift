@@ -206,9 +206,11 @@ internal protocol ThreeDSViewControllerDelegate {
             onErrorOccured("You have to call the initCardForm method first. This allows the card form to get the data needed to communicate with Tap's backend apis.")
             return
         }
+        
         // Check that the user entered a valid card data first
         guard let nonNullCard = currentTapCard,
               validation == .Valid,
+              allFieldsAreValid(),
         let nonNullTokenizeCard:CreateTokenCard = try? .init(card: nonNullCard, address: nil) else {
             onErrorOccured("The user didn't enter a valid card data to tokenize. Please prompt the user to do so first.")
             return
@@ -251,6 +253,7 @@ internal protocol ThreeDSViewControllerDelegate {
         // Check that the user entered a valid card data first
         guard let nonNullCard = currentTapCard,
               validation == .Valid,
+              allFieldsAreValid(),
               let nonNullTokenizeCard:CreateTokenCard = try? .init(card: nonNullCard, address: nil) else {
             onErrorOccured("The user didn't enter a valid card data to save it. Please prompt the user to do so first.",nil)
             return
@@ -285,6 +288,15 @@ internal protocol ThreeDSViewControllerDelegate {
     
     
     // MARK:- Private functions
+    
+    private func allFieldsAreValid() -> Bool {
+        
+        let (cardNumberValidationStatus, cardExpiryValidationStatus, cardCVVValidationStatus, cardNameValidationStatus) = tapCardInput.fieldsValidationStatuses()
+        
+        return cardNumberValidationStatus && cardExpiryValidationStatus && cardCVVValidationStatus && cardNameValidationStatus
+        
+    }
+    
     /// Used as a consolidated method to do all the needed steps upon creating the view
     private func commonInit() {
         self.contentView = setupXIB()

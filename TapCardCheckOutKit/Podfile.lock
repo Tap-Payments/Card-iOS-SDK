@@ -1,5 +1,5 @@
 PODS:
-  - CommonDataModelsKit-iOS (1.0.51):
+  - CommonDataModelsKit-iOS (1.0.52):
     - TapAdditionsKitV2
   - Firebase/AnalyticsWithoutAdIdSupport (9.3.0):
     - Firebase/CoreOnly
@@ -83,7 +83,7 @@ PODS:
     - CommonDataModelsKit-iOS (~> 1.0.1)
   - TapApplicationV2 (0.0.2):
     - TapAdditionsKitV2
-  - TapCardInputKit-iOS (1.0.31):
+  - TapCardInputKit-iOS (1.0.33):
     - CommonDataModelsKit-iOS
     - LocalisationManagerKit-iOS
     - MOLH
@@ -169,7 +169,7 @@ SPEC REPOS:
     - TapUIKit-iOS
 
 SPEC CHECKSUMS:
-  CommonDataModelsKit-iOS: d51cd068caead60719749cef3af2d00b86fc85b4
+  CommonDataModelsKit-iOS: 3cb22d52f6fd82a89bab65b557e92ead545cef12
   Firebase: ef75abb1cdbc746d5a38f4e26c422c807b189b8c
   FirebaseAnalytics: bf46f5163f44097ce2c789de0b3e6f87f1da834a
   FirebaseCore: c088995ece701a021a48a1348ea0174877de2a6a
@@ -192,7 +192,7 @@ SPEC CHECKSUMS:
   TapAdditionsKitV2: ba369802e9575c3475ce6d5af228cf60c68edfc9
   TapApplePayKit-iOS: 940ab0575100d21e6080d17851cfe6c36bfebc24
   TapApplicationV2: aee3d046c4272778431e1535de6cab34e1269f8c
-  TapCardInputKit-iOS: a8cbd7dbc93629acbaf7c9d3b90f1e7d85c06cdd
+  TapCardInputKit-iOS: 09b57ce17e5d66f501c29bb99e608f68c7c7d638
   TapCardScanner-iOS: 4fe77bad44d216353ea083eaf3fb6dd6ff6dbdc8
   TapCardVlidatorKit-iOS: c89d510445a159d9f6967923096115783dcd1cdb
   TapFontKit-iOS: 51ed2ddbe9f2b5ece1cc587ed45af9147e5c6fc1

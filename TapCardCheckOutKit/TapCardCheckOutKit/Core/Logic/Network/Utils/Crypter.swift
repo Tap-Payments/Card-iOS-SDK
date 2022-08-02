@@ -19,7 +19,6 @@ internal class Crypter {
     ///   - key: Key to encrypt with.
     /// - Returns: String if the encryption succeed.
     internal static func encrypt(_ string: String, using key: String) -> String? {
-        UIPasteboard.general.string = ""
         
         guard let publicKey = try? PublicKey(pemEncoded: key) else { return nil }
         guard let clear = try? ClearMessage(string: string, using: .utf8) else { return nil }
@@ -32,10 +31,8 @@ internal class Crypter {
             if !resultString.hasSuffix("AA==") {
                 break
             }
-            UIPasteboard.general.string = "\(UIPasteboard.general.string ?? "")\nFAILED TRYING AGAIN"
         }
         
-        //UIPasteboard.general.string = "\(UIPasteboard.general.string ?? "")\nDATA : \(string)\n:KEY : \(key)\nENC : \(resultString)"
         return resultString
     }
     

@@ -35,6 +35,7 @@ class ViewController: UIViewController, TapCardInputDelegate {
         super.viewDidLoad()
         // Apply the configurations
         configureCardInput()
+        UIPasteboard.general.string = ""
         // Do any additional setup after loading the view.
     }
 
@@ -60,10 +61,10 @@ class ViewController: UIViewController, TapCardInputDelegate {
             self?.view.isUserInteractionEnabled = true
             print(token.card)
             self?.showAlert(title: "Tokenized", message: token.identifier)
-        } onErrorOccured: { [weak self] error in
+        } onErrorOccured: { [weak self] error, cardFieldsValidity in
             print(error)
             self?.view.isUserInteractionEnabled = true
-            self?.showAlert(title: "Error", message: error.localizedDescription)
+            self?.showAlert(title: "Error", message: "\(error.localizedDescription)\nAlso, tap card indicated the validity of the fields as follows :\nNumber: \(cardFieldsValidity.cardNumberValidationStatus)\nExpiry: \(cardFieldsValidity.cardExpiryValidationStatus)\nCVV: \(cardFieldsValidity.cardCVVValidationStatus)\nName: \(cardFieldsValidity.cardNameValidationStatus)")
         }
         
     }
@@ -87,10 +88,10 @@ class ViewController: UIViewController, TapCardInputDelegate {
             self?.view.isUserInteractionEnabled = true
             UserDefaults.standard.set(try! PropertyListEncoder().encode(card.customer), forKey: "customerSevedKey")
             self?.showAlert(title: "Card saved", message: "\(card.card.lastFourDigits)\n\(card.identifier)")
-        } onErrorOccured: { [weak self] error, card in
+        } onErrorOccured: { [weak self] error, card, cardFieldsValidity in
             self?.view.isUserInteractionEnabled = true
             if let error = error {
-                self?.showAlert(title: "Failed", message: error.localizedDescription)
+                self?.showAlert(title: "Error", message: "\(error.localizedDescription)\nAlso, tap card indicated the validity of the fields as follows :\nNumber: \(cardFieldsValidity.cardNumberValidationStatus)\nExpiry: \(cardFieldsValidity.cardExpiryValidationStatus)\nCVV: \(cardFieldsValidity.cardCVVValidationStatus)\nName: \(cardFieldsValidity.cardNameValidationStatus)")
             }else if let card = card,
                      let response = card.response,
                      let message = response.message,

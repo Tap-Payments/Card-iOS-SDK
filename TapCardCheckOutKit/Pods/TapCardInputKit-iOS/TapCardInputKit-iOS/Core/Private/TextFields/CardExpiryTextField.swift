@@ -161,6 +161,8 @@ extension CardExpiryTextField:UITextFieldDelegate {
             return true
         } else if updatedText.count == 5 {
             // If the text is already has length of 5 MM/YY then e will not do anything, as it should be validated through the process until it reaches here
+            textField.text = updatedText
+            resignFirstResponder()
             return true
         } else if updatedText.count > 5 {
             // we will not allow entering more than 5 charachters MM/YY

@@ -197,13 +197,17 @@ internal protocol ThreeDSViewControllerDelegate {
     /**
      Handles tokenizing the current card data.
      - Parameter onResponeReady: A callback to listen when a token is successfully generated
-     - Parameter onErrorOccured: A callback to listen when tokenization fails.
+     - Parameter onErrorOccured: A callback to listen when tokenization fails with error message and the validity of all the card fields for your own interest
      */
-    @objc public func tokenizeCard(onResponeReady: @escaping (Token) -> () = {_ in}, onErrorOccured: @escaping(Error)->() = {_ in}) {
+    @objc public func tokenizeCard(onResponeReady: @escaping (Token) -> () = {_ in}, onErrorOccured: @escaping(Error,CardFieldsValidity)->() = {_,_  in}) {
+        // get the validity of all fields
+        let (cardNumberValidationStatus, cardExpiryValidationStatus, cardCVVValidationStatus, cardNameValidationStatus) = tapCardInput.fieldsValidationStatuses()
+        
+        let cardFieldsValidity = CardFieldsValidity(cardNumberValidationStatus: cardNumberValidationStatus, cardExpiryValidationStatus: cardExpiryValidationStatus, cardCVVValidationStatus: cardCVVValidationStatus, cardNameValidationStatus: cardNameValidationStatus)
         
         // Check that the card kit is already initilzed
         guard let _ = sharedNetworkManager.dataConfig.sdkSettings else {
-            onErrorOccured("You have to call the initCardForm method first. This allows the card form to get the data needed to communicate with Tap's backend apis.")
+            onErrorOccured("You have to call the initCardForm method first. This allows the card form to get the data needed to communicate with Tap's backend apis.",cardFieldsValidity)
             return
         }
         
@@ -212,7 +216,7 @@ internal protocol ThreeDSViewControllerDelegate {
               validation == .Valid,
               allFieldsAreValid(),
         let nonNullTokenizeCard:CreateTokenCard = try? .init(card: nonNullCard, address: nil) else {
-            onErrorOccured("The user didn't enter a valid card data to tokenize. Please prompt the user to do so first.")
+            onErrorOccured("The user didn't enter a valid card data to tokenize. Please prompt the user to do so first.",cardFieldsValidity)
             return
         }
         tapCardInputDelegate?.eventHappened(with: .TokenizeStarted)
@@ -221,7 +225,7 @@ internal protocol ThreeDSViewControllerDelegate {
             onResponeReady(token)
         } onErrorOccured: { [weak self] error in
             self?.tapCardInputDelegate?.eventHappened(with: .TokenizeEnded)
-            onErrorOccured(error)
+            onErrorOccured(error, cardFieldsValidity)
         }
 
     }
@@ -242,12 +246,17 @@ internal protocol ThreeDSViewControllerDelegate {
                                metadata:TapMetadata? = nil,
                                enforce3DS:Bool = true,
                                onResponeReady: @escaping (TapCreateCardVerificationResponseModel) -> () = {_ in},
-                               onErrorOccured: @escaping(Error?,TapCreateCardVerificationResponseModel?)->() = { _,_ in},
+                               onErrorOccured: @escaping(Error?,TapCreateCardVerificationResponseModel?,CardFieldsValidity)->() = { _,_,_ in},
                                on3DSWebViewWillAppear: @escaping()->() = {},
                                on3DSWebViewDismissed: @escaping()->() = {}) {
+        
+        
+        let (cardNumberValidationStatus, cardExpiryValidationStatus, cardCVVValidationStatus, cardNameValidationStatus) = tapCardInput.fieldsValidationStatuses()
+        
+        let cardFieldsValidity = CardFieldsValidity(cardNumberValidationStatus: cardNumberValidationStatus, cardExpiryValidationStatus: cardExpiryValidationStatus, cardCVVValidationStatus: cardCVVValidationStatus, cardNameValidationStatus: cardNameValidationStatus)
         // Check that the card kit is already initilzed
         guard let _ = sharedNetworkManager.dataConfig.sdkSettings else {
-            onErrorOccured("You have to call the initCardForm method first. This allows the card form to get the data needed to communicate with Tap's backend apis.",nil)
+            onErrorOccured("You have to call the initCardForm method first. This allows the card form to get the data needed to communicate with Tap's backend apis.",nil,cardFieldsValidity)
             return
         }
         // Check that the user entered a valid card data first
@@ -255,7 +264,7 @@ internal protocol ThreeDSViewControllerDelegate {
               validation == .Valid,
               allFieldsAreValid(),
               let nonNullTokenizeCard:CreateTokenCard = try? .init(card: nonNullCard, address: nil) else {
-            onErrorOccured("The user didn't enter a valid card data to save it. Please prompt the user to do so first.",nil)
+            onErrorOccured("The user didn't enter a valid card data to save it. Please prompt the user to do so first.",nil,cardFieldsValidity)
             return
         }
         self.parentController = parentController
@@ -271,7 +280,7 @@ internal protocol ThreeDSViewControllerDelegate {
         }
         sharedNetworkManager.dataConfig.onErrorSaveCardOccured = { [weak self] error, card in
             self?.tapCardInputDelegate?.eventHappened(with: .SaveCardEnded)
-            onErrorOccured(error, card)
+            onErrorOccured(error, card,cardFieldsValidity)
         }
         tapCardInputDelegate?.eventHappened(with: .SaveCardStarted)
         // To save a card we need to tokenize it first
@@ -281,7 +290,7 @@ internal protocol ThreeDSViewControllerDelegate {
                 self?.showWebView(with: redirectionURL)
             }
         }) { error in
-            onErrorOccured(error,nil)
+            onErrorOccured(error,nil,cardFieldsValidity)
         }
     }
     
@@ -497,6 +506,7 @@ internal protocol ThreeDSViewControllerDelegate {
         // Check that the user entered a valid card data first
         guard let nonNullCard = currentTapCard,
               validation == .Valid,
+              allFieldsAreValid(),
               let _ : CreateTokenCard = try? .init(card: nonNullCard, address: nil) else {
             return false
         }

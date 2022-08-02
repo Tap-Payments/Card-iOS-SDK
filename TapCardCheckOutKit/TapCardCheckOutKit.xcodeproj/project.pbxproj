@@ -65,6 +65,7 @@
 		E83FD09D2889E7AB00057F22 /* CardScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83FD09C2889E7AB00057F22 /* CardScheme.swift */; };
 		E83FD0DA288D590800057F22 /* amazon.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E83FD0D9288D590800057F22 /* amazon.jpeg */; };
 		E83FD0DC288D629D00057F22 /* CardKitErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83FD0DB288D629D00057F22 /* CardKitErrorType.swift */; };
+		E848091728998D49003FDF34 /* CardFieldsValidity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E848091628998D49003FDF34 /* CardFieldsValidity.swift */; };
 		E8503AA72896512200D1B8B0 /* CardKitGoogle.plist in Resources */ = {isa = PBXBuildFile; fileRef = E8503AA62896512200D1B8B0 /* CardKitGoogle.plist */; };
 		E874F804288585B70067DB3E /* DempSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874F803288585B70067DB3E /* DempSettingsViewController.swift */; };
 		E874F806288586C50067DB3E /* ConfigurationSharedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874F805288586C50067DB3E /* ConfigurationSharedManager.swift */; };
@@ -185,6 +186,7 @@
 		E83FD09C2889E7AB00057F22 /* CardScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardScheme.swift; sourceTree = "<group>"; };
 		E83FD0D9288D590800057F22 /* amazon.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = amazon.jpeg; sourceTree = "<group>"; };
 		E83FD0DB288D629D00057F22 /* CardKitErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardKitErrorType.swift; sourceTree = "<group>"; };
+		E848091628998D49003FDF34 /* CardFieldsValidity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFieldsValidity.swift; sourceTree = "<group>"; };
 		E8503AA62896512200D1B8B0 /* CardKitGoogle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CardKitGoogle.plist; sourceTree = "<group>"; };
 		E874F803288585B70067DB3E /* DempSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DempSettingsViewController.swift; sourceTree = "<group>"; };
 		E874F805288586C50067DB3E /* ConfigurationSharedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationSharedManager.swift; sourceTree = "<group>"; };
@@ -409,6 +411,7 @@
 				E832643E27E9EBBC005F3AAF /* TapCardDataConfiguration.swift */,
 				E832644627EA09BD005F3AAF /* TapCardForumTheme.swift */,
 				E832644827EA0EE8005F3AAF /* TapCardForumLocalisation.swift */,
+				E848091628998D49003FDF34 /* CardFieldsValidity.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -747,6 +750,7 @@
 				E83FD09B2889E77000057F22 /* TapBinResponseModel.swift in Sources */,
 				E832642527E9DFB4005F3AAF /* Merchant.swift in Sources */,
 				E832643327E9E14D005F3AAF /* AddressType.swift in Sources */,
+				E848091728998D49003FDF34 /* CardFieldsValidity.swift in Sources */,
 				E89B99672892635200B03726 /* TransactionExpiry.swift in Sources */,
 				E83FD0922889714500057F22 /* Config.swift in Sources */,
 				E89B99692892635200B03726 /* Source.swift in Sources */,
@@ -997,7 +1001,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = G46S76PUH4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TapCardCheckoutExample/Info.plist;
@@ -1032,7 +1036,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = G46S76PUH4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TapCardCheckoutExample/Info.plist;

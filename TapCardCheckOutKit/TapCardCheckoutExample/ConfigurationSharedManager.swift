@@ -6,6 +6,7 @@
 //
 
 import CommonDataModelsKit_iOS
+import LocalisationManagerKit_iOS
 
 /// Singleton shared access to the  demo configuration
 let sharedConfigurationSharedManager = ConfigurationSharedManager()
@@ -14,7 +15,11 @@ let sharedConfigurationSharedManager = ConfigurationSharedManager()
 class ConfigurationSharedManager {
     
     /// The selected locale
-    var selectedLocale:String = "en"
+    var selectedLocale:String = "en" {
+        didSet{
+            TapLocalisationManager.shared.localisationLocale = selectedLocale
+        }
+    }
     
     /// Tells if we need to collect the card holder name or not
     var collectCardHolderName:Bool = false

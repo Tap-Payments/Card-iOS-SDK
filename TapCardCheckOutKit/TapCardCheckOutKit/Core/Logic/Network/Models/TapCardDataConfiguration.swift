@@ -7,7 +7,7 @@
 
 import Foundation
 import CommonDataModelsKit_iOS
-
+import LocalisationManagerKit_iOS
 
 /// The datasource configiation required so the card kit can perform Init call api
 @objc public class TapCardDataConfiguration: NSObject {
@@ -34,7 +34,11 @@ import CommonDataModelsKit_iOS
     /// Represents the mode of the sdk . Whether sandbox or production
     internal var sdkMode:SDKMode = .sandbox
     /// The ISO 639-1 Code language identefier, please note if the passed locale is wrong or not found in the localisation files, we will show the keys instead of the values
-    internal var localeIdentifier:String = "en"
+    internal var localeIdentifier:String = "en"{
+        didSet{
+            TapLocalisationManager.shared.localisationLocale = localeIdentifier
+        }
+    }
     /// The secret keys providede to your business from TAP.
     internal var secretKey:SecretKey = .init(sandbox: "", production: "")
     

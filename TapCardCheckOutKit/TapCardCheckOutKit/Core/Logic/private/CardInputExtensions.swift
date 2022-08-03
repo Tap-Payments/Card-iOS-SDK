@@ -13,6 +13,7 @@ import TapCardInputKit_iOS
 import TapCardVlidatorKit_iOS
 import CommonDataModelsKit_iOS
 import TapCardScanner_iOS
+import LocalisationManagerKit_iOS
 
 
 internal extension UIView {
@@ -44,6 +45,7 @@ internal extension UIView {
         if addAsSubView {
             addSubview(newContainerView)
         }
+        newContainerView.semanticContentAttribute = TapLocalisationManager.shared.localisationLocale == "ar" ? .forceRightToLeft : .forceLeftToRight
         return newContainerView
     }
 }

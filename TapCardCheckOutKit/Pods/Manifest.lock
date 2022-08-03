@@ -1,21 +1,21 @@
 PODS:
   - CommonDataModelsKit-iOS (1.0.52):
     - TapAdditionsKitV2
-  - Firebase/AnalyticsWithoutAdIdSupport (9.3.0):
+  - Firebase/AnalyticsWithoutAdIdSupport (9.4.0):
     - Firebase/CoreOnly
-    - FirebaseAnalytics/WithoutAdIdSupport (~> 9.3.0)
-  - Firebase/CoreOnly (9.3.0):
-    - FirebaseCore (= 9.3.0)
-  - FirebaseAnalytics/WithoutAdIdSupport (9.3.0):
+    - FirebaseAnalytics/WithoutAdIdSupport (~> 9.4.0)
+  - Firebase/CoreOnly (9.4.0):
+    - FirebaseCore (= 9.4.0)
+  - FirebaseAnalytics/WithoutAdIdSupport (9.4.0):
     - FirebaseCore (~> 9.0)
     - FirebaseInstallations (~> 9.0)
-    - GoogleAppMeasurement/WithoutAdIdSupport (= 9.3.0)
+    - GoogleAppMeasurement/WithoutAdIdSupport (= 9.4.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
     - GoogleUtilities/MethodSwizzler (~> 7.7)
     - GoogleUtilities/Network (~> 7.7)
     - "GoogleUtilities/NSData+zlib (~> 7.7)"
     - nanopb (< 2.30910.0, >= 2.30908.0)
-  - FirebaseCore (9.3.0):
+  - FirebaseCore (9.4.0):
     - FirebaseCoreDiagnostics (~> 9.0)
     - FirebaseCoreInternal (~> 9.0)
     - GoogleUtilities/Environment (~> 7.7)
@@ -32,7 +32,7 @@ PODS:
     - GoogleUtilities/Environment (~> 7.7)
     - GoogleUtilities/UserDefaults (~> 7.7)
     - PromisesObjC (~> 2.1)
-  - GoogleAppMeasurement/WithoutAdIdSupport (9.3.0):
+  - GoogleAppMeasurement/WithoutAdIdSupport (9.4.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
     - GoogleUtilities/MethodSwizzler (~> 7.7)
     - GoogleUtilities/Network (~> 7.7)
@@ -63,7 +63,6 @@ PODS:
     - GoogleUtilities/Logger
   - LocalisationManagerKit-iOS (1.0.4)
   - McPicker (3.0.0)
-  - MOLH (1.4.3)
   - nanopb (2.30909.0):
     - nanopb/decode (= 2.30909.0)
     - nanopb/encode (= 2.30909.0)
@@ -82,10 +81,9 @@ PODS:
     - CommonDataModelsKit-iOS (~> 1.0.1)
   - TapApplicationV2 (0.0.2):
     - TapAdditionsKitV2
-  - TapCardInputKit-iOS (1.0.33):
+  - TapCardInputKit-iOS (1.0.36):
     - CommonDataModelsKit-iOS
     - LocalisationManagerKit-iOS
-    - MOLH
     - Nuke
     - SnapKit
     - TapCardVlidatorKit-iOS
@@ -109,11 +107,10 @@ PODS:
   - TapThemeManager2020 (1.0.50):
     - LocalisationManagerKit-iOS
     - TapFontKit-iOS
-  - TapUIKit-iOS (1.0.54):
+  - TapUIKit-iOS (1.0.56):
     - CommonDataModelsKit-iOS
     - LocalisationManagerKit-iOS
     - McPicker
-    - MOLH
     - Nuke
     - PullUpController
     - SnapKit
@@ -145,7 +142,6 @@ SPEC REPOS:
     - GoogleUtilities
     - LocalisationManagerKit-iOS
     - McPicker
-    - MOLH
     - nanopb
     - Nuke
     - PromisesObjC
@@ -167,18 +163,17 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   CommonDataModelsKit-iOS: 3cb22d52f6fd82a89bab65b557e92ead545cef12
-  Firebase: ef75abb1cdbc746d5a38f4e26c422c807b189b8c
-  FirebaseAnalytics: bf46f5163f44097ce2c789de0b3e6f87f1da834a
-  FirebaseCore: c088995ece701a021a48a1348ea0174877de2a6a
+  Firebase: 7703fc4022824b6d6db1bf7bea58d13b8e17ec46
+  FirebaseAnalytics: a1a24e72b7ba7f47045a4633f1abb545c07bd29c
+  FirebaseCore: 9a2b10270a854731c4d4d8a97d0aa8380ec3458d
   FirebaseCoreDiagnostics: aaa87098082c4d4bdd1a9557b1186d18ca85ce8c
   FirebaseCoreInternal: a13302b0088fbf5f38b79b6ece49c2af7d3e05d6
   FirebaseInstallations: 61db1054e688d2bdc4e2b3f744c1b086e913b742
-  GoogleAppMeasurement: b907bdad775b6975a8108762345b2cfbf1a93c37
+  GoogleAppMeasurement: 5d69e04287fc2c10cc43724bfa4bf31fc12c3dff
   GoogleDataTransport: 1c8145da7117bd68bbbed00cf304edb6a24de00f
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   LocalisationManagerKit-iOS: bd1a9d16509a06dd1aea45b9f47cf21bdfe0796c
   McPicker: ba38be56a8194faa5249eca4226c364eed628044
-  MOLH: e45827d200aeb1310641090fd8cd03ad2b42ae72
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   Nuke: 279f17a599fd1c83cf51de5e0e1f2db143a287b0
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
@@ -188,7 +183,7 @@ SPEC CHECKSUMS:
   TapAdditionsKitV2: ba369802e9575c3475ce6d5af228cf60c68edfc9
   TapApplePayKit-iOS: 940ab0575100d21e6080d17851cfe6c36bfebc24
   TapApplicationV2: aee3d046c4272778431e1535de6cab34e1269f8c
-  TapCardInputKit-iOS: 09b57ce17e5d66f501c29bb99e608f68c7c7d638
+  TapCardInputKit-iOS: 69b20fad404c48b8e2cdcd8c6a88f42c69f3ed92
   TapCardScanner-iOS: 4fe77bad44d216353ea083eaf3fb6dd6ff6dbdc8
   TapCardVlidatorKit-iOS: c89d510445a159d9f6967923096115783dcd1cdb
   TapFontKit-iOS: 51ed2ddbe9f2b5ece1cc587ed45af9147e5c6fc1
@@ -196,7 +191,7 @@ SPEC CHECKSUMS:
   TapNetworkKit-iOS: d1a6110b4f43e9b1cceafe469cf6cc3fb775a2cf
   TapSwiftFixesV2: a8623a7273c6790b9754ec7e272e96fce7d3a800
   TapThemeManager2020: d27a89804a3e950eae889033dcf40fe3a2cde187
-  TapUIKit-iOS: e1d7ab69a4e97915b3c8a5a2112ab10070d2dd05
+  TapUIKit-iOS: aef63af518ae44e684dc981591ea14ba668bebcd
 
 PODFILE CHECKSUM: 62e40c401898deebb1e80fa3936fec970c85d905
 

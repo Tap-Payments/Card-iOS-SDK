@@ -12,7 +12,6 @@ import CommonDataModelsKit_iOS
 import TapThemeManager2020
 import LocalisationManagerKit_iOS
 import TapUIKit_iOS
-import MOLH
 import TapCardScanner_iOS
 import AVFoundation
 import FirebaseAnalytics
@@ -319,7 +318,6 @@ internal protocol ThreeDSViewControllerDelegate {
         
         // based on the value we decide whether we will show it or we will hide it
         tapCardPhoneListView.isHidden = !showCardBrands
-        
         // Afterwords, we need to set its height constraint based on its visibility
         DispatchQueue.main.async { [weak self] in
             self?.carddbrandsBarHeightConstraint.constant = (self?.showCardBrands ?? false) ? 49 : 0

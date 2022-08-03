@@ -8,7 +8,6 @@
 import Foundation
 import TapThemeManager2020
 import LocalisationManagerKit_iOS
-import MOLH
 /// The shared configuration needed to set up the tap card forum on boot
 @objc public class TapCardForumConfiguration: NSObject {
     
@@ -95,7 +94,7 @@ import MOLH
         sharedLocalisationManager.localisationLocale = customLocalisation?.localeIdentifier ?? "en"
         // Adjust the flipping
         if customLocalisation?.shouldFlip ?? false {
-            MOLH.setLanguageTo(sharedLocalisationManager.localisationLocale ?? "en")
+            //MOLH.setLanguageTo(sharedLocalisationManager.localisationLocale ?? "en")
         }
         
         // Check if the user provided a custom localisation file to use and it is a correct and a reachable one

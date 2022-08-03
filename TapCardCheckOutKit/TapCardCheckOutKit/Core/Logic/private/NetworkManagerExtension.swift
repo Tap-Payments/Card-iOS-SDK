@@ -8,6 +8,7 @@
 import Foundation
 import CoreTelephony
 import TapApplicationV2
+import LocalisationManagerKit_iOS
 
 /// Extension to the network manager when needed. To keep the network manager class itself clean and readable
 internal extension NetworkManager {
@@ -50,7 +51,7 @@ internal extension NetworkManager {
         
         var applicationDetails = NetworkManager.applicationStaticDetails()
         
-        let localeIdentifier = sharedNetworkManager.dataConfig.localeIdentifier
+        let localeIdentifier = TapLocalisationManager.shared.localisationLocale ?? "en"
         
         applicationDetails[Constants.HTTPHeaderValueKey.appLocale] = localeIdentifier
         

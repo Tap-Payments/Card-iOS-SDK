@@ -326,7 +326,7 @@ internal protocol ThreeDSViewControllerDelegate {
         }
         
         // Make sure we need to show it first
-        guard showCardBrands else { return }
+        //guard showCardBrands else { return }
         // Setup the card brands bar view with the data source
         tapCardPhoneListView.setupView(with: tapCardPhoneListViewModel)
         

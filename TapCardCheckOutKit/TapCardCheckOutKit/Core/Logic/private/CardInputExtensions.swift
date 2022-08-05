@@ -156,7 +156,7 @@ extension TapCardInputView: TapCreditCardScannerViewControllerDelegate {
         viewController.dismiss(animated: true,completion: {
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(0), execute: {
                 [weak self] in
-                self?.tapCardInput.setCardData(tapCard: .init(tapCardNumber: card.tapCardNumber),then: true)
+                self?.tapCardInput.setCardData(tapCard: .init(tapCardNumber: card.tapCardNumber,tapCardExpiryMonth: card.tapCardExpiryMonth, tapCardExpiryYear: card.tapCardExpiryYear),then: true)
             })
         })
     }

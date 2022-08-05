@@ -18,7 +18,7 @@ import LocalisationManagerKit_iOS
     /// Represents the content view that holds all the subviews
     @IBOutlet var contentView: UIView!
     /// Represents the holder layout for our icons horizontal bar views
-    @IBOutlet public weak var stackView: UIStackView!
+    @IBOutlet weak var stackView: UIStackView!
     /// Represents the leading constraint for the under line view
     @IBOutlet weak var underLineLeadingConstraint: NSLayoutConstraint!
     /// Represents the width constraint for the under line view
@@ -50,7 +50,7 @@ import LocalisationManagerKit_iOS
     /// The path to look for theme entry in
     private let themePath = "cardPhoneList"
     // Mark:- Init methods
-    public override init(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
@@ -111,7 +111,6 @@ import LocalisationManagerKit_iOS
             // Show the new tabs
             nonNullSelf.stackView.popIn(duration:0.1)
         }
-        layoutSubviews()
     }
     
     public override func layoutSubviews() {

@@ -22,6 +22,9 @@ class DempSettingsViewController: UIViewController, CreateCustomerDelegate {
     @IBOutlet weak var customerButton: UIButton!
     @IBOutlet weak var editCardNameSwitch: UISwitch!
     @IBOutlet weak var customCardNameButton: UIButton!
+    @IBOutlet weak var blurScannerSwitch: UISwitch!
+    @IBOutlet weak var scannerBorderColorButton: UIButton!
+    
     
     var savedCustomer:TapCustomer? {
         if let data = UserDefaults.standard.value(forKey:"customerSevedKey") as? Data {
@@ -87,6 +90,8 @@ class DempSettingsViewController: UIViewController, CreateCustomerDelegate {
         cardBrandsSwitch.isOn = sharedConfigurationSharedManager.showCardBrands
         // Set the show card scanning switch
         scanningSwitch.isOn = sharedConfigurationSharedManager.showCardScanning
+        // Set the blur scan
+        blurScannerSwitch.isOn = sharedConfigurationSharedManager.blurScanner
         // Set the allowed card type
         allowedCardsButton.setTitle(sharedConfigurationSharedManager.allowedCardTypes.description, for: .normal)
         // set the customer name and id
@@ -95,6 +100,8 @@ class DempSettingsViewController: UIViewController, CreateCustomerDelegate {
         customCardNameButton.setTitle(sharedConfigurationSharedManager.cardName, for: .normal)
         // Set the editing card name
         editCardNameSwitch.isOn = sharedConfigurationSharedManager.editCardHolderName
+        // Tells if the scanner borders colors
+        scannerBorderColorButton.tintColor = sharedConfigurationSharedManager.scannerColor
     }
     
     
@@ -106,6 +113,28 @@ class DempSettingsViewController: UIViewController, CreateCustomerDelegate {
         present(viewContoller, animated: true)
     }
     
+    @IBAction func scannerBorderColorClicked(_ sender: Any) {
+        let localizationAlertController:UIAlertController = .init(title: "Border", message: "Select your preferred border scanner color", preferredStyle: .actionSheet)
+        
+        let colors:[UIColor] = [.blue,.black,.green,.red]
+        let strings:[String] = [ "blue", "black", "green", "red"]
+        
+        for (index,string) in strings.enumerated() {
+            let colorAction:UIAlertAction = .init(title: string, style: .default) { [weak self] _ in
+                sharedConfigurationSharedManager.scannerColor = colors[index]
+                self?.scannerBorderColorButton.tintColor = sharedConfigurationSharedManager.scannerColor
+            }
+            
+            localizationAlertController.addAction(colorAction)
+        }
+        
+        let cancelAction:UIAlertAction = .init(title: "Cancel", style: .default)
+
+        localizationAlertController.addAction(cancelAction)
+        
+        present(localizationAlertController, animated: true)
+        
+    }
     @IBAction func localisationButtonClicked(_ sender: Any) {
         let localizationAlertController:UIAlertController = .init(title: "Localisation", message: "Select your preferred locale to test with", preferredStyle: .actionSheet)
         
@@ -129,6 +158,9 @@ class DempSettingsViewController: UIViewController, CreateCustomerDelegate {
         
     }
     
+    @IBAction func blurScannerSwitchChanged(_ sender: Any) {
+        sharedConfigurationSharedManager.blurScanner = blurScannerSwitch.isOn
+    }
     
     @IBAction func editCardNameSwitchChanged(_ sender: Any) {
         sharedConfigurationSharedManager.editCardHolderName = editCardNameSwitch.isOn

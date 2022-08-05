@@ -7,6 +7,7 @@
 
 import CommonDataModelsKit_iOS
 import LocalisationManagerKit_iOS
+import UIKit
 
 /// Singleton shared access to the  demo configuration
 let sharedConfigurationSharedManager = ConfigurationSharedManager()
@@ -29,6 +30,13 @@ class ConfigurationSharedManager {
     
     /// Tells if the user can edit the card name field
     var editCardHolderName:Bool = true
+    
+    
+    /// Tells if the scanner bg should be blurred
+    var blurScanner:Bool = true
+    
+    /// Tells if the scanner borders colors
+    var scannerColor:UIColor = .green
     
     /// Tells if we need to show the card brand or not
     var showCardBrands:Bool = false

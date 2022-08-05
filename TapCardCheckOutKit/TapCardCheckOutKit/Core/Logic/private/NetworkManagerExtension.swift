@@ -102,9 +102,15 @@ internal extension NetworkManager {
         var simNetWorkName:String? = ""
         var simCountryISO:String? = ""
         
-        if providers?.values.count ?? 0 > 0, let carrier:CTCarrier = providers?.values.first {
-            simNetWorkName = carrier.carrierName
-            simCountryISO = carrier.isoCountryCode
+        if providers?.values.count ?? 0 > 0 {
+            providers?.values.forEach { carrier in
+                if let carrierName = carrier.carrierName {
+                    simNetWorkName = carrierName
+                }
+                if let isoCountryCode = carrier.isoCountryCode {
+                    simCountryISO = isoCountryCode
+                }
+            }
         }
         
         
@@ -120,6 +126,7 @@ internal extension NetworkManager {
             Constants.HTTPHeaderValueKey.requirerDeviceModel: deviceModel,
             Constants.HTTPHeaderValueKey.requirerSimNetworkName: simNetWorkName ?? "",
             Constants.HTTPHeaderValueKey.requirerSimCountryIso: simCountryISO ?? "",
+            Constants.HTTPHeaderValueKey.requirerDeviceManufacturer: "Apple",
         ]
         
         return result
@@ -163,6 +170,7 @@ internal extension NetworkManager {
             fileprivate static let requirerSimNetworkName    = "requirer_sim_network_name"
             fileprivate static let requirerSimCountryIso    = "requirer_sim_country_iso"
             fileprivate static let jsonContentTypeHeaderValue   = "application/json"
+            fileprivate static let requirerDeviceManufacturer   = "requirer_device_manufacturer"
             
             //@available(*, unavailable) private init() { }
         }

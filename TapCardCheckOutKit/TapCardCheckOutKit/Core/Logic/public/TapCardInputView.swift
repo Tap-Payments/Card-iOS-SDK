@@ -66,7 +66,7 @@ internal protocol ThreeDSViewControllerDelegate {
     }
     
     /// The full scanner object that we will use to start scanning on demand
-    private lazy var fullScanner:TapFullScreenScannerViewController = TapFullScreenScannerViewController(dataSource: self)
+    private var fullScanner:TapFullScreenScannerViewController?// = TapFullScreenScannerViewController(dataSource: self)
     
     /// The webview model handler
     private var webViewModel:TapWebViewModel = .init()

@@ -7,6 +7,7 @@
 
 import UIKit
 import TapCardCheckOutKit
+import CommonDataModelsKit_iOS
 
 class DempSettingsViewController: UIViewController, CreateCustomerDelegate {
     

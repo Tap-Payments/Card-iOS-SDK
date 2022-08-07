@@ -1,6 +1,9 @@
 PODS:
-  - CommonDataModelsKit-iOS (1.0.55):
+  - CommonDataModelsKit-iOS (1.0.56):
+    - SwiftyRSA
     - TapAdditionsKitV2
+    - TapCardVlidatorKit-iOS
+    - TapKeychain
   - Firebase/AnalyticsWithoutAdIdSupport (9.4.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics/WithoutAdIdSupport (~> 9.4.0)
@@ -162,7 +165,7 @@ SPEC REPOS:
     - TapUIKit-iOS
 
 SPEC CHECKSUMS:
-  CommonDataModelsKit-iOS: 09b20bc17740eba9780cf0839c5359130811f756
+  CommonDataModelsKit-iOS: 72a44e160e129c21da83bf17288f3185b1a61098
   Firebase: 7703fc4022824b6d6db1bf7bea58d13b8e17ec46
   FirebaseAnalytics: a1a24e72b7ba7f47045a4633f1abb545c07bd29c
   FirebaseCore: 9a2b10270a854731c4d4d8a97d0aa8380ec3458d
@@ -193,6 +196,6 @@ SPEC CHECKSUMS:
   TapThemeManager2020: d27a89804a3e950eae889033dcf40fe3a2cde187
   TapUIKit-iOS: 9379b4f5a3efc4ed0a07202f773847a51720076b
 
-PODFILE CHECKSUM: 62e40c401898deebb1e80fa3936fec970c85d905
+PODFILE CHECKSUM: cbf8dee2f875024e245479fb9e160dcdf9a0c9e4
 
 COCOAPODS: 1.11.2

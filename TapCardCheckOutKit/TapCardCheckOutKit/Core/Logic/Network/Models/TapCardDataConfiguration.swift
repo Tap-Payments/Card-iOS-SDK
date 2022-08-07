@@ -22,6 +22,7 @@ import LocalisationManagerKit_iOS
         self.sdkMode = sdkMode
         self.localeIdentifier = localeIdentifier
         self.secretKey = secretKey
+        SharedCommongDataModels.sharedCommongDataModels.sdkMode = sdkMode
     }
     
     
@@ -32,7 +33,11 @@ import LocalisationManagerKit_iOS
     // MARK: - Private shared values
     
     /// Represents the mode of the sdk . Whether sandbox or production
-    internal var sdkMode:SDKMode = .sandbox
+    internal var sdkMode:SDKMode = .sandbox{
+        didSet{
+            SharedCommongDataModels.sharedCommongDataModels.sdkMode = sdkMode
+        }
+    }
     /// The ISO 639-1 Code language identefier, please note if the passed locale is wrong or not found in the localisation files, we will show the keys instead of the values
     internal var localeIdentifier:String = "en"{
         didSet{

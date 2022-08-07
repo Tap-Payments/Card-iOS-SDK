@@ -7,6 +7,7 @@
 
 import UIKit
 import TapCardCheckOutKit
+import CommonDataModelsKit_iOS
 
 class ViewController: UIViewController, TapCardInputDelegate {
     func eventHappened(with event: CardKitEventType) {

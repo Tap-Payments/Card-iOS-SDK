@@ -20,5 +20,4 @@ pod 'TapApplicationV2'
 pod 'SwiftyRSA'
 pod 'TapKeychain'
 pod 'Firebase/AnalyticsWithoutAdIdSupport'
-
 end

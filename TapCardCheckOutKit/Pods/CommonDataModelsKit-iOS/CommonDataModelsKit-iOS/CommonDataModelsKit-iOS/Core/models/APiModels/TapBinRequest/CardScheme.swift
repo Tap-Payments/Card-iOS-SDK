@@ -38,7 +38,7 @@ extension CardScheme: Decodable {
 extension CardScheme: Equatable {
     
     public static func == (lhs: CardScheme, rhs: CardScheme) -> Bool {
-    
+        
         return lhs.cardBrand == rhs.cardBrand
     }
 }

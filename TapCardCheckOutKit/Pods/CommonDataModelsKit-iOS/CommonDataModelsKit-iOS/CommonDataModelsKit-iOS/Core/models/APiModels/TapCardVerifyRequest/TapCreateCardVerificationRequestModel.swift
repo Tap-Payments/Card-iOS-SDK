@@ -10,7 +10,7 @@ import Foundation
 
 /// Create charge request model.
 public struct TapCreateCardVerificationRequestModel: Encodable {
-
+    
     /// Create charge request model.
     public init(is3DSecureRequired: Bool?, shouldSaveCard: Bool, metadata: TapMetadata?, customer: TapCustomer, currency: TapCurrencyCode, source: SourceRequest, redirect: TrackingURL) {
         self.is3DSecureRequired = is3DSecureRequired

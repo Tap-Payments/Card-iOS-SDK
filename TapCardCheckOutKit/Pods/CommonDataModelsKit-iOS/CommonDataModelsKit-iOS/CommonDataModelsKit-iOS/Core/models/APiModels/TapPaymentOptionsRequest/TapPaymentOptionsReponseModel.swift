@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import TapCardVlidatorKit_iOS
 
 /// Payment Options Response model.
 public struct TapPaymentOptionsReponseModel: IdentifiableWithString {
@@ -32,6 +33,12 @@ public struct TapPaymentOptionsReponseModel: IdentifiableWithString {
     /// Merchant iso country code.
     internal let merchantCountryCode: String?
     
+    /// Amount for different currencies.
+    internal let supportedCurrenciesAmounts: [AmountedCurrency]
+    
+    /// Saved cards.
+    internal var savedCards: [SavedCard]?
+    
     // MARK: - Private -
     
     private enum CodingKeys: String, CodingKey {
@@ -40,7 +47,11 @@ public struct TapPaymentOptionsReponseModel: IdentifiableWithString {
         case identifier                 = "id"
         case object                     = "object"
         case paymentOptions             = "payment_methods"
+        case supportedCurrenciesAmounts = "supported_currencies"
+        
         case orderIdentifier            = "order_id"
+        case savedCards                 = "cards"
+        
         case merchantCountryCode        = "country"
     }
     
@@ -51,6 +62,8 @@ public struct TapPaymentOptionsReponseModel: IdentifiableWithString {
                  object:                            String,
                  paymentOptions:                    [PaymentOption],
                  currency:                          TapCurrencyCode,
+                 supportedCurrenciesAmounts:        [AmountedCurrency],
+                 savedCards:                        [SavedCard]?,
                  merchantCountryCode:               String?) {
         
         self.identifier                     = identifier
@@ -58,6 +71,8 @@ public struct TapPaymentOptionsReponseModel: IdentifiableWithString {
         self.object                         = object
         self.paymentOptions                 = paymentOptions
         self.currency                       = currency
+        self.supportedCurrenciesAmounts     = supportedCurrenciesAmounts
+        self.savedCards                     = savedCards
         self.merchantCountryCode            = merchantCountryCode
     }
 }
@@ -74,18 +89,36 @@ extension TapPaymentOptionsReponseModel: Decodable {
         let object                          = try container.decode(String.self, forKey: .object)
         var paymentOptions                  = try container.decode([PaymentOption].self, forKey: .paymentOptions)
         let currency                        = try container.decode(TapCurrencyCode.self, forKey: .currency)
+        let supportedCurrenciesAmounts      = try container.decode([AmountedCurrency].self, forKey: .supportedCurrenciesAmounts)
+        var savedCards                      = try container.decodeIfPresent([SavedCard].self, forKey: .savedCards)
         let merchantCountryCode             = try container.decodeIfPresent(String.self, forKey: .merchantCountryCode)
         
         
-        paymentOptions = paymentOptions.filter { ($0.paymentType == .Card) }
         paymentOptions = paymentOptions.sorted(by: { $0.orderBy < $1.orderBy })
         
-        self.init(identifier:                       identifier,
-                  orderIdentifier:                  orderIdentifier,
-                  object:                           object,
-                  paymentOptions:                   paymentOptions,
-                  currency:                         currency,
-                  merchantCountryCode:              merchantCountryCode)
+        for i in 0...paymentOptions.count-1 {
+            if paymentOptions[i].brand == .unknown {
+                if paymentOptions[i].paymentType == .Web {
+                    paymentOptions[i].brand = CardBrand.aiywaLoyalty
+                }
+            }
+        }
+        
+        paymentOptions = paymentOptions.filter { ($0.brand != .unknown || $0.paymentType == .ApplePay) }
+        
+        
+        // Filter saved cards based on allowed card types passed by the user when loading the SDK session
+        let merchnantAllowedCards = SharedCommongDataModels.sharedCommongDataModels.allowedCardTypes
+        savedCards = savedCards?.filter { (merchnantAllowedCards.contains($0.cardType ?? CardType(cardType: .All))) }
+        
+        self.init(identifier:                    identifier,
+                  orderIdentifier:                orderIdentifier,
+                  object:                        object,
+                  paymentOptions:                paymentOptions,
+                  currency:                        currency,
+                  supportedCurrenciesAmounts:    supportedCurrenciesAmounts,
+                  savedCards:                    savedCards,
+                  merchantCountryCode:          merchantCountryCode)
     }
 }
 

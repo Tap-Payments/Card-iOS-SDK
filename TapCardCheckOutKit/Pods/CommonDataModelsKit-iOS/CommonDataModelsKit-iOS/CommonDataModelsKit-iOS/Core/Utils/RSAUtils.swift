@@ -18,7 +18,7 @@ public class RSAUtils {
     private static let PADDING_FOR_DECRYPT = SecPadding()
     
     @available(iOS, introduced: 1.2.0)
-    internal class RSAUtilsError: NSError {
+    public class RSAUtilsError: NSError {
         init(_ message: String) {
             super.init(domain: "com.github.btnguyen2k.SwiftUtils.RSAUtils", code: 500, userInfo: [
                 NSLocalizedDescriptionKey: message

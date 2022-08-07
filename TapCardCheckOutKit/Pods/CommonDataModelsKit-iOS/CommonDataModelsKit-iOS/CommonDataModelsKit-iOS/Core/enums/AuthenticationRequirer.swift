@@ -4,7 +4,7 @@
 //
 //  Copyright © 2019 Tap Payments. All rights reserved.
 //
-import TapAdditionsKitV2
+
 /// Entity requiring authentication.
 @objc public enum AuthenticationRequirer: Int {
     

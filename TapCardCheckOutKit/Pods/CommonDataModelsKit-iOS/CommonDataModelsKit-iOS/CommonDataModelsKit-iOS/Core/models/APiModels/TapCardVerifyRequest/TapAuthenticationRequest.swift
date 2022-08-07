@@ -7,9 +7,9 @@
 //
 
 import Foundation
-import CommonDataModelsKit_iOS
+
 /// Structure to authenticate the charge.
-internal struct TapAuthenticationRequest: Encodable {
+public struct TapAuthenticationRequest: Encodable {
     
     // MARK: - Internal -
     // MARK: Properties

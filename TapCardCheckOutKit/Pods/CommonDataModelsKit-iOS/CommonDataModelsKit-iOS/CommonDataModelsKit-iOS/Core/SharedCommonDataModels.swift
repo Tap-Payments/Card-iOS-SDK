@@ -17,6 +17,15 @@ public class SharedCommongDataModels {
     public var sdkMode:SDKMode = .sandbox
     /// The encryption key for the merchant
     public var encryptionKey:String?
+    
+    /// allowed Card Types, if not set all will be accepeted.
+    public var allowedCardTypes:[CardType] = [CardType(cardType: .Debit), CardType(cardType: .Credit)] {
+        didSet {
+            if allowedCardTypes.count == 1 && allowedCardTypes[0].cardType == .All {
+                allowedCardTypes = [CardType(cardType: .Debit), CardType(cardType: .Credit)]
+            }
+        }
+    }
 }
 
 

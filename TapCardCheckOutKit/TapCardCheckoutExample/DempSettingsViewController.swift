@@ -26,6 +26,7 @@ class DempSettingsViewController: UIViewController, CreateCustomerDelegate {
     @IBOutlet weak var blurScannerSwitch: UISwitch!
     @IBOutlet weak var scannerBorderColorButton: UIButton!
     
+    @IBOutlet weak var showBrandIconSwitch: UISwitch!
     
     var savedCustomer:TapCustomer? {
         if let data = UserDefaults.standard.value(forKey:"customerSevedKey") as? Data {
@@ -101,6 +102,8 @@ class DempSettingsViewController: UIViewController, CreateCustomerDelegate {
         customCardNameButton.setTitle(sharedConfigurationSharedManager.cardName, for: .normal)
         // Set the editing card name
         editCardNameSwitch.isOn = sharedConfigurationSharedManager.editCardHolderName
+        // deines whether to show the detected brand icon besides the card number instead of the placeholdder
+        showBrandIconSwitch.isOn = sharedConfigurationSharedManager.showBrandIcon
         // Tells if the scanner borders colors
         scannerBorderColorButton.tintColor = sharedConfigurationSharedManager.scannerColor
     }
@@ -157,6 +160,10 @@ class DempSettingsViewController: UIViewController, CreateCustomerDelegate {
         
         present(localizationAlertController, animated: true)
         
+    }
+    
+    @IBAction func showBrandIconSwitchChanged(_ sender: Any) {
+        sharedConfigurationSharedManager.showBrandIcon = showBrandIconSwitch.isOn
     }
     
     @IBAction func blurScannerSwitchChanged(_ sender: Any) {

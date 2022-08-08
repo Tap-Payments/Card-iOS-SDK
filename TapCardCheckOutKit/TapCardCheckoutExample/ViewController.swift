@@ -54,7 +54,8 @@ class ViewController: UIViewController, TapCardInputDelegate {
                                    allowedCardTypes: sharedConfigurationSharedManager.allowedCardTypes,
                                    tapCardInputDelegate: self,
                                    preloadCardHolderName: (sharedConfigurationSharedManager.cardName == "None") ? "" : sharedConfigurationSharedManager.cardName,
-                                   editCardName: sharedConfigurationSharedManager.editCardHolderName)
+                                   editCardName: sharedConfigurationSharedManager.editCardHolderName,
+                                   showCardBrandIcon: sharedConfigurationSharedManager.showBrandIcon)
     }
     
     @IBAction func tokenizeCardClicked(_ sender: Any) {

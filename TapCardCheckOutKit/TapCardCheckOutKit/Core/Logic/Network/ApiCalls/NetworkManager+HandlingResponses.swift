@@ -28,8 +28,10 @@ extension NetworkManager {
      - Parameter initModel: The init response model from the latest INIT api call
      */
     func handleInitResponse(initModel: TapInitResponseModel) {
+        
         sharedNetworkManager.dataConfig.sdkSettings = initModel.data
-        sharedNetworkManager.dataConfig.paymentOptions = initModel.cardPaymentOptions.paymentOptions
+        sharedNetworkManager.dataConfig.paymentOptions = initModel.cardPaymentOptions.paymentOptions        
+        sharedNetworkManager.dataConfig.paymentOptions = sharedNetworkManager.dataConfig.paymentOptions?.filter { ($0.paymentType == .Card) }
     }
     
     

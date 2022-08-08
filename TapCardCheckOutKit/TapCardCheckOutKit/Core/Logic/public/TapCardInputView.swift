@@ -65,6 +65,9 @@ internal protocol ThreeDSViewControllerDelegate {
         }
     }
     
+    /// deines whether to show the detected brand icon besides the card number instead of the the palceholder
+    private var showCardBrandIcon:Bool = true
+    
     /// The full scanner object that we will use to start scanning on demand
     private var fullScanner:TapFullScreenScannerViewController?// = TapFullScreenScannerViewController(dataSource: self)
     
@@ -149,9 +152,10 @@ internal protocol ThreeDSViewControllerDelegate {
      - Parameter tapCardInputDelegate: A delegate listens for needed actions and callbacks
      - Parameter preloadCardHolderName:  A preloading value for the card holder name if needed
      - Parameter editCardName: Indicates whether or not the user can edit the card holder name field. Default is true
+     - Parameter showCardBrandIcon:deines whether to show the detected brand icon besides the card number instead of the placeholdder
      */
     
-    @objc public func setupCardForm(locale:String = "en", collectCardHolderName:Bool = false, showCardBrandsBar:Bool = false, showCardScanner:Bool = false, tapScannerUICustomization:TapFullScreenUICustomizer = .init() , transactionCurrency:TapCurrencyCode = .KWD, presentScannerInViewController:UIViewController?, allowedCardTypes:cardTypes = .All, tapCardInputDelegate:TapCardInputDelegate? = nil, preloadCardHolderName:String = "", editCardName:Bool = true) {
+    @objc public func setupCardForm(locale:String = "en", collectCardHolderName:Bool = false, showCardBrandsBar:Bool = false, showCardScanner:Bool = false, tapScannerUICustomization:TapFullScreenUICustomizer = .init() , transactionCurrency:TapCurrencyCode = .KWD, presentScannerInViewController:UIViewController?, allowedCardTypes:cardTypes = .All, tapCardInputDelegate:TapCardInputDelegate? = nil, preloadCardHolderName:String = "", editCardName:Bool = true, showCardBrandIcon:Bool = true) {
         // Set the locale
         self.locale = locale
         // Set the collection name ability
@@ -174,6 +178,8 @@ internal protocol ThreeDSViewControllerDelegate {
         self.preloadCardHolderName = preloadCardHolderName
         /// Set the editibility for the card name field
         self.editCardName = editCardName
+        /// deines whether to show the detected brand icon besides the card number instead of the placeholdder
+        self.showCardBrandIcon = showCardBrandIcon
         // Adjust the UI now
         initUI()
         // Init the card brands bar
@@ -372,6 +378,7 @@ internal protocol ThreeDSViewControllerDelegate {
             UIView.animate(withDuration: 0.2, delay: 0.1, options: []) {
                 // Apply the new data source
                 self?.tapCardPhoneListViewModel.dataSource = self?.dataSource ?? []
+                self?.tapCardInput.cardsIconsUrls = self?.tapCardPhoneListViewModel.generateBrandsWithIcons()
                 // Auto select the card section
                 self?.tapCardPhoneListViewModel.select(segment: "cards")
                 // Show it now
@@ -450,7 +457,7 @@ internal protocol ThreeDSViewControllerDelegate {
             supportedBrands = CardBrand.allCases.map{ $0.rawValue }
         }
         supportedBrands = CardBrand.allCases.map{ $0.rawValue }
-        tapCardInput.setup(for: .InlineCardInput, showCardName: collectCardHolderName, allowedCardBrands: supportedBrands, preloadCardHolderName: preloadCardHolderName, editCardName: editCardName)
+        tapCardInput.setup(for: .InlineCardInput, showCardName: collectCardHolderName, showCardBrandIcon: showCardBrandIcon, allowedCardBrands: supportedBrands, cardsIconsUrls: tapCardPhoneListViewModel.generateBrandsWithIcons(), preloadCardHolderName: preloadCardHolderName, editCardName: editCardName)
         // Let us listen to the card input ui callbacks if needed
         tapCardInput.delegate = self
     }

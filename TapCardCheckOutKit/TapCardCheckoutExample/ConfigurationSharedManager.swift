@@ -47,4 +47,7 @@ class ConfigurationSharedManager {
     /// Tells what type of cards should be allowed
     var allowedCardTypes:cardTypes = .All
     
+    /// deines whether to show the detected brand icon besides the card number instead of the placeholdder
+    var showBrandIcon:Bool = true
+    
 }

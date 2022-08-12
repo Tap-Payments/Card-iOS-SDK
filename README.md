@@ -1,4 +1,4 @@
-Tap Card iOS SDK
+# Tap Card iOS SDK
 
 [](https://tap-payments.github.io/TapCardCheckOutKit)
 [](https://img.shields.io/Tap-Payments/v/TapCardCheckOutKit)

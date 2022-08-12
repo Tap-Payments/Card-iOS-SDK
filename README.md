@@ -19,7 +19,7 @@ Table of contents
 
 **Simplified security**: We make it simple for you to collect sensitive data such as credit card numbers and remain PCI compliant. This means the sensitive data is sent directly to Tap instead of passing through your server.
 
-### 3DS Secure
+### 3DS Secure
 
 The SDK automatically performs native **3DS Secure**. For extra fraud protection,  (3DS) requires customers to complete an additional verification step with the card issuer when paying. Typically, you direct the customer to an authentication page on their bank’s website, and they enter a password associated with the card or a code sent to their phone. This process is familiar to customers through the card networks’ brand names, such as Visa Secure and Mastercard Identity Check. Watch our video for an example of an authenticated checkout flow.
 

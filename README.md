@@ -24,3 +24,12 @@ Table of contents
 The SDK automatically performs native **3DS Secure**. For extra fraud protection,  (3DS) requires customers to complete an additional verification step with the card issuer when paying. Typically, you direct the customer to an authentication page on their bank’s website, and they enter a password associated with the card or a code sent to their phone. This process is familiar to customers through the card networks’ brand names, such as Visa Secure and Mastercard Identity Check. Watch our video for an example of an authenticated checkout flow.
 
 https://user-images.githubusercontent.com/59433049/184438201-ab2aa0c9-7e94-422a-829c-1ccef1c50d8d.mov
+
+
+### Native UI
+
+We provide native screens and elements to collect card payment details. Our card element is a prebuilt UI that combines all the steps required to collecting, validating, tokenizing and saving a card details - into a single view that displays within your UI flow.
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/59433049/184441104-140f329c-37b2-4c4c-9303-545e30975682.png" alt="PreBuilt Card Form"/>
+</p>

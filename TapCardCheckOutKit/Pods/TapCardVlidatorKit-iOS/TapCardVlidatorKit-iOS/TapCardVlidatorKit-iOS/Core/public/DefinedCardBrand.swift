@@ -7,10 +7,10 @@
 
 /// Struct of recognized card brand and validation state.
 @objc public class DefinedCardBrand: NSObject {
-
+    
     /// Validation state.
     @objc public internal(set) var validationState: CardValidationState
-
+    
     /// Objc Card brand.
     @objc public var cardBrandObjc: CardBrand {
         get{
@@ -21,7 +21,7 @@
     
     /// Card brand.
     public internal(set) var cardBrand: CardBrand?
-
+    
     
     /// Initializes the structure with card brand and its validation state.
     ///
@@ -40,7 +40,7 @@
     ///   - validationState: Validation state.
     ///   - cardBrand: Card brand.
     public init(_ validationState: CardValidationState, _ cardBrand: CardBrand?) {
-
+        
         self.validationState = validationState
         self.cardBrand = cardBrand
     }

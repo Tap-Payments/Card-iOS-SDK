@@ -8,7 +8,7 @@ The Tap Card iOS SDK makes it quick and easy to build an excellent payment exper
 
 Learn about our [Tap Identity Authentication](https://tappayments.api-docs.io/2.0/authentication) to verify the identity of your users on iOS.
 
-Get started with our [documentation guide](https://www.tap.company/eg/en/developers) and [example projects](https://github.com/Tap-Payments/TapCardCheckOutKit/tree/main/TapCardCheckOutKit/TapCardCheckoutExample).
+Get started with our [documentation guide](https://www.tap.company/eg/en/developers) and [example projects](https://github.com/Tap-Payments/TapCardCheckOutKit/tree/main/TapCardCheckOutKit/TapCardCheckoutExample.)
 
 Table of contents
 
@@ -21,6 +21,7 @@ Table of contents
 - [Single line code initilization](https://github.com/Tap-Payments/TapCardCheckOutKit#single-line-initialzation)
 - [Optional Configurations](https://github.com/Tap-Payments/TapCardCheckOutKit#optional-configurations)
 - [TapCardInputDelegate](https://github.com/Tap-Payments/TapCardCheckOutKit#tapCardInputDelegate)
+- [Tokenization](https://github.com/Tap-Payments/TapCardCheckOutKit#tokenization)
 
 ## [](https://github.com/Tap-Payments/TapCardCheckOutKit#features)Features
 
@@ -218,4 +219,27 @@ extension ViewController: TapCardInputDelegate {
         }
     }
 }
+```
+
+### [](https://github.com/Tap-Payments/TapCardCheckOutKit#tokenization)Tokenization
+
+Tokenization is the process Tap uses to collect sensitive card details, directly from your customers in a secure manner. A Token representing this information is returned to your server to use to create a charge or authorize or save the card. This ensures that no sensitive card data touches your server and allows your integration to operate in a PCI compliant way.
+
+Note that a token can only be used once, and within a few minutes of creation. To support multiple charges, future charges, or authorize, save the card token instead of charging it.
+
+You can use this token id in the Charge or Authorize API request. Also you can use this token id in the Create Card API to save the card for future [charges](https://tappayments.api-docs.io/2.0/api/charges) or [authorize](https://tappayments.api-docs.io/2.0/api/authorize).
+
+```swift
+/**
+    Handles tokenizing the current card data.
+    - Parameter onResponeReady: A callback to listen when a token is successfully generated
+    - Parameter onErrorOccured: A callback to listen when tokenization fails with error message and the validity of all the card fields for your own interest
+*/
+tapCardForum.tokenizeCard { token in
+            print(token.card)
+        } onErrorOccured: { error, cardFieldsValidity in
+// error : The error message occured
+// cardFieldsValidity : Holds the validity of each field in the card form
+            print(error)
+        }
 ```

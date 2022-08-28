@@ -20,6 +20,7 @@ Table of contents
 - [Data Configuration](https://github.com/Tap-Payments/TapCardCheckOutKit#DataConfig)
 - [Single line code initilization](https://github.com/Tap-Payments/TapCardCheckOutKit#SLC)
 - [Optional Configurations](https://github.com/Tap-Payments/TapCardCheckOutKit#Optional)
+- [TapCardInputDelegate](https://github.com/Tap-Payments/TapCardCheckOutKit#Delegate)
 
 ## [](https://github.com/Tap-Payments/TapCardCheckOutKit#features)Features
 
@@ -171,4 +172,50 @@ func setupCardForm(locale:String = "en",
                                     preloadCardHolderName:String = "",
                                     editCardName:Bool = true,
                                     showCardBrandIcon:Bool = true)
+```
+
+[](https://github.com/Tap-Payments/TapCardCheckOutKit#Delegate)TapCardInputDelegate
+
+The delegate allows data to flow from the card kit into the parent app as follows:
+
+```swift
+extension ViewController: TapCardInputDelegate {
+    /**
+     Be updated by listening to events fired from the card kit
+     - Parameter with event: The event just fired
+     */
+    func eventHappened(with event: CardKitEventType) {
+        switch event {
+        case .CardNotReady:
+            print("This means the user didn't enter a valid card data yet.")
+        case .CardReady:
+            print("This means the user entered a valid card data.")
+        case .TokenizeStarted:
+            print("The card kit started tokenizing the entered card data.")
+        case .TokenizeEnded:
+            print("The card kit ended tokenizing the entered card data.")
+        case .SaveCardStarted:
+            print("The card kit started saving the entered card data.")
+        case .SaveCardEnded:
+            print("The card kit ended saving the entered card data.")
+        case .ThreeDSStarter:
+            print("The 3DS process started while saving a card.")
+        case .ThreeDSEnded:
+            print("The 3DS process ended while saving a card.")
+        }
+    }
+    
+    /**
+      Listen to errors occured at run time during a process
+     - Parameter with event: The event just fired
+     */
+    func errorOccured(with error: CardKitErrorType, message:String) {
+        switch error {
+        case .Network:
+            print("Network error")
+        case .InvalidCardType:
+            print("Card type error")
+        }
+    }
+}
 ```

@@ -36,14 +36,13 @@ import Foundation
             fatalError("Light mode file name cann't be empty")
         }
         self.lightModeThemeFileName = lightModeThemeFileName
-        
+        self.themeType = themeType
         // Check if he didn't pass a dark theme file, we assign the light to it
         guard let nonNullDarkThemeFile = darkModeThemeFileName else {
             self.darkModeThemeFileName = lightModeThemeFileName
             return
         }
         self.darkModeThemeFileName = nonNullDarkThemeFile
-        self.themeType = themeType
     }
 }
 

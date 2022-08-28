@@ -44,6 +44,9 @@ class ConfigurationSharedManager {
     /// Tells if we need to show the card scanning or not
     var showCardScanning:Bool = false
     
+    /// Tells if we need to use the online custom theme
+    var customTheme:Bool = false
+    
     /// Tells what type of cards should be allowed
     var allowedCardTypes:cardTypes = .All
     

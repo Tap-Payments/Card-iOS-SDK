@@ -27,7 +27,7 @@ import LocalisationManagerKit_iOS
     }
     
     /// The theme object which contains the path to the local or to the remote custom light and dark themes
-    internal var customTheme:TapCardForumTheme?{
+    @objc public var customTheme:TapCardForumTheme?{
         didSet{
             configureThemeManager()
         }

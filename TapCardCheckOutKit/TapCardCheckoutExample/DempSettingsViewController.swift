@@ -26,6 +26,7 @@ class DempSettingsViewController: UIViewController, CreateCustomerDelegate {
     @IBOutlet weak var blurScannerSwitch: UISwitch!
     @IBOutlet weak var scannerBorderColorButton: UIButton!
     
+    @IBOutlet weak var customThemeSwitch: UISwitch!
     @IBOutlet weak var showBrandIconSwitch: UISwitch!
     
     var savedCustomer:TapCustomer? {
@@ -92,6 +93,8 @@ class DempSettingsViewController: UIViewController, CreateCustomerDelegate {
         cardBrandsSwitch.isOn = sharedConfigurationSharedManager.showCardBrands
         // Set the show card scanning switch
         scanningSwitch.isOn = sharedConfigurationSharedManager.showCardScanning
+        // Set the usage of the online custom theme files
+        customThemeSwitch.isOn = sharedConfigurationSharedManager.customTheme
         // Set the blur scan
         blurScannerSwitch.isOn = sharedConfigurationSharedManager.blurScanner
         // Set the allowed card type
@@ -117,7 +120,20 @@ class DempSettingsViewController: UIViewController, CreateCustomerDelegate {
         present(viewContoller, animated: true)
     }
     
-    @IBAction func scannerBorderColorClicked(_ sender: Any) {
+    
+    @IBAction func customThemeSwitchChanged(_ sender: Any) {
+        loadingIndicator.isHidden = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) { [weak self] in
+            self?.loadingIndicator.isHidden = true
+        }
+        sharedConfigurationSharedManager.customTheme = customThemeSwitch.isOn
+        DispatchQueue.main.async { [weak self] in
+            TapCardForumConfiguration.shared.customTheme = self?.customThemeSwitch.isOn ?? false ? .init(with: "https://firebasestorage.googleapis.com/v0/b/tapcardcheckout.appspot.com/o/LightTheme.json?alt=media&token=4f58decf-6e60-4053-bc1d-92794f39de13", and: "https://firebasestorage.googleapis.com/v0/b/tapcardcheckout.appspot.com/o/DarkTheme.json?alt=media&token=e6f51e9f-4101-4d10-8a47-86c0c193b54d", from: .RemoteJsonFile) : nil
+        }
+    }
+    
+    @
+    IBAction func scannerBorderColorClicked(_ sender: Any) {
         let localizationAlertController:UIAlertController = .init(title: "Border", message: "Select your preferred border scanner color", preferredStyle: .actionSheet)
         
         let colors:[UIColor] = [.blue,.black,.green,.red]

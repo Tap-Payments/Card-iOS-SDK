@@ -8,7 +8,7 @@ The Tap Card iOS SDK makes it quick and easy to build an excellent payment exper
 
 Learn about our [Tap Identity Authentication](https://tappayments.api-docs.io/2.0/authentication) to verify the identity of your users on iOS.
 
-Get started with our [documentation guide](https://www.tap.company/eg/en/developers) and [example projects](https://github.com/Tap-Payments/TapCardCheckOutKit/tree/main/TapCardCheckOutKit/TapCardCheckoutExample.)
+Get started with our [documentation guide](https://www.tap.company/eg/en/developers) and [example projects](https://github.com/Tap-Payments/TapCardCheckOutKit/tree/main/TapCardCheckOutKit/TapCardCheckoutExample).
 
 Table of contents
 

@@ -17,6 +17,7 @@ Table of contents
 - [Native UI](https://github.com/Tap-Payments/TapCardCheckOutKit#NativeUI)
 - [Card Scanning](https://github.com/Tap-Payments/TapCardCheckOutKit#CardScanning)
 - [Installation](https://github.com/Tap-Payments/TapCardCheckOutKit#Installation)
+- [Data Configuration](https://github.com/Tap-Payments/TapCardCheckOutKit#DataConfig)
 
 ## [](https://github.com/Tap-Payments/TapCardCheckOutKit#features)Features
 
@@ -80,3 +81,32 @@ You should make sure your app is 13.0+ and you have added the **Privacy - Camera
 **Using Cocoapods**
 
 add pod 'TapCardCheckOutKit' to your podfile
+
+### [](https://github.com/Tap-Payments/TapCardCheckOutKit#DataConfig)Data Configuration
+
+You will need to configure the Tap Card KIT before using it, by providing your data. This will enable the card kit to load your merchant's data and ready to process card related operations (e.g. tokenization, authorization and charge.)
+
+It is a must this data is passed before displaying the card kit UI component.
+
+Import code:
+
+```swift
+import TapCardCheckOutKit
+import CommonDataModelsKit_iOS
+```
+
+Configuration code:
+
+```swift
+// Create the data configuration model
+// pass the needed sdk mode (sandbox or production). Optional, default is sandbox
+// pass your SDK keys, which you get upon integrating with TAP.
+// pass the needed localisation. Optional, default is en
+let cardDataConfig:TapCardDataConfiguration = .init(sdkMode: .sandbox, localeIdentifier: "en", secretKey: .init(sandbox: "sk_test_yKOxBvwq3oLlcGS6DagZYHM2", production: "sk_live_V4UDhitI0r7sFwHCfNB6xMKp"))
+// Start the configuration process and listen for the callbacks
+TapCardForumConfiguration.shared.configure(dataConfig: cardDataConfig) {
+    print("All went good, you can show the card kit UI element")
+} onErrorOccured: { error in
+    print("Error happened :( \(error?.localizedDescription ?? "")")
+}
+```

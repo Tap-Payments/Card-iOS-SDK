@@ -18,6 +18,7 @@ Table of contents
 - [Card Scanning](https://github.com/Tap-Payments/TapCardCheckOutKit#CardScanning)
 - [Installation](https://github.com/Tap-Payments/TapCardCheckOutKit#Installation)
 - [Data Configuration](https://github.com/Tap-Payments/TapCardCheckOutKit#DataConfig)
+- [Single line code initilization](https://github.com/Tap-Payments/TapCardCheckOutKit#SLC)
 
 ## [](https://github.com/Tap-Payments/TapCardCheckOutKit#features)Features
 
@@ -110,3 +111,27 @@ TapCardForumConfiguration.shared.configure(dataConfig: cardDataConfig) {
     print("Error happened :( \(error?.localizedDescription ?? "")")
 }
 ```
+
+### [](https://github.com/Tap-Payments/TapCardCheckOutKit#SLC)Single line initialzation
+
+- Drag and drop the `TapCardInputView` from the storyboard into your UIView as follows:
+  
+  - <img width="1078" alt="Screen Shot 2022-08-28 at 7 57 41 PM" src="https://user-images.githubusercontent.com/59433049/187088292-89b7552e-1b2e-48c3-90fc-2928983446cb.png">
+
+    
+- Connect `IBOutlet` as follows:
+  
+  - ```swift
+    /// Outlet referencing the card forum ui element
+    @IBOutlet weak var tapCardForum: TapCardInputView!
+    ```
+    
+- Init the `TapCardInputView` as follows:
+  
+  - ```swift
+    /// Responsible for tap card forum UI element setup
+    func configureCardInput() {
+        // presentScannerInViewController: The UIViewController that will display the scanner into
+        tapCardForum.setupCardForm(presentScannerInViewController: self)
+    }
+    ```

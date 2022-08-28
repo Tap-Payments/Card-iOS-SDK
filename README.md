@@ -15,6 +15,7 @@ Table of contents
 - [Features](https://github.com/Tap-Payments/TapCardCheckOutKit#features)
 - [3DS Secure](https://github.com/Tap-Payments/TapCardCheckOutKit#3DSSecure)
 - [Native UI](https://github.com/Tap-Payments/TapCardCheckOutKit#NativeUI)
+- [Card Scanning](https://github.com/Tap-Payments/TapCardCheckOutKit#CardScanning)
 
 ## [](https://github.com/Tap-Payments/TapCardCheckOutKit#features)Features
 
@@ -59,4 +60,17 @@ We provide low level apis, that correspond to objects and methods in the Tap API
 `let validation = CardValidator.validate(cardNumber: "4242424242424242", preferredBrands: [.mada])
 ```
 
-**Card scanning**: We support card scanning on iOS 13 and higher. See our [Card scanning](https://github.com/stripe/stripe-ios#card-scanning) section.
+### [](https://github.com/Tap-Payments/TapCardCheckOutKit#CardScanning)Card scanning
+
+We support card scanning on iOS 13 and higher. The card scanner will try as accurately as possible to collect the card data to ease the process on the buyer. The scanner supports the following with maximum possible accuracy:
+
+- Printed cards.
+  
+- Imposed cards.
+  
+- Vertical cards.
+  
+
+You should make sure your app is 13.0+ and you have added the **Privacy - Camera Usage Description** in the info.plist file, as follows:
+<img width="1212" alt="Screen Shot 2022-08-28 at 12 55 14 PM" src="https://user-images.githubusercontent.com/59433049/187070546-ee1e0a36-08d1-492f-b85c-a4a648703d6c.png">
+

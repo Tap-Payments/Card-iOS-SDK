@@ -13,14 +13,14 @@ Get started with our [documentation guide](https://www.tap.company/eg/en/develop
 Table of contents
 
 - [Features](https://github.com/Tap-Payments/TapCardCheckOutKit#features)
-- [3DS Secure](https://github.com/Tap-Payments/TapCardCheckOutKit#3DSSecure)
-- [Native UI](https://github.com/Tap-Payments/TapCardCheckOutKit#NativeUI)
-- [Card Scanning](https://github.com/Tap-Payments/TapCardCheckOutKit#CardScanning)
-- [Installation](https://github.com/Tap-Payments/TapCardCheckOutKit#Installation)
-- [Data Configuration](https://github.com/Tap-Payments/TapCardCheckOutKit#DataConfig)
-- [Single line code initilization](https://github.com/Tap-Payments/TapCardCheckOutKit#SLC)
-- [Optional Configurations](https://github.com/Tap-Payments/TapCardCheckOutKit#Optional)
-- [TapCardInputDelegate](https://github.com/Tap-Payments/TapCardCheckOutKit#Delegate)
+- [3DS Secure](https://github.com/Tap-Payments/TapCardCheckOutKit#3ds-secure)
+- [Native UI](https://github.com/Tap-Payments/TapCardCheckOutKit#native-ui)
+- [Card Scanning](https://github.com/Tap-Payments/TapCardCheckOutKit#card-scanning)
+- [Installation](https://github.com/Tap-Payments/TapCardCheckOutKit#installation)
+- [Data Configuration](https://github.com/Tap-Payments/TapCardCheckOutKit#data-configuration)
+- [Single line code initilization](https://github.com/Tap-Payments/TapCardCheckOutKit#single-line-initialzation)
+- [Optional Configurations](https://github.com/Tap-Payments/TapCardCheckOutKit#optional-configurations)
+- [TapCardInputDelegate](https://github.com/Tap-Payments/TapCardCheckOutKit#tapCardInputDelegate)
 
 ## [](https://github.com/Tap-Payments/TapCardCheckOutKit#features)Features
 
@@ -174,7 +174,7 @@ func setupCardForm(locale:String = "en",
                                     showCardBrandIcon:Bool = true)
 ```
 
-[](https://github.com/Tap-Payments/TapCardCheckOutKit#Delegate)TapCardInputDelegate
+### [](https://github.com/Tap-Payments/TapCardCheckOutKit#Delegate)TapCardInputDelegate
 
 The delegate allows data to flow from the card kit into the parent app as follows:
 

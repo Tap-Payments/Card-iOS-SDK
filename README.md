@@ -22,6 +22,7 @@ Table of contents
 - [Optional Configurations](https://github.com/Tap-Payments/TapCardCheckOutKit#optional-configurations)
 - [TapCardInputDelegate](https://github.com/Tap-Payments/TapCardCheckOutKit#tapCardInputDelegate)
 - [Tokenization](https://github.com/Tap-Payments/TapCardCheckOutKit#tokenization)
+- [Save Card](https://github.com/Tap-Payments/TapCardCheckOutKit#save-card)
 
 ## [](https://github.com/Tap-Payments/TapCardCheckOutKit#features)Features
 
@@ -241,5 +242,43 @@ tapCardForum.tokenizeCard { token in
 // error : The error message occured
 // cardFieldsValidity : Holds the validity of each field in the card form
             print(error)
+        }
+```
+
+### [](https://github.com/Tap-Payments/TapCardCheckOutKit#save-card)Save Card
+
+You can store multiple cards on a customer in order to charge or authorize the customer later.
+
+**Note:** Token id and Customer id are required to store the cards. Save Card feature is not enabled by default, Please contact our support team to get enabled.
+
+**Usage of Saved Card**
+
+Saved card id, cannot be used in the charge or authorize API request. First you need to create the token id for this saved card, and then you can use this token id in the charge or authorize API request. 
+
+Please [click here](https://tappayments.api-docs.io/2.0/cards), go to the Cards section
+
+```swift
+/**
+     Handles tokenizing the current card data.
+     - Parameter customer: The customer to save the card with.
+     - Parameter parentController: The parent controller will be used to present the web view whenever a 3DS is required to save the card details
+     - Parameter metadata: Metdata object will be a representation of [String:String] dictionary to be used whenever such a common model needed
+     - Parameter enforce3DS: Should we always ask for 3ds while saving the card. Default is true
+     - Parameter onResponeReady: A callback to listen when a the save card is finished successfully. Will provide all the details about the saved card data
+     - Parameter onErrorOccured: A callback to listen when tokenization fails.
+     - Parameter on3DSWebViewWillAppear: A callback to tell the consumer app the 3ds web view will start
+     - Parameter on3DSWebViewDismissed: A callback to tell he consumer app the 3ds web view is over
+     */
+tapCardForum.saveCard(customer: customer, parentController: self, metadata: [:]) { [weak self] card in
+            print("Card saved \(card.card.lastFourDigits)\n\(card.identifier)")
+        } onErrorOccured: { [weak self] error, card, cardFieldsValidity in
+            if let error = error {
+                print("Error \(error.localizedDescription)\nAlso, tap card indicated the validity of the fields as follows :\nNumber: \(cardFieldsValidity.cardNumberValidationStatus)\nExpiry: \(cardFieldsValidity.cardExpiryValidationStatus)\nCVV: \(cardFieldsValidity.cardCVVValidationStatus)\nName: \(cardFieldsValidity.cardNameValidationStatus)")
+            }else if let card = card,
+                     let response = card.response,
+                     let message = response.message,
+                     let errorCode = response.code {
+                print("Card save status \(card.status.stringValue) message: Backend error message : \(message)\nWith code : \(errorCode)")
+            }
         }
 ```

@@ -19,6 +19,7 @@ Table of contents
 - [Installation](https://github.com/Tap-Payments/TapCardCheckOutKit#Installation)
 - [Data Configuration](https://github.com/Tap-Payments/TapCardCheckOutKit#DataConfig)
 - [Single line code initilization](https://github.com/Tap-Payments/TapCardCheckOutKit#SLC)
+- [Optional Configurations](https://github.com/Tap-Payments/TapCardCheckOutKit#Optional)
 
 ## [](https://github.com/Tap-Payments/TapCardCheckOutKit#features)Features
 
@@ -116,8 +117,7 @@ TapCardForumConfiguration.shared.configure(dataConfig: cardDataConfig) {
 
 - Drag and drop the `TapCardInputView` from the storyboard into your UIView as follows:
   
-  - <img width="1078" alt="Screen Shot 2022-08-28 at 7 57 41 PM" src="https://user-images.githubusercontent.com/59433049/187088292-89b7552e-1b2e-48c3-90fc-2928983446cb.png">
-
+  - d
     
 - Connect `IBOutlet` as follows:
   
@@ -135,3 +135,40 @@ TapCardForumConfiguration.shared.configure(dataConfig: cardDataConfig) {
         tapCardForum.setupCardForm(presentScannerInViewController: self)
     }
     ```
+    
+
+### [](https://github.com/Tap-Payments/TapCardCheckOutKit#Optional)Optional Configurations
+
+As mentioned in the section above, you can setup the `TapCardInputView` using a single line of code, which in turn will use the default values for many optional configurations parameters.
+
+In here, we will descripe in detail what parameters you can pass to setup the `TapCardInputView`.
+
+```swift
+/*
+     - Parameter locale: The locale identifer(e.g. en, ar, etc.0 Default value is en
+     - Parameter collectCardHolderName: Indicates whether ot not the card form will ask for the card holder name. Default is false
+     - Parameter showCardBrandsBar: Indicates whether ot not the card form will show the card brands bar. Default is false
+     - Parameter showCardScanner: Indicates whether ot not the card scanner. Default is false
+     - Parameter tapScannerUICustomization: The ui customization to the full screen scanner borer color and to show a blur
+     - Parameter transactionCurrency: The currency you want to show the card brands that accepts it. Default is KWD
+     - Parameter presentScannerInViewController: The UIViewController that will display the scanner into
+     - Parameter blurCardScannerBackground: The ui customization to the full screen scanner borer color and to show a blur
+     - Parameter allowedCardTypes: Decides which cards shall we accept. Default is All
+     - Parameter tapCardInputDelegate: A delegate listens for needed actions and callbacks
+     - Parameter preloadCardHolderName:  A preloading value for the card holder name if needed
+     - Parameter editCardName: Indicates whether or not the user can edit the card holder name field. Default is true
+     - Parameter showCardBrandIcon:deines whether to show the detected brand icon besides the card number instead of the placeholdder
+     */
+func setupCardForm(locale:String = "en",
+                                    collectCardHolderName:Bool = false,
+                                    showCardBrandsBar:Bool = false,
+                                    showCardScanner:Bool = false,
+                                    tapScannerUICustomization:TapFullScreenUICustomizer = .init(),
+                                    transactionCurrency:TapCurrencyCode = .KWD,
+                                    presentScannerInViewController:UIViewController?,
+                                    allowedCardTypes:cardTypes = .All,
+                                    tapCardInputDelegate:TapCardInputDelegate? = nil,
+                                    preloadCardHolderName:String = "",
+                                    editCardName:Bool = true,
+                                    showCardBrandIcon:Bool = true)
+```

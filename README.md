@@ -16,6 +16,7 @@ Table of contents
 - [3DS Secure](https://github.com/Tap-Payments/TapCardCheckOutKit#3DSSecure)
 - [Native UI](https://github.com/Tap-Payments/TapCardCheckOutKit#NativeUI)
 - [Card Scanning](https://github.com/Tap-Payments/TapCardCheckOutKit#CardScanning)
+- [Installation](https://github.com/Tap-Payments/TapCardCheckOutKit#Installation)
 
 ## [](https://github.com/Tap-Payments/TapCardCheckOutKit#features)Features
 
@@ -72,5 +73,10 @@ We support card scanning on iOS 13 and higher. The card scanner will try as accu
   
 
 You should make sure your app is 13.0+ and you have added the **Privacy - Camera Usage Description** in the info.plist file, as follows:
-<img width="1212" alt="Screen Shot 2022-08-28 at 12 55 14 PM" src="https://user-images.githubusercontent.com/59433049/187070546-ee1e0a36-08d1-492f-b85c-a4a648703d6c.png">
+![Screen Shot 20220828 at 12 55 14 PM](https://user-images.githubusercontent.com/59433049/187070546-ee1e0a36-08d1-492f-b85c-a4a648703d6c.png)
 
+### [](https://github.com/Tap-Payments/TapCardCheckOutKit#Installation)Installation
+
+**Using Cocoapods**
+
+add pod 'TapCardCheckOutKit' to your podfile

@@ -102,6 +102,11 @@ import TapCardCheckOutKit
 import CommonDataModelsKit_iOS
 ```
 
+```objectivec
+@import TapCardCheckOutKit;
+@import CommonDataModelsKit_iOS;
+```
+
 Configuration code:
 
 ```swift
@@ -118,6 +123,23 @@ TapCardForumConfiguration.shared.configure(dataConfig: cardDataConfig) {
 }
 ```
 
+```objectivec
+ // Create the data configuration model
+// pass the needed sdk mode (sandbox or production). Optional, default is sandbox
+// pass your SDK keys, which you get upon integrating with TAP.
+// pass the needed localisation. Optional, default is en
+
+ TapCardDataConfiguration* cardDataConfig = [[TapCardDataConfiguration alloc]initWithSdkMode:Sandbox localeIdentifier:@"en" secretKey: [[SecretKey alloc]initWithSandbox:@"sk_test_yKOxBvwq3oLlcGS6DagZYHM2" production:@"sk_live_V4UDhitI0r7sFwHCfNB6xMKp"]];
+ // Start the configuration process and listen for the callbacks
+
+ [TapCardForumConfiguration.shared configureWithDataConfig:cardDataConfig customTheme:nil customLocalisation:nil onCheckOutReady:^{
+        NSLog(@"%@",@"Checkout is ready");
+        [self.startButton setEnabled:YES];
+    } onErrorOccured:^(NSError * error) {
+        NSLog(@"%@ %@",@"Error :",error.localizedDescription);
+    }];
+```
+
 ### [](https://github.com/Tap-Payments/TapCardCheckOutKit#SLC)Single line initialzation
 
 - Drag and drop the `TapCardInputView` from the storyboard into your UIView as follows:
@@ -131,6 +153,10 @@ TapCardForumConfiguration.shared.configure(dataConfig: cardDataConfig) {
     @IBOutlet weak var tapCardForum: TapCardInputView!
     ```
     
+  - ```objectivec
+    @property (weak, nonatomic) IBOutlet TapCardInputView *tapCardInput;
+    ```
+    
 - Init the `TapCardInputView` as follows:
   
   - ```swift
@@ -139,6 +165,21 @@ TapCardForumConfiguration.shared.configure(dataConfig: cardDataConfig) {
         // presentScannerInViewController: The UIViewController that will display the scanner into
         tapCardForum.setupCardForm(presentScannerInViewController: self)
     }
+    ```
+    
+  - ```objectivec
+    [_tapCardInput setupCardFormWithLocale:@"en"
+                         collectCardHolderName:YES
+                             showCardBrandsBar:YES
+                               showCardScanner:YES
+                     tapScannerUICustomization:nil
+                           transactionCurrency:TapCurrencyCodeKWD
+                presentScannerInViewController:self
+                              allowedCardTypes:All
+                          tapCardInputDelegate:self
+                         preloadCardHolderName:@""
+                                  editCardName:YES
+                             showCardBrandIcon:YES];
     ```
     
 
@@ -224,6 +265,33 @@ extension ViewController: TapCardInputDelegate {
 }
 ```
 
+```objectivec
+- (void)errorOccuredWith:(enum CardKitErrorType)error message:(NSString * _Nonnull)message {
+    
+}
+
+- (void)eventHappenedWith:(enum CardKitEventType)event {
+    switch (event) {
+        case CardNotReady:
+            NSLog(@"This means the user didn't enter a valid card data yet.");
+        case CardReady:
+            NSLog(@"This means the user entered a valid card data.");
+        case TokenizeStarted:
+            NSLog(@"The card kit started tokenizing the entered card data.");
+        case TokenizeEnded:
+            NSLog(@"The card kit ended tokenizing the entered card data.");
+        case SaveCardStarted:
+            NSLog(@"The card kit started saving the entered card data.");
+        case SaveCardEnded:
+            NSLog(@"The card kit ended saving the entered card data.");
+        case ThreeDSStarter:
+            NSLog(@"The 3DS process started while saving a card.");
+        case ThreeDSEnded:
+            NSLog(@"The 3DS process ended while saving a card.");
+    }
+}
+```
+
 ### [](https://github.com/Tap-Payments/TapCardCheckOutKit#tokenization)Tokenization
 
 Tokenization is the process Tap uses to collect sensitive card details, directly from your customers in a secure manner. A Token representing this information is returned to your server to use to create a charge or authorize or save the card. This ensures that no sensitive card data touches your server and allows your integration to operate in a PCI compliant way.
@@ -245,6 +313,14 @@ tapCardForum.tokenizeCard { token in
 // cardFieldsValidity : Holds the validity of each field in the card form
             print(error)
         }
+```
+
+```objectivec
+[_tapCardInput tokenizeCardOnResponeReady:^(Token * token) {
+        NSLog(@"%@",token.identifier);
+    } onErrorOccured:^(NSError * error, CardFieldsValidity * cardFieldsValidity) {
+        NSLog(@"%@",error);
+    }];
 ```
 
 ### [](https://github.com/Tap-Payments/TapCardCheckOutKit#save-card)Save Card
@@ -305,6 +381,20 @@ You can provide `TapCardInput` UI element with a custom local theme. The local t
 TapCardForumConfiguration.shared.customTheme = .init(with: "CustomLightTheme", and: "CustomDarkTheme", from: .LocalJsonFile)
 ```
 
+```objectivec
+/**
+     Represents a model to pass custom dark and light theme files if required.
+     - Parameter lightModeThemeFileName: The name of the light mode theme you file in your project you want to use. It is required
+     - Parameter darkModeThemeFileName:  The name of the dark mode theme you file in your project you want to use. If not passed, the light mode one will be used for both displays
+     - Parameter themeType:  Represents the type of the provided custom theme, whether it is local embedded or a remote JSON file
+     */
+
+TapCardForumConfiguration.shared.customTheme = [[TapCardForumTheme alloc]
+                                                    initWith:@"CustomLightTheme"
+                                                    and:@"CustomDarkTheme"
+                                                    from: TapCardForumThemeTypeLocalJsonFile];
+```
+
 Things to note:
 
 - Make sure the file is in your project directory.
@@ -362,7 +452,11 @@ import statements:
 import LocalisationManagerKit_iOS
 ```
 
-Apply local/remote localisation:
+```objectivec
+@import LocalisationManagerKit_iOS;
+```
+
+Apply local/remote localisation, you pass the custom localisation parameter in the configuration:
 
 ```swift
 // Get the path for the localisation file
@@ -375,7 +469,22 @@ let localLocalisationFileURL:URL? = Bundle.main.url(forResource: "CustomLocalisa
      - Returns: True if the file was located and has valid json format, false otherwise.
      PS : If you path a file url then the type should be .LocalJsonFile OR .RemoteJsonFile.
      */
-TapLocalisationManager.shared.configureLocalisation(with: localLocalisationFileURL, or: nil, from: .LocalJsonFile)
+TapCardForumConfiguration.shared.configure(dataConfig: cardDataConfig,
+    customLocalisation: .init(with: localLocalisationFileURL:URL,
+    from: .LocalJsonFile,
+    localeIdentifier: "en")
+```
+
+```objc
+// get the local file url
+    NSURL* customLocalisationFileURL = [[NSBundle mainBundle] URLForResource:@"CustomLocalisation" withExtension:@"json"];
+    
+    [TapCardForumConfiguration.shared configureWithDataConfig:cardDataConfig customTheme:nil customLocalisation:[[TapCardForumLocalisation alloc]initWith:customLocalisationFileURL from:TapLocalisationTypeLocalJsonFile shouldFlip:NO localeIdentifier:@"en"] onCheckOutReady:^{
+        NSLog(@"%@",@"Checkout is ready");
+        [self.startButton setEnabled:YES];
+    } onErrorOccured:^(NSError * error) {
+        NSLog(@"%@ %@",@"Error :",error.localizedDescription);
+    }];
 ```
 
 Things to note::

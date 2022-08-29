@@ -24,6 +24,7 @@ Table of contents
 - [Tokenization](https://github.com/Tap-Payments/TapCardCheckOutKit#tokenization)
 - [Save Card](https://github.com/Tap-Payments/TapCardCheckOutKit#save-card)
 - [Custom Theme](https://github.com/Tap-Payments/TapCardCheckOutKit#custom-theme)
+- [Custom Localisation](https://github.com/Tap-Payments/TapCardCheckOutKit#custom-localisation)
 
 ## [](https://github.com/Tap-Payments/TapCardCheckOutKit#features)Features
 
@@ -345,3 +346,44 @@ Things to note:
 - Light mode is mandatory.
   
 - Dark mode is optional, if not passed then light mode will be used in both display modes.
+  
+
+### [](https://github.com/Tap-Payments/TapCardCheckOutKit#custom-localisation)Custom Localisation
+
+We made sure that as an UI element, you can customize the look and feel of it to match your own app's UX. The `localisation` is represented as a `JSON` data used to localise the elements in different locales. If not passed, the default tap localisation will be used.
+
+**Custom local & remote localisation**
+
+You can provide `TapCardInput` UI element with a custom local localisation. The local localisation will be in the form of a JSON file.
+
+import statements:
+
+```swift
+import LocalisationManagerKit_iOS
+```
+
+Apply local/remote localisation:
+
+```swift
+// Get the path for the localisation file
+let localLocalisationFileURL:URL? = Bundle.main.url(forResource: "CustomLocalisation", withExtension: "json")
+/**
+     Configures the localisation manager with custom localisation data loading from file or from a provided localisation data
+     - Parameter filePath: The url to the file that contains the custom localisation data whether remote or a local path
+     - Parameter localistionData: Represents a direct provided JSON localisation data
+     - Parameter localisationType: Defines whether the passed file is a local or remote based one
+     - Returns: True if the file was located and has valid json format, false otherwise.
+     PS : If you path a file url then the type should be .LocalJsonFile OR .RemoteJsonFile.
+     */
+TapLocalisationManager.shared.configureLocalisation(with: localLocalisationFileURL, or: nil, from: .LocalJsonFile)
+```
+
+Things to note::
+
+- Make sure the file is in your project directory.
+  
+- Make sure the file is following this [format](https://firebasestorage.googleapis.com/v0/b/tapcardcheckout.appspot.com/o/CustomLocalisation.json?alt=media&token=6ef4023a-7082-47f3-86da-e47731abf098).
+  
+- For reference these are our default values for [AR & EN](https://firebasestorage.googleapis.com/v0/b/tapcardcheckout.appspot.com/o/CustomLocalisation.json?alt=media&token=6ef4023a-7082-47f3-86da-e47731abf098).
+  
+- You can put in any locale you need by just adding an entry for the locale as it shows for AR & EN in [here](https://firebasestorage.googleapis.com/v0/b/tapcardcheckout.appspot.com/o/CustomLocalisation.json?alt=media&token=6ef4023a-7082-47f3-86da-e47731abf098)

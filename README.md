@@ -23,6 +23,7 @@ Table of contents
 - [TapCardInputDelegate](https://github.com/Tap-Payments/TapCardCheckOutKit#tapCardInputDelegate)
 - [Tokenization](https://github.com/Tap-Payments/TapCardCheckOutKit#tokenization)
 - [Save Card](https://github.com/Tap-Payments/TapCardCheckOutKit#save-card)
+- [Custom Theme](https://github.com/Tap-Payments/TapCardCheckOutKit#custom-theme)
 
 ## [](https://github.com/Tap-Payments/TapCardCheckOutKit#features)Features
 
@@ -282,3 +283,65 @@ tapCardForum.saveCard(customer: customer, parentController: self, metadata: [:])
             }
         }
 ```
+
+### [](https://github.com/Tap-Payments/TapCardCheckOutKit#custom-theme)Custom Theme
+
+We made sure that as an UI element, you can customize the look and feel of it to match your own app's UX. The `theme` is represented a `JSON` data used to render the elements in light and dark modes. If not passed, the default tap theme will be used.
+
+**Custom local theme**
+
+You can provide `TapCardInput` UI element with a custom local theme. The local theme will be in the form of a JSON file.
+
+```swift
+
+/**
+     Represents a model to pass custom dark and light theme files if required.
+     - Parameter lightModeThemeFileName: The name of the light mode theme you file in your project you want to use. It is required
+     - Parameter darkModeThemeFileName:  The name of the dark mode theme you file in your project you want to use. If not passed, the light mode one will be used for both displays
+     - Parameter themeType:  Represents the type of the provided custom theme, whether it is local embedded or a remote JSON file
+     */
+
+TapCardForumConfiguration.shared.customTheme = .init(with: "CustomLightTheme", and: "CustomDarkTheme", from: .LocalJsonFile)
+```
+
+Things to note:
+
+- Make sure the file is in your project directory.
+  
+- Make sure the file is following this [format](https://firebasestorage.googleapis.com/v0/b/tapcardcheckout.appspot.com/o/LightTheme.json?alt=media&token=4f58decf-6e60-4053-bc1d-92794f39de13).
+  
+- For reference these are our default values for [light](https://firebasestorage.googleapis.com/v0/b/tapcardcheckout.appspot.com/o/LightTheme.json?alt=media&token=4f58decf-6e60-4053-bc1d-92794f39de13) and [dark](https://firebasestorage.googleapis.com/v0/b/tapcardcheckout.appspot.com/o/DarkTheme.json?alt=media&token=e6f51e9f-4101-4d10-8a47-86c0c193b54d) modes.
+  
+- Light mode is mandatory.
+  
+- Dark mode is optional, if not passed then light mode will be used in both display modes.
+  
+
+**Custom remote theme**
+
+You can provide `TapCardInput` UI element with a custom remote theme. The remote theme will be in the form of a JSON file. Giving you the capability to change the look & feel online without the need to update your app.
+
+```swift
+/**
+     Represents a model to pass custom dark and light theme files if required.
+     - Parameter lightModeThemeFileName: The name of the light mode theme you file in your project you want to use. It is required
+     - Parameter darkModeThemeFileName:  The name of the dark mode theme you file in your project you want to use. If not passed, the light mode one will be used for both displays
+     - Parameter themeType:  Represents the type of the provided custom theme, whether it is local embedded or a remote JSON file
+     */
+
+.init(with: "https://firebasestorage.googleapis.com/v0/b/tapcardcheckout.appspot.com/o/LightTheme.json?alt=media&token=4f58decf-6e60-4053-bc1d-92794f39de13",
+                      and: "https://firebasestorage.googleapis.com/v0/b/tapcardcheckout.appspot.com/o/DarkTheme.json?alt=media&token=e6f51e9f-4101-4d10-8a47-86c0c193b54d",
+                      from: .RemoteJsonFile)
+```
+
+Things to note:
+
+- Make sure the file is in your project directory.
+  
+- Make sure the file is following this [format](https://firebasestorage.googleapis.com/v0/b/tapcardcheckout.appspot.com/o/LightTheme.json?alt=media&token=4f58decf-6e60-4053-bc1d-92794f39de13).
+  
+- For reference these are our default values for [light](https://firebasestorage.googleapis.com/v0/b/tapcardcheckout.appspot.com/o/LightTheme.json?alt=media&token=4f58decf-6e60-4053-bc1d-92794f39de13) and [dark](https://firebasestorage.googleapis.com/v0/b/tapcardcheckout.appspot.com/o/DarkTheme.json?alt=media&token=e6f51e9f-4101-4d10-8a47-86c0c193b54d) modes.
+  
+- Light mode is mandatory.
+  
+- Dark mode is optional, if not passed then light mode will be used in both display modes.

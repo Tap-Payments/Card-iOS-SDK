@@ -107,7 +107,7 @@ internal protocol ThreeDSViewControllerDelegate {
     private var showCardScanner:Bool = false
     
     /// The ui customization to the full screen scanner borer color and to show a blut
-    private var tapScannerUICustomization:TapFullScreenUICustomizer = .init()
+    private var tapScannerUICustomization:TapFullScreenUICustomizer? = .init()
     
     /// The UIViewController that will display the scanner into
     private var presentScannerInViewController:UIViewController?
@@ -155,7 +155,7 @@ internal protocol ThreeDSViewControllerDelegate {
      - Parameter showCardBrandIcon:deines whether to show the detected brand icon besides the card number instead of the placeholdder
      */
     
-    @objc public func setupCardForm(locale:String = "en", collectCardHolderName:Bool = false, showCardBrandsBar:Bool = false, showCardScanner:Bool = false, tapScannerUICustomization:TapFullScreenUICustomizer = .init() , transactionCurrency:TapCurrencyCode = .KWD, presentScannerInViewController:UIViewController?, allowedCardTypes:cardTypes = .All, tapCardInputDelegate:TapCardInputDelegate? = nil, preloadCardHolderName:String = "", editCardName:Bool = true, showCardBrandIcon:Bool = true) {
+    @objc public func setupCardForm(locale:String = "en", collectCardHolderName:Bool = false, showCardBrandsBar:Bool = false, showCardScanner:Bool = false, tapScannerUICustomization:TapFullScreenUICustomizer? = .init() , transactionCurrency:TapCurrencyCode = .KWD, presentScannerInViewController:UIViewController?, allowedCardTypes:cardTypes = .All, tapCardInputDelegate:TapCardInputDelegate? = nil, preloadCardHolderName:String = "", editCardName:Bool = true, showCardBrandIcon:Bool = true) {
         // Set the locale
         self.locale = locale
         // Set the collection name ability

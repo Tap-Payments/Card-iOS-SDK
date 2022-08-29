@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0J-gM-H0b">
+                                <rect key="frame" x="186" y="64" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kaE-cL-87U">
+                                <rect key="frame" x="130.5" y="432.5" width="153" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Start the card demo"/>
+                                <connections>
+                                    <segue destination="YjH-K5-psO" kind="presentation" id="sNN-jF-Omf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kaE-cL-87U" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2Oo-W6-Fgf"/>
+                            <constraint firstItem="kaE-cL-87U" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="2qE-Re-YVN"/>
+                            <constraint firstItem="w0J-gM-H0b" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="62I-9v-ekU"/>
+                            <constraint firstItem="w0J-gM-H0b" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BKy-3F-o5k"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="startButton" destination="kaE-cL-87U" id="5U8-cZ-akJ"/>
+                        <outlet property="titleLabel" destination="w0J-gM-H0b" id="PtK-WU-Qsg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="133" y="7"/>
+        </scene>
+        <!--Card Input Demo View Controller-->
+        <scene sceneID="YbG-xm-DOl">
+            <objects>
+                <viewController id="YjH-K5-psO" customClass="CardInputDemoViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zOb-LB-hDo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JnI-GR-7bd" customClass="TapCardInputView" customModule="TapCardCheckOutKit">
+                                <rect key="frame" x="0.0" y="64" width="414" height="200"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="NKM-Sf-9sD"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxx-jR-VYP">
+                                <rect key="frame" x="166.5" y="274" width="81" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Tokenize"/>
+                                <connections>
+                                    <action selector="tokenizeClicked:" destination="YjH-K5-psO" eventType="touchUpInside" id="kvd-DZ-6rW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="g7W-cr-ffo"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vxx-jR-VYP" firstAttribute="top" secondItem="JnI-GR-7bd" secondAttribute="bottom" constant="10" id="207-ok-exy"/>
+                            <constraint firstItem="JnI-GR-7bd" firstAttribute="leading" secondItem="g7W-cr-ffo" secondAttribute="leading" id="3wX-JE-qDy"/>
+                            <constraint firstItem="vxx-jR-VYP" firstAttribute="centerX" secondItem="zOb-LB-hDo" secondAttribute="centerX" id="A91-Db-rou"/>
+                            <constraint firstItem="JnI-GR-7bd" firstAttribute="top" secondItem="g7W-cr-ffo" secondAttribute="top" constant="20" id="e4H-91-k0s"/>
+                            <constraint firstItem="g7W-cr-ffo" firstAttribute="trailing" secondItem="JnI-GR-7bd" secondAttribute="trailing" id="tYz-ln-4Lv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tapCardInput" destination="JnI-GR-7bd" id="dtK-uB-AQm"/>
+                        <outlet property="tokenizeButton" destination="vxx-jR-VYP" id="AIB-A0-87d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j2u-44-9ok" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="890" y="7"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

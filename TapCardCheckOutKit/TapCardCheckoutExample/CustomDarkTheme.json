@@ -1,85 +1,156 @@
-{"inlineCard": {
-    "commonAttributes": {
-        "backgroundColor": "#1c1c1e",
-        "borderColor": "#00000000",
-        "cornerRadius": 0,
-        "borderWidth": 0,
-        "itemSpacing": 5,
-        "cvvPlaceHolder": "CvvPlaceholder",
-        "shadow":{
-            "color": "#00000000",
-            "radius": 0,
-            "offsetWidth": 0,
-            "offsetHeight": 0,
-            "opacity": 0
+{
+    "GlobalValues" : {
+        "Colors" : {
+            "white" : "#1c1c1e",
+            "black" : "#000000",
+            "black50" : "#00000080",
+            "lightPeach" : "#98989f",
+            "greyishBrown" : "#ffffff",
+            "veryLightPinkTwo" : "#404043",
+            "brownGrey" : "#98989f",
+            "whiteTwo": "#2b2b2f",
+            "deepSkyBlue": "#007aff",
+            "white30":"#ffffff4D",
+            "lightPeriwinkle": "#d9d9da",
+            "white80":"#ffffffcc",
+            "vibrantGreen" : "#2ace00",
+            "vibrantGreenTwo" : "#00d300",
+            "paleLilac":"#e4e4e5",
+            "clear":"#00000000",
+            "brownGreyTwo":"#b2b2b2",
+            "brownGreyThree":"#ababab",
+            "orange":"#ea611c",
+            "apricot30":"#ffbe604C",
+            "reddishOrange20":"#ea672433",
+            "cherryRed":"#e12131",
+            "cherryRed10":"#e1213119",
+            "cherryRed20":"#e12132",
+            "deepSkyBlue15":"#007aff26",
+            "brownGreyFive":"#aeaeae",
+            "deepSkyBlue15":"#007aff26",
+            "veryLightPinkThree": "#1c1c1e",
+            "azure": "#009aff",
+            "brownGreySix": "#a7a7a7",
+            "brownGreySeven": "#7e7e7e",
+            "white78": "#f9f9f9C6",
+            "brownGreyFour": "#a6a6a6"
+        }
+    },
+    "tapSeparationLine": {
+        "backgroundColor": "veryLightPinkTwo",
+        "height" : 1,
+        "initialTrailingConstraint" : 0
+    },
+    "cardPhoneList":
+    {
+        "backgroundColor": "whiteTwo",
+        "maxWidth":60,
+        "insets":16,
+        "underline":{
+            "unselected": {
+                "backgroundColor" : "brownGrey"
+            },
+            "selected": {
+                "backgroundColor" : "vibrantGreen"
+            }
         },
-        "widthMargin": 7
+        "icon":{
+            "selected": {
+                "backgroundColor" : "clear",
+                "alpha": 1
+            },
+            "otherSegmentSelected": {
+                "backgroundColor" : "clear",
+                "alpha": 0.5
+            },
+            "unselected": {
+                "backgroundColor" : "clear",
+                "alpha": 1
+            }
+        }
     },
-    "iconImage": {
-        "image": "card",
-        "width": 32
-    },
-    "scanImage": {
-        "image": "scanIcon",
-        "selected": "selectedScan",
-        "width": 32
-    },
-    "clearImage": {
-        "image": "clearFormIcon",
-        "width": 32
-    },
-    "textFields": {
-        "textColor": "#ff00ff",
-        "errorTextColor": "#FF0000",
-        "font" : "Roboto-Light,17",
-        "placeHolderColor" : "#ffb2b2"
-    },
-    "saveCardOption": {
-        "labelTextColor": "#000000",
-        "labelTextFont": "20",
-        "switchTintColor": "#1c1c1e",
-        "switchThumbColor": "#1c1c1e",
-        "switchOnThumbColor": "#2ACE00"
-    }
-},
-"fullCard": {
-    "commonAttributes": {
-        "backgroundColor": "#1c1c1e",
-        "borderColor": "#00000000",
-        "cornerRadius":0,
-        "borderWidth": 0,
-        "itemSpacing": 0,
-        "separatorColor": "#0000001E",
-        "cvvPlaceHolder": "CvvPlaceholder",
-        "shadow":{
-            "color": "#2ACE00",
-            "radius": 3,
-            "offsetWidth": 0,
-            "offsetHeight": 0,
-            "opacity": 1
+    "inlineCard": {
+        "commonAttributes": {
+            "backgroundColor": "white",
+            "borderColor": "clear",
+            "cornerRadius": 0,
+            "borderWidth": 0,
+            "itemSpacing": 5,
+            "cvvPlaceHolder": "CvvPlaceholder",
+            "shadow":{
+                "color": "clear",
+                "radius": 0,
+                "offsetWidth": 0,
+                "offsetHeight": 0,
+                "opacity": 0
+            },
+            "widthMargin": 7
         },
-        "widthMargin": 15
+        "iconImage": {
+            "image": "card",
+            "width": 32
+        },
+        "scanImage": {
+            "image": "scanIcon",
+            "selected": "selectedScan",
+            "width": 32
+        },
+        "clearImage": {
+            "image": "clearFormIcon",
+            "width": 32
+        },
+        "textFields": {
+            "textColor": "greyishBrown",
+            "errorTextColor": "#FF0000",
+            "font" : "Roboto-Light,17",
+            "placeHolderColor" : "brownGreyTwo"
+        },
+        "saveCardOption": {
+            "labelTextColor": "black",
+            "labelTextFont": "20",
+            "switchTintColor": "white",
+            "switchThumbColor": "white",
+            "switchOnThumbColor": "#2ACE00"
+        }
     },
-    "iconImage": {
-        "image": "bank",
-        "width": 32
-    },
-    "scanImage": {
-        "image": "scanIcon",
-        "width": 32
-    },
-    "textFields": {
-        "textColor": "#000000",
-        "errorTextColor": "#FF0000",
-        "font": "15",
-        "placeHolderColor" : "#00000055"
-    },
-    "saveCardOption": {
-        "labelTextColor": "#000000",
-        "labelTextFont": "15",
-        "switchTintColor": "#1c1c1e",
-        "switchThumbColor": "#1c1c1e",
-        "switchOnThumbColor": "#2ACE00"
-    }
+    "fullCard": {
+        "commonAttributes": {
+            "backgroundColor": "white",
+            "borderColor": "#00000000",
+            "cornerRadius":0,
+            "borderWidth": 0,
+            "itemSpacing": 0,
+            "separatorColor": "#0000001E",
+            "cvvPlaceHolder": "CvvPlaceholder",
+            "shadow":{
+                "color": "#2ACE00",
+                "radius": 3,
+                "offsetWidth": 0,
+                "offsetHeight": 0,
+                "opacity": 1
+            },
+            "widthMargin": 15
+        },
+        "iconImage": {
+            "image": "bank",
+            "width": 32
+        },
+        "scanImage": {
+            "image": "scanIcon",
+            "width": 32
+        },
+        "textFields": {
+            "textColor": "black",
+            "errorTextColor": "#FF0000",
+            "font": "15",
+            "placeHolderColor" : "#00000055"
+        },
+        "saveCardOption": {
+            "labelTextColor": "black",
+            "labelTextFont": "15",
+            "switchTintColor": "white",
+            "switchThumbColor": "white",
+            "switchOnThumbColor": "#2ACE00"
+        }
     },
 }

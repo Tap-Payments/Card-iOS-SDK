@@ -247,19 +247,20 @@
 		2D157E01ABC2D8D185B85AEA13390D1D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B305FE036B4FBF273FC8D97967A649 /* Extensions.swift */; };
 		2D936D2DD6A41CE0CFAB3DAACB0A8EC6 /* GDTCORLifecycle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D2522465081E9B187A53123B3EDD1C9 /* GDTCORLifecycle.m */; };
 		2ECEB327B773B773952AD1DC77CBD561 /* TapBinResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF523705DEEEF6BA31090B1CD27AAB8 /* TapBinResponseModel.swift */; };
-		2EF0132309F2CA0845111DEF5AD4EFCF /* Pods-TapCardCheckOutKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3065554FBA50056E796F738E87555755 /* Pods-TapCardCheckOutKit-dummy.m */; };
+		2EF0132309F2CA0845111DEF5AD4EFCF /* Pods-TapCardCheckOutKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD4F7ED8CA7C45BA0F4CEFECE6DA3D2 /* Pods-TapCardCheckOutKit-dummy.m */; };
 		2F144B27A18EC43625CD1D790B0C63E1 /* CoreGraphicsFixes.m in Sources */ = {isa = PBXBuildFile; fileRef = F546495B6366FE51949C0F531084034F /* CoreGraphicsFixes.m */; };
 		2F54AEFAB08CCC203289FD3B05B06CCE /* TapApplicationV2-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F090B91D49FD4C91DAEB52A6F203A7 /* TapApplicationV2-dummy.m */; };
 		3023962CE0CAC7ACBA50A3E53CB22847 /* McPicker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C938B49291C7E92A8730E7F80C80B97D /* McPicker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3026FACF07B0818D573D8A63578E0FC2 /* TapURLSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD00AE0A111F60B8367ACE17B8C20F59 /* TapURLSerializer.swift */; };
 		3089E78F2142249542137FDD8373D13B /* TapCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8EB4F18519E5A3B823BC18A4A7A0A0 /* TapCountry.swift */; };
+		309884738B40E2F97C4A9E3FAB86500E /* Pods-TapCardCheckoutExampleObjc-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7298C6D252FD549417AAC18FFC461FD7 /* Pods-TapCardCheckoutExampleObjc-dummy.m */; };
 		30A7756A5C62F0A84EF2A9752A66F9D3 /* GDTCORStorageEventSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E68DBE67B2CF4164187524455A1E1C /* GDTCORStorageEventSelector.m */; };
 		30D9E90B10C8F561FCD1071EB037BF58 /* FIRInstallationsBackoffController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FD36B9B958805CCD2D1A360396769CA /* FIRInstallationsBackoffController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		3110BFBFA65F25146515DA984B45D396 /* TapDragHandlerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86B9329B9B47A82C125FEC0E3C41C97 /* TapDragHandlerView.swift */; };
 		31B77041C46E17AFA8D5140DE398678C /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24F11A9A023AA3EB6BCE6D016BAEC05 /* UIColor+Additions.swift */; };
 		32415E9A591A42607772D9D1D28CC144 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019034F8F69C3D1D1B2FE70ED5CE373C /* APIError.swift */; };
 		32E48A950BA21250D44A0EDF4E8FDBA0 /* SwiftyRSA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658198F49D4D858A8B8354C05F3404FA /* SwiftyRSA.swift */; };
-		3301A976BFCA30E6ED79CFAAD09B1765 /* Pods-TapCardCheckoutExample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1F3FF1FC94796963862144FD7F6C08 /* Pods-TapCardCheckoutExample-dummy.m */; };
+		3301A976BFCA30E6ED79CFAAD09B1765 /* Pods-TapCardCheckoutExample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BF483226B265A3081DA8B58020825575 /* Pods-TapCardCheckoutExample-dummy.m */; };
 		3329F62A2B14053044F6630FF3F9FFCB /* NSNumber+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9ECBFCAF5131D5313084F0D23A3544 /* NSNumber+Additions.swift */; };
 		333DAD8E6D184AE3BD1834F9A90A830F /* UIEdgeInsets+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042CF855272E8DD80DA554B0E6607B58 /* UIEdgeInsets+Additions.swift */; };
 		33A0705A7A9C2443C091B75F41C48B1E /* TapApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C395AD637D7FA39C83454420E80F7DC /* TapApplication.swift */; };
@@ -499,7 +500,7 @@
 		72AED42199E2CC8626F5C0576751B0DD /* firebasecore.nanopb.c in Sources */ = {isa = PBXBuildFile; fileRef = D4F343DF8D7FB0817B653D3086674717 /* firebasecore.nanopb.c */; };
 		730EDF37CA7395E202402182372F5926 /* ThemeScrollViewIndicatorStyleSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6295B0B6565C9B25DE738435B60C054E /* ThemeScrollViewIndicatorStyleSelector.swift */; };
 		7329A6A4BB87A0B95315B1F52F9AE50D /* GULNetworkLoggerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = CAC23D7915CC137D35C9018AA7940387 /* GULNetworkLoggerProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		735E53EE166E36A4A70AE6A3C1B57A77 /* Pods-TapCardCheckOutKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DB6E1FD3C0CF10122832E405EDE0B81 /* Pods-TapCardCheckOutKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		735E53EE166E36A4A70AE6A3C1B57A77 /* Pods-TapCardCheckOutKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F3331101633B86C12BBE2D551FEBFE7 /* Pods-TapCardCheckOutKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		73650F61570585C42E30AA8812B3C8F1 /* CurrencyChipCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80986CE2369A0478F45348DEA80F405D /* CurrencyChipCollectionViewCell.xib */; };
 		73A90EECD714388D9E72DB12549CE104 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00C83D50BBEFE133C630D7B7DE2E8089 /* images.xcassets */; };
 		73DF54A332787DD8576F654CC3CE0F3F /* SelectorsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A20344EE54F17E6EAEB5B06E488C03 /* SelectorsConstants.swift */; };
@@ -615,7 +616,7 @@
 		976BE7B1A06F007B01D04A01F94A3FFA /* FBLPromise+Then.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F177443A944582AD32D91AC16BB646 /* FBLPromise+Then.m */; };
 		97B45CEEBD0422F1EF0FD0DACC7FDEF0 /* PullUpController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 754977930D6EC08F60335516A0962607 /* PullUpController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		97F12CDC884EA1CBD8F16487453F80B3 /* TapGoPayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C626AC811BEDB0FB9AB57EDDB18B7E /* TapGoPayViewModel.swift */; };
-		983610025F31BCA7D971B25F4E1CE85A /* Pods-TapCardCheckoutExample-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AC2AFB8A217BB3D3EF80CCFDA44FA4E5 /* Pods-TapCardCheckoutExample-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		983610025F31BCA7D971B25F4E1CE85A /* Pods-TapCardCheckoutExample-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B2CE0B6FC94A849757D1460EC693FF /* Pods-TapCardCheckoutExample-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9890B65DDCA6C72ADF68AC7C84349512 /* FBLPromise+Wrap.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C0886BFBA0A39FF16A58333A95C7B /* FBLPromise+Wrap.m */; };
 		98B4B4B3AD6C0B2BD0344ADCBC4C87AB /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDD818BE85F61D2818E727C3FCCD605 /* Message.swift */; };
 		98EE41E2F6DCB73B822D67BEF7FF607A /* ApplePayChipCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEE3AEBB5317380BBD2B929BA251A37 /* ApplePayChipCollectionViewCell.swift */; };
@@ -926,6 +927,7 @@
 		E7CD22811761B66824669B2C9C9FECCE /* GDTCCTUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1D5D60D07C8C90A1F970F7523729EA /* GDTCCTUploader.m */; };
 		E7F48CBB0A469127035E86D05B929515 /* TapScannerProtocl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EAD545123D45C3D3E3A0E3C6FBEDE7 /* TapScannerProtocl.swift */; };
 		E83763D593DEA562C1AB01913507C62A /* FIRApp.h in Headers */ = {isa = PBXBuildFile; fileRef = F78FA5DAA26D813ACF19E92B2AEC8613 /* FIRApp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E84AB17B9EE8BBBEE942AB45DCB89045 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E9152E2DF7BE75526EBDE149B7CFD3 /* Foundation.framework */; };
 		E887737D976704D5C57E9C89F1D06A5A /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D396F270735429D307FA8FF51B4F2B0D /* CameraView.swift */; };
 		E89805951E488464A7D997891DC344D5 /* ThemeKeyboardAppearanceSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838B35D95947ED1D09690A249F581A60 /* ThemeKeyboardAppearanceSelector.swift */; };
 		E8A48E7CBEB1A43068B4CC3E9A87DE64 /* FBLPromiseError.m in Sources */ = {isa = PBXBuildFile; fileRef = A240492E6336482FF407550B65ED11B8 /* FBLPromiseError.m */; };
@@ -950,6 +952,7 @@
 		EC00A8E9E1246D8AEEEDFB41C9BBC9B6 /* diners-club.png in Resources */ = {isa = PBXBuildFile; fileRef = 49DA3C5CDA56BAD6DBC325107803B8A4 /* diners-club.png */; };
 		EC3A88D336A563AC8913FF5A4B2BF2D0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E9152E2DF7BE75526EBDE149B7CFD3 /* Foundation.framework */; };
 		EC80F0FC138E0AD88AF9B46F71D27CB5 /* FIRInstallationsStoredAuthToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 01B4F045EEA33DE934DA14B3FF670DD0 /* FIRInstallationsStoredAuthToken.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		ECA64522F6DBF583059EC0032F05E005 /* Pods-TapCardCheckoutExampleObjc-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E9DA59B5C042DF367A52CE39ECD30186 /* Pods-TapCardCheckoutExampleObjc-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECA9A70EC291E689EC134D65A561F53B /* Nuke-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 164ABB655335CC90CA17C0A8E197DDC5 /* Nuke-dummy.m */; };
 		ECAD8CCCB0DA74052EB5228F9BB62CCB /* GDTCORReachability_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 4224651AE3C824F9C94FC1CB503E6131 /* GDTCORReachability_Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		ECE4BF1281F6EF099C4452C6D3EA60D6 /* FBLPromise+Retry.m in Sources */ = {isa = PBXBuildFile; fileRef = 197A3CB59AA62DC060586594187275C9 /* FBLPromise+Retry.m */; };
@@ -1031,6 +1034,13 @@
 			remoteGlobalIDString = 5C0371EE948D0357B8EE0E34ABB44BF0;
 			remoteInfo = GoogleDataTransport;
 		};
+		07FDD7EB3495FD9C2BCCCA2FA2A8AFA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A3DF3C18C03F8EAEC754928B8CBFE78B;
+			remoteInfo = TapAdditionsKitV2;
+		};
 		099572ECDFA0FB0970832A590EBA716D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -1072,6 +1082,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 87D01FBA5C9E03D06F499B22E3F19026;
 			remoteInfo = TapKeychain;
+		};
+		1C4EF6879D14346F3688134F7D1E83A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5C0371EE948D0357B8EE0E34ABB44BF0;
+			remoteInfo = GoogleDataTransport;
 		};
 		20593BA9E0F428411496DAB6BF97F2CB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1115,6 +1132,13 @@
 			remoteGlobalIDString = 1CF0AD6C5098A55AD7DF9645E42E09E7;
 			remoteInfo = PullUpController;
 		};
+		267E56573215ABDE0CADCC86A7DEA10B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 48D7FFECE792D5C478227EFA6E2D5A43;
+			remoteInfo = "LocalisationManagerKit-iOS";
+		};
 		2695C1C72B3F131B834F6CC9BA334E97 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -1150,6 +1174,20 @@
 			remoteGlobalIDString = A69E391A11C234F827CD955C6FE288C0;
 			remoteInfo = "TapCardScanner-iOS";
 		};
+		2DAA8A1E083CC1F534C2B9F70A185A5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E216967D71699A6EF43A16A4B8B6D624;
+			remoteInfo = TapSwiftFixesV2;
+		};
+		2EDA7BB319143D725B46DF50872B1B66 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F533AA510B62E4F3B56C094378F820D6;
+			remoteInfo = "TapFontKit-iOS";
+		};
 		2F10FD5ABF6C7C6738E782CA2B88C9B4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -1163,6 +1201,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = C49E7A4D59E5C8BE8DE9FB1EFB150185;
 			remoteInfo = FirebaseAnalytics;
+		};
+		3117FB433F0F0A8D697DAB14F3174362 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 25E9E9A17BC3F670357D7385C521E48E;
+			remoteInfo = FirebaseCoreInternal;
 		};
 		31DEAE0273AFDBF2B6DE9BA9B50EF030 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1185,6 +1230,13 @@
 			remoteGlobalIDString = F73BD4CA6A0B23F38687F2A3BB7E5EC7;
 			remoteInfo = TapThemeManager2020;
 		};
+		3AA6D41BBEBF55C512B5AA1B89A39CD1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 87D01FBA5C9E03D06F499B22E3F19026;
+			remoteInfo = TapKeychain;
+		};
 		3C17E1E0448EC1184F55555B0DCE1091 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -1198,6 +1250,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = A3DF3C18C03F8EAEC754928B8CBFE78B;
 			remoteInfo = TapAdditionsKitV2;
+		};
+		3E0635391A2AAE8C9DE51095B2A1B8D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B53D977A951AFC38B21751B706C1DF83;
+			remoteInfo = GoogleAppMeasurement;
 		};
 		3E6007BB116393E4B0FBD19542C9B091 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1226,6 +1285,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 9FB907AAFDB0530AEA6CA76A05AE3BBC;
 			remoteInfo = McPicker;
+		};
+		45F20CA8B5D504B9C9A0AFD0A819139D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3615B323ECE97BB00B6167A5847EF0FF;
+			remoteInfo = "TapCardVlidatorKit-iOS";
+		};
+		465FEF619C6502B86C4B76C087639D65 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2B5E7DCCBBFB32341D857D01211A1A3;
+			remoteInfo = nanopb;
 		};
 		47CD9BB7D76B75E85A57D5BD078C1987 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1339,6 +1412,13 @@
 			remoteGlobalIDString = 8D7F5D5DD528D21A72DC87ADA5B12E2D;
 			remoteInfo = GoogleUtilities;
 		};
+		6682DB6852F68CF13814E9466014694F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9A9B66AFC097DEF0813D59E11C47E490;
+			remoteInfo = "TapNetworkKit-iOS";
+		};
 		6A4E28B871F90CAABF2D2F13F3ACE096 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -1394,6 +1474,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 9A8B22F15674A78FC57F1E9B3018E88B;
 			remoteInfo = TapApplicationV2;
+		};
+		74BAD95604C0D4D99B6EEF24088EF462 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A69E391A11C234F827CD955C6FE288C0;
+			remoteInfo = "TapCardScanner-iOS";
 		};
 		79C075869ED41C2CAB6DEE87D1C45349 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1479,6 +1566,13 @@
 			remoteGlobalIDString = 19622742EBA51E823D6DAE3F8CDBFAD4;
 			remoteInfo = SnapKit;
 		};
+		8B02892A95784EBBF27B31E521F187BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 473C08B3D856915C204623033941AC9D;
+			remoteInfo = "TapCardInputKit-iOS";
+		};
 		8CD32FDD7379C36295DA717BD58EDF2B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -1535,6 +1629,20 @@
 			remoteGlobalIDString = 3615B323ECE97BB00B6167A5847EF0FF;
 			remoteInfo = "TapCardVlidatorKit-iOS";
 		};
+		96CA70AD9FC2A63E6CBB3CE2B49E2703 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 620E05868772C10B4920DC7E324F2C87;
+			remoteInfo = FirebaseCoreDiagnostics;
+		};
+		99898DC9FD800DF98A6D5707B71BC5F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5AAB42D32BF2F8E4E3F6C89944780722;
+			remoteInfo = "TapApplePayKit-iOS";
+		};
 		9BF018B18CD97A76FD7728EC66C96DE7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -1542,12 +1650,47 @@
 			remoteGlobalIDString = 4402AFF83DBDC4DD07E198685FDC2DF2;
 			remoteInfo = FirebaseCore;
 		};
+		9CAF92F700FE390B9AF65A8E6BD97EA0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D49B77E3C54A9573D2E2DDD93687FCBF;
+			remoteInfo = "CommonDataModelsKit-iOS";
+		};
+		9D837EB102CDB36AA5CDBEF5058C9F73 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C49E7A4D59E5C8BE8DE9FB1EFB150185;
+			remoteInfo = FirebaseAnalytics;
+		};
+		9E5F95D197A8379280DBF1368228FE8E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F73BD4CA6A0B23F38687F2A3BB7E5EC7;
+			remoteInfo = TapThemeManager2020;
+		};
 		9FA1781DA71435342B17A5F8034BC396 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 8D7F5D5DD528D21A72DC87ADA5B12E2D;
 			remoteInfo = GoogleUtilities;
+		};
+		9FCBEBBCD884B23139F6C3F4504D3C20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 072CEA044D2EF26F03496D5996BBF59F;
+			remoteInfo = Firebase;
+		};
+		A58FFB971C747E2811B90CE250076CD8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1CF0AD6C5098A55AD7DF9645E42E09E7;
+			remoteInfo = PullUpController;
 		};
 		A6FCBCBA54A21A0D0A6309E4E833C63E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1569,6 +1712,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = F73BD4CA6A0B23F38687F2A3BB7E5EC7;
 			remoteInfo = TapThemeManager2020;
+		};
+		B02942F219400F8D663F4745B0A740B8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4402AFF83DBDC4DD07E198685FDC2DF2;
+			remoteInfo = FirebaseCore;
 		};
 		B02F84D043862966D46844A324196149 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1597,6 +1747,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 473C08B3D856915C204623033941AC9D;
 			remoteInfo = "TapCardInputKit-iOS";
+		};
+		B51AD3D2C59EA22A56B052FBE0B8B5E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D7F5D5DD528D21A72DC87ADA5B12E2D;
+			remoteInfo = GoogleUtilities;
 		};
 		B7901714EC0C66FC1403894BCFB088B3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1689,6 +1846,13 @@
 			remoteGlobalIDString = F73BD4CA6A0B23F38687F2A3BB7E5EC7;
 			remoteInfo = TapThemeManager2020;
 		};
+		CA804D4CEC8A61BA34AC79E5C3723361 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 19622742EBA51E823D6DAE3F8CDBFAD4;
+			remoteInfo = SnapKit;
+		};
 		CC48D00AC06F577F8FF82D072548CC1A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -1703,6 +1867,34 @@
 			remoteGlobalIDString = 8D7F5D5DD528D21A72DC87ADA5B12E2D;
 			remoteInfo = GoogleUtilities;
 		};
+		D5A5AB2F1BCF312824D0D6B3997EEB63 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 87803597EB3F20FC46472B85392EC4FD;
+			remoteInfo = FirebaseInstallations;
+		};
+		D680E0D495A43D7E22D87CE1F9A7AC5A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 92A1C13902E7ACDA3ABB5BA1FEACC86C;
+			remoteInfo = SwiftyRSA;
+		};
+		D6D83606BC602AB5BDC3C10E68648231 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9A8B22F15674A78FC57F1E9B3018E88B;
+			remoteInfo = TapApplicationV2;
+		};
+		D7E592C56C2AC05645693D0C637A3F94 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 062A64896E847A6749F58B6BA9A931B1;
+			remoteInfo = Nuke;
+		};
 		D8C2D38F32CB329B63F276754A95431B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -1716,6 +1908,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 2BBF7206D7FAC92C82A042A99C4A98F8;
 			remoteInfo = PromisesObjC;
+		};
+		DAF2A6384714290BEC587A470329EE17 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4BB6A950A7EC459648E7DC212CB8D691;
+			remoteInfo = "TapUIKit-iOS";
 		};
 		DD1ED5AD889A7EEA25C49305141AA09C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1801,12 +2000,26 @@
 			remoteGlobalIDString = A3DF3C18C03F8EAEC754928B8CBFE78B;
 			remoteInfo = TapAdditionsKitV2;
 		};
+		FA2F0F805E44F9C12B9F3879F1190D48 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2BBF7206D7FAC92C82A042A99C4A98F8;
+			remoteInfo = PromisesObjC;
+		};
 		FAB9E0B047BA5C6B6E5D4B260F1DFBBA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = D2B5E7DCCBBFB32341D857D01211A1A3;
 			remoteInfo = nanopb;
+		};
+		FD844C7F0941A93F3AB2AE30413B80F1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9FB907AAFDB0530AEA6CA76A05AE3BBC;
+			remoteInfo = McPicker;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -1833,6 +2046,7 @@
 		03CFF8B87361FA11DDD62BD8BFC37871 /* TapThemeManager+array.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "TapThemeManager+array.swift"; path = "TapThemeManager2020/TapThemeManager2020/Core/Manager/TapThemeManager+array.swift"; sourceTree = "<group>"; };
 		03E7F859DFD75A6D3C894DED6E7EB9CD /* ConstraintLayoutGuideDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutGuideDSL.swift; path = Sources/ConstraintLayoutGuideDSL.swift; sourceTree = "<group>"; };
 		03EAD545123D45C3D3E3A0E3C6FBEDE7 /* TapScannerProtocl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapScannerProtocl.swift; path = "TapCardScanner-iOS/Core/Private/TapScannerProtocl.swift"; sourceTree = "<group>"; };
+		03F31A3286D79450AADD7D06262048C6 /* Pods-TapCardCheckOutKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TapCardCheckOutKit.debug.xcconfig"; sourceTree = "<group>"; };
 		041F8135E8A35DDF952E1CC271800461 /* PromisesObjC-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PromisesObjC-umbrella.h"; sourceTree = "<group>"; };
 		042CF855272E8DD80DA554B0E6607B58 /* UIEdgeInsets+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIEdgeInsets+Additions.swift"; path = "TapAdditionsKitV2/TapAdditionsKitV2/UIKit/UIEdgeInsets+Additions.swift"; sourceTree = "<group>"; };
 		045B4DDD840D25411CC11B1CE33331EB /* BottomRightCorner.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = BottomRightCorner.png; path = "TapCardScanner-iOS/Core/Assets/BottomRightCorner.png"; sourceTree = "<group>"; };
@@ -1855,6 +2069,7 @@
 		0704DAE2C23E548A88C13EB169B24E8B /* GDTCCTNanopbHelpers.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTCCTNanopbHelpers.h; path = GoogleDataTransport/GDTCCTLibrary/Private/GDTCCTNanopbHelpers.h; sourceTree = "<group>"; };
 		07E594629D618896DBC0AB06246803C5 /* FIRComponentContainer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRComponentContainer.h; path = FirebaseCore/Extension/FIRComponentContainer.h; sourceTree = "<group>"; };
 		07E78F10F598D61B3A859D2475BEC3A9 /* pb_decode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = pb_decode.h; sourceTree = "<group>"; };
+		080DABEEBB91E0F3DCAD75D67D8346A0 /* Pods-TapCardCheckOutKit-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TapCardCheckOutKit-acknowledgements.markdown"; sourceTree = "<group>"; };
 		081A70BF6186ADE5FDFB6B851B6396CB /* TapCardPhoneIconView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = TapCardPhoneIconView.xib; path = "TapUIKit-iOS/TapUIKit-iOS/Core/Assets/TapCardPhoneIconView.xib"; sourceTree = "<group>"; };
 		0821D622F1F782A03F3D968D7BCEB150 /* GDTCORMetricsMetadata.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTCORMetricsMetadata.h; path = GoogleDataTransport/GDTCORLibrary/Private/GDTCORMetricsMetadata.h; sourceTree = "<group>"; };
 		083E0D8426D40792D20F8B1F7EE62DDC /* TapCardVlidatorKit-iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "TapCardVlidatorKit-iOS-Info.plist"; sourceTree = "<group>"; };
@@ -1873,7 +2088,6 @@
 		0ABC0771C6016EAC21350F7CC40CFBA4 /* AddressType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AddressType.swift; path = "CommonDataModelsKit-iOS/CommonDataModelsKit-iOS/Core/enums/AddressType.swift"; sourceTree = "<group>"; };
 		0ABCC35F8B1C56682DC06ECE5D11AAE4 /* GULAppEnvironmentUtil.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GULAppEnvironmentUtil.m; path = GoogleUtilities/Environment/third_party/GULAppEnvironmentUtil.m; sourceTree = "<group>"; };
 		0ACB5BCA65758C224FC9FFC7EE3FB734 /* FIRInstallationsItem+RegisterInstallationAPI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "FIRInstallationsItem+RegisterInstallationAPI.h"; path = "FirebaseInstallations/Source/Library/InstallationsAPI/FIRInstallationsItem+RegisterInstallationAPI.h"; sourceTree = "<group>"; };
-		0AF7844E8457AAD36A0218FD94D27668 /* Pods-TapCardCheckoutExample-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TapCardCheckoutExample-frameworks.sh"; sourceTree = "<group>"; };
 		0B2D96DEAA27BC2F80BBDA093686B16E /* FIRLibrary.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRLibrary.h; path = FirebaseCore/Extension/FIRLibrary.h; sourceTree = "<group>"; };
 		0B74A6AEFDF5F07FC8814CBCC10D9AA5 /* FIRConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRConfiguration.h; path = FirebaseCore/Sources/Public/FirebaseCore/FIRConfiguration.h; sourceTree = "<group>"; };
 		0BABC22F39C35D121244189A84BAACFC /* TapSDKErrorType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapSDKErrorType.swift; path = "CommonDataModelsKit-iOS/CommonDataModelsKit-iOS/Core/Errors/TapSDKErrorType.swift"; sourceTree = "<group>"; };
@@ -1908,7 +2122,6 @@
 		10DCBE68DB1E0F1EBA55C8B56B924152 /* GDTCORTransport_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTCORTransport_Private.h; path = GoogleDataTransport/GDTCORLibrary/Private/GDTCORTransport_Private.h; sourceTree = "<group>"; };
 		10E861CA108273F4433CC9D64795BFF2 /* KeychainRepresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeychainRepresentable.swift; path = TapKeychain/TapKeychain/Protocols/KeychainRepresentable.swift; sourceTree = "<group>"; };
 		10F9B9FB3C84BCD1D610BBDD82841E98 /* TapTimer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapTimer.swift; path = "TapUIKit-iOS/TapUIKit-iOS/Core/TapOtpView/Timer/TapTimer.swift"; sourceTree = "<group>"; };
-		11D0A612C34924BEFA48F06762C18A66 /* Pods-TapCardCheckoutExample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TapCardCheckoutExample-acknowledgements.plist"; sourceTree = "<group>"; };
 		1242763B46C19E1DA5520C921DF8BE99 /* TapLogoutChipViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapLogoutChipViewModel.swift; path = "TapUIKit-iOS/TapUIKit-iOS/Core/TapChip/Views/Chips/LogoutChip/TapLogoutChipViewModel.swift"; sourceTree = "<group>"; };
 		1244B09A037AE45D2520B5C229E44DD4 /* TapCardInputKit-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TapCardInputKit-iOS-prefix.pch"; sourceTree = "<group>"; };
 		12B0594442D66192794702ABD14BB16C /* pb_encode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = pb_encode.h; sourceTree = "<group>"; };
@@ -1920,6 +2133,7 @@
 		1434EEE454E1E842CB8C866B003F775A /* AnimationOptions+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "AnimationOptions+Additions.swift"; path = "TapAdditionsKitV2/TapAdditionsKitV2/UIKit/UIView/AnimationOptions+Additions.swift"; sourceTree = "<group>"; };
 		14762A6D381E778A3C80F26C5C65EBD5 /* CommonDataModelsKit-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "CommonDataModelsKit-iOS.modulemap"; sourceTree = "<group>"; };
 		148D0F9E8C7373FEAF40D800FC5F1BAA /* FirebaseCoreInternal */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FirebaseCoreInternal; path = FirebaseCoreInternal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		14981351175AE939783757B73BC53223 /* Pods-TapCardCheckoutExampleObjc-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TapCardCheckoutExampleObjc-acknowledgements.markdown"; sourceTree = "<group>"; };
 		14CF7C070CC5A89644CC3323F0B3C2E9 /* Int+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Int+Additions.swift"; path = "TapKeychain/TapKeychain/Extensions/Int+Additions.swift"; sourceTree = "<group>"; };
 		14E9C8BFDBBB43B1983C156494B31643 /* TapCommonConstants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapCommonConstants.swift; path = "CommonDataModelsKit-iOS/CommonDataModelsKit-iOS/Core/Constants/TapCommonConstants.swift"; sourceTree = "<group>"; };
 		14EF5CFE35DDED8EFD787A741EC93AB8 /* FBLPromise+Delay.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "FBLPromise+Delay.h"; path = "Sources/FBLPromises/include/FBLPromise+Delay.h"; sourceTree = "<group>"; };
@@ -2007,6 +2221,7 @@
 		27233321BD2E90CE005CCAAD86E610DF /* SwiftyRSAError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyRSAError.swift; path = Source/SwiftyRSAError.swift; sourceTree = "<group>"; };
 		272BC4C12E6033F6C061F0BD03598818 /* FIRInstallationsSingleOperationPromiseCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRInstallationsSingleOperationPromiseCache.h; path = FirebaseInstallations/Source/Library/InstallationsIDController/FIRInstallationsSingleOperationPromiseCache.h; sourceTree = "<group>"; };
 		274609F5D606080D500819D68086F5BD /* TapFont+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "TapFont+Additions.swift"; path = "TapThemeManager2020/TapThemeManager2020/Core/Extensions/TapFont+Additions.swift"; sourceTree = "<group>"; };
+		276B06DCD99D67BD5F49506F5D2FB96B /* Pods-TapCardCheckOutKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-TapCardCheckOutKit.modulemap"; sourceTree = "<group>"; };
 		27C891F10607220970F148A763C3F8CA /* TapUIKit-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TapUIKit-iOS-umbrella.h"; sourceTree = "<group>"; };
 		284DE5082B52BAE6E89EB1BBB2CD4386 /* FIRAppInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRAppInternal.h; path = FirebaseCore/Extension/FIRAppInternal.h; sourceTree = "<group>"; };
 		286FB5A751608A5169BE1054AA3C18C9 /* TapEmailAddress.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapEmailAddress.swift; path = "CommonDataModelsKit-iOS/CommonDataModelsKit-iOS/Core/models/TapEmailAddress.swift"; sourceTree = "<group>"; };
@@ -2046,10 +2261,10 @@
 		2F51BAF64BF93BF46801B8D37A373E35 /* GULKeychainUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GULKeychainUtils.m; path = GoogleUtilities/Environment/SecureStorage/GULKeychainUtils.m; sourceTree = "<group>"; };
 		2F55B1D733A3D7376673B55965026BE1 /* TapSwitchControl.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = TapSwitchControl.xib; path = "TapUIKit-iOS/TapUIKit-iOS/Core/Assets/TapSwitchControl.xib"; sourceTree = "<group>"; };
 		2FAE22892C2C4528C09DB7754738CB7C /* Tax.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Tax.swift; path = "CommonDataModelsKit-iOS/CommonDataModelsKit-iOS/Core/models/Tax.swift"; sourceTree = "<group>"; };
+		2FD4F7ED8CA7C45BA0F4CEFECE6DA3D2 /* Pods-TapCardCheckOutKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TapCardCheckOutKit-dummy.m"; sourceTree = "<group>"; };
 		2FEF3FBFCFEA39DB64AF3CE57706571B /* TapNetworkReachabilityStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapNetworkReachabilityStatus.swift; path = "TapNetworkKit-iOS/TapNetworkKit-iOS/Source/Core/Reachability/TapNetworkReachabilityStatus.swift"; sourceTree = "<group>"; };
 		301058872D32138C528A08929D872D7A /* TapURLModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapURLModel.swift; path = "TapNetworkKit-iOS/TapNetworkKit-iOS/Source/Core/TapURLModel.swift"; sourceTree = "<group>"; };
 		3014CBE6B3159D46016D10F25148F6B2 /* TapBundlePlistInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapBundlePlistInfo.swift; path = TapApplicationV2/TapApplicationV2/Source/TapBundlePlistInfo.swift; sourceTree = "<group>"; };
-		3065554FBA50056E796F738E87555755 /* Pods-TapCardCheckOutKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TapCardCheckOutKit-dummy.m"; sourceTree = "<group>"; };
 		3089FCB2C549F4D3AD4B6B689579DE02 /* FIRComponent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRComponent.h; path = FirebaseCore/Extension/FIRComponent.h; sourceTree = "<group>"; };
 		30A2D5EDD3C28D0FF3060936E21FDDBB /* ConstraintConstantTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintConstantTarget.swift; path = Sources/ConstraintConstantTarget.swift; sourceTree = "<group>"; };
 		30B471C61569C09F00E9350A57F39111 /* AuthorizeActionResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AuthorizeActionResponse.swift; path = "CommonDataModelsKit-iOS/CommonDataModelsKit-iOS/Core/models/AuthorizeActionResponse.swift"; sourceTree = "<group>"; };
@@ -2059,13 +2274,13 @@
 		31385150975E428E26197CA2ADFF7A53 /* ConstraintDirectionalInsets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDirectionalInsets.swift; path = Sources/ConstraintDirectionalInsets.swift; sourceTree = "<group>"; };
 		314CEC9A32793BADE713CB452E9E14E7 /* FirebaseCoreInternal-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FirebaseCoreInternal-prefix.pch"; sourceTree = "<group>"; };
 		31A5F4F7E5249DB814B078046BBB8658 /* FBLPromise+Async.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "FBLPromise+Async.m"; path = "Sources/FBLPromises/FBLPromise+Async.m"; sourceTree = "<group>"; };
+		31B2CE0B6FC94A849757D1460EC693FF /* Pods-TapCardCheckoutExample-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TapCardCheckoutExample-umbrella.h"; sourceTree = "<group>"; };
 		324E7578413670459F2055EA9E908920 /* CommonDataModelsKit-iOS */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "CommonDataModelsKit-iOS"; path = CommonDataModelsKit_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		331CB95EA8C91CEB3B8FD7AF191D8BCC /* TapCanScanStatusResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapCanScanStatusResult.swift; path = "TapCardScanner-iOS/Core/Public/enum/TapCanScanStatusResult.swift"; sourceTree = "<group>"; };
 		332C1293555109E56B0FC7B0E6933FEA /* ThemeImageSelector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThemeImageSelector.swift; path = TapThemeManager2020/TapThemeManager2020/Core/ThemeSelectors/ThemeImageSelector.swift; sourceTree = "<group>"; };
 		3347A1AB6546F0A3977529B8F199DC41 /* PromisesObjC */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PromisesObjC; path = FBLPromises.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33709EB11237A2C8C1F670721D55FB02 /* TapPaymentOptionsReponseModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapPaymentOptionsReponseModel.swift; path = "CommonDataModelsKit-iOS/CommonDataModelsKit-iOS/Core/models/APiModels/TapPaymentOptionsRequest/TapPaymentOptionsReponseModel.swift"; sourceTree = "<group>"; };
 		34061611931F7F9CA2F941DC85ABA351 /* TapCardInputKit-iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "TapCardInputKit-iOS-Info.plist"; sourceTree = "<group>"; };
-		3434BE958EA255B619C5DFE30F70B913 /* Pods-TapCardCheckoutExample-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TapCardCheckoutExample-Info.plist"; sourceTree = "<group>"; };
 		347F27A9ABC3BD787C465A259AF0A770 /* ImageCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageCache.swift; path = Sources/Core/Caching/ImageCache.swift; sourceTree = "<group>"; };
 		35163F214A223C6AB0C9B99E0A37CE6F /* client_metrics.nanopb.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = client_metrics.nanopb.h; path = GoogleDataTransport/GDTCCTLibrary/Protogen/nanopb/client_metrics.nanopb.h; sourceTree = "<group>"; };
 		3518F5B0FA584823C83C8F6CC625C190 /* TapCardPhoneBarListViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapCardPhoneBarListViewModel.swift; path = "TapUIKit-iOS/TapUIKit-iOS/Core/TapCardsTelecomBar/ViewModels/TapCardPhoneBarListViewModel.swift"; sourceTree = "<group>"; };
@@ -2095,7 +2310,6 @@
 		3AE7D31E18F68CE1DF867A51AC266045 /* TapPhone.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapPhone.swift; path = "CommonDataModelsKit-iOS/CommonDataModelsKit-iOS/Core/models/TapPhone.swift"; sourceTree = "<group>"; };
 		3B030E2F467E0108B8E15CA81E008155 /* GDTCORMetrics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTCORMetrics.h; path = GoogleDataTransport/GDTCORLibrary/Private/GDTCORMetrics.h; sourceTree = "<group>"; };
 		3B223D344F2ABCEB8FE4E610A8CD0253 /* FetchImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FetchImage.swift; path = Sources/UI/FetchImage.swift; sourceTree = "<group>"; };
-		3B4B67AF0C7C51D159F40601A63AAC36 /* Pods-TapCardCheckoutExample.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-TapCardCheckoutExample.modulemap"; sourceTree = "<group>"; };
 		3B5D350FFB8BF107F6D3C6BE1205C07C /* TapSwitchModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapSwitchModel.swift; path = "TapUIKit-iOS/TapUIKit-iOS/Core/TapSwitchView/Models/TapSwitchModel.swift"; sourceTree = "<group>"; };
 		3BAF15D0FFCA709B5D000CC7E0BD36A9 /* TapKeychain.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = TapKeychain.modulemap; sourceTree = "<group>"; };
 		3C3654A73C592FCB069B3F16AFD7118B /* TapCard.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapCard.swift; path = "CommonDataModelsKit-iOS/CommonDataModelsKit-iOS/Core/models/TapCard.swift"; sourceTree = "<group>"; };
@@ -2131,6 +2345,7 @@
 		40B3A3BD806E0B9AA13BFCA5B7F0BDA4 /* UINavigationController+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UINavigationController+Additions.swift"; path = "TapAdditionsKitV2/TapAdditionsKitV2/UIKit/UINavigationController+Additions.swift"; sourceTree = "<group>"; };
 		4132E985FE657BC8314652CD4C690D91 /* Storage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Storage.swift; path = FirebaseCore/Internal/Sources/HeartbeatLogging/Storage.swift; sourceTree = "<group>"; };
 		41885CD4161B7E06C5BF575B9FF51566 /* TapCardScannerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapCardScannerView.swift; path = "TapUIKit-iOS/TapUIKit-iOS/Core/TapCardScanner/Views/TapCardScannerView.swift"; sourceTree = "<group>"; };
+		41E665A1142CDB74A04106189B0E3848 /* Pods-TapCardCheckOutKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TapCardCheckOutKit-Info.plist"; sourceTree = "<group>"; };
 		4224651AE3C824F9C94FC1CB503E6131 /* GDTCORReachability_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTCORReachability_Private.h; path = GoogleDataTransport/GDTCORLibrary/Private/GDTCORReachability_Private.h; sourceTree = "<group>"; };
 		423B0CC93708471525C79555662EEF70 /* GDTCORMetricsMetadata.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GDTCORMetricsMetadata.m; path = GoogleDataTransport/GDTCORLibrary/GDTCORMetricsMetadata.m; sourceTree = "<group>"; };
 		423CEA15A8AA5B2597FA2DAD1224388B /* GDTCORUploadBatch.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTCORUploadBatch.h; path = GoogleDataTransport/GDTCORLibrary/Private/GDTCORUploadBatch.h; sourceTree = "<group>"; };
@@ -2200,6 +2415,7 @@
 		51CCDF117FC2D4A7D0186386F20BAA2F /* ItemModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ItemModel.swift; path = "CommonDataModelsKit-iOS/CommonDataModelsKit-iOS/Core/models/ItemModel.swift"; sourceTree = "<group>"; };
 		51F6E55F18ED8178AE699B026D19C4D0 /* ImagePipelineTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImagePipelineTask.swift; path = Sources/Core/Tasks/ImagePipelineTask.swift; sourceTree = "<group>"; };
 		524F1A3DF47F580166EF88042B9DE146 /* ThemeStringAttributesSelector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThemeStringAttributesSelector.swift; path = TapThemeManager2020/TapThemeManager2020/Core/ThemeSelectors/ThemeStringAttributesSelector.swift; sourceTree = "<group>"; };
+		52C3703A3110376421DCD1D3CC8B24E0 /* Pods-TapCardCheckoutExample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TapCardCheckoutExample-acknowledgements.plist"; sourceTree = "<group>"; };
 		52E0E4737183800E388D2E41A52F9CDE /* FIRInstallations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FIRInstallations.m; path = FirebaseInstallations/Source/Library/FIRInstallations.m; sourceTree = "<group>"; };
 		52EF11B8F1DBA863EFEC7F42DE956CE1 /* TapGoPayChipCollectionViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapGoPayChipCollectionViewCell.swift; path = "TapUIKit-iOS/TapUIKit-iOS/Core/TapChip/Views/Chips/GoPayyChip/TapGoPayChipCollectionViewCell.swift"; sourceTree = "<group>"; };
 		5306774FCC9648D1AEEB56AF24729949 /* ResumableData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResumableData.swift; path = Sources/Internal/ResumableData.swift; sourceTree = "<group>"; };
@@ -2277,9 +2493,7 @@
 		62AF6C40602186FEEA12EF45AA879DE7 /* cct.nanopb.c */ = {isa = PBXFileReference; includeInIndex = 1; name = cct.nanopb.c; path = GoogleDataTransport/GDTCCTLibrary/Protogen/nanopb/cct.nanopb.c; sourceTree = "<group>"; };
 		637D8616759C3D731DC36F5E70B1C268 /* ConstraintMaker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMaker.swift; path = Sources/ConstraintMaker.swift; sourceTree = "<group>"; };
 		63A88E1E80F93031D67BE587346AB28A /* TapCardPhoneIconViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapCardPhoneIconViewModel.swift; path = "TapUIKit-iOS/TapUIKit-iOS/Core/TapCardsTelecomBar/ViewModels/TapCardPhoneIconViewModel.swift"; sourceTree = "<group>"; };
-		63AE4BBC9A0DBCF5A78AB36A2CDEE546 /* Pods-TapCardCheckOutKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-TapCardCheckOutKit.modulemap"; sourceTree = "<group>"; };
 		63FC9CD97313D7389EB58769C57D7282 /* ConstraintMakerPrioritizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerPrioritizable.swift; path = Sources/ConstraintMakerPrioritizable.swift; sourceTree = "<group>"; };
-		641FA1661DA68D55B26FDCBF984DD1F8 /* Pods-TapCardCheckoutExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TapCardCheckoutExample.release.xcconfig"; sourceTree = "<group>"; };
 		649DC879BD952101BABBC71762D39ACB /* TapGoPayLoginTabBarViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapGoPayLoginTabBarViewModel.swift; path = "TapUIKit-iOS/TapUIKit-iOS/Core/goPay/ViewModels/TapGoPayLoginTabBarViewModel.swift"; sourceTree = "<group>"; };
 		64A4CF5DC956066AAC8988959562D8E4 /* TaskLoadImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskLoadImage.swift; path = Sources/Core/Tasks/TaskLoadImage.swift; sourceTree = "<group>"; };
 		64C72239A1DAB1F73CE34E0A9C0EB6DA /* TapLogoutChipCollectionViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapLogoutChipCollectionViewCell.swift; path = "TapUIKit-iOS/TapUIKit-iOS/Core/TapChip/Views/Chips/LogoutChip/TapLogoutChipCollectionViewCell.swift"; sourceTree = "<group>"; };
@@ -2296,6 +2510,7 @@
 		6747568F1ED8CDB1C3D7B5CC33202D66 /* GDTCORFlatFileStorage+Promises.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "GDTCORFlatFileStorage+Promises.m"; path = "GoogleDataTransport/GDTCORLibrary/GDTCORFlatFileStorage+Promises.m"; sourceTree = "<group>"; };
 		67EADA474228871795BB03E801B8E641 /* OperationTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OperationTask.swift; path = Sources/Core/Tasks/OperationTask.swift; sourceTree = "<group>"; };
 		67FDCA67D916B11D20C76D4BB0F19DE5 /* GoogleUtilities.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = GoogleUtilities.modulemap; sourceTree = "<group>"; };
+		68362D10006E88260A830927B5447B27 /* Pods-TapCardCheckoutExampleObjc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TapCardCheckoutExampleObjc.debug.xcconfig"; sourceTree = "<group>"; };
 		6857FB99B576B7C32D0D6BEB373DBB9D /* ThemeSelector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThemeSelector.swift; path = TapThemeManager2020/TapThemeManager2020/Core/ThemeSelectors/ThemeSelector.swift; sourceTree = "<group>"; };
 		68A506A267C7CD86F3EDFBD9989A9AAB /* FIRInstallationsIIDTokenStore.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FIRInstallationsIIDTokenStore.m; path = FirebaseInstallations/Source/Library/IIDMigration/FIRInstallationsIIDTokenStore.m; sourceTree = "<group>"; };
 		68C4372AB50BF07417281CD73D7D3284 /* TapKeychain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TapKeychain.debug.xcconfig; sourceTree = "<group>"; };
@@ -2329,17 +2544,18 @@
 		6EA3833FD723376D470C8FD8671FC0AC /* ImagePipelineCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImagePipelineCache.swift; path = Sources/Core/Caching/ImagePipelineCache.swift; sourceTree = "<group>"; };
 		6EF89C4BA88B81D18DF5AA5DD607A140 /* VisualEffectView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VisualEffectView.swift; path = "TapCardScanner-iOS/Core/Private/VisualEffectView.swift"; sourceTree = "<group>"; };
 		6F09C961C54E44D59831E39DD947F972 /* KeyframeAnimationOptions+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "KeyframeAnimationOptions+Additions.swift"; path = "TapAdditionsKitV2/TapAdditionsKitV2/UIKit/UIView/KeyframeAnimationOptions+Additions.swift"; sourceTree = "<group>"; };
+		6F21B041FA8FD35C9098990280CB2A81 /* Pods-TapCardCheckOutKit-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TapCardCheckOutKit-acknowledgements.plist"; sourceTree = "<group>"; };
 		6F68388CA656A4AE8E4F597D0ED5840A /* ExpirationDate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpirationDate.swift; path = "CommonDataModelsKit-iOS/CommonDataModelsKit-iOS/Core/models/ExpirationDate.swift"; sourceTree = "<group>"; };
 		700B80907182F7A1F62CDDDEDD5D3A28 /* FBLPromise+Race.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "FBLPromise+Race.h"; path = "Sources/FBLPromises/include/FBLPromise+Race.h"; sourceTree = "<group>"; };
 		704E80FF59DED7D66B159972A7740450 /* UIView+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Additions.swift"; path = "TapAdditionsKitV2/TapAdditionsKitV2/UIKit/UIView/UIView+Additions.swift"; sourceTree = "<group>"; };
 		708B1D392861B9A460A569F0E98683ED /* URLSession+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "URLSession+Additions.swift"; path = "TapAdditionsKitV2/TapAdditionsKitV2/Foundation/URLSession+Additions.swift"; sourceTree = "<group>"; };
 		71464E005E0B1419E460671C8FE7F4E6 /* white-error-mob.gif */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.gif; name = "white-error-mob.gif"; path = "TapUIKit-iOS/TapUIKit-iOS/Core/Assets/white-error-mob.gif"; sourceTree = "<group>"; };
 		718A2066B4CF60DB7991337B385445D2 /* HeartbeatsPayload.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeartbeatsPayload.swift; path = FirebaseCore/Internal/Sources/HeartbeatLogging/HeartbeatsPayload.swift; sourceTree = "<group>"; };
+		7298C6D252FD549417AAC18FFC461FD7 /* Pods-TapCardCheckoutExampleObjc-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TapCardCheckoutExampleObjc-dummy.m"; sourceTree = "<group>"; };
 		72B921A07EFADA9571ACBCDF73E20155 /* TapGatewyHorizontalHeaderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapGatewyHorizontalHeaderView.swift; path = "TapUIKit-iOS/TapUIKit-iOS/Core/TapChip/Views/HorizontalList/TapGatewyHorizontalHeaderView.swift"; sourceTree = "<group>"; };
 		734FEEDDC381A32F98EE9BA9B01B675D /* CurrencyChipViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CurrencyChipViewModel.swift; path = "TapUIKit-iOS/TapUIKit-iOS/Core/TapChip/Views/Chips/CurrencyChip/CurrencyChipViewModel.swift"; sourceTree = "<group>"; };
 		735502BDD8A22710A016531D23372908 /* TapEncoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapEncoder.swift; path = "TapNetworkKit-iOS/TapNetworkKit-iOS/Source/Core/TapEncoder.swift"; sourceTree = "<group>"; };
 		73D85B1D71995FDA59187006A090C5B0 /* TapCardBarButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapCardBarButton.swift; path = "TapCardInputKit-iOS/Core/Private/Views/TapCardBarButton.swift"; sourceTree = "<group>"; };
-		73F47C924BEE4931C0287A97EF1B8238 /* Pods-TapCardCheckOutKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TapCardCheckOutKit-Info.plist"; sourceTree = "<group>"; };
 		73FA6F61906FA982B62BD84BE3004194 /* SourceType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SourceType.swift; path = "CommonDataModelsKit-iOS/CommonDataModelsKit-iOS/Core/enums/SourceType.swift"; sourceTree = "<group>"; };
 		743218A6C60E54A238066E3248EE26A0 /* TapFullScreenScannerViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapFullScreenScannerViewController.swift; path = "TapCardScanner-iOS/Core/Public/TapFullScreenScannerViewController.swift"; sourceTree = "<group>"; };
 		7433A860D6B0498FCED028F615C9F59A /* GULReachabilityMessageCode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GULReachabilityMessageCode.h; path = GoogleUtilities/Reachability/GULReachabilityMessageCode.h; sourceTree = "<group>"; };
@@ -2393,6 +2609,7 @@
 		81B8ABEF3E1345DCFA62E27585D1CB9B /* GDTCORPlatform.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTCORPlatform.h; path = GoogleDataTransport/GDTCORLibrary/Internal/GDTCORPlatform.h; sourceTree = "<group>"; };
 		81E723B0D666A2D6764DF06776D69599 /* TapScannerStoryboard.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = TapScannerStoryboard.storyboard; path = "TapCardScanner-iOS/Core/Assets/TapScannerStoryboard.storyboard"; sourceTree = "<group>"; };
 		81F27313500A5484D6E0A148327E953F /* GDTCOREndpoints.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GDTCOREndpoints.m; path = GoogleDataTransport/GDTCORLibrary/GDTCOREndpoints.m; sourceTree = "<group>"; };
+		825CBBEC9B6FBEF1A4F3EFC0779B2439 /* Pods-TapCardCheckoutExample-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TapCardCheckoutExample-acknowledgements.markdown"; sourceTree = "<group>"; };
 		828D0739F2CAFF6A346A9106162A58E7 /* FirebaseInstallations.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FirebaseInstallations.debug.xcconfig; sourceTree = "<group>"; };
 		829D475B29E8B2A43E6E43631E95CEF9 /* ConstraintView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintView.swift; path = Sources/ConstraintView.swift; sourceTree = "<group>"; };
 		82B305FE036B4FBF273FC8D97967A649 /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Sources/Internal/Extensions.swift; sourceTree = "<group>"; };
@@ -2402,6 +2619,7 @@
 		838B35D95947ED1D09690A249F581A60 /* ThemeKeyboardAppearanceSelector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThemeKeyboardAppearanceSelector.swift; path = TapThemeManager2020/TapThemeManager2020/Core/ThemeSelectors/ThemeKeyboardAppearanceSelector.swift; sourceTree = "<group>"; };
 		839FA04F44366A58C04E190904113B35 /* McPicker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "McPicker-prefix.pch"; sourceTree = "<group>"; };
 		83D0F0C4B1C0DE4C1CB8A247F5D1930D /* TapGenericTableCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = TapGenericTableCell.xib; path = "TapUIKit-iOS/TapUIKit-iOS/Core/Assets/TapGenericTableCell.xib"; sourceTree = "<group>"; };
+		83EB52A8C189265EF6462D87B8388393 /* Pods-TapCardCheckoutExampleObjc-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TapCardCheckoutExampleObjc-Info.plist"; sourceTree = "<group>"; };
 		84282334BC1D515C731E3786855BE6B8 /* ImageTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageTask.swift; path = Sources/Core/ImageTask.swift; sourceTree = "<group>"; };
 		84871724B175C65C3532EA38AF2E0265 /* TapAdditionsKitV2 */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = TapAdditionsKitV2; path = TapAdditionsKitV2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84BE653779EC6666F6C1ABE76458E693 /* GULURLSessionDataResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GULURLSessionDataResponse.h; path = GoogleUtilities/Environment/Public/GoogleUtilities/GULURLSessionDataResponse.h; sourceTree = "<group>"; };
@@ -2442,7 +2660,7 @@
 		8C018B5B3CBC4C1408602E71141525C2 /* SnapKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SnapKit-dummy.m"; sourceTree = "<group>"; };
 		8C607569660EA911E5D6A873C35C6535 /* UIImageView+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImageView+Additions.swift"; path = "TapAdditionsKitV2/TapAdditionsKitV2/UIKit/UIImageView+Additions.swift"; sourceTree = "<group>"; };
 		8C8C3F3BA81D55ADC03B2A9983BAC116 /* TapFontKit-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TapFontKit-iOS-dummy.m"; sourceTree = "<group>"; };
-		8CB58ACFFEF6758EFCA423054621AE02 /* Pods-TapCardCheckOutKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TapCardCheckOutKit.debug.xcconfig"; sourceTree = "<group>"; };
+		8C924A95AD4040E04D423EB29E13BB0A /* Pods-TapCardCheckoutExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TapCardCheckoutExample.debug.xcconfig"; sourceTree = "<group>"; };
 		8CC9178C366942FD6FF6A115604EAD58 /* FirebaseCoreDiagnostics */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FirebaseCoreDiagnostics; path = FirebaseCoreDiagnostics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D021F886536D6C0C2603A6DBC87FB84 /* TapGenericTableViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapGenericTableViewModel.swift; path = "TapUIKit-iOS/TapUIKit-iOS/Core/TapGenericTableView/TapGenericTableViewModel.swift"; sourceTree = "<group>"; };
 		8D8B50C60123AF3D588EFC62EDE16D02 /* GULAppDelegateSwizzler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GULAppDelegateSwizzler.m; path = GoogleUtilities/AppDelegateSwizzler/GULAppDelegateSwizzler.m; sourceTree = "<group>"; };
@@ -2450,12 +2668,14 @@
 		8DBCCA229105B3F7E47FE18982F8A966 /* GDTCOREventTransformer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTCOREventTransformer.h; path = GoogleDataTransport/GDTCORLibrary/Public/GoogleDataTransport/GDTCOREventTransformer.h; sourceTree = "<group>"; };
 		8E09528AE3D1C0FADD245B5C04236836 /* GDTCORUploadCoordinator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTCORUploadCoordinator.h; path = GoogleDataTransport/GDTCORLibrary/Private/GDTCORUploadCoordinator.h; sourceTree = "<group>"; };
 		8F15BE365A63A42C9FB2BE5313C211DB /* OptionSet+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "OptionSet+Additions.swift"; path = "TapAdditionsKitV2/TapAdditionsKitV2/SwiftStandartLibrary/OptionSet+Additions.swift"; sourceTree = "<group>"; };
+		8F3331101633B86C12BBE2D551FEBFE7 /* Pods-TapCardCheckOutKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TapCardCheckOutKit-umbrella.h"; sourceTree = "<group>"; };
 		8F33867C3BD0698AC5C616F9E091148B /* ConstraintMakerFinalizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerFinalizable.swift; path = Sources/ConstraintMakerFinalizable.swift; sourceTree = "<group>"; };
 		8F8E33B0AA74E3C1AB088F2EEB84021A /* KeyedDecodingContainer+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "KeyedDecodingContainer+Additions.swift"; path = "TapAdditionsKitV2/TapAdditionsKitV2/SwiftStandartLibrary/KeyedDecodingContainer+Additions.swift"; sourceTree = "<group>"; };
 		8FD72221AF24C523685DAC954515744D /* Roboto-Bold.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Roboto-Bold.ttf"; path = "TapFontKit-iOS/TapFontKit-iOS/Resources/Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		907C88FFAC7EF9811971DFFB9D70052A /* String+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+Additions.swift"; path = "TapAdditionsKitV2/TapAdditionsKitV2/SwiftStandartLibrary/String+Additions.swift"; sourceTree = "<group>"; };
 		90DA2398A11A029FC7F85F79BEE860F8 /* ImageDecoders+Empty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ImageDecoders+Empty.swift"; path = "Sources/Core/Decoding/ImageDecoders+Empty.swift"; sourceTree = "<group>"; };
 		913F5DC9ECFE84F523C400BBA85FF885 /* SwiftyRSA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyRSA.release.xcconfig; sourceTree = "<group>"; };
+		91A442A5773EE13EB7716F7996EF24CF /* Pods-TapCardCheckoutExample.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-TapCardCheckoutExample.modulemap"; sourceTree = "<group>"; };
 		91E2FC50D1AC448049580B889A8FA4C0 /* TapAdditionsKitV2-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TapAdditionsKitV2-umbrella.h"; sourceTree = "<group>"; };
 		92156F2EAE136F6944E5E76BD52477E8 /* TapCardInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapCardInput.swift; path = "TapCardInputKit-iOS/Core/Public/CardInput/TapCardInput.swift"; sourceTree = "<group>"; };
 		922092503A44CCC9E6B158C9C07ABC48 /* AuthorizeActionType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AuthorizeActionType.swift; path = "CommonDataModelsKit-iOS/CommonDataModelsKit-iOS/Core/enums/AuthorizeActionType.swift"; sourceTree = "<group>"; };
@@ -2474,7 +2694,6 @@
 		94DD068AB1F754512932C61E6A18E342 /* FIRInstallationsLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FIRInstallationsLogger.m; path = FirebaseInstallations/Source/Library/FIRInstallationsLogger.m; sourceTree = "<group>"; };
 		94E9152E2DF7BE75526EBDE149B7CFD3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		94F38DDC1579D8B1870E26D19C5E7862 /* LocalisationManagerKit-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LocalisationManagerKit-iOS-umbrella.h"; sourceTree = "<group>"; };
-		952546FA1A6E4B5E717E367B88E47A4B /* Pods-TapCardCheckoutExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TapCardCheckoutExample.debug.xcconfig"; sourceTree = "<group>"; };
 		965DF82FC98DC448CC76EC00DD3A63FD /* nanopb-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "nanopb-prefix.pch"; sourceTree = "<group>"; };
 		967BA6BF65D157EC296F22C5461CF38B /* TapCardVlidatorKit-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TapCardVlidatorKit-iOS-prefix.pch"; sourceTree = "<group>"; };
 		967BA88233F8396AF3D07317C6C92BD5 /* GULSecureCoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GULSecureCoding.h; path = GoogleUtilities/Environment/Public/GoogleUtilities/GULSecureCoding.h; sourceTree = "<group>"; };
@@ -2503,7 +2722,6 @@
 		9CB3B7FBF9CA29719DE98EF5759C135D /* TapApplePayStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapApplePayStatus.swift; path = "TapApplePayKit-iOS/Core/public/enums/TapApplePayStatus.swift"; sourceTree = "<group>"; };
 		9D623F8D521368FAFAE732148FC6FE4D /* FirebaseCoreDiagnostics-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FirebaseCoreDiagnostics-dummy.m"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9DB6E1FD3C0CF10122832E405EDE0B81 /* Pods-TapCardCheckOutKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TapCardCheckOutKit-umbrella.h"; sourceTree = "<group>"; };
 		9DFD87A6BC3354D1BBF30637ABF684CD /* FIRFirebaseUserAgent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FIRFirebaseUserAgent.m; path = FirebaseCore/Sources/FIRFirebaseUserAgent.m; sourceTree = "<group>"; };
 		9E2589A4DEEF3DCCD654CEA8C7E68B87 /* TapThemeManagerParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapThemeManagerParser.swift; path = TapThemeManager2020/TapThemeManager2020/Core/Manager/TapThemeManagerParser.swift; sourceTree = "<group>"; };
 		9E57CB99E518EEF3D99CB0A952868003 /* Array+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Array+Additions.swift"; path = "TapAdditionsKitV2/TapAdditionsKitV2/SwiftStandartLibrary/Array+Additions.swift"; sourceTree = "<group>"; };
@@ -2535,6 +2753,7 @@
 		A732FCD37A058E4135F3B425B57A5BEF /* ConstraintLayoutSupportDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutSupportDSL.swift; path = Sources/ConstraintLayoutSupportDSL.swift; sourceTree = "<group>"; };
 		A74BFACFE6049F0E3EE139B7B26E6B3A /* TapApplicationV2.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = TapApplicationV2.modulemap; sourceTree = "<group>"; };
 		A78A3D2DBC7EB5EDE5E8CB35F1F9B0A3 /* GatewayChipViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GatewayChipViewModel.swift; path = "TapUIKit-iOS/TapUIKit-iOS/Core/TapChip/Views/Chips/GatewayChip/GatewayChipViewModel.swift"; sourceTree = "<group>"; };
+		A7BAD23694219A7A2DDB90AAE6DFD8BA /* Pods-TapCardCheckoutExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TapCardCheckoutExample.release.xcconfig"; sourceTree = "<group>"; };
 		A7CA8479A1FB4713E35F2A20A3B36A42 /* Constraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constraint.swift; path = Sources/Constraint.swift; sourceTree = "<group>"; };
 		A803CC7A36FF5482EF15D8794A4A26D8 /* GDTCORClock.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTCORClock.h; path = GoogleDataTransport/GDTCORLibrary/Public/GoogleDataTransport/GDTCORClock.h; sourceTree = "<group>"; };
 		A83F720BFA967C78998A835880F11F4A /* TapMerchantHeaderView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = TapMerchantHeaderView.xib; path = "TapUIKit-iOS/TapUIKit-iOS/Core/Assets/TapMerchantHeaderView.xib"; sourceTree = "<group>"; };
@@ -2562,7 +2781,6 @@
 		AB7468B16EDC26F07F56BA845ED15026 /* TapNetworkKit-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "TapNetworkKit-iOS.modulemap"; sourceTree = "<group>"; };
 		ABA4DD2CA072D14C6CDDEA95AD8585F6 /* FBLPromise+Recover.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "FBLPromise+Recover.m"; path = "Sources/FBLPromises/FBLPromise+Recover.m"; sourceTree = "<group>"; };
 		ABFF6B01E40BFF8453A3C1CDDC504F19 /* LinkedList.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LinkedList.swift; path = Sources/Internal/LinkedList.swift; sourceTree = "<group>"; };
-		AC2AFB8A217BB3D3EF80CCFDA44FA4E5 /* Pods-TapCardCheckoutExample-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TapCardCheckoutExample-umbrella.h"; sourceTree = "<group>"; };
 		AC689FE577FA188370F7C50730D15CC9 /* Tajawal-Medium.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Tajawal-Medium.ttf"; path = "TapFontKit-iOS/TapFontKit-iOS/Resources/Tajawal-Medium.ttf"; sourceTree = "<group>"; };
 		AC819CB65C7D93DA6157A74F76E65D65 /* FBLPromise+Catch.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "FBLPromise+Catch.m"; path = "Sources/FBLPromises/FBLPromise+Catch.m"; sourceTree = "<group>"; };
 		AC83EB106109411291C09227F69AA5F6 /* CardNumberTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CardNumberTextField.swift; path = "TapCardInputKit-iOS/Core/Private/TextFields/CardNumberTextField.swift"; sourceTree = "<group>"; };
@@ -2601,6 +2819,7 @@
 		B4DE0953D6C9E1EF4F845B9ED4BC572B /* GULURLSessionDataResponse.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GULURLSessionDataResponse.m; path = GoogleUtilities/Environment/URLSessionPromiseWrapper/GULURLSessionDataResponse.m; sourceTree = "<group>"; };
 		B4F519533E7D440648428F48ADBC42BC /* TransactionDetails.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransactionDetails.swift; path = "CommonDataModelsKit-iOS/CommonDataModelsKit-iOS/Core/models/TransactionDetails.swift"; sourceTree = "<group>"; };
 		B541E3114F01C49D046FB659F84AA747 /* TapApplicationV2 */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = TapApplicationV2; path = TapApplicationV2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5DDA0DB6E9D100651608F07774DBF42 /* Pods-TapCardCheckoutExampleObjc */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-TapCardCheckoutExampleObjc"; path = Pods_TapCardCheckoutExampleObjc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5E751CA0E19B89B902FA501D1A27590 /* TapAmountSectionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapAmountSectionView.swift; path = "TapUIKit-iOS/TapUIKit-iOS/Core/TapAmountSectionView/Views/TapAmountSectionView.swift"; sourceTree = "<group>"; };
 		B5EE2FDAE10473073B8597542A8E487E /* GDTCOREvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTCOREvent.h; path = GoogleDataTransport/GDTCORLibrary/Public/GoogleDataTransport/GDTCOREvent.h; sourceTree = "<group>"; };
 		B64399C7AF9D81044DAA4BA6E6E8D10A /* FBLPromise+Validate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "FBLPromise+Validate.m"; path = "Sources/FBLPromises/FBLPromise+Validate.m"; sourceTree = "<group>"; };
@@ -2638,6 +2857,7 @@
 		BE60C45AC658C3A9B8434441CF725AC2 /* TapDecoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapDecoder.swift; path = "TapNetworkKit-iOS/TapNetworkKit-iOS/Source/Core/TapDecoder.swift"; sourceTree = "<group>"; };
 		BEB2F3188027EE8AFC97E3459E536ECC /* FBLPromise+Retry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "FBLPromise+Retry.h"; path = "Sources/FBLPromises/include/FBLPromise+Retry.h"; sourceTree = "<group>"; };
 		BEDA4A4597A47874C464EEDDC6F9A4B3 /* FIRAppInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRAppInternal.h; path = FirebaseCore/Extension/FIRAppInternal.h; sourceTree = "<group>"; };
+		BF483226B265A3081DA8B58020825575 /* Pods-TapCardCheckoutExample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TapCardCheckoutExample-dummy.m"; sourceTree = "<group>"; };
 		BFE3A738F550D4629726A7C800653299 /* PromisesObjC.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = PromisesObjC.modulemap; sourceTree = "<group>"; };
 		BFF0A737FC782A347DC45043DB1781B8 /* Calendar+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Calendar+Additions.swift"; path = "TapAdditionsKitV2/TapAdditionsKitV2/Foundation/Calendar+Additions.swift"; sourceTree = "<group>"; };
 		C0478D67A7FB0E0098B26C77D5DF80C2 /* GULReachabilityChecker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GULReachabilityChecker.h; path = GoogleUtilities/Reachability/Public/GoogleUtilities/GULReachabilityChecker.h; sourceTree = "<group>"; };
@@ -2679,7 +2899,6 @@
 		C982DEEBA0DC228096BDADD6EA4FADF3 /* ElectricCharge.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ElectricCharge.swift; path = "CommonDataModelsKit-iOS/CommonDataModelsKit-iOS/Core/enums/Measurements/ElectricCharge.swift"; sourceTree = "<group>"; };
 		C98D5B3C79F20D72DF65329BC41471DA /* ThemeUIColorSelector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThemeUIColorSelector.swift; path = TapThemeManager2020/TapThemeManager2020/Core/ThemeSelectors/ThemeUIColorSelector.swift; sourceTree = "<group>"; };
 		CA1A9E8DE0BD6955857D9B4A38DBE60C /* ImageDecoders+Default.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ImageDecoders+Default.swift"; path = "Sources/Core/Decoding/ImageDecoders+Default.swift"; sourceTree = "<group>"; };
-		CA1F3FF1FC94796963862144FD7F6C08 /* Pods-TapCardCheckoutExample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TapCardCheckoutExample-dummy.m"; sourceTree = "<group>"; };
 		CA27CEAE93F7371D3D369F48DE0761D6 /* ConstraintLayoutGuide+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ConstraintLayoutGuide+Extensions.swift"; path = "Sources/ConstraintLayoutGuide+Extensions.swift"; sourceTree = "<group>"; };
 		CA8F97E3FBF7047E81BD4DF9FCDF839B /* TapCardPhoneBarList.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapCardPhoneBarList.swift; path = "TapUIKit-iOS/TapUIKit-iOS/Core/TapCardsTelecomBar/Views/TapCardPhoneBarList.swift"; sourceTree = "<group>"; };
 		CAA86E0B92A0D01604987355DE46BEDB /* Roboto-Thin.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Roboto-Thin.ttf"; path = "TapFontKit-iOS/TapFontKit-iOS/Resources/Roboto-Thin.ttf"; sourceTree = "<group>"; };
@@ -2742,6 +2961,7 @@
 		D6FF0849AFE378CFCA9B7C0B7A38D16A /* SnapKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SnapKit-umbrella.h"; sourceTree = "<group>"; };
 		D79036D8682680E878FC423BB67C0A8F /* FBLPromisePrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBLPromisePrivate.h; path = Sources/FBLPromises/include/FBLPromisePrivate.h; sourceTree = "<group>"; };
 		D7D4E53BC1D5B66E63251E262961A7DB /* MemoryLayout+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "MemoryLayout+Additions.swift"; path = "TapAdditionsKitV2/TapAdditionsKitV2/SwiftStandartLibrary/MemoryLayout+Additions.swift"; sourceTree = "<group>"; };
+		D7EC85E7BA59191ACE4BB29A952E33C6 /* Pods-TapCardCheckOutKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TapCardCheckOutKit.release.xcconfig"; sourceTree = "<group>"; };
 		D80C9056A9BC11D4087D17BB345B15F8 /* ViewsExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ViewsExtensions.swift; path = TapThemeManager2020/TapThemeManager2020/Core/Extensions/ViewsExtensions.swift; sourceTree = "<group>"; };
 		D85282856A644E7055F7AAFC32D3C7E3 /* TapKeychain-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TapKeychain-umbrella.h"; sourceTree = "<group>"; };
 		D853F0815EB4AF2CA1B8534EF4F4CF24 /* FIRLoggerLevel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRLoggerLevel.h; path = FirebaseCore/Sources/Public/FirebaseCore/FIRLoggerLevel.h; sourceTree = "<group>"; };
@@ -2751,7 +2971,6 @@
 		DA2D09B412BCE22A58F9E1C7C0AD326E /* HeartbeatStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeartbeatStorage.swift; path = FirebaseCore/Internal/Sources/HeartbeatLogging/HeartbeatStorage.swift; sourceTree = "<group>"; };
 		DA58A40C77895D483A8B7153F9209C24 /* TapOtpController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapOtpController.swift; path = "TapUIKit-iOS/TapUIKit-iOS/Core/TapOtpView/Views/TapOtpController.swift"; sourceTree = "<group>"; };
 		DA7C9E579E306ED62A082754A473F540 /* TapWebViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapWebViewModel.swift; path = "TapUIKit-iOS/TapUIKit-iOS/Core/TapWebView/ViewModels/TapWebViewModel.swift"; sourceTree = "<group>"; };
-		DB4C072EF4656A61B52D32A3B9E8CCBF /* Pods-TapCardCheckOutKit-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TapCardCheckOutKit-acknowledgements.markdown"; sourceTree = "<group>"; };
 		DB56C96D6C29C626231DBE9E9F1E71F9 /* FIRCurrentDateProvider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FIRCurrentDateProvider.m; path = FirebaseInstallations/Source/Library/InstallationsIDController/FIRCurrentDateProvider.m; sourceTree = "<group>"; };
 		DB76578FD40A3D86181F8A5BF8FBD125 /* ThemeActivityIndicatorViewStyleSelector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThemeActivityIndicatorViewStyleSelector.swift; path = TapThemeManager2020/TapThemeManager2020/Core/ThemeSelectors/ThemeActivityIndicatorViewStyleSelector.swift; sourceTree = "<group>"; };
 		DB8EB4F18519E5A3B823BC18A4A7A0A0 /* TapCountry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapCountry.swift; path = "CommonDataModelsKit-iOS/CommonDataModelsKit-iOS/Core/models/TapCountry.swift"; sourceTree = "<group>"; };
@@ -2763,6 +2982,7 @@
 		DDCEAF05052EF5988A6E836DFAF6699D /* TapVerticalView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = TapVerticalView.xib; path = "TapUIKit-iOS/TapUIKit-iOS/Core/Assets/TapVerticalView.xib"; sourceTree = "<group>"; };
 		DDFF8905017653C7B97E9A08BE7B9D72 /* GoogleUtilities-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "GoogleUtilities-Info.plist"; sourceTree = "<group>"; };
 		DE1BFA1C425F625933BFBC495FF4FC12 /* nanopb-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "nanopb-Info.plist"; sourceTree = "<group>"; };
+		DE322A354B6F2D820B46075A02C8D363 /* Pods-TapCardCheckoutExampleObjc-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TapCardCheckoutExampleObjc-frameworks.sh"; sourceTree = "<group>"; };
 		DE6EDFA686496C12C1F589F08BFCC4CC /* Tajawal-ExtraLight.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Tajawal-ExtraLight.ttf"; path = "TapFontKit-iOS/TapFontKit-iOS/Resources/Tajawal-ExtraLight.ttf"; sourceTree = "<group>"; };
 		DE9F42D8889112020A1EA03312A009DE /* SnapKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SnapKit-Info.plist"; sourceTree = "<group>"; };
 		DEA1084901A96284B303EB0D33856368 /* TapOtpViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapOtpViewModel.swift; path = "TapUIKit-iOS/TapUIKit-iOS/Core/TapOtpView/ViewModels/TapOtpViewModel.swift"; sourceTree = "<group>"; };
@@ -2799,10 +3019,10 @@
 		E687E8BEEB6B5AB39A63D85C3484F3F0 /* ConstraintLayoutSupport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutSupport.swift; path = Sources/ConstraintLayoutSupport.swift; sourceTree = "<group>"; };
 		E6B3F8ADE773A30907531651D48697D0 /* TapApplePay.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapApplePay.swift; path = "TapApplePayKit-iOS/Core/public/Controllers/TapApplePay.swift"; sourceTree = "<group>"; };
 		E6C26CDADF6F5752AA3C47ED6E484D8A /* FlurryLogger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FlurryLogger.swift; path = "TapCardScanner-iOS/Core/Private/FlurryLogger.swift"; sourceTree = "<group>"; };
-		E6EB061695E85514B7ED1FACC3ED9B2B /* Pods-TapCardCheckOutKit-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TapCardCheckOutKit-acknowledgements.plist"; sourceTree = "<group>"; };
 		E7180104B7BF7922005800778B49C174 /* ImageDecoders+Video.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ImageDecoders+Video.swift"; path = "Sources/Core/Decoding/ImageDecoders+Video.swift"; sourceTree = "<group>"; };
 		E76A8C90ED7D5F9164D79B1CD3CCD2EE /* GULLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GULLogger.h; path = GoogleUtilities/Logger/Public/GoogleUtilities/GULLogger.h; sourceTree = "<group>"; };
 		E78BE931D80DA4419D872F67DF43F2DB /* TapAmountSectionViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapAmountSectionViewModel.swift; path = "TapUIKit-iOS/TapUIKit-iOS/Core/TapAmountSectionView/ViewModels/TapAmountSectionViewModel.swift"; sourceTree = "<group>"; };
+		E7B960000F1084D66EBE87E721F745B2 /* Pods-TapCardCheckoutExampleObjc-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TapCardCheckoutExampleObjc-acknowledgements.plist"; sourceTree = "<group>"; };
 		E86B9329B9B47A82C125FEC0E3C41C97 /* TapDragHandlerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapDragHandlerView.swift; path = "TapUIKit-iOS/TapUIKit-iOS/Core/TapDragHandlerView/TapDragHandlerView.swift"; sourceTree = "<group>"; };
 		E8FAFAC638DB268943D58AF8A61D019D /* SwiftyRSA.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SwiftyRSA.h; path = Source/SwiftyRSA.h; sourceTree = "<group>"; };
 		E922902949FC5F8ABF32323E5EDFBFD2 /* GenericTapChipViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GenericTapChipViewModel.swift; path = "TapUIKit-iOS/TapUIKit-iOS/Core/TapChip/Views/Chips/GenericTapChip/GenericTapChipViewModel.swift"; sourceTree = "<group>"; };
@@ -2812,6 +3032,7 @@
 		E9C8C78AB42DF2214B0E45DF0E05C39C /* TapGoPayOTPView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = TapGoPayOTPView.xib; path = "TapUIKit-iOS/TapUIKit-iOS/Core/Assets/TapGoPayOTPView.xib"; sourceTree = "<group>"; };
 		E9C97D91653C3FE87E7F20746C4D65CA /* GULReachabilityChecker+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GULReachabilityChecker+Internal.h"; path = "GoogleUtilities/Reachability/GULReachabilityChecker+Internal.h"; sourceTree = "<group>"; };
 		E9CDC50436CEFEF5AE31919595CA7F36 /* Bundle+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Bundle+Additions.swift"; path = "TapAdditionsKitV2/TapAdditionsKitV2/Foundation/Bundle+Additions.swift"; sourceTree = "<group>"; };
+		E9DA59B5C042DF367A52CE39ECD30186 /* Pods-TapCardCheckoutExampleObjc-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TapCardCheckoutExampleObjc-umbrella.h"; sourceTree = "<group>"; };
 		EA10D3C933C285D590717C72E466D305 /* FIRInstallationsItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRInstallationsItem.h; path = FirebaseInstallations/Source/Library/FIRInstallationsItem.h; sourceTree = "<group>"; };
 		EA703ABCAD6564C4E70007278B7F5941 /* TapOtpView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = TapOtpView.xib; path = "TapUIKit-iOS/TapUIKit-iOS/Core/Assets/TapOtpView.xib"; sourceTree = "<group>"; };
 		EAAA3BAB2314802953AAED83379B0DC5 /* TapCardVlidatorKit-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "TapCardVlidatorKit-iOS.modulemap"; sourceTree = "<group>"; };
@@ -2844,11 +3065,11 @@
 		EE1B8C7A698443B45A396267432CC25E /* FontProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontProvider.swift; path = "TapFontKit-iOS/TapFontKit-iOS/Core/FontProvider.swift"; sourceTree = "<group>"; };
 		EE56AB9F3B92B97FE43D12610E26672F /* TapCardScanner-iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "TapCardScanner-iOS-Info.plist"; sourceTree = "<group>"; };
 		EE6B2C3BCB8E3E5ECF6FB842FEF98C51 /* TaskLoadData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskLoadData.swift; path = Sources/Core/Tasks/TaskLoadData.swift; sourceTree = "<group>"; };
-		EE7B8F9033C95A470256D6F5E4281435 /* Pods-TapCardCheckoutExample-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TapCardCheckoutExample-acknowledgements.markdown"; sourceTree = "<group>"; };
 		EEA0D622D75563BF0E33566E085C28BD /* StorageFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StorageFactory.swift; path = FirebaseCore/Internal/Sources/HeartbeatLogging/StorageFactory.swift; sourceTree = "<group>"; };
 		EEAAA6D029DB17FB8876508E18096250 /* Reference.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Reference.swift; path = "CommonDataModelsKit-iOS/CommonDataModelsKit-iOS/Core/models/Reference.swift"; sourceTree = "<group>"; };
+		EEB4817331E401AF11AB01C3D03EDDE7 /* Pods-TapCardCheckoutExampleObjc.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-TapCardCheckoutExampleObjc.modulemap"; sourceTree = "<group>"; };
+		F05E8394357A744A61AB0316903ED703 /* Pods-TapCardCheckoutExample-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TapCardCheckoutExample-Info.plist"; sourceTree = "<group>"; };
 		F062380F8FD285E088EBBE5EEBBEEAC9 /* TapApplePayKit-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TapApplePayKit-iOS-umbrella.h"; sourceTree = "<group>"; };
-		F06E1ABC124BC115E4F9922BD254B378 /* Pods-TapCardCheckOutKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TapCardCheckOutKit.release.xcconfig"; sourceTree = "<group>"; };
 		F0F87B471DDC2F19FE07F683953EDC4E /* TapApplePayPaymentNetwork.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapApplePayPaymentNetwork.swift; path = "TapApplePayKit-iOS/Core/public/enums/TapApplePayPaymentNetwork.swift"; sourceTree = "<group>"; };
 		F17A169904DE1E0A3A3D6D3C31C48B33 /* Mass.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Mass.swift; path = "CommonDataModelsKit-iOS/CommonDataModelsKit-iOS/Core/enums/Measurements/Mass.swift"; sourceTree = "<group>"; };
 		F180690C8107948ABA8BFA663B94D384 /* FIRVersion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRVersion.h; path = FirebaseCore/Sources/Public/FirebaseCore/FIRVersion.h; sourceTree = "<group>"; };
@@ -2889,9 +3110,11 @@
 		F81186CEF165FD0A1FE283D1791CE317 /* TapConfigResponseModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapConfigResponseModel.swift; path = "CommonDataModelsKit-iOS/CommonDataModelsKit-iOS/Core/models/APiModels/TapConfigRequest/TapConfigResponseModel.swift"; sourceTree = "<group>"; };
 		F82827D552D26FD2F6A1C3236712E366 /* TapCardPhoneBarList.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = TapCardPhoneBarList.xib; path = "TapUIKit-iOS/TapUIKit-iOS/Core/Assets/TapCardPhoneBarList.xib"; sourceTree = "<group>"; };
 		F841E392AAD9EEFE400794823011B2D8 /* GDTCORTargets.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTCORTargets.h; path = GoogleDataTransport/GDTCORLibrary/Public/GoogleDataTransport/GDTCORTargets.h; sourceTree = "<group>"; };
+		F8442F19F8B3B4B0ADECD6965D097F9A /* Pods-TapCardCheckoutExampleObjc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TapCardCheckoutExampleObjc.release.xcconfig"; sourceTree = "<group>"; };
 		F8AB7825E892646DD646B626D9DC33C4 /* TapHintView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapHintView.swift; path = "TapUIKit-iOS/TapUIKit-iOS/Core/TapHintView/Views/TapHintView.swift"; sourceTree = "<group>"; };
 		F90C6E139A743AF6850BEED4D9BAC1F3 /* GDTCCTUploader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTCCTUploader.h; path = GoogleDataTransport/GDTCCTLibrary/Private/GDTCCTUploader.h; sourceTree = "<group>"; };
 		F912D8B3208B251123C33668DD435AFF /* GDTCOREndpoints_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTCOREndpoints_Private.h; path = GoogleDataTransport/GDTCORLibrary/Private/GDTCOREndpoints_Private.h; sourceTree = "<group>"; };
+		F91F4593738C25DA4CEF84D16DDF9273 /* Pods-TapCardCheckoutExample-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TapCardCheckoutExample-frameworks.sh"; sourceTree = "<group>"; };
 		F9727F0443F5D1BBF5082512C25D09A7 /* TapJSONSerializer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapJSONSerializer.swift; path = "TapNetworkKit-iOS/TapNetworkKit-iOS/Source/Core/TapJSONSerializer.swift"; sourceTree = "<group>"; };
 		F9D78A9868D6D14803CCED6C8F365E34 /* MerchantModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MerchantModel.swift; path = "CommonDataModelsKit-iOS/CommonDataModelsKit-iOS/Core/models/MerchantModel.swift"; sourceTree = "<group>"; };
 		F9EAB8CC2FB94B4BB85261B9150A589C /* pb.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = pb.h; sourceTree = "<group>"; };
@@ -2937,6 +3160,14 @@
 			files = (
 				D37F9425B2D9344049F35E8FA8345AF1 /* Foundation.framework in Frameworks */,
 				208F2C52C5672E75FA26915FEC37FD76 /* Security.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		269CF7D787E01E2025478A0845F81E03 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E84AB17B9EE8BBBEE942AB45DCB89045 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3586,6 +3817,22 @@
 			path = FirebaseCoreInternal;
 			sourceTree = "<group>";
 		};
+		31A410B940829D946D9D05AA6B3B7D55 /* Pods-TapCardCheckOutKit */ = {
+			isa = PBXGroup;
+			children = (
+				276B06DCD99D67BD5F49506F5D2FB96B /* Pods-TapCardCheckOutKit.modulemap */,
+				080DABEEBB91E0F3DCAD75D67D8346A0 /* Pods-TapCardCheckOutKit-acknowledgements.markdown */,
+				6F21B041FA8FD35C9098990280CB2A81 /* Pods-TapCardCheckOutKit-acknowledgements.plist */,
+				2FD4F7ED8CA7C45BA0F4CEFECE6DA3D2 /* Pods-TapCardCheckOutKit-dummy.m */,
+				41E665A1142CDB74A04106189B0E3848 /* Pods-TapCardCheckOutKit-Info.plist */,
+				8F3331101633B86C12BBE2D551FEBFE7 /* Pods-TapCardCheckOutKit-umbrella.h */,
+				03F31A3286D79450AADD7D06262048C6 /* Pods-TapCardCheckOutKit.debug.xcconfig */,
+				D7EC85E7BA59191ACE4BB29A952E33C6 /* Pods-TapCardCheckOutKit.release.xcconfig */,
+			);
+			name = "Pods-TapCardCheckOutKit";
+			path = "Target Support Files/Pods-TapCardCheckOutKit";
+			sourceTree = "<group>";
+		};
 		332F47961FCA7F32DDFC794B8F8C2E5B /* WithoutAdIdSupport */ = {
 			isa = PBXGroup;
 			children = (
@@ -3695,6 +3942,23 @@
 			path = "../Target Support Files/PullUpController";
 			sourceTree = "<group>";
 		};
+		3D3C35D034F18172D004B4DCD982CC49 /* Pods-TapCardCheckoutExampleObjc */ = {
+			isa = PBXGroup;
+			children = (
+				EEB4817331E401AF11AB01C3D03EDDE7 /* Pods-TapCardCheckoutExampleObjc.modulemap */,
+				14981351175AE939783757B73BC53223 /* Pods-TapCardCheckoutExampleObjc-acknowledgements.markdown */,
+				E7B960000F1084D66EBE87E721F745B2 /* Pods-TapCardCheckoutExampleObjc-acknowledgements.plist */,
+				7298C6D252FD549417AAC18FFC461FD7 /* Pods-TapCardCheckoutExampleObjc-dummy.m */,
+				DE322A354B6F2D820B46075A02C8D363 /* Pods-TapCardCheckoutExampleObjc-frameworks.sh */,
+				83EB52A8C189265EF6462D87B8388393 /* Pods-TapCardCheckoutExampleObjc-Info.plist */,
+				E9DA59B5C042DF367A52CE39ECD30186 /* Pods-TapCardCheckoutExampleObjc-umbrella.h */,
+				68362D10006E88260A830927B5447B27 /* Pods-TapCardCheckoutExampleObjc.debug.xcconfig */,
+				F8442F19F8B3B4B0ADECD6965D097F9A /* Pods-TapCardCheckoutExampleObjc.release.xcconfig */,
+			);
+			name = "Pods-TapCardCheckoutExampleObjc";
+			path = "Target Support Files/Pods-TapCardCheckoutExampleObjc";
+			sourceTree = "<group>";
+		};
 		4079493F6AD13310E91E180ECC89D9B1 /* TapUIKit-iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -3795,6 +4059,23 @@
 			name = CoreOnly;
 			sourceTree = "<group>";
 		};
+		4B25613968E4BDDD9840DD9166304FA1 /* Pods-TapCardCheckoutExample */ = {
+			isa = PBXGroup;
+			children = (
+				91A442A5773EE13EB7716F7996EF24CF /* Pods-TapCardCheckoutExample.modulemap */,
+				825CBBEC9B6FBEF1A4F3EFC0779B2439 /* Pods-TapCardCheckoutExample-acknowledgements.markdown */,
+				52C3703A3110376421DCD1D3CC8B24E0 /* Pods-TapCardCheckoutExample-acknowledgements.plist */,
+				BF483226B265A3081DA8B58020825575 /* Pods-TapCardCheckoutExample-dummy.m */,
+				F91F4593738C25DA4CEF84D16DDF9273 /* Pods-TapCardCheckoutExample-frameworks.sh */,
+				F05E8394357A744A61AB0316903ED703 /* Pods-TapCardCheckoutExample-Info.plist */,
+				31B2CE0B6FC94A849757D1460EC693FF /* Pods-TapCardCheckoutExample-umbrella.h */,
+				8C924A95AD4040E04D423EB29E13BB0A /* Pods-TapCardCheckoutExample.debug.xcconfig */,
+				A7BAD23694219A7A2DDB90AAE6DFD8BA /* Pods-TapCardCheckoutExample.release.xcconfig */,
+			);
+			name = "Pods-TapCardCheckoutExample";
+			path = "Target Support Files/Pods-TapCardCheckoutExample";
+			sourceTree = "<group>";
+		};
 		4BEB3BB86D77FC71E4FFFE47696A5056 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -3857,22 +4138,6 @@
 			);
 			name = "TapCardInputKit-iOS";
 			path = "TapCardInputKit-iOS";
-			sourceTree = "<group>";
-		};
-		5414A290CBFB14F6A14B92E02D3FD05D /* Pods-TapCardCheckOutKit */ = {
-			isa = PBXGroup;
-			children = (
-				63AE4BBC9A0DBCF5A78AB36A2CDEE546 /* Pods-TapCardCheckOutKit.modulemap */,
-				DB4C072EF4656A61B52D32A3B9E8CCBF /* Pods-TapCardCheckOutKit-acknowledgements.markdown */,
-				E6EB061695E85514B7ED1FACC3ED9B2B /* Pods-TapCardCheckOutKit-acknowledgements.plist */,
-				3065554FBA50056E796F738E87555755 /* Pods-TapCardCheckOutKit-dummy.m */,
-				73F47C924BEE4931C0287A97EF1B8238 /* Pods-TapCardCheckOutKit-Info.plist */,
-				9DB6E1FD3C0CF10122832E405EDE0B81 /* Pods-TapCardCheckOutKit-umbrella.h */,
-				8CB58ACFFEF6758EFCA423054621AE02 /* Pods-TapCardCheckOutKit.debug.xcconfig */,
-				F06E1ABC124BC115E4F9922BD254B378 /* Pods-TapCardCheckOutKit.release.xcconfig */,
-			);
-			name = "Pods-TapCardCheckOutKit";
-			path = "Target Support Files/Pods-TapCardCheckOutKit";
 			sourceTree = "<group>";
 		};
 		54643C735CA9F415B242D98EED54F0B9 /* WithoutAdIdSupport */ = {
@@ -4439,23 +4704,6 @@
 			path = TapSwiftFixesV2;
 			sourceTree = "<group>";
 		};
-		9E88FE623FE65E78C5B61C13C42BE173 /* Pods-TapCardCheckoutExample */ = {
-			isa = PBXGroup;
-			children = (
-				3B4B67AF0C7C51D159F40601A63AAC36 /* Pods-TapCardCheckoutExample.modulemap */,
-				EE7B8F9033C95A470256D6F5E4281435 /* Pods-TapCardCheckoutExample-acknowledgements.markdown */,
-				11D0A612C34924BEFA48F06762C18A66 /* Pods-TapCardCheckoutExample-acknowledgements.plist */,
-				CA1F3FF1FC94796963862144FD7F6C08 /* Pods-TapCardCheckoutExample-dummy.m */,
-				0AF7844E8457AAD36A0218FD94D27668 /* Pods-TapCardCheckoutExample-frameworks.sh */,
-				3434BE958EA255B619C5DFE30F70B913 /* Pods-TapCardCheckoutExample-Info.plist */,
-				AC2AFB8A217BB3D3EF80CCFDA44FA4E5 /* Pods-TapCardCheckoutExample-umbrella.h */,
-				952546FA1A6E4B5E717E367B88E47A4B /* Pods-TapCardCheckoutExample.debug.xcconfig */,
-				641FA1661DA68D55B26FDCBF984DD1F8 /* Pods-TapCardCheckoutExample.release.xcconfig */,
-			);
-			name = "Pods-TapCardCheckoutExample";
-			path = "Target Support Files/Pods-TapCardCheckoutExample";
-			sourceTree = "<group>";
-		};
 		9FA7C04A92DD5E117B4FED6A2AC97A89 /* Environment */ = {
 			isa = PBXGroup;
 			children = (
@@ -4609,15 +4857,6 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		ADB2B7C8582573C811BDA3A3C7CCFD16 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				9E88FE623FE65E78C5B61C13C42BE173 /* Pods-TapCardCheckoutExample */,
-				5414A290CBFB14F6A14B92E02D3FD05D /* Pods-TapCardCheckOutKit */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
 		B524D66897AEC8303D1E575540A854FF /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -4698,7 +4937,7 @@
 			name = decode;
 			sourceTree = "<group>";
 		};
-		C4457105FFB09C162191B0C1A5BF0925 /* Products */ = {
+		BD5ECB7572B208C18845EFE07692A90D /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				324E7578413670459F2055EA9E908920 /* CommonDataModelsKit-iOS */,
@@ -4713,6 +4952,7 @@
 				06FC5C9CF96D60C50FCD47D339C91951 /* nanopb */,
 				2DAD7D76FC007F48AE48F2FD15BF01BB /* Nuke */,
 				BBE66001334D6183390A5F88D3F901DB /* Pods-TapCardCheckoutExample */,
+				B5DDA0DB6E9D100651608F07774DBF42 /* Pods-TapCardCheckoutExampleObjc */,
 				A4929F9BEA2BC3AAE1A7D045146C6062 /* Pods-TapCardCheckOutKit */,
 				3347A1AB6546F0A3977529B8F199DC41 /* PromisesObjC */,
 				2CCD28338355003C3715B42023524748 /* PullUpController */,
@@ -4861,8 +5101,8 @@
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				B94D7768568A9992200DB461E8CF687F /* Frameworks */,
 				03989855C345BB159DBD68953EFAC926 /* Pods */,
-				C4457105FFB09C162191B0C1A5BF0925 /* Products */,
-				ADB2B7C8582573C811BDA3A3C7CCFD16 /* Targets Support Files */,
+				BD5ECB7572B208C18845EFE07692A90D /* Products */,
+				E00D425C156E81DB5247B45E590A042D /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -4910,6 +5150,16 @@
 				3A3D718977323288985894AF4FD3E742 /* GULSceneDelegateSwizzler_Private.h */,
 			);
 			name = AppDelegateSwizzler;
+			sourceTree = "<group>";
+		};
+		E00D425C156E81DB5247B45E590A042D /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				4B25613968E4BDDD9840DD9166304FA1 /* Pods-TapCardCheckoutExample */,
+				3D3C35D034F18172D004B4DCD982CC49 /* Pods-TapCardCheckoutExampleObjc */,
+				31A410B940829D946D9D05AA6B3B7D55 /* Pods-TapCardCheckOutKit */,
+			);
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		E424C00A5D0D4F827F70B38C2F13B2C3 /* PromisesObjC */ = {
@@ -5253,6 +5503,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3E3AB7C765C21AE17B1E6EE6560040C /* SnapKit-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84A4433F10CE0F71FF7A0A4793B11C2B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECA64522F6DBF583059EC0032F05E005 /* Pods-TapCardCheckoutExampleObjc-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5814,6 +6072,54 @@
 			productReference = BBE66001334D6183390A5F88D3F901DB /* Pods-TapCardCheckoutExample */;
 			productType = "com.apple.product-type.framework";
 		};
+		872F72F14A81D9A42E77DF8FC04B5B90 /* Pods-TapCardCheckoutExampleObjc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F4B7402B5815AF2B178D5FAF94318F65 /* Build configuration list for PBXNativeTarget "Pods-TapCardCheckoutExampleObjc" */;
+			buildPhases = (
+				84A4433F10CE0F71FF7A0A4793B11C2B /* Headers */,
+				AF5E0DAEBB90E82FAA1AE4D103AF99D7 /* Sources */,
+				269CF7D787E01E2025478A0845F81E03 /* Frameworks */,
+				D58CBE6FCBFE8A6735F1A94279A883A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0E95004599899EEF1B8FDA6FB205B761 /* PBXTargetDependency */,
+				3AD86214D187523D02B5746A1C5AEF63 /* PBXTargetDependency */,
+				B3DC2FEF90E4FFC9F0072A55D2CE6330 /* PBXTargetDependency */,
+				4781568901C7411B61445519D8DF7127 /* PBXTargetDependency */,
+				4B65BF93B2C5CEF7EDF617FAEC89CE67 /* PBXTargetDependency */,
+				760B5D26FCC2A38E576FC64B1F9A47BB /* PBXTargetDependency */,
+				F2968B8E9905C4D91CA61FD8C014709F /* PBXTargetDependency */,
+				17E6B673F9FC6E3A214ED52069518DE2 /* PBXTargetDependency */,
+				16FBB9886F4396462C8E163289660832 /* PBXTargetDependency */,
+				CCA8F454F5C165437BF1B238BCD6A5F4 /* PBXTargetDependency */,
+				129ED7B47DD0E888EE9B1A428E592E3A /* PBXTargetDependency */,
+				7D49A5BF2A02D8C6AC2844B2FF9A2E25 /* PBXTargetDependency */,
+				BC92515CB5D8314228C4B2755C246144 /* PBXTargetDependency */,
+				76979A6BCB24BFE6C6B2CEECD8ABD193 /* PBXTargetDependency */,
+				A4B1583A5EA7E8B193CBADF0EAF79153 /* PBXTargetDependency */,
+				17E1F95325889DCF9DC2864C750E1951 /* PBXTargetDependency */,
+				BDFF7D2019DABD0A654346CB2E486B85 /* PBXTargetDependency */,
+				68C032AC09BCBB9BEF41934AA58E400B /* PBXTargetDependency */,
+				043A4AA1E9FE8A99C5F6DEC411E23903 /* PBXTargetDependency */,
+				0B18676FBD3A55A1A069C242A52AC850 /* PBXTargetDependency */,
+				0F816B813307E159E03A3BF8E3728847 /* PBXTargetDependency */,
+				F584C848ED3F141519ABE61A2C6BAFA7 /* PBXTargetDependency */,
+				19755DB4D4149E56491580220BC009D6 /* PBXTargetDependency */,
+				8A7F37A96E4855C9F62FD34652F5AEC2 /* PBXTargetDependency */,
+				0AD4EB47E3CBC0657F96D46FFA2E72B6 /* PBXTargetDependency */,
+				2DD014E0D4224A24828059C1A2F3B039 /* PBXTargetDependency */,
+				9E182E2910A808547697E3189D17FD68 /* PBXTargetDependency */,
+				70B46CB8C86BB0D96297CE74F210E88A /* PBXTargetDependency */,
+				1C41FB8B151BB66A4B34A7A23BF4C227 /* PBXTargetDependency */,
+				A1476CA6987E2814F68259FBB45AA97A /* PBXTargetDependency */,
+			);
+			name = "Pods-TapCardCheckoutExampleObjc";
+			productName = Pods_TapCardCheckoutExampleObjc;
+			productReference = B5DDA0DB6E9D100651608F07774DBF42 /* Pods-TapCardCheckoutExampleObjc */;
+			productType = "com.apple.product-type.framework";
+		};
 		87803597EB3F20FC46472B85392EC4FD /* FirebaseInstallations */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04C284278CA477B47B623179AF418B14 /* Build configuration list for PBXNativeTarget "FirebaseInstallations" */;
@@ -6148,7 +6454,7 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = C4457105FFB09C162191B0C1A5BF0925 /* Products */;
+			productRefGroup = BD5ECB7572B208C18845EFE07692A90D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -6167,6 +6473,7 @@
 				D2B5E7DCCBBFB32341D857D01211A1A3 /* nanopb */,
 				062A64896E847A6749F58B6BA9A931B1 /* Nuke */,
 				6DC5FA00EA8DAD3D2A3D7B6C38B8A6F2 /* Pods-TapCardCheckoutExample */,
+				872F72F14A81D9A42E77DF8FC04B5B90 /* Pods-TapCardCheckoutExampleObjc */,
 				DCF4006E36C089DE58121454CA51E851 /* Pods-TapCardCheckOutKit */,
 				2BBF7206D7FAC92C82A042A99C4A98F8 /* PromisesObjC */,
 				1CF0AD6C5098A55AD7DF9645E42E09E7 /* PullUpController */,
@@ -6423,6 +6730,13 @@
 				14EFE7E489316FABB1EBD9DED7F3E1F9 /* Tajawal-Light.ttf in Resources */,
 				EFFE1499AF86721DF523313FCBB23705 /* Tajawal-Medium.ttf in Resources */,
 				B20CF246345F73CDF446FFCACD893680 /* Tajawal-Regular.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D58CBE6FCBFE8A6735F1A94279A883A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7181,6 +7495,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AF5E0DAEBB90E82FAA1AE4D103AF99D7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				309884738B40E2F97C4A9E3FAB86500E /* Pods-TapCardCheckoutExampleObjc-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C8010F0109E10177E711BAE78BD42A5B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -7373,6 +7695,12 @@
 			target = C49E7A4D59E5C8BE8DE9FB1EFB150185 /* FirebaseAnalytics */;
 			targetProxy = 30ADC4CA90841EE5DB5E29BAFD248FE5 /* PBXContainerItemProxy */;
 		};
+		043A4AA1E9FE8A99C5F6DEC411E23903 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "TapApplePayKit-iOS";
+			target = 5AAB42D32BF2F8E4E3F6C89944780722 /* TapApplePayKit-iOS */;
+			targetProxy = 99898DC9FD800DF98A6D5707B71BC5F8 /* PBXContainerItemProxy */;
+		};
 		0482EB8E4022C73278839D43CE8DB7AC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = PromisesObjC;
@@ -7390,6 +7718,18 @@
 			name = "TapUIKit-iOS";
 			target = 4BB6A950A7EC459648E7DC212CB8D691 /* TapUIKit-iOS */;
 			targetProxy = 31DEAE0273AFDBF2B6DE9BA9B50EF030 /* PBXContainerItemProxy */;
+		};
+		0AD4EB47E3CBC0657F96D46FFA2E72B6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TapKeychain;
+			target = 87D01FBA5C9E03D06F499B22E3F19026 /* TapKeychain */;
+			targetProxy = 3AA6D41BBEBF55C512B5AA1B89A39CD1 /* PBXContainerItemProxy */;
+		};
+		0B18676FBD3A55A1A069C242A52AC850 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TapApplicationV2;
+			target = 9A8B22F15674A78FC57F1E9B3018E88B /* TapApplicationV2 */;
+			targetProxy = D6D83606BC602AB5BDC3C10E68648231 /* PBXContainerItemProxy */;
 		};
 		0B50F0948E68AE620BBC9819EB424B99 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -7409,17 +7749,53 @@
 			target = F73BD4CA6A0B23F38687F2A3BB7E5EC7 /* TapThemeManager2020 */;
 			targetProxy = A949775C65A4473BAD2BDA050E1FD417 /* PBXContainerItemProxy */;
 		};
+		0E95004599899EEF1B8FDA6FB205B761 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CommonDataModelsKit-iOS";
+			target = D49B77E3C54A9573D2E2DDD93687FCBF /* CommonDataModelsKit-iOS */;
+			targetProxy = 9CAF92F700FE390B9AF65A8E6BD97EA0 /* PBXContainerItemProxy */;
+		};
+		0F816B813307E159E03A3BF8E3728847 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "TapCardInputKit-iOS";
+			target = 473C08B3D856915C204623033941AC9D /* TapCardInputKit-iOS */;
+			targetProxy = 8B02892A95784EBBF27B31E521F187BB /* PBXContainerItemProxy */;
+		};
 		12624C904B95B789CF1293086CF5369E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "LocalisationManagerKit-iOS";
 			target = 48D7FFECE792D5C478227EFA6E2D5A43 /* LocalisationManagerKit-iOS */;
 			targetProxy = C362C4A5633460DF136ABB47E1D8DF7E /* PBXContainerItemProxy */;
 		};
+		129ED7B47DD0E888EE9B1A428E592E3A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "LocalisationManagerKit-iOS";
+			target = 48D7FFECE792D5C478227EFA6E2D5A43 /* LocalisationManagerKit-iOS */;
+			targetProxy = 267E56573215ABDE0CADCC86A7DEA10B /* PBXContainerItemProxy */;
+		};
 		135633BCDCA3CEF32D76DC0DE289432B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "TapCardScanner-iOS";
 			target = A69E391A11C234F827CD955C6FE288C0 /* TapCardScanner-iOS */;
 			targetProxy = 71E02614EFE40AB8FF3E48804044F154 /* PBXContainerItemProxy */;
+		};
+		16FBB9886F4396462C8E163289660832 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GoogleDataTransport;
+			target = 5C0371EE948D0357B8EE0E34ABB44BF0 /* GoogleDataTransport */;
+			targetProxy = 1C4EF6879D14346F3688134F7D1E83A3 /* PBXContainerItemProxy */;
+		};
+		17E1F95325889DCF9DC2864C750E1951 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SnapKit;
+			target = 19622742EBA51E823D6DAE3F8CDBFAD4 /* SnapKit */;
+			targetProxy = CA804D4CEC8A61BA34AC79E5C3723361 /* PBXContainerItemProxy */;
+		};
+		17E6B673F9FC6E3A214ED52069518DE2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GoogleAppMeasurement;
+			target = B53D977A951AFC38B21751B706C1DF83 /* GoogleAppMeasurement */;
+			targetProxy = 3E0635391A2AAE8C9DE51095B2A1B8D2 /* PBXContainerItemProxy */;
 		};
 		189EEABF6CEACE93E04BA42C9F352282 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -7432,6 +7808,18 @@
 			name = "TapApplePayKit-iOS";
 			target = 5AAB42D32BF2F8E4E3F6C89944780722 /* TapApplePayKit-iOS */;
 			targetProxy = F5133C00F30BDC472A9ECBF7B84CEAE3 /* PBXContainerItemProxy */;
+		};
+		19755DB4D4149E56491580220BC009D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "TapCardVlidatorKit-iOS";
+			target = 3615B323ECE97BB00B6167A5847EF0FF /* TapCardVlidatorKit-iOS */;
+			targetProxy = 45F20CA8B5D504B9C9A0AFD0A819139D /* PBXContainerItemProxy */;
+		};
+		1C41FB8B151BB66A4B34A7A23BF4C227 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "TapUIKit-iOS";
+			target = 4BB6A950A7EC459648E7DC212CB8D691 /* TapUIKit-iOS */;
+			targetProxy = DAF2A6384714290BEC587A470329EE17 /* PBXContainerItemProxy */;
 		};
 		1E315DA80D92C5B89252B9ABBAF01C81 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -7463,6 +7851,12 @@
 			target = 3615B323ECE97BB00B6167A5847EF0FF /* TapCardVlidatorKit-iOS */;
 			targetProxy = B7901714EC0C66FC1403894BCFB088B3 /* PBXContainerItemProxy */;
 		};
+		2DD014E0D4224A24828059C1A2F3B039 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "TapNetworkKit-iOS";
+			target = 9A9B66AFC097DEF0813D59E11C47E490 /* TapNetworkKit-iOS */;
+			targetProxy = 6682DB6852F68CF13814E9466014694F /* PBXContainerItemProxy */;
+		};
 		3180307A669DA2BBD9B47D461E1A2D90 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Firebase;
@@ -7486,6 +7880,12 @@
 			name = "TapCardVlidatorKit-iOS";
 			target = 3615B323ECE97BB00B6167A5847EF0FF /* TapCardVlidatorKit-iOS */;
 			targetProxy = 96110F4A9E84E73A7F346048F26458E9 /* PBXContainerItemProxy */;
+		};
+		3AD86214D187523D02B5746A1C5AEF63 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Firebase;
+			target = 072CEA044D2EF26F03496D5996BBF59F /* Firebase */;
+			targetProxy = 9FCBEBBCD884B23139F6C3F4504D3C20 /* PBXContainerItemProxy */;
 		};
 		3B24FF4E12EE58C84310BDD89581A33D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -7523,6 +7923,12 @@
 			target = 062A64896E847A6749F58B6BA9A931B1 /* Nuke */;
 			targetProxy = 8EF72D05848F1462F296B6A72B1B3773 /* PBXContainerItemProxy */;
 		};
+		4781568901C7411B61445519D8DF7127 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FirebaseCore;
+			target = 4402AFF83DBDC4DD07E198685FDC2DF2 /* FirebaseCore */;
+			targetProxy = B02942F219400F8D663F4745B0A740B8 /* PBXContainerItemProxy */;
+		};
 		48D9E6487B23920E0BCB5D942C3F4AAA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = FirebaseCore;
@@ -7540,6 +7946,12 @@
 			name = "TapCardScanner-iOS";
 			target = A69E391A11C234F827CD955C6FE288C0 /* TapCardScanner-iOS */;
 			targetProxy = 1035E55DE9CB847C3D29326B263B4F2E /* PBXContainerItemProxy */;
+		};
+		4B65BF93B2C5CEF7EDF617FAEC89CE67 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FirebaseCoreDiagnostics;
+			target = 620E05868772C10B4920DC7E324F2C87 /* FirebaseCoreDiagnostics */;
+			targetProxy = 96CA70AD9FC2A63E6CBB3CE2B49E2703 /* PBXContainerItemProxy */;
 		};
 		4C76D924B91CA9367E45CB2A46601780 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -7607,6 +8019,12 @@
 			target = 2BBF7206D7FAC92C82A042A99C4A98F8 /* PromisesObjC */;
 			targetProxy = 285AC3CBAC3737314A28170132454ABB /* PBXContainerItemProxy */;
 		};
+		68C032AC09BCBB9BEF41934AA58E400B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TapAdditionsKitV2;
+			target = A3DF3C18C03F8EAEC754928B8CBFE78B /* TapAdditionsKitV2 */;
+			targetProxy = 07FDD7EB3495FD9C2BCCCA2FA2A8AFA5 /* PBXContainerItemProxy */;
+		};
 		69C791A2060B3D502A95C0493FE0A2DC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "LocalisationManagerKit-iOS";
@@ -7655,6 +8073,12 @@
 			target = 87803597EB3F20FC46472B85392EC4FD /* FirebaseInstallations */;
 			targetProxy = 508B33D45B2D9AC4637FB782E72E9602 /* PBXContainerItemProxy */;
 		};
+		70B46CB8C86BB0D96297CE74F210E88A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TapThemeManager2020;
+			target = F73BD4CA6A0B23F38687F2A3BB7E5EC7 /* TapThemeManager2020 */;
+			targetProxy = 9E5F95D197A8379280DBF1368228FE8E /* PBXContainerItemProxy */;
+		};
 		7407C994AF9378BE83E116DA2BB214FB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "CommonDataModelsKit-iOS";
@@ -7667,11 +8091,29 @@
 			target = F533AA510B62E4F3B56C094378F820D6 /* TapFontKit-iOS */;
 			targetProxy = 25953D3F0D61A843106D9697706D2B02 /* PBXContainerItemProxy */;
 		};
+		760B5D26FCC2A38E576FC64B1F9A47BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FirebaseCoreInternal;
+			target = 25E9E9A17BC3F670357D7385C521E48E /* FirebaseCoreInternal */;
+			targetProxy = 3117FB433F0F0A8D697DAB14F3174362 /* PBXContainerItemProxy */;
+		};
+		76979A6BCB24BFE6C6B2CEECD8ABD193 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PromisesObjC;
+			target = 2BBF7206D7FAC92C82A042A99C4A98F8 /* PromisesObjC */;
+			targetProxy = FA2F0F805E44F9C12B9F3879F1190D48 /* PBXContainerItemProxy */;
+		};
 		76A901710747D2429A2E30D834567A87 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Nuke;
 			target = 062A64896E847A6749F58B6BA9A931B1 /* Nuke */;
 			targetProxy = A948E0DD24C2297BD25EC10A3524E9A4 /* PBXContainerItemProxy */;
+		};
+		7D49A5BF2A02D8C6AC2844B2FF9A2E25 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = McPicker;
+			target = 9FB907AAFDB0530AEA6CA76A05AE3BBC /* McPicker */;
+			targetProxy = FD844C7F0941A93F3AB2AE30413B80F1 /* PBXContainerItemProxy */;
 		};
 		80C187503CF98E5F36050438F5D3EDA7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -7726,6 +8168,12 @@
 			name = GoogleUtilities;
 			target = 8D7F5D5DD528D21A72DC87ADA5B12E2D /* GoogleUtilities */;
 			targetProxy = 4F0B8F3BD8CB1854B1C745A34110CC66 /* PBXContainerItemProxy */;
+		};
+		8A7F37A96E4855C9F62FD34652F5AEC2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "TapFontKit-iOS";
+			target = F533AA510B62E4F3B56C094378F820D6 /* TapFontKit-iOS */;
+			targetProxy = 2EDA7BB319143D725B46DF50872B1B66 /* PBXContainerItemProxy */;
 		};
 		8CDC46627D437C9C1B061E493D066D92 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -7799,11 +8247,23 @@
 			target = 9FB907AAFDB0530AEA6CA76A05AE3BBC /* McPicker */;
 			targetProxy = 4EC62B5F205087ECF4D3E2AB9BB7B9A2 /* PBXContainerItemProxy */;
 		};
+		9E182E2910A808547697E3189D17FD68 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TapSwiftFixesV2;
+			target = E216967D71699A6EF43A16A4B8B6D624 /* TapSwiftFixesV2 */;
+			targetProxy = 2DAA8A1E083CC1F534C2B9F70A185A5D /* PBXContainerItemProxy */;
+		};
 		9F79D2402E952011F55A82A78C933428 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = PromisesObjC;
 			target = 2BBF7206D7FAC92C82A042A99C4A98F8 /* PromisesObjC */;
 			targetProxy = 24D63BB3DD833EAE54753954C2105E1B /* PBXContainerItemProxy */;
+		};
+		A1476CA6987E2814F68259FBB45AA97A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = nanopb;
+			target = D2B5E7DCCBBFB32341D857D01211A1A3 /* nanopb */;
+			targetProxy = 465FEF619C6502B86C4B76C087639D65 /* PBXContainerItemProxy */;
 		};
 		A414D38EE078E8FAF0D2DB362918B61B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -7822,6 +8282,12 @@
 			name = FirebaseCoreDiagnostics;
 			target = 620E05868772C10B4920DC7E324F2C87 /* FirebaseCoreDiagnostics */;
 			targetProxy = 6D86DCE5E23F1C0AD92E2DE99571CF5A /* PBXContainerItemProxy */;
+		};
+		A4B1583A5EA7E8B193CBADF0EAF79153 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PullUpController;
+			target = 1CF0AD6C5098A55AD7DF9645E42E09E7 /* PullUpController */;
+			targetProxy = A58FFB971C747E2811B90CE250076CD8 /* PBXContainerItemProxy */;
 		};
 		A7E2AEE8EAFEE5C691FF0A715ACB98A4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -7853,11 +8319,29 @@
 			target = 25E9E9A17BC3F670357D7385C521E48E /* FirebaseCoreInternal */;
 			targetProxy = 7D31799CCC76CED6E33D551E8ED38575 /* PBXContainerItemProxy */;
 		};
+		B3DC2FEF90E4FFC9F0072A55D2CE6330 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FirebaseAnalytics;
+			target = C49E7A4D59E5C8BE8DE9FB1EFB150185 /* FirebaseAnalytics */;
+			targetProxy = 9D837EB102CDB36AA5CDBEF5058C9F73 /* PBXContainerItemProxy */;
+		};
 		B8F1459F182A947837BDC8EF50190421 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SnapKit;
 			target = 19622742EBA51E823D6DAE3F8CDBFAD4 /* SnapKit */;
 			targetProxy = A6FCBCBA54A21A0D0A6309E4E833C63E /* PBXContainerItemProxy */;
+		};
+		BC92515CB5D8314228C4B2755C246144 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Nuke;
+			target = 062A64896E847A6749F58B6BA9A931B1 /* Nuke */;
+			targetProxy = D7E592C56C2AC05645693D0C637A3F94 /* PBXContainerItemProxy */;
+		};
+		BDFF7D2019DABD0A654346CB2E486B85 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftyRSA;
+			target = 92A1C13902E7ACDA3ABB5BA1FEACC86C /* SwiftyRSA */;
+			targetProxy = D680E0D495A43D7E22D87CE1F9A7AC5A /* PBXContainerItemProxy */;
 		};
 		BE2B0744D2C435C335AC96926411243C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -7900,6 +8384,12 @@
 			name = FirebaseAnalytics;
 			target = C49E7A4D59E5C8BE8DE9FB1EFB150185 /* FirebaseAnalytics */;
 			targetProxy = 229C8A211800C83DBC916C0F77109867 /* PBXContainerItemProxy */;
+		};
+		CCA8F454F5C165437BF1B238BCD6A5F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GoogleUtilities;
+			target = 8D7F5D5DD528D21A72DC87ADA5B12E2D /* GoogleUtilities */;
+			targetProxy = B51AD3D2C59EA22A56B052FBE0B8B5E7 /* PBXContainerItemProxy */;
 		};
 		CE163826A5DB3548885F6E4325093434 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -7991,6 +8481,12 @@
 			target = B53D977A951AFC38B21751B706C1DF83 /* GoogleAppMeasurement */;
 			targetProxy = 606698DD9DC08012DDBA7A659891492E /* PBXContainerItemProxy */;
 		};
+		F2968B8E9905C4D91CA61FD8C014709F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FirebaseInstallations;
+			target = 87803597EB3F20FC46472B85392EC4FD /* FirebaseInstallations */;
+			targetProxy = D5A5AB2F1BCF312824D0D6B3997EEB63 /* PBXContainerItemProxy */;
+		};
 		F3EAEFD4AD5F912808B3ED4F7A3979CC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = nanopb;
@@ -8002,6 +8498,12 @@
 			name = TapSwiftFixesV2;
 			target = E216967D71699A6EF43A16A4B8B6D624 /* TapSwiftFixesV2 */;
 			targetProxy = 911DC0CF239574812319EAA977708A8D /* PBXContainerItemProxy */;
+		};
+		F584C848ED3F141519ABE61A2C6BAFA7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "TapCardScanner-iOS";
+			target = A69E391A11C234F827CD955C6FE288C0 /* TapCardScanner-iOS */;
+			targetProxy = 74BAD95604C0D4D99B6EEF24088EF462 /* PBXContainerItemProxy */;
 		};
 		F59055A48FA3AA7F3C429C55ADF72B6C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -8574,7 +9076,7 @@
 		};
 		3718E276BF2325A47B5E59458CB33165 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 952546FA1A6E4B5E717E367B88E47A4B /* Pods-TapCardCheckoutExample.debug.xcconfig */;
+			baseConfigurationReference = 8C924A95AD4040E04D423EB29E13BB0A /* Pods-TapCardCheckoutExample.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -8973,9 +9475,47 @@
 			};
 			name = Debug;
 		};
+		685EB4CEC416D0679FC806796AD87DA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8442F19F8B3B4B0ADECD6965D097F9A /* Pods-TapCardCheckoutExampleObjc.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-TapCardCheckoutExampleObjc/Pods-TapCardCheckoutExampleObjc-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TapCardCheckoutExampleObjc/Pods-TapCardCheckoutExampleObjc.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		6C035397BA6252F5CCD7115F5093BBD1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F06E1ABC124BC115E4F9922BD254B378 /* Pods-TapCardCheckOutKit.release.xcconfig */;
+			baseConfigurationReference = D7EC85E7BA59191ACE4BB29A952E33C6 /* Pods-TapCardCheckOutKit.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -9454,9 +9994,46 @@
 			};
 			name = Release;
 		};
+		A100B104CF08391A3B00C51A5D5893C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68362D10006E88260A830927B5447B27 /* Pods-TapCardCheckoutExampleObjc.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-TapCardCheckoutExampleObjc/Pods-TapCardCheckoutExampleObjc-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TapCardCheckoutExampleObjc/Pods-TapCardCheckoutExampleObjc.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		A4081EFFC163E779ACD6D77CDB3A5B54 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8CB58ACFFEF6758EFCA423054621AE02 /* Pods-TapCardCheckOutKit.debug.xcconfig */;
+			baseConfigurationReference = 03F31A3286D79450AADD7D06262048C6 /* Pods-TapCardCheckOutKit.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -10270,7 +10847,7 @@
 		};
 		FE3F46EC4A66C01DF8B80492C952C3CB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 641FA1661DA68D55B26FDCBF984DD1F8 /* Pods-TapCardCheckoutExample.release.xcconfig */;
+			baseConfigurationReference = A7BAD23694219A7A2DDB90AAE6DFD8BA /* Pods-TapCardCheckoutExample.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -10575,6 +11152,15 @@
 			buildConfigurations = (
 				E1FDE256C76C44829DFDC1130A96D0CE /* Debug */,
 				1ECF7893E6259821A6FB3A2F379F91F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F4B7402B5815AF2B178D5FAF94318F65 /* Build configuration list for PBXNativeTarget "Pods-TapCardCheckoutExampleObjc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A100B104CF08391A3B00C51A5D5893C5 /* Debug */,
+				685EB4CEC416D0679FC806796AD87DA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

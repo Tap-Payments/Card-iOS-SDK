@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "TapCardiOSSDK"
-  spec.version      = "0.0.25"
+  spec.version      = "0.0.26"
   spec.summary      = "From the shelf PCI compliant card entry forum."
 
   # This description is used to generate tags and improve search results.
@@ -89,7 +89,7 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "TapCardCheckOutKit/TapCardCheckOutKit/Core/Logic/**/*.{swift,h,m}"
+  spec.source_files  = "TapCardiOSSDK/TapCardCheckOutKit/Core/Logic/**/*.{swift,h,m}"
   spec.exclude_files = "Classes/Exclude"
 
   # spec.public_header_files = "Classes/**/*.h"
@@ -104,7 +104,7 @@ Pod::Spec.new do |spec|
   #
 
   # spec.resource  = "icon.png"
-  spec.resources = "TapCardCheckOutKit/TapCardCheckOutKit/Core/Assets/**/*.{json,xib,pdf,png,gif,plist}"
+  spec.resources = "TapCardiOSSDK/TapCardCheckOutKit/Core/Assets/**/*.{json,xib,pdf,png,gif,plist}"
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 

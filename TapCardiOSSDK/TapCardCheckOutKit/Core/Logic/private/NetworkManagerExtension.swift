@@ -52,10 +52,6 @@ internal extension NetworkManager {
         
         var applicationDetails = NetworkManager.applicationStaticDetails()
         
-        let localeIdentifier = TapLocalisationManager.shared.localisationLocale ?? "en"
-        
-        applicationDetails[Constants.HTTPHeaderValueKey.appLocale] = localeIdentifier
-        
         if let deviceID = KeychainManager.deviceID {
             
             applicationDetails[Constants.HTTPHeaderValueKey.deviceID] = deviceID
@@ -83,9 +79,25 @@ internal extension NetworkManager {
          fatalError("Application must have bundle identifier in order to use goSellSDK.")
          }*/
         
+        let headersEncryptionKey:String = """
+-----BEGIN PUBLIC KEY-----
+MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC8AX++RtxPZFtns4XzXFlDIxPB
+h0umN4qRXZaKDIlb6a3MknaB7psJWmf2l+e4Cfh9b5tey/+rZqpQ065eXTZfGCAu
+BLt+fYLQBhLfjRpk8S6hlIzc1Kdjg65uqzMwcTd0p7I4KLwHk1I0oXzuEu53fU1L
+SZhWp4Mnd6wjVgXAsQIDAQAB
+-----END PUBLIC KEY-----
+"""
+        
         let bundleID = "tap.TapCardCheckoutExample"
         
         let sdkPlistInfo = TapBundlePlistInfo(bundle: Bundle(for: NetworkManager.self))
+        let mainAppBundle = TapBundlePlistInfo(bundle: .main)
+        
+        let localeIdentifier = TapLocalisationManager.shared.localisationLocale ?? "en"
+        
+        
+        let appVersion = mainAppBundle.shortVersionString ?? ""
+        let appName = mainAppBundle.bundleName ?? ""
         
         guard let requirerVersion = sdkPlistInfo.shortVersionString, !requirerVersion.isEmpty else {
             
@@ -116,18 +128,20 @@ internal extension NetworkManager {
         
         
         let result: [String: String] = [
-            
-            Constants.HTTPHeaderValueKey.appID: bundleID,
+            Constants.HTTPHeaderValueKey.appID: Crypter.encrypt(bundleID, using: headersEncryptionKey) ?? bundleID,
+            Constants.HTTPHeaderValueKey.appLocale: Crypter.encrypt(localeIdentifier, using: headersEncryptionKey) ?? localeIdentifier,
+            Constants.HTTPHeaderValueKey.appName: Crypter.encrypt(appName, using: headersEncryptionKey) ?? appName,
+            Constants.HTTPHeaderValueKey.appVersion: Crypter.encrypt(appVersion, using: headersEncryptionKey) ?? appVersion,
             Constants.HTTPHeaderValueKey.requirer: Constants.HTTPHeaderValueKey.requirerValue,
             Constants.HTTPHeaderValueKey.requirerVersion: requirerVersion,
-            Constants.HTTPHeaderValueKey.requirerOS: osName,
-            Constants.HTTPHeaderValueKey.requirerOSVersion: osVersion,
-            Constants.HTTPHeaderValueKey.requirerDeviceName: deviceNameFiltered,
-            Constants.HTTPHeaderValueKey.requirerDeviceType: deviceType,
-            Constants.HTTPHeaderValueKey.requirerDeviceModel: deviceModel,
+            Constants.HTTPHeaderValueKey.requirerOS: Crypter.encrypt(osName, using: headersEncryptionKey) ?? osName,
+            Constants.HTTPHeaderValueKey.requirerOSVersion: Crypter.encrypt(osVersion, using: headersEncryptionKey) ?? osVersion,
+            Constants.HTTPHeaderValueKey.requirerDeviceName: Crypter.encrypt(deviceNameFiltered, using: headersEncryptionKey) ?? deviceNameFiltered,
+            Constants.HTTPHeaderValueKey.requirerDeviceType: Crypter.encrypt(deviceType, using: headersEncryptionKey) ?? deviceType,
+            Constants.HTTPHeaderValueKey.requirerDeviceModel: Crypter.encrypt(deviceModel, using: headersEncryptionKey) ?? deviceModel,
             Constants.HTTPHeaderValueKey.requirerSimNetworkName: simNetWorkName ?? "",
             Constants.HTTPHeaderValueKey.requirerSimCountryIso: simCountryISO ?? "",
-            Constants.HTTPHeaderValueKey.requirerDeviceManufacturer: "Apple",
+            Constants.HTTPHeaderValueKey.requirerDeviceManufacturer: Crypter.encrypt("Apple", using: headersEncryptionKey) ?? "Apple",
         ]
         
         return result
@@ -157,21 +171,23 @@ internal extension NetworkManager {
         
         fileprivate struct HTTPHeaderValueKey {
             
-            fileprivate static let appID                        = "app_id"
-            fileprivate static let appLocale                    = "app_locale"
+            fileprivate static let appID                        = "aid"
+            fileprivate static let appLocale                    = "al"
+            fileprivate static let appVersion                   = "av"
+            fileprivate static let appName                      = "an"
             fileprivate static let deviceID                     = "device_id"
             fileprivate static let requirer                     = "requirer"
-            fileprivate static let requirerOS                   = "requirer_os"
-            fileprivate static let requirerOSVersion            = "requirer_os_version"
+            fileprivate static let requirerOS                   = "ro"
+            fileprivate static let requirerOSVersion            = "rov"
             fileprivate static let requirerValue                = "SDK"
             fileprivate static let requirerVersion              = "requirer_version"
-            fileprivate static let requirerDeviceName           = "requirer_device_name"
-            fileprivate static let requirerDeviceType           = "requirer_device_type"
-            fileprivate static let requirerDeviceModel          = "requirer_device_model"
+            fileprivate static let requirerDeviceName           = "rn"
+            fileprivate static let requirerDeviceType           = "rt"
+            fileprivate static let requirerDeviceModel          = "rm"
             fileprivate static let requirerSimNetworkName       = "requirer_sim_network_name"
             fileprivate static let requirerSimCountryIso        = "requirer_sim_country_iso"
             fileprivate static let jsonContentTypeHeaderValue   = "application/json"
-            fileprivate static let requirerDeviceManufacturer   = "requirer_device_manufacturer"
+            fileprivate static let requirerDeviceManufacturer   = "rb"
             
             //@available(*, unavailable) private init() { }
         }

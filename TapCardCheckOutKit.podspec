@@ -15,8 +15,8 @@ Pod::Spec.new do |spec|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  spec.name         = "TapCardCheckOutKit"
-  spec.version      = "0.0.24"
+  spec.name         = "TapCardiOSSDK"
+  spec.version      = "0.0.25"
   spec.summary      = "From the shelf PCI compliant card entry forum."
 
   # This description is used to generate tags and improve search results.
@@ -26,7 +26,7 @@ Pod::Spec.new do |spec|
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   spec.description  = "A drag and drop solution to tokenize cards while being PCI compliant through Tap's system."
 
-  spec.homepage     = "https://github.com/Tap-Payments/TapCardCheckOutKit"
+  spec.homepage     = "https://github.com/Tap-Payments/Card-iOS-SDK"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 

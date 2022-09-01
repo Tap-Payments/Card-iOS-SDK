@@ -65,7 +65,7 @@ class DempSettingsViewController: UIViewController, CreateCustomerDelegate {
         // Override point for customization after application launch.
         let cardDataConfig:TapCardDataConfiguration = .init(sdkMode: .sandbox, localeIdentifier: "en", secretKey: .init(sandbox: "sk_test_yKOxBvwq3oLlcGS6DagZYHM2", production: "sk_live_V4UDhitI0r7sFwHCfNB6xMKp"))
         
-        TapCardForumConfiguration.shared.configure(dataConfig: cardDataConfig, customLocalisation: .init(with: Bundle.main.url(forResource: "CustomLocalisation", withExtension: "json"), from: .LocalJsonFile, localeIdentifier: "en")) {
+        TapCardForumConfiguration.shared.configure(dataConfig: cardDataConfig) {
             DispatchQueue.main.async { [weak self] in
                 self?.loadingIndicator.isHidden = true
             }

@@ -943,11 +943,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 26;
+				CURRENT_PROJECT_VERSION = 29;
 				DEVELOPMENT_TEAM = G46S76PUH4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TapCardCheckoutExample/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "This application uses Camera to scan credit cards";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need it to scan a card :)";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -978,11 +978,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 26;
+				CURRENT_PROJECT_VERSION = 29;
 				DEVELOPMENT_TEAM = G46S76PUH4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TapCardCheckoutExample/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "This application uses Camera to scan credit cards";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need it to scan a card :)";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

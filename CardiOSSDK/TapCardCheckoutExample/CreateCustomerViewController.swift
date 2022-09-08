@@ -33,6 +33,17 @@ class CreateCustomerViewController: UIViewController {
     
 
     @IBAction func createCustomerClicked(_ sender: Any) {
+        let tempCountry:Country = try! .init(isoCode: "KW")
+        let tempAdddress:Address = .init(type:.residential,
+                                         country: tempCountry,
+                                         line1: "asdasd",
+                                         line2: "sadsadas",
+                                         line3: "2312323",
+                                         city: "Hawally",
+                                         state: "Kuwait",
+                                         zipCode: "30003"
+        )
+        
         // to add a customer whether he adds name + (email or phone) or the customer id
         if let customerID = customerIDTextField.text,
            !customerID.isEmpty {
@@ -48,10 +59,10 @@ class CreateCustomerViewController: UIViewController {
                 if let phoneText = phoneNumberTextField.text, let code = countryCodeTextField.text {
                     phone = try .init(isdNumber: code, phoneNumber: phoneText)
                 }
-                if let customer: TapCustomer = try .init(emailAddress: email, phoneNumber: phone, name: firstName) {
+                if let customer: TapCustomer = try .init(emailAddress: email, phoneNumber: phone, name: firstName, address: tempAdddress) {
                     UserDefaults.standard.set(try! PropertyListEncoder().encode(customer), forKey: "customerSevedKey")
                 }
-                customerDelegate?.customerCreated(customer: try .init(emailAddress: email, phoneNumber: phone, name: firstName))
+                customerDelegate?.customerCreated(customer: try .init(emailAddress: email, phoneNumber: phone, name: firstName, address: tempAdddress))
                 dismiss(animated: true)
             }catch {
                 if let nonNullerror:TapSDKKnownError = error as? TapSDKKnownError {

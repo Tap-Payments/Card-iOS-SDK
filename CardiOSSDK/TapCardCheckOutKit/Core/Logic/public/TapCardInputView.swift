@@ -14,8 +14,8 @@ import LocalisationManagerKit_iOS
 import TapUIKit_iOS
 import TapCardScanner_iOS
 import AVFoundation
-import FirebaseAnalytics
-import FirebaseCore
+//import FirebaseAnalytics
+//import FirebaseCore
 
 /// A protorocl to communicate with the three ds web view controller
 internal protocol ThreeDSViewControllerDelegate {
@@ -314,9 +314,9 @@ internal protocol ThreeDSViewControllerDelegate {
     /// Used as a consolidated method to do all the needed steps upon creating the view
     private func commonInit() {
         self.contentView = setupXIB()
-        if FirebaseApp.app() == nil {
+        /*if FirebaseApp.app() == nil {
             FirebaseApp.configure(options: FirebaseOptions(contentsOfFile: Bundle.current.path(forResource: "CardKitGoogle", ofType: "plist")!)!)
-        }
+        }*/
     }
     
     /// DOes the needed logic to fill in the card brands bar
@@ -461,7 +461,7 @@ internal protocol ThreeDSViewControllerDelegate {
         // Let us listen to the card input ui callbacks if needed
         tapCardInput.delegate = self
     }
-    
+     
     /// Handles logic needed to be done after changing the card data
     private func postCardDataChange() {
         // clear data upon needed
@@ -481,10 +481,10 @@ internal protocol ThreeDSViewControllerDelegate {
         // Check if the card type is an allowed one
         guard let binResponse = sharedNetworkManager.dataConfig.tapBinLookUpResponse else { return }
         
-        Analytics.logEvent("binResponse", parameters: [
+        /*Analytics.logEvent("binResponse", parameters: [
             "binNumber": binResponse.binNumber,
             "scheme": "\(binResponse.scheme?.cardBrand.rawValue ?? 0)"
-        ])
+        ])*/
         
         if allowedCardType == .All || binResponse.cardType.cardType == allowedCardType {
             // Then it is allowed to proceed on with it :)

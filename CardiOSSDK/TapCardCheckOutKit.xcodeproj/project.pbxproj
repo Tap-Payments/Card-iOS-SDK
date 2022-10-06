@@ -59,6 +59,7 @@
 		E8A5AF9228BCD07B00620427 /* CustomLightTheme.json in Resources */ = {isa = PBXBuildFile; fileRef = E832644227EA04A8005F3AAF /* CustomLightTheme.json */; };
 		E8A5AF9328BCD07B00620427 /* CustomDarkTheme.json in Resources */ = {isa = PBXBuildFile; fileRef = E832644427EA04C5005F3AAF /* CustomDarkTheme.json */; };
 		E8A5AF9428BCD7AC00620427 /* CustomLocalisation.json in Resources */ = {isa = PBXBuildFile; fileRef = E832644C27EA10FD005F3AAF /* CustomLocalisation.json */; };
+		E8ABA68F28EEA724000A9F73 /* TapCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ABA68E28EEA724000A9F73 /* TapCardViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,6 +165,7 @@
 		E8A5AF8528BCC15B00620427 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E8A5AF8F28BCC67D00620427 /* CardInputDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardInputDemoViewController.h; sourceTree = "<group>"; };
 		E8A5AF9028BCC67D00620427 /* CardInputDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardInputDemoViewController.m; sourceTree = "<group>"; };
+		E8ABA68E28EEA724000A9F73 /* TapCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,6 +301,7 @@
 				E874F803288585B70067DB3E /* DempSettingsViewController.swift */,
 				E874F805288586C50067DB3E /* ConfigurationSharedManager.swift */,
 				E84809182899973F003FDF34 /* NetworkCallsLogsViewController.swift */,
+				E8ABA68E28EEA724000A9F73 /* TapCardViewController.swift */,
 			);
 			path = TapCardCheckoutExample;
 			sourceTree = "<group>";
@@ -473,7 +476,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1330;
-				LastUpgradeCheck = 1330;
+				LastUpgradeCheck = 1340;
 				TargetAttributes = {
 					E83262E027E88B6E005F3AAF = {
 						CreatedOnToolsVersion = 13.3;
@@ -681,6 +684,7 @@
 				E874F806288586C50067DB3E /* ConfigurationSharedManager.swift in Sources */,
 				E84809192899973F003FDF34 /* NetworkCallsLogsViewController.swift in Sources */,
 				E83262F827E88C6F005F3AAF /* AppDelegate.swift in Sources */,
+				E8ABA68F28EEA724000A9F73 /* TapCardViewController.swift in Sources */,
 				E874F804288585B70067DB3E /* DempSettingsViewController.swift in Sources */,
 				E89B998128940B0900B03726 /* CreateCustomerViewController.swift in Sources */,
 				E83262FA27E88C6F005F3AAF /* SceneDelegate.swift in Sources */,
@@ -1008,6 +1012,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5618EC97EA446F613F27137D /* Pods-TapCardCheckoutExampleObjc.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -1037,6 +1042,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 948F72CB1B0B868F900D896E /* Pods-TapCardCheckoutExampleObjc.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;

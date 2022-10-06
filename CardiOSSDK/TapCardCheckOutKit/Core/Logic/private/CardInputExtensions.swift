@@ -114,11 +114,20 @@ extension TapCardInputView:TapWebViewModelDelegate {
 
 
 extension TapCardInputView : TapCardInputProtocol {
-    public func cardDataChanged(tapCard: TapCard) {
+
+    public func closeSavedCard() {
+        
+    }
+    
+    public func heightChanged() {
+        
+    }
+    
+    public func cardDataChanged(tapCard: TapCard,cardStatusUI:CardInputUIStatus) {
         currentTapCard = tapCard
     }
     
-    public func brandDetected(for cardBrand: CardBrand, with validation: CrardInputTextFieldStatusEnum) {
+    public func brandDetected(for cardBrand: CardBrand, with validation: CrardInputTextFieldStatusEnum,cardStatusUI:CardInputUIStatus) {
         self.cardBrand = cardBrand
         self.validation = validation
     }
@@ -156,7 +165,7 @@ extension TapCardInputView: TapCreditCardScannerViewControllerDelegate {
         viewController.dismiss(animated: true,completion: {
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(0), execute: {
                 [weak self] in
-                self?.tapCardInput.setCardData(tapCard: .init(tapCardNumber: card.tapCardNumber,tapCardExpiryMonth: card.tapCardExpiryMonth, tapCardExpiryYear: card.tapCardExpiryYear),then: true)
+                self?.tapCardInput.setCardData(tapCard: .init(tapCardNumber: card.tapCardNumber,tapCardExpiryMonth: card.tapCardExpiryMonth, tapCardExpiryYear: card.tapCardExpiryYear),then: true, for: .NormalCard)
             })
         })
     }

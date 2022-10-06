@@ -636,6 +636,39 @@
             </objects>
             <point key="canvasLocation" x="1706" y="647"/>
         </scene>
+        <!--Tap Card View Controller-->
+        <scene sceneID="O3H-kg-oRP">
+            <objects>
+                <viewController id="4XG-jN-ntr" customClass="TapCardViewController" customModule="TapCardCheckoutExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="P7U-WJ-9AM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KcL-F8-mZZ" customClass="TapCardTelecomPaymentView" customModule="TapUIKit_iOS">
+                                <rect key="frame" x="0.0" y="332" width="414" height="232"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="250" constant="232" id="cRZ-sX-e7n"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="EB3-HJ-aeH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KcL-F8-mZZ" firstAttribute="leading" secondItem="EB3-HJ-aeH" secondAttribute="leading" id="1ts-UK-G73"/>
+                            <constraint firstItem="KcL-F8-mZZ" firstAttribute="centerY" secondItem="P7U-WJ-9AM" secondAttribute="centerY" id="XcJ-5J-0W1"/>
+                            <constraint firstItem="KcL-F8-mZZ" firstAttribute="centerX" secondItem="P7U-WJ-9AM" secondAttribute="centerX" id="h7P-wo-q6r"/>
+                            <constraint firstItem="EB3-HJ-aeH" firstAttribute="trailing" secondItem="KcL-F8-mZZ" secondAttribute="trailing" id="o5w-Xj-N5g"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tapCardInput" destination="KcL-F8-mZZ" id="x7W-Ve-0HL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="07I-gE-MSA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2436" y="810"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="labelColor">

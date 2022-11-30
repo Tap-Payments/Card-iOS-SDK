@@ -701,6 +701,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Save on demand"/>
                                 <connections>
+                                    <action selector="saveCardClicked:" destination="4XG-jN-ntr" eventType="touchUpInside" id="YTc-f7-LO6"/>
                                     <action selector="saveCardClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n4D-2w-Vsv"/>
                                 </connections>
                             </button>

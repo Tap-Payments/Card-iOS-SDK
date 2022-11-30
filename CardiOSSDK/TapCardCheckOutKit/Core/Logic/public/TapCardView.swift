@@ -40,6 +40,8 @@ internal protocol ThreeDSViewControllerDelegatee {
 
     @IBOutlet weak var cardView: TapCardTelecomPaymentView!
     @IBOutlet var contentView: UIView!
+    /// The webview model handler
+    private var webViewModel:TapWebViewModel = .init()
     /// Holds the latest detected card brand
     internal var cardBrand: CardBrand?
     /// Holds the latest validation status for the entered card data
@@ -50,6 +52,9 @@ internal protocol ThreeDSViewControllerDelegatee {
     }
     internal let tapCardTelecomPaymentViewModel: TapCardTelecomPaymentViewModel = .init()
     internal let tapCardPhoneListViewModel:TapCardPhoneBarListViewModel = .init()
+    /// The parent controller will be used to present the web view whenever a 3DS is required to save the card details
+    private var parentController:UIViewController?
+    
     /// A protorocl to communicate with the three ds web view controller
     internal var threeDSDelegate: ThreeDSViewControllerDelegatee?
     /// A delegate listens for needed actions and callbacks
@@ -199,6 +204,70 @@ internal protocol ThreeDSViewControllerDelegatee {
         
     }
     
+    
+    /**
+     Handles saving the current card data.
+     - Parameter customer: The customer to save the card with.
+     - Parameter parentController: The parent controller will be used to present the web view whenever a 3DS is required to save the card details
+     - Parameter metadata: Metdata object will be a representation of [String:String] dictionary to be used whenever such a common model needed
+     - Parameter enforce3DS: Should we always ask for 3ds while saving the card. Default is true
+     - Parameter onResponeReady: A callback to listen when a the save card is finished successfully. Will provide all the details about the saved card data
+     - Parameter onErrorOccured: A callback to listen when tokenization fails.
+     - Parameter on3DSWebViewWillAppear: A callback to tell the consumer app the 3ds web view will start
+     - Parameter on3DSWebViewDismissed: A callback to tell he consumer app the 3ds web view is over
+     */
+    @objc public func saveCard(customer:TapCustomer, parentController:UIViewController,
+                               metadata:TapMetadata? = nil,
+                               enforce3DS:Bool = true,
+                               onResponeReady: @escaping (TapCreateCardVerificationResponseModel) -> () = {_ in},
+                               onErrorOccured: @escaping(Error?,TapCreateCardVerificationResponseModel?,CardFieldsValidity)->() = { _,_,_ in},
+                               on3DSWebViewWillAppear: @escaping()->() = {},
+                               on3DSWebViewDismissed: @escaping()->() = {}) {
+        
+        
+        let (cardNumberValidationStatus, cardExpiryValidationStatus, cardCVVValidationStatus, cardNameValidationStatus) = cardView.cardInputView.fieldsValidationStatuses()
+        
+        let cardFieldsValidity = CardFieldsValidity(cardNumberValidationStatus: cardNumberValidationStatus, cardExpiryValidationStatus: cardExpiryValidationStatus, cardCVVValidationStatus: cardCVVValidationStatus, cardNameValidationStatus: cardNameValidationStatus)
+        // Check that the card kit is already initilzed
+        guard let _ = sharedNetworkManager.dataConfig.sdkSettings else {
+            onErrorOccured("You have to call the initCardForm method first. This allows the card form to get the data needed to communicate with Tap's backend apis.",nil,cardFieldsValidity)
+            return
+        }
+        // Check that the user entered a valid card data first
+        guard let nonNullCard = currentTapCard,
+              validation == .Valid,
+              allFieldsAreValid(),
+              let nonNullTokenizeCard:CreateTokenCard = try? .init(card: nonNullCard, address: nil) else {
+            onErrorOccured("The user didn't enter a valid card data to save it. Please prompt the user to do so first.",nil,cardFieldsValidity)
+            return
+        }
+        self.parentController = parentController
+        // clear previous needed data
+        sharedNetworkManager.dataConfig.cardVerify = nil
+        // save to be needed data
+        sharedNetworkManager.dataConfig.transactionCustomer = customer
+        sharedNetworkManager.dataConfig.metadata = metadata
+        sharedNetworkManager.dataConfig.enfroce3DS = enforce3DS
+        sharedNetworkManager.dataConfig.onResponeSaveCardReady = { [weak self] card in
+            self?.tapCardInputDelegate?.eventHappened(with: .SaveCardEnded)
+            onResponeReady(card)
+        }
+        sharedNetworkManager.dataConfig.onErrorSaveCardOccured = { [weak self] error, card in
+            self?.tapCardInputDelegate?.eventHappened(with: .SaveCardEnded)
+            onErrorOccured(error, card,cardFieldsValidity)
+        }
+        tapCardInputDelegate?.eventHappened(with: .SaveCardStarted)
+        // To save a card we need to tokenize it first
+        sharedNetworkManager.callCardTokenAPI(cardTokenRequestModel: TapCreateTokenWithCardDataRequest(card: nonNullTokenizeCard),onResponeReady: { cardToken in
+            // Now let us verify the card first
+            sharedNetworkManager.handleTokenCardSave(with: cardToken) { [weak self] redirectionURL in
+                self?.showWebView(with: redirectionURL)
+            }
+        }) { error in
+            onErrorOccured(error,nil,cardFieldsValidity)
+        }
+    }
+    
     /// Used as a consolidated method to do all the needed steps upon creating the view
     private func commonInit() {
         self.contentView = setupXIB()
@@ -341,11 +410,39 @@ internal protocol ThreeDSViewControllerDelegatee {
     }
     
     
+    /**
+     Handles the logic to display a UIWebview with a given url
+     - Parameter with url: The url to be displayed
+     */
+    private func showWebView(with url:URL) {
+        // make sure we have a parent controller to navigate with
+        guard let nonNullParentController : UIViewController = parentController else {
+            sharedNetworkManager.dataConfig.onErrorSaveCardOccured("To save a card, you need to tell us what is the parent UIViewController to start the 3ds process with",nil)
+            return
+        }
+        
+        self.tapCardInputDelegate?.eventHappened(with: .ThreeDSStarter)
+        webViewModel = .init()
+        webViewModel.delegate = self
+        
+        let tapViewController = TapWebViewController.init(nibName: "TapWebViewController", bundle: Bundle.current)
+        self.threeDSDelegate = tapViewController
+        
+        DispatchQueue.main.async { [weak self] in
+            nonNullParentController.present(tapViewController, animated: true) {
+                tapViewController.stackView.addArrangedSubview((self?.webViewModel.attachedView)!)
+                self?.webViewModel.load(with: url)
+            }
+        }
+    }
+    
+    
 }
 
 extension TapCardView:TapCardTelecomPaymentProtocol {
     public func saveCardChanged(for saveCardType: SaveCardType, to enabled: Bool) {
         print("Save card changed to: \(enabled)")
+        tapCardInputDelegate?.eventHappened(with: enabled ? .SaveCardEnabled : .SaveCardDisabled)
     }
     
     public func closeSavedCardClicked() {

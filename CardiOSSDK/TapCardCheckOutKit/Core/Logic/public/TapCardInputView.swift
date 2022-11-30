@@ -14,7 +14,7 @@ import LocalisationManagerKit_iOS
 import TapUIKit_iOS
 import TapCardScanner_iOS
 import AVFoundation
-//import FirebaseAnalytics
+/*//import FirebaseAnalytics
 //import FirebaseCore
 
 /// A protorocl to communicate with the three ds web view controller
@@ -542,3 +542,4 @@ internal protocol ThreeDSViewControllerDelegate {
 }
 
 // MARK:- Card Forum UI delegate
+*/

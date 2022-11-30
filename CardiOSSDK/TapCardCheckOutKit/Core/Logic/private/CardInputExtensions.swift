@@ -58,7 +58,7 @@ extension Bundle {
     }
 }
 
-extension TapCardInputView:TapWebViewModelDelegate {
+extension TapCardView:TapWebViewModelDelegate {
     
     public func willLoad(request: URLRequest) -> WKNavigationActionPolicy {
         // Double check, there is a url to load :)
@@ -113,45 +113,7 @@ extension TapCardInputView:TapWebViewModelDelegate {
 }
 
 
-extension TapCardInputView : TapCardInputProtocol {
-
-    public func closeSavedCard() {
-        
-    }
-    
-    public func heightChanged() {
-        
-    }
-    
-    public func cardDataChanged(tapCard: TapCard,cardStatusUI:CardInputUIStatus) {
-        currentTapCard = tapCard
-    }
-    
-    public func brandDetected(for cardBrand: CardBrand, with validation: CrardInputTextFieldStatusEnum,cardStatusUI:CardInputUIStatus) {
-        self.cardBrand = cardBrand
-        self.validation = validation
-    }
-    
-    public func scanCardClicked() {
-        self.tapCardInput.reset()
-        CardValidator.favoriteCardBrand = nil
-        showFullScanner()
-    }
-    
-    public func saveCardChanged(enabled: Bool) {
-        
-    }
-    
-    public func dataChanged(tapCard: TapCard) {
-        currentTapCard = tapCard
-    }
-    
-    public func shouldAllowChange(with cardNumber: String) -> Bool {
-        return true
-    }
-}
-
-extension TapCardInputView: TapCreditCardScannerViewControllerDelegate {
+extension TapCardView: TapCreditCardScannerViewControllerDelegate {
     public func creditCardScannerViewControllerDidCancel(_ viewController: TapFullScreenScannerViewController) {
         viewController.dismiss(animated: true)
     }
@@ -165,7 +127,7 @@ extension TapCardInputView: TapCreditCardScannerViewControllerDelegate {
         viewController.dismiss(animated: true,completion: {
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(0), execute: {
                 [weak self] in
-                self?.tapCardInput.setCardData(tapCard: .init(tapCardNumber: card.tapCardNumber,tapCardExpiryMonth: card.tapCardExpiryMonth, tapCardExpiryYear: card.tapCardExpiryYear),then: true, for: .NormalCard)
+                self?.cardView.cardInputView.setCardData(tapCard: .init(tapCardNumber: card.tapCardNumber,tapCardExpiryMonth: card.tapCardExpiryMonth, tapCardExpiryYear: card.tapCardExpiryYear),then: true, for: .NormalCard)
             })
         })
     }
@@ -173,7 +135,7 @@ extension TapCardInputView: TapCreditCardScannerViewControllerDelegate {
     
 }
 
-extension TapCardInputView: TapScannerDataSource {
+extension TapCardView: TapScannerDataSource {
     public func allowedCardBrands() -> [CardBrand] {
         return dataSource.map{ $0.associatedCardBrand }
     }

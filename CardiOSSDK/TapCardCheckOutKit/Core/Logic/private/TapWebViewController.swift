@@ -29,7 +29,7 @@ internal class TapWebViewController: UIViewController {
 }
 
 
-extension TapWebViewController: ThreeDSViewControllerDelegate {
+extension TapWebViewController: ThreeDSViewControllerDelegatee {
     func disimiss() {
         dismiss(animated: true)
     }

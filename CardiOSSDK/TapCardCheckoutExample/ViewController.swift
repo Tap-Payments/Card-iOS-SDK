@@ -9,7 +9,7 @@ import UIKit
 import TapCardCheckOutKit
 import CommonDataModelsKit_iOS
 
-class ViewController: UIViewController, TapCardInputDelegate {
+/*class ViewController: UIViewController, TapCardInputDelegate {
     func eventHappened(with event: CardKitEventType) {
         callbackTextView.text = "\(event.description)\n-------\n\(callbackTextView.text ?? "")"
     }
@@ -129,3 +129,4 @@ class ViewController: UIViewController, TapCardInputDelegate {
     
 }
 
+*/

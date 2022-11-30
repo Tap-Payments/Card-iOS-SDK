@@ -121,6 +121,7 @@ class DempSettingsViewController: UIViewController, CreateCustomerDelegate {
         //present(viewContoller, animated: true)
         
         let viewContoller:TapCardViewController = self.storyboard?.instantiateViewController(withIdentifier: "TapCardViewController") as! TapCardViewController
+        viewContoller.savedCustomer = savedCustomer
         present(viewContoller, animated: true)
     }
     

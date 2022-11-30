@@ -34,6 +34,7 @@ class TapCardViewController: UIViewController, TapCardInputDelegatee {
     @IBOutlet weak var tapCardView: TapCardView!
     @IBOutlet weak var callbackTextView: UITextView!
     @IBOutlet weak var currencySegment: UISegmentedControl!
+    var savedCustomer:TapCustomer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +71,39 @@ class TapCardViewController: UIViewController, TapCardInputDelegatee {
             self?.showAlert(title: "Error", message: "\(error.localizedDescription)\nAlso, tap card indicated the validity of the fields as follows :\nNumber: \(cardFieldsValidity.cardNumberValidationStatus)\nExpiry: \(cardFieldsValidity.cardExpiryValidationStatus)\nCVV: \(cardFieldsValidity.cardCVVValidationStatus)\nName: \(cardFieldsValidity.cardNameValidationStatus)")
         }
         
+    }
+    
+    
+    @IBAction func saveCardClicked(_ sender: Any) {
+        let alert:UIAlertController = .init(title: "3DS", message: "Always force 3ds?", preferredStyle: .alert)
+        alert.addAction(.init(title: "Yes", style: .destructive,handler: { [weak self] _ in
+            self?.startSavingCard(enforce3DS: true)
+        }))
+        alert.addAction(.init(title: "No when possible", style: .default,handler: { [weak self] _ in
+            self?.startSavingCard(enforce3DS: false)
+        }))
+        alert.addAction(.init(title: "Cancel", style: .cancel))
+        present(alert, animated: true)
+    }
+    
+    func  startSavingCard(enforce3DS:Bool = true) {
+        self.view.isUserInteractionEnabled = false
+        tapCardView.saveCard(customer: savedCustomer!, parentController: self, metadata: [:]) { [weak self] card in
+            print("HERE")
+            self?.view.isUserInteractionEnabled = true
+            UserDefaults.standard.set(try! PropertyListEncoder().encode(card.customer), forKey: "customerSevedKey")
+            self?.showAlert(title: "Card saved", message: "\(card.card.lastFourDigits)\n\(card.identifier)")
+        } onErrorOccured: { [weak self] error, card, cardFieldsValidity in
+            self?.view.isUserInteractionEnabled = true
+            if let error = error {
+                self?.showAlert(title: "Error", message: "\(error.localizedDescription)\nAlso, tap card indicated the validity of the fields as follows :\nNumber: \(cardFieldsValidity.cardNumberValidationStatus)\nExpiry: \(cardFieldsValidity.cardExpiryValidationStatus)\nCVV: \(cardFieldsValidity.cardCVVValidationStatus)\nName: \(cardFieldsValidity.cardNameValidationStatus)")
+            }else if let card = card,
+                     let response = card.response,
+                     let message = response.message,
+                     let errorCode = response.code {
+                self?.showAlert(title: "Card save status \(card.status.stringValue)", message: "Backend error message : \(message)\nWith code : \(errorCode)")
+            }
+        }
     }
     
     @IBAction func infoClicked(_ sender: Any) {

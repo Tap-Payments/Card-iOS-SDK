@@ -116,8 +116,11 @@ class DempSettingsViewController: UIViewController, CreateCustomerDelegate {
     // MARK: - The ui based events
     
     @IBAction func showCardFormClicked(_ sender: Any) {
-        let viewContoller:ViewController = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-        viewContoller.savedCustomer = savedCustomer
+        //let viewContoller:ViewController = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+        //viewContoller.savedCustomer = savedCustomer
+        //present(viewContoller, animated: true)
+        
+        let viewContoller:TapCardViewController = self.storyboard?.instantiateViewController(withIdentifier: "TapCardViewController") as! TapCardViewController
         present(viewContoller, animated: true)
     }
     

@@ -14,7 +14,7 @@ import TapThemeManager2020
 
 
 /// Represents a wrapper view that does the needed connections between cardtelecomBar, card input and telecom input
-@objc public class TapCardTelecomPaymentView: UIView {
+@IBDesignable @objc public class TapCardTelecomPaymentView: UIView {
     
     // MARK:- Internal variables
     /// last reported tap card
@@ -39,7 +39,7 @@ import TapThemeManager2020
     internal var saveCrdForTapView:TapInternalSaveCard = .init()
     
     /// The view model that has the needed payment options and data source to display the payment view
-    internal var tapCardPhoneListViewModel:TapCardPhoneBarListViewModel = .init() {
+    public var tapCardPhoneListViewModel:TapCardPhoneBarListViewModel = .init() {
         didSet {
             // Setup the bar view with the passed payment options list
             tapCardPhoneListView.setupView(with: tapCardPhoneListViewModel)
@@ -51,7 +51,11 @@ import TapThemeManager2020
     }
     
     /// The view model that controls the wrapper view
-    internal var viewModel:TapCardTelecomPaymentViewModel?
+    public var viewModel:TapCardTelecomPaymentViewModel?{
+        didSet{
+            viewModel?.tapCardTelecomPaymentView = self
+        }
+    }
     
     /// Used to collect any reactive garbage
     internal var hintStatus:TapHintViewStatusEnum? {

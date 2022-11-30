@@ -10,8 +10,6 @@ import TapUIKit_iOS
 
 class TapCardViewController: UIViewController {
     
-    @IBOutlet weak var tapCardInput: TapCardTelecomPaymentView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

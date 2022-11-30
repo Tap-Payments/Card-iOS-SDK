@@ -38,6 +38,8 @@
 		E848091728998D49003FDF34 /* CardFieldsValidity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E848091628998D49003FDF34 /* CardFieldsValidity.swift */; };
 		E84809192899973F003FDF34 /* NetworkCallsLogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84809182899973F003FDF34 /* NetworkCallsLogsViewController.swift */; };
 		E8503AA72896512200D1B8B0 /* CardKitGoogle.plist in Resources */ = {isa = PBXBuildFile; fileRef = E8503AA62896512200D1B8B0 /* CardKitGoogle.plist */; };
+		E858E294293737DA003234B4 /* TapCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858E293293737DA003234B4 /* TapCardView.swift */; };
+		E858E296293737E6003234B4 /* TapCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E858E295293737E6003234B4 /* TapCardView.xib */; };
 		E86217BE28F00E9400EAAFA6 /* TestNewUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86217BD28F00E9400EAAFA6 /* TestNewUIViewController.swift */; };
 		E86217C028F0102D00EAAFA6 /* TapCardKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86217BF28F0102D00EAAFA6 /* TapCardKit.swift */; };
 		E874F804288585B70067DB3E /* DempSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874F803288585B70067DB3E /* DempSettingsViewController.swift */; };
@@ -145,6 +147,8 @@
 		E848091628998D49003FDF34 /* CardFieldsValidity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFieldsValidity.swift; sourceTree = "<group>"; };
 		E84809182899973F003FDF34 /* NetworkCallsLogsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCallsLogsViewController.swift; sourceTree = "<group>"; };
 		E8503AA62896512200D1B8B0 /* CardKitGoogle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CardKitGoogle.plist; sourceTree = "<group>"; };
+		E858E293293737DA003234B4 /* TapCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCardView.swift; sourceTree = "<group>"; };
+		E858E295293737E6003234B4 /* TapCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TapCardView.xib; sourceTree = "<group>"; };
 		E86217BD28F00E9400EAAFA6 /* TestNewUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNewUIViewController.swift; sourceTree = "<group>"; };
 		E86217BF28F0102D00EAAFA6 /* TapCardKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCardKit.swift; sourceTree = "<group>"; };
 		E874F803288585B70067DB3E /* DempSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DempSettingsViewController.swift; sourceTree = "<group>"; };
@@ -262,6 +266,7 @@
 				E8503AA62896512200D1B8B0 /* CardKitGoogle.plist */,
 				E832631527E8993C005F3AAF /* Theme.json */,
 				E832630F27E89420005F3AAF /* TapCardInputView.xib */,
+				E858E295293737E6003234B4 /* TapCardView.xib */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -281,6 +286,7 @@
 		E83262F027E88BF2005F3AAF /* public */ = {
 			isa = PBXGroup;
 			children = (
+				E858E293293737DA003234B4 /* TapCardView.swift */,
 				E832631127E89435005F3AAF /* TapCardInputView.swift */,
 				E832644E27EA20F3005F3AAF /* TapCardForumConfiguration.swift */,
 				E86217BF28F0102D00EAAFA6 /* TapCardKit.swift */,
@@ -520,6 +526,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E858E296293737E6003234B4 /* TapCardView.xib in Resources */,
 				E8503AA72896512200D1B8B0 /* CardKitGoogle.plist in Resources */,
 				E832631027E89420005F3AAF /* TapCardInputView.xib in Resources */,
 				E832631627E8993C005F3AAF /* Theme.json in Resources */,
@@ -677,6 +684,7 @@
 				E832631427E8950D005F3AAF /* CardInputExtensions.swift in Sources */,
 				E848091728998D49003FDF34 /* CardFieldsValidity.swift in Sources */,
 				E89B99792893A6E700B03726 /* NetworkManager+HandlingResponses.swift in Sources */,
+				E858E294293737DA003234B4 /* TapCardView.swift in Sources */,
 				E832644F27EA20F3005F3AAF /* TapCardForumConfiguration.swift in Sources */,
 				E89B997E2893C76B00B03726 /* TapWebViewController.swift in Sources */,
 				E832631227E89435005F3AAF /* TapCardInputView.swift in Sources */,

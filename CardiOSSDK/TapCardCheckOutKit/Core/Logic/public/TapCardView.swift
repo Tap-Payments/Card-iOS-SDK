@@ -14,8 +14,8 @@ import AVFoundation
 import TapCardVlidatorKit_iOS
 import LocalisationManagerKit_iOS
 import TapCardScanner_iOS
-
-
+import TapThemeManager2020
+import TapThemeManager2020
 
 /// A protorocl to communicate with the three ds web view controller
 internal protocol ThreeDSViewControllerDelegatee {
@@ -37,7 +37,9 @@ internal protocol ThreeDSViewControllerDelegatee {
 
 /// Represents the on the shelf card forum entry view
 @IBDesignable @objcMembers public class TapCardView: UIView {
-
+    /// Holds the last style theme applied
+    private var lastUserInterfaceStyle:UIUserInterfaceStyle = .light
+    
     @IBOutlet weak var cardView: TapCardTelecomPaymentView!
     /// Represents the main holding view
     @IBOutlet var contentView: UIView!
@@ -176,7 +178,7 @@ internal protocol ThreeDSViewControllerDelegatee {
      - Parameter onResponeReady: A callback to listen when a token is successfully generated
      - Parameter onErrorOccured: A callback to listen when tokenization fails with error message and the validity of all the card fields for your own interest
      */
-    @objc public func tokenizeCard(onResponeReady: @escaping (Token) -> () = {_ in}, onErrorOccured: @escaping(Error,CardFieldsValidity)->() = {_,_  in}) {
+    @objc public func tokenizeCard(onResponeReady: @escaping (CommonDataModelsKit_iOS.Token) -> () = {_ in}, onErrorOccured: @escaping(Error,CardFieldsValidity)->() = {_,_  in}) {
         // get the validity of all fields
         let (cardNumberValidationStatus, cardExpiryValidationStatus, cardCVVValidationStatus, cardNameValidationStatus) = cardView.cardInputView.fieldsValidationStatuses()
         
@@ -260,7 +262,8 @@ internal protocol ThreeDSViewControllerDelegatee {
             onErrorOccured(error, card,cardFieldsValidity)
         }
         tapCardInputDelegate?.eventHappened(with: .SaveCardStarted)
-        // To save a card we need to tokenize it first
+        showWebView(with: URL(string: "https://www.google.com")!)
+        /*// To save a card we need to tokenize it first
         sharedNetworkManager.callCardTokenAPI(cardTokenRequestModel: TapCreateTokenWithCardDataRequest(card: nonNullTokenizeCard),onResponeReady: { cardToken in
             // Now let us verify the card first
             sharedNetworkManager.handleTokenCardSave(with: cardToken) { [weak self] redirectionURL in
@@ -268,12 +271,13 @@ internal protocol ThreeDSViewControllerDelegatee {
             }
         }) { error in
             onErrorOccured(error,nil,cardFieldsValidity)
-        }
+        }*/
     }
     
     /// Used as a consolidated method to do all the needed steps upon creating the view
     private func commonInit() {
         self.contentView = setupXIB()
+        applyTheme()
     }
     
     /// Fetches the card forum view from the view model and add it to the parent view
@@ -498,3 +502,33 @@ extension TapCardView:TapCardTelecomPaymentProtocol {
         }
     }
 }
+
+
+
+
+extension TapCardView {
+    /// Consolidated one point to apply all needed theme methods
+    public func applyTheme() {
+        matchThemeAttributes()
+    }
+    
+    /// Match the UI attributes with the correct theming entries
+    private func matchThemeAttributes() {
+        
+        // background color
+        self.tap_theme_backgroundColor = ThemeUIColorSelector.init(keyPath: "horizontalList.backgroundColor")
+    }
+    
+    /// Listen to light/dark mde changes and apply the correct theme based on the new style
+    override public func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        TapThemeManager.changeThemeDisplay(for: self.traitCollection.userInterfaceStyle)
+        
+        guard lastUserInterfaceStyle != self.traitCollection.userInterfaceStyle else {
+            return
+        }
+        lastUserInterfaceStyle = self.traitCollection.userInterfaceStyle
+        applyTheme()
+    }
+}
+    

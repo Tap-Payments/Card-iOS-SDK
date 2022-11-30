@@ -110,6 +110,18 @@ class TapCardViewController: UIViewController, TapCardInputDelegatee {
         showAlert(title: "Clicking on actions", message: "This will simulate the case where the card form is embedded inside the consumer's app screen and\n at a point of time, the consumer app asked the card kit to do this certain function.\nThe card kit will execute the required task and will feedback the consumer app, to handle it in its own way.\nHence, making it as flexible as possible.")
     }
     
+    
+    
+    @IBAction func changeCurrency(_ sender: Any) {
+        switch currencySegment.selectedSegmentIndex {
+        case 0: tapCardView.updateTransactionCurrenct(to: .KWD)
+        case 1: tapCardView.updateTransactionCurrenct(to: .EGP)
+        case 2: tapCardView.updateTransactionCurrenct(to: .SAR)
+        default:
+            break
+        }
+    }
+    
     func showAlert(title:String, message:String) {
         DispatchQueue.main.async { [weak self] in
             let alert:UIAlertController = .init(title: title, message: message, preferredStyle: .alert)

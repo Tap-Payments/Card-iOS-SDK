@@ -39,6 +39,10 @@ internal protocol ThreeDSViewControllerDelegatee {
 @IBDesignable @objcMembers public class TapCardView: UIView {
     /// Holds the last style theme applied
     private var lastUserInterfaceStyle:UIUserInterfaceStyle = .light
+    /// The full scanner object that we will use to start scanning on demand
+    private var fullScanner:TapFullScreenScannerViewController?// = TapFullScreenScannerViewController(dataSource: self)
+    /// The ui customization to the full screen scanner borer color and to show a blut
+    private var tapScannerUICustomization:TapFullScreenUICustomizer? = .init()
     
     @IBOutlet weak var cardView: TapCardTelecomPaymentView!
     /// Represents the main holding view
@@ -108,9 +112,6 @@ internal protocol ThreeDSViewControllerDelegatee {
     
     /// Indicates whether ot not the card scanner. Default is false
     private var showCardScanner:Bool = false
-    
-    /// The ui customization to the full screen scanner borer color and to show a blut
-    private var tapScannerUICustomization:TapFullScreenUICustomizer? = .init()
     
     /// The UIViewController that will display the scanner into
     private var presentScannerInViewController:UIViewController?
@@ -209,6 +210,19 @@ internal protocol ThreeDSViewControllerDelegatee {
         
     }
     
+    
+    /**
+     Call this method to change the currency at run time. Please note that this will reset the card data and change the visible card brands.
+     - Parameter to currency: The new transaction currency
+     */
+    @objc public func updateTransactionCurrenct(to currency:TapCurrencyCode) {
+        // set the new currency
+        sharedNetworkManager.dataConfig.transactionCurrency = currency
+        // reset card form data
+        cardView.cardInputView.reset()
+        // reload the bar view
+        setupCardBrandsBarDataSource()
+    }
     
     /**
      Handles saving the current card data.
@@ -447,6 +461,28 @@ internal protocol ThreeDSViewControllerDelegatee {
     }
     
     
+    /// Handle the click on scan card by the user
+    internal func showFullScanner() {
+        // Make sure we have a UIViewcontroller to display the full screen scanner on
+        guard let presentScannerInViewController = presentScannerInViewController else {
+            return
+        }
+        
+        // First grant the authorization to use the camera
+        AVCaptureDevice.requestAccess(for: AVMediaType.video) { [weak self] response in
+            if response {
+                //access granted
+                DispatchQueue.main.async {[weak self] in
+                    self?.fullScanner = .init(delegate: self, uiCustomization: self?.tapScannerUICustomization ?? .init(), dataSource: self)
+                    presentScannerInViewController.present((self?.fullScanner)!, animated: true)
+                }
+            }else {
+                
+            }
+        }
+    }
+    
+    
 }
 
 extension TapCardView:TapCardTelecomPaymentProtocol {
@@ -496,7 +532,9 @@ extension TapCardView:TapCardTelecomPaymentProtocol {
             if response {
                 //access granted
                 DispatchQueue.main.asyncAfter(deadline: .now()) {[weak self] in
-                    //self?.showScanner()
+                    self?.cardView.cardInputView.reset()
+                    CardValidator.favoriteCardBrand = nil
+                    self?.showFullScanner()
                 }
             }
         }

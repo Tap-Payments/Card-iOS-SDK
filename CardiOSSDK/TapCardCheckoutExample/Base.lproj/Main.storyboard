@@ -179,7 +179,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Localisation : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oT9-Fr-sdV">
-                                <rect key="frame" x="20" y="54.5" width="104" height="21"/>
+                                <rect key="frame" x="20" y="55" width="104" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -269,7 +269,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i88-Xx-j99">
-                                <rect key="frame" x="189.5" y="265.5" width="192.5" height="34.5"/>
+                                <rect key="frame" x="189.5" y="266" width="192.5" height="34.5"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="All"/>
                                 <connections>
@@ -284,20 +284,20 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Customer :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0io-mY-wpM">
-                                <rect key="frame" x="20" y="322" width="83.5" height="21"/>
+                                <rect key="frame" x="20" y="322.5" width="83.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HLQ-KT-DUX">
-                                <rect key="frame" x="40" y="308" width="334" height="1"/>
+                                <rect key="frame" x="40" y="308.5" width="334" height="1"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="beO-tj-0Z9"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAJ-ah-1XT">
-                                <rect key="frame" x="123.5" y="315.5" width="258.5" height="34"/>
+                                <rect key="frame" x="123.5" y="316" width="258.5" height="34"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="cus_aosildjksjdjsad32"/>
                                 <connections>
@@ -305,13 +305,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card name :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOV-yU-sem">
-                                <rect key="frame" x="20" y="376.5" width="92" height="21"/>
+                                <rect key="frame" x="20" y="377" width="92" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qCx-2Y-ivs">
-                                <rect key="frame" x="40" y="362.5" width="334" height="1"/>
+                                <rect key="frame" x="40" y="363" width="334" height="1"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="UJL-Ki-kvs"/>
@@ -370,7 +370,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QvS-7e-69Y">
-                                <rect key="frame" x="206" y="520.5" width="176" height="34.5"/>
+                                <rect key="frame" x="206" y="521" width="176" height="34.5"/>
                                 <color key="tintColor" red="0.98431372549999996" green="0.0" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Green"/>
@@ -386,39 +386,39 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show inline brand icon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M6x-mP-cGt">
-                                <rect key="frame" x="20" y="572" width="172" height="21"/>
+                                <rect key="frame" x="20" y="572.5" width="172" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="T3j-eT-eFV">
-                                <rect key="frame" x="333" y="567" width="51" height="31"/>
+                                <rect key="frame" x="333" y="567.5" width="51" height="31"/>
                                 <connections>
                                     <action selector="showBrandIconSwitchChanged:" destination="Oqm-ex-1gl" eventType="valueChanged" id="pJq-vp-5iZ"/>
                                 </connections>
                             </switch>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jH5-3S-wOF">
-                                <rect key="frame" x="40" y="558" width="334" height="1"/>
+                                <rect key="frame" x="40" y="558.5" width="334" height="1"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="Yvn-e4-a0a"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom theme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nb7-dx-I4E">
-                                <rect key="frame" x="20" y="618" width="112" height="21"/>
+                                <rect key="frame" x="20" y="618.5" width="112" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0ZM-pM-l7y">
-                                <rect key="frame" x="333" y="613" width="51" height="31"/>
+                                <rect key="frame" x="333" y="613.5" width="51" height="31"/>
                                 <connections>
                                     <action selector="customThemeSwitchChanged:" destination="Oqm-ex-1gl" eventType="valueChanged" id="EQH-rc-BsV"/>
                                     <action selector="showBrandIconSwitchChanged:" destination="Oqm-ex-1gl" eventType="valueChanged" id="zqQ-Vn-qwe"/>
                                 </connections>
                             </switch>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="exd-aB-SjD">
-                                <rect key="frame" x="40" y="604" width="334" height="1"/>
+                                <rect key="frame" x="40" y="604.5" width="334" height="1"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="OsJ-5B-duE"/>
@@ -668,7 +668,7 @@
                                             <segment title="SAR"/>
                                         </segments>
                                         <connections>
-                                            <action selector="changeCurrency:" destination="BYZ-38-t0r" eventType="valueChanged" id="3Jk-DM-tk5"/>
+                                            <action selector="changeCurrency:" destination="4XG-jN-ntr" eventType="valueChanged" id="6a8-Qp-XiS"/>
                                         </connections>
                                     </segmentedControl>
                                 </subviews>

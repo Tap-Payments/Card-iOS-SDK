@@ -54,6 +54,7 @@ import TapThemeManager2020
     public var viewModel:TapCardTelecomPaymentViewModel?{
         didSet{
             viewModel?.tapCardTelecomPaymentView = self
+            cardInputView.showScanningOption = viewModel?.showScanner ?? true
         }
     }
     
@@ -82,7 +83,7 @@ import TapThemeManager2020
     /// Represents the tab bar that holds the list of segmented availble payment options
     @IBOutlet weak var tapCardPhoneListView: TapCardPhoneBarList!
     /// Represents the card input view
-    @IBOutlet weak var cardInputView: TapCardInput! {
+    @IBOutlet public weak var cardInputView: TapCardInput! {
         didSet {
             cardInputView.delegate = self
         }
@@ -274,7 +275,7 @@ import TapThemeManager2020
         // Reset the card input
         cardInputView.reset()
         // Re init the card input
-        cardInputView.setup(for: .InlineCardInput, showCardName: viewModel?.collectCardName ?? false, showCardBrandIcon: true, allowedCardBrands: tapCardPhoneListViewModel.dataSource.map{ $0.associatedCardBrand }.filter{ $0.brandSegmentIdentifier == "cards" }.map{ $0.rawValue }, cardsIconsUrls: tapCardPhoneListViewModel.generateBrandsWithIcons())
+        cardInputView.setup(for: .InlineCardInput, showCardName: viewModel?.collectCardName ?? false, showCardBrandIcon: true, allowedCardBrands: tapCardPhoneListViewModel.dataSource.map{ $0.associatedCardBrand }.filter{ $0.brandSegmentIdentifier == "cards" }.map{ $0.rawValue }, cardsIconsUrls: tapCardPhoneListViewModel.generateBrandsWithIcons(), preloadCardHolderName: viewModel?.preloadCardHolderName ?? "", editCardName: viewModel?.editCardName ?? true)
         // Reset any selection done on the bar layout
         tapCardPhoneListViewModel.resetCurrentSegment()
         lastReportedTapCard = .init()

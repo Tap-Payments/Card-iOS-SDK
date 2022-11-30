@@ -40,7 +40,7 @@ internal protocol ThreeDSViewControllerDelegate {
     /// Represents the main holding view
     @IBOutlet var contentView: UIView!
     /// Represents the UI part of the embedded card entry forum
-    @IBOutlet weak var tapCardInput: TapCardInput!
+    @IBOutlet public weak var tapCardInput: TapCardInput!
     /// Represents the UI part of showing the card brands bar
     @IBOutlet weak var tapCardPhoneListView: TapCardPhoneBarList!
         

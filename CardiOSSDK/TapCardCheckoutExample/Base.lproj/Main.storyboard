@@ -661,6 +661,9 @@
                             <constraint firstItem="EB3-HJ-aeH" firstAttribute="trailing" secondItem="KcL-F8-mZZ" secondAttribute="trailing" id="o5w-Xj-N5g"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tapCardView" destination="KcL-F8-mZZ" id="Iff-Ir-2TK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="07I-gE-MSA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -7,12 +7,17 @@
 
 import UIKit
 import TapUIKit_iOS
+import TapCardCheckOutKit
 
 class TapCardViewController: UIViewController {
     
+    @IBOutlet weak var tapCardView: TapCardView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tapCardView.setupCardForm(collectCardHolderName:true,
+                                  transactionCurrency:.SAR,
+                                  presentScannerInViewController: self,
+                                  preloadCardHolderName: "OSAMA")
         // Do any additional setup after loading the view.
     }
     

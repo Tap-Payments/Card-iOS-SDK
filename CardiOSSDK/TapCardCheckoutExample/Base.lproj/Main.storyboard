@@ -648,7 +648,7 @@
                                 <rect key="frame" x="0.0" y="109" width="414" height="158"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="158" id="cRZ-sX-e7n"/>
+                                    <constraint firstAttribute="height" priority="750" constant="158" id="cRZ-sX-e7n"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This label is part of merchant app" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKu-xr-djy">

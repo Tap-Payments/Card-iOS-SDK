@@ -133,8 +133,8 @@ class DempSettingsViewController: UIViewController, CreateCustomerDelegate {
         }
     }
     
-    @
-    IBAction func scannerBorderColorClicked(_ sender: Any) {
+    
+    @IBAction func scannerBorderColorClicked(_ sender: Any) {
         let localizationAlertController:UIAlertController = .init(title: "Border", message: "Select your preferred border scanner color", preferredStyle: .actionSheet)
         
         let colors:[UIColor] = [.blue,.black,.green,.red]

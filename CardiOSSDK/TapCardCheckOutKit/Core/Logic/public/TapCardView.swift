@@ -35,10 +35,11 @@ internal protocol ThreeDSViewControllerDelegatee {
     @objc func eventHappened(with event:CardKitEventType)
 }
 
-
+/// Represents the on the shelf card forum entry view
 @IBDesignable @objcMembers public class TapCardView: UIView {
 
     @IBOutlet weak var cardView: TapCardTelecomPaymentView!
+    /// Represents the main holding view
     @IBOutlet var contentView: UIView!
     /// The webview model handler
     private var webViewModel:TapWebViewModel = .init()
@@ -50,7 +51,9 @@ internal protocol ThreeDSViewControllerDelegatee {
             selectCorrectBrand()
         }
     }
+    /// Represents the view model for handling the card forum
     internal let tapCardTelecomPaymentViewModel: TapCardTelecomPaymentViewModel = .init()
+    /// Represents the view model for handling the card brands bar
     internal let tapCardPhoneListViewModel:TapCardPhoneBarListViewModel = .init()
     /// The parent controller will be used to present the web view whenever a 3DS is required to save the card details
     private var parentController:UIViewController?
@@ -273,23 +276,25 @@ internal protocol ThreeDSViewControllerDelegatee {
         self.contentView = setupXIB()
     }
     
-    
+    /// Fetches the card forum view from the view model and add it to the parent view
     private func addActualCardInputView() {
-        tapCardTelecomPaymentViewModel.collectCardName = self.collectCardHolderName
-        
+        // assign the view models
         tapCardTelecomPaymentViewModel.saveCardType = .Merchant
-        
         cardView.viewModel = tapCardTelecomPaymentViewModel
         cardView.tapCardPhoneListViewModel = tapCardPhoneListViewModel
     }
     
+    /// Creates the view models for the card brands bar and the card forum views
     private func createTabBarViewModel() {
+        // let us setup the card brands bar sources
         setupCardBrandsBarDataSource()
+        // pass the configurations passed from the caller app
         tapCardTelecomPaymentViewModel.collectCardName = collectCardHolderName
         tapCardTelecomPaymentViewModel.saveCardType = .None
         tapCardTelecomPaymentViewModel.showCardBrandsBar = showCardBrands
         tapCardTelecomPaymentViewModel.showScanner = showCardScanner
         tapCardTelecomPaymentViewModel.preloadCardHolderName = preloadCardHolderName
+        // Assign the delegates and the view models
         tapCardTelecomPaymentViewModel.delegate = self
         tapCardTelecomPaymentViewModel.tapCardPhoneListViewModel = tapCardPhoneListViewModel
         tapCardTelecomPaymentViewModel.changeTapCountry(to: .init(nameAR: "الكويت", nameEN: "Kuwait", code: "965", phoneLength: 8))
@@ -401,6 +406,7 @@ internal protocol ThreeDSViewControllerDelegatee {
     }
     
     
+    /// Checks if all fields inside the card forum are valid or not
     private func allFieldsAreValid() -> Bool {
         
         let (cardNumberValidationStatus, cardExpiryValidationStatus, cardCVVValidationStatus, cardNameValidationStatus) = cardView.cardInputView.fieldsValidationStatuses()

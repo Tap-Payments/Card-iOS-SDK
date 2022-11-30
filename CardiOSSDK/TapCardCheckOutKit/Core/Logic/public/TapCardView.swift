@@ -15,6 +15,27 @@ import TapCardVlidatorKit_iOS
 import LocalisationManagerKit_iOS
 import TapCardScanner_iOS
 
+
+
+/// A protorocl to communicate with the three ds web view controller
+internal protocol ThreeDSViewControllerDelegatee {
+    /// Instruct the controller to dismiss itself
+    func disimiss()
+    
+}
+
+
+/// A protocol to listen to fired events form the card kit
+@objc public protocol TapCardInputDelegatee {
+    @objc func errorOccured(with error:CardKitErrorType, message:String)
+    /**
+     Be updated by listening to events fired from the card kit
+     - Parameter with event: The event just fired
+     */
+    @objc func eventHappened(with event:CardKitEventType)
+}
+
+
 @IBDesignable @objcMembers public class TapCardView: UIView {
 
     @IBOutlet weak var cardView: TapCardTelecomPaymentView!
@@ -29,6 +50,10 @@ import TapCardScanner_iOS
     }
     internal let tapCardTelecomPaymentViewModel: TapCardTelecomPaymentViewModel = .init()
     internal let tapCardPhoneListViewModel:TapCardPhoneBarListViewModel = .init()
+    /// A protorocl to communicate with the three ds web view controller
+    internal var threeDSDelegate: ThreeDSViewControllerDelegatee?
+    /// A delegate listens for needed actions and callbacks
+    internal var tapCardInputDelegate:TapCardInputDelegatee?
     /// Represents the data source for the card brands bar
     var dataSource:[TapCardPhoneIconViewModel] = []
     /// Holds the latest card info provided by the user
@@ -88,9 +113,6 @@ import TapCardScanner_iOS
     /// Indicates whether or not the user can edit the card holder name field. Default is true
     internal var editCardName:Bool = true
     
-    /// A delegate listens for needed actions and callbacks
-    internal var tapCardInputDelegate:TapCardInputDelegate?
-    
     /**
      Call this method for optional attributes defining and configueation for the card form
      - Parameter locale: The locale identifer(e.g. en, ar, etc.0 Default value is en
@@ -108,7 +130,7 @@ import TapCardScanner_iOS
      - Parameter showCardBrandIcon:deines whether to show the detected brand icon besides the card number instead of the placeholdder
      */
     
-    @objc public func setupCardForm(locale:String = "en", collectCardHolderName:Bool = false, showCardBrandsBar:Bool = false, showCardScanner:Bool = false, tapScannerUICustomization:TapFullScreenUICustomizer? = .init() , transactionCurrency:TapCurrencyCode = .KWD, presentScannerInViewController:UIViewController?, allowedCardTypes:cardTypes = .All, tapCardInputDelegate:TapCardInputDelegate? = nil, preloadCardHolderName:String = "", editCardName:Bool = true) {
+    @objc public func setupCardForm(locale:String = "en", collectCardHolderName:Bool = false, showCardBrandsBar:Bool = false, showCardScanner:Bool = false, tapScannerUICustomization:TapFullScreenUICustomizer? = .init() , transactionCurrency:TapCurrencyCode = .KWD, presentScannerInViewController:UIViewController?, allowedCardTypes:cardTypes = .All, tapCardInputDelegate:TapCardInputDelegatee? = nil, preloadCardHolderName:String = "", editCardName:Bool = true) {
         // Set the locale
         self.locale = locale
         // Set the collection name ability
@@ -131,11 +153,50 @@ import TapCardScanner_iOS
         self.preloadCardHolderName = preloadCardHolderName
         /// Set the editibility for the card name field
         self.editCardName = editCardName
+        // A delegate listens for needed actions and callbacks
+        self.tapCardInputDelegate = tapCardInputDelegate
         // Init the card brands bar
         setupCardBrandsBarDataSource()
         // Adjust the UI now
         createTabBarViewModel()
         addActualCardInputView()
+    }
+    
+    
+    /**
+     Handles tokenizing the current card data.
+     - Parameter onResponeReady: A callback to listen when a token is successfully generated
+     - Parameter onErrorOccured: A callback to listen when tokenization fails with error message and the validity of all the card fields for your own interest
+     */
+    @objc public func tokenizeCard(onResponeReady: @escaping (Token) -> () = {_ in}, onErrorOccured: @escaping(Error,CardFieldsValidity)->() = {_,_  in}) {
+        // get the validity of all fields
+        let (cardNumberValidationStatus, cardExpiryValidationStatus, cardCVVValidationStatus, cardNameValidationStatus) = cardView.cardInputView.fieldsValidationStatuses()
+        
+        let cardFieldsValidity = CardFieldsValidity(cardNumberValidationStatus: cardNumberValidationStatus, cardExpiryValidationStatus: cardExpiryValidationStatus, cardCVVValidationStatus: cardCVVValidationStatus, cardNameValidationStatus: cardNameValidationStatus)
+        
+        // Check that the card kit is already initilzed
+        guard let _ = sharedNetworkManager.dataConfig.sdkSettings else {
+            onErrorOccured("You have to call the initCardForm method first. This allows the card form to get the data needed to communicate with Tap's backend apis.",cardFieldsValidity)
+            return
+        }
+        
+        // Check that the user entered a valid card data first
+        guard let nonNullCard = currentTapCard,
+              validation == .Valid,
+              allFieldsAreValid(),
+              let nonNullTokenizeCard:CreateTokenCard = try? .init(card: nonNullCard, address: nil) else {
+            onErrorOccured("The user didn't enter a valid card data to tokenize. Please prompt the user to do so first.",cardFieldsValidity)
+            return
+        }
+        tapCardInputDelegate?.eventHappened(with: .TokenizeStarted)
+        sharedNetworkManager.callCardTokenAPI(cardTokenRequestModel: TapCreateTokenWithCardDataRequest(card: nonNullTokenizeCard)) { [weak self] token in
+            self?.tapCardInputDelegate?.eventHappened(with: .TokenizeEnded)
+            onResponeReady(token)
+        } onErrorOccured: { [weak self] error in
+            self?.tapCardInputDelegate?.eventHappened(with: .TokenizeEnded)
+            onErrorOccured(error, cardFieldsValidity)
+        }
+        
     }
     
     /// Used as a consolidated method to do all the needed steps upon creating the view
@@ -155,10 +216,10 @@ import TapCardScanner_iOS
     
     private func createTabBarViewModel() {
         setupCardBrandsBarDataSource()
-        tapCardTelecomPaymentViewModel.collectCardName = false
+        tapCardTelecomPaymentViewModel.collectCardName = collectCardHolderName
         tapCardTelecomPaymentViewModel.saveCardType = .None
-        tapCardTelecomPaymentViewModel.showCardBrandsBar = true
-        tapCardTelecomPaymentViewModel.showScanner = true
+        tapCardTelecomPaymentViewModel.showCardBrandsBar = showCardBrands
+        tapCardTelecomPaymentViewModel.showScanner = showCardScanner
         tapCardTelecomPaymentViewModel.preloadCardHolderName = preloadCardHolderName
         tapCardTelecomPaymentViewModel.delegate = self
         tapCardTelecomPaymentViewModel.tapCardPhoneListViewModel = tapCardPhoneListViewModel

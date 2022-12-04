@@ -6,15 +6,30 @@
 //
 
 import UIKit
+import TapUIKit_iOS
 
 internal class TapWebViewController: UIViewController {
     
     @IBOutlet weak var stackView: UIStackView!
+    /// The webview model handler
+    internal var webViewModel:TapWebViewModel?
+    /// The url to load
+    internal var url:URL?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard let webViewModel = webViewModel, let url = url else { return }
+        
+        stackView.addArrangedSubview(webViewModel.attachedView)
+        
+        webViewModel.load(with: url)
+    }
 
     /*
     // MARK: - Navigation

@@ -31,10 +31,10 @@
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CZk-jP-kZU">
-                    <rect key="frame" x="16" y="34" width="533" height="166"/>
+                    <rect key="frame" x="16" y="30" width="533" height="170"/>
                     <subviews>
                         <view contentMode="scaleToFill" verticalHuggingPriority="48" translatesAutoresizingMaskIntoConstraints="NO" id="4iO-6k-uJn" customClass="TapCardInput" customModule="TapCardInputKit_iOS">
-                            <rect key="frame" x="0.0" y="0.0" width="533" height="166"/>
+                            <rect key="frame" x="0.0" y="0.0" width="533" height="170"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                     </subviews>
@@ -61,7 +61,7 @@
                 <constraint firstItem="CZk-jP-kZU" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="OM3-6q-VAy"/>
                 <constraint firstItem="or1-yo-2AD" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" priority="750" id="lfc-qu-aN1"/>
                 <constraint firstItem="VLF-Re-aM8" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="yBb-TV-koC"/>
-                <constraint firstItem="CZk-jP-kZU" firstAttribute="top" secondItem="VLF-Re-aM8" secondAttribute="bottom" constant="4" id="ziM-T8-dVV"/>
+                <constraint firstItem="CZk-jP-kZU" firstAttribute="top" secondItem="VLF-Re-aM8" secondAttribute="bottom" id="ziM-T8-dVV"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="258.69565217391306" y="126.35869565217392"/>

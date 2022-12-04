@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,6 +19,27 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YV9-v6-wRo">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="5sa-Sy-QEw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PXE-xt-inI">
+                                <rect key="frame" x="0.0" y="0.0" width="174" height="768"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ARw-8K-nEC">
+                                    <rect key="frame" x="0.0" y="0.0" width="174" height="768"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <vibrancyEffect>
+                                    <blurEffect style="systemThinMaterial"/>
+                                </vibrancyEffect>
+                            </visualEffectView>
+                        </subviews>
+                    </view>
+                    <blurEffect style="systemThinMaterial"/>
+                </visualEffectView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Unz-Nh-1rL">
                     <rect key="frame" x="0.0" y="68" width="414" height="794"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -27,19 +47,18 @@
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="YV9-v6-wRo" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="3qb-rl-Y7f"/>
+                <constraint firstItem="YV9-v6-wRo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="JUi-uo-RU7"/>
+                <constraint firstAttribute="bottom" secondItem="YV9-v6-wRo" secondAttribute="bottom" id="VD4-p7-kTQ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Unz-Nh-1rL" secondAttribute="trailing" id="bGX-fz-FhO"/>
+                <constraint firstItem="YV9-v6-wRo" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="dUC-uk-vBK"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Unz-Nh-1rL" secondAttribute="bottom" id="dq3-qc-A9y"/>
                 <constraint firstItem="Unz-Nh-1rL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="nM5-gM-nkI"/>
                 <constraint firstItem="Unz-Nh-1rL" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="x8f-IY-jCL"/>
             </constraints>
-            <point key="canvasLocation" x="139" y="151"/>
+            <point key="canvasLocation" x="137.68115942028987" y="150.66964285714286"/>
         </view>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

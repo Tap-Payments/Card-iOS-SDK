@@ -16,6 +16,7 @@ import LocalisationManagerKit_iOS
 import TapCardScanner_iOS
 import TapThemeManager2020
 import TapThemeManager2020
+import SwiftEntryKit
 
 /// A protorocl to communicate with the three ds web view controller
 internal protocol ThreeDSViewControllerDelegatee {
@@ -51,6 +52,8 @@ internal protocol ThreeDSViewControllerDelegatee {
     private var webViewModel:TapWebViewModel = .init()
     /// Holds the latest detected card brand
     internal var cardBrand: CardBrand?
+    /// Defines the attributes/configurations when displaying the 3DS web page
+    internal var threeDSConfiguration:ThreeDSConfiguration = .init()
     /// Holds the latest validation status for the entered card data
     internal var validation: CrardInputTextFieldStatusEnum = .Invalid {
         didSet{
@@ -139,9 +142,10 @@ internal protocol ThreeDSViewControllerDelegatee {
      - Parameter preloadCardHolderName:  A preloading value for the card holder name if needed
      - Parameter editCardName: Indicates whether or not the user can edit the card holder name field. Default is true
      - Parameter showCardBrandIcon:deines whether to show the detected brand icon besides the card number instead of the placeholdder
+     - Parameter threeDSConfiguration: Defines the attributes/configurations when displaying the 3DS web page
      */
     
-    @objc public func setupCardForm(locale:String = "en", collectCardHolderName:Bool = false, showCardBrandsBar:Bool = false, showCardScanner:Bool = false, tapScannerUICustomization:TapFullScreenUICustomizer? = .init() , transactionCurrency:TapCurrencyCode = .KWD, presentScannerInViewController:UIViewController?, allowedCardTypes:cardTypes = .All, tapCardInputDelegate:TapCardInputDelegatee? = nil, preloadCardHolderName:String = "", editCardName:Bool = true) {
+    @objc public func setupCardForm(locale:String = "en", collectCardHolderName:Bool = false, showCardBrandsBar:Bool = false, showCardScanner:Bool = false, tapScannerUICustomization:TapFullScreenUICustomizer? = .init() , transactionCurrency:TapCurrencyCode = .KWD, presentScannerInViewController:UIViewController?, allowedCardTypes:cardTypes = .All, tapCardInputDelegate:TapCardInputDelegatee? = nil, preloadCardHolderName:String = "", editCardName:Bool = true, threeDSConfiguration:ThreeDSConfiguration = .init()) {
         // Set the locale
         self.locale = locale
         // Set the collection name ability
@@ -166,6 +170,8 @@ internal protocol ThreeDSViewControllerDelegatee {
         self.editCardName = editCardName
         // A delegate listens for needed actions and callbacks
         self.tapCardInputDelegate = tapCardInputDelegate
+        // Set the attributes/configurations when displaying the 3DS web page
+        self.threeDSConfiguration = threeDSConfiguration
         // Init the card brands bar
         setupCardBrandsBarDataSource()
         // Adjust the UI now
@@ -207,6 +213,51 @@ internal protocol ThreeDSViewControllerDelegatee {
             self?.tapCardInputDelegate?.eventHappened(with: .TokenizeEnded)
             onErrorOccured(error, cardFieldsValidity)
         }
+        
+    }
+    
+    
+    
+    private func centeralPopUpAttributes() -> EKAttributes {
+        var attributes: EKAttributes
+        let displayMode:EKAttributes.DisplayMode = .inferred
+        
+        attributes = .centerFloat
+        attributes.displayMode = displayMode
+        attributes.displayDuration = .infinity
+        attributes.screenBackground = .visualEffect(style: .init(style:threeDSConfiguration.backgroundBlurStyle))
+        attributes.entryBackground = .color(color: .clear)
+        attributes.screenInteraction = .dismiss
+        attributes.entryInteraction = .absorbTouches
+        attributes.scroll = .edgeCrossingDisabled(swipeable: true)
+        attributes.entranceAnimation = .init(
+            scale: .init(from: 0, to: 1, duration: threeDSConfiguration.zoomInAnimationDuration, spring: .init(damping: 1, initialVelocity: 0))
+        )
+        attributes.exitAnimation = .init(
+            translate: .init(duration: 0.35)
+        )
+        attributes.popBehavior = .animated(
+            animation: .init(
+                translate: .init(duration: threeDSConfiguration.zoomInAnimationDuration)
+                //scale: .init(from: 0, to: 1, duration: 1.5)
+            )
+        )
+        attributes.shadow = .active(
+            with: .init(
+                color: .black,
+                opacity: 0.3,
+                radius: 6
+            )
+        )
+        attributes.positionConstraints.size = .init(
+            width: .fill,
+            height: .ratio(value: 0.85)
+        )
+        attributes.positionConstraints.verticalOffset = 0
+        attributes.positionConstraints.safeArea = .overridden
+        attributes.statusBar = .dark
+        
+        return attributes
         
     }
     
@@ -276,8 +327,8 @@ internal protocol ThreeDSViewControllerDelegatee {
             onErrorOccured(error, card,cardFieldsValidity)
         }
         tapCardInputDelegate?.eventHappened(with: .SaveCardStarted)
-        showWebView(with: URL(string: "https://www.google.com")!)
-        /*// To save a card we need to tokenize it first
+        //showWebView(with: URL(string: "https://www.google.com")!)
+        // To save a card we need to tokenize it first
         sharedNetworkManager.callCardTokenAPI(cardTokenRequestModel: TapCreateTokenWithCardDataRequest(card: nonNullTokenizeCard),onResponeReady: { cardToken in
             // Now let us verify the card first
             sharedNetworkManager.handleTokenCardSave(with: cardToken) { [weak self] redirectionURL in
@@ -285,7 +336,7 @@ internal protocol ThreeDSViewControllerDelegatee {
             }
         }) { error in
             onErrorOccured(error,nil,cardFieldsValidity)
-        }*/
+        }
     }
     
     /// Used as a consolidated method to do all the needed steps upon creating the view
@@ -411,7 +462,7 @@ internal protocol ThreeDSViewControllerDelegatee {
     
     
     /// Computes  if the card data is fully entered or not
-    private func canProcessCard() -> Bool {
+    @objc public func canProcessCard() -> Bool {
         // Check that the user entered a valid card data first
         guard let nonNullCard = currentTapCard,
               validation == .Valid,
@@ -446,17 +497,21 @@ internal protocol ThreeDSViewControllerDelegatee {
         }
         
         self.tapCardInputDelegate?.eventHappened(with: .ThreeDSStarter)
+        
         webViewModel = .init()
         webViewModel.delegate = self
         
         let tapViewController = TapWebViewController.init(nibName: "TapWebViewController", bundle: Bundle.current)
         self.threeDSDelegate = tapViewController
+        tapViewController.webViewModel = webViewModel
+        tapViewController.url = url
+        let attributes = centeralPopUpAttributes()
         
         DispatchQueue.main.async { [weak self] in
-            nonNullParentController.present(tapViewController, animated: true) {
-                tapViewController.stackView.addArrangedSubview((self?.webViewModel.attachedView)!)
-                self?.webViewModel.load(with: url)
-            }
+            /*tapViewController.stackView.addArrangedSubview((self?.webViewModel.attachedView)!)
+            self?.webViewModel.load(with: url)*/
+            
+            SwiftEntryKit.display(entry: tapViewController, using: attributes)
         }
     }
     

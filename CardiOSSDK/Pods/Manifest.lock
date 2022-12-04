@@ -1,16 +1,20 @@
 PODS:
+  - CollectionViewSlantedLayout (3.1.1)
   - CommonDataModelsKit-iOS (1.0.86):
     - SwiftyRSA
     - TapAdditionsKitV2
     - TapCardVlidatorKit-iOS
     - TapKeychain
   - EasyTipView (2.1.0)
+  - IQKeyboardManagerSwift (6.5.10)
   - LocalisationManagerKit-iOS (1.0.4)
   - McPicker (3.0.0)
   - NBBottomSheet (1.2.0)
   - Nuke (10.7.1)
   - PullUpController (0.8.0)
   - SnapKit (5.6.0)
+  - SwiftEntryKit (2.0.0)
+  - SwiftyGif (5.4.3)
   - SwiftyRSA (1.7.0):
     - SwiftyRSA/ObjC (= 1.7.0)
   - SwiftyRSA/ObjC (1.7.0)
@@ -62,6 +66,10 @@ PODS:
     - TapThemeManager2020
 
 DEPENDENCIES:
+  - CollectionViewSlantedLayout
+  - IQKeyboardManagerSwift
+  - SwiftEntryKit
+  - SwiftyGif
   - SwiftyRSA
   - TapApplicationV2
   - TapKeychain
@@ -70,14 +78,18 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - CollectionViewSlantedLayout
     - CommonDataModelsKit-iOS
     - EasyTipView
+    - IQKeyboardManagerSwift
     - LocalisationManagerKit-iOS
     - McPicker
     - NBBottomSheet
     - Nuke
     - PullUpController
     - SnapKit
+    - SwiftEntryKit
+    - SwiftyGif
     - SwiftyRSA
     - TapAdditionsKitV2
     - TapApplePayKit-iOS
@@ -93,14 +105,18 @@ SPEC REPOS:
     - TapUIKit-iOS
 
 SPEC CHECKSUMS:
+  CollectionViewSlantedLayout: 24397455acd2461960bc45d394e0ef99c17d03ce
   CommonDataModelsKit-iOS: fbc7741430fbc6010862955755fb00253b78a334
   EasyTipView: a92b6edc377b81c5ac18e9fd35d5ee78e9409488
+  IQKeyboardManagerSwift: 52962c76ab33532f15ad9f3ff4e5715eda5335bb
   LocalisationManagerKit-iOS: bd1a9d16509a06dd1aea45b9f47cf21bdfe0796c
   McPicker: ba38be56a8194faa5249eca4226c364eed628044
   NBBottomSheet: aa7a52809b2d7b193f733247b8ce391a59904372
   Nuke: 279f17a599fd1c83cf51de5e0e1f2db143a287b0
   PullUpController: 2f7ccaa0f35b31b47e3efbe1854c7f781552b3c7
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  SwiftEntryKit: 61b5fa36f34a97dd8013e48a7345bc4c4720be9a
+  SwiftyGif: 6c3eafd0ce693cad58bb63d2b2fb9bacb8552780
   SwiftyRSA: 8c6dd1ea7db1b8dc4fb517a202f88bb1354bc2c6
   TapAdditionsKitV2: 9846381c32b150303cbeff355550d3500a98f77d
   TapApplePayKit-iOS: 940ab0575100d21e6080d17851cfe6c36bfebc24
@@ -115,6 +131,6 @@ SPEC CHECKSUMS:
   TapThemeManager2020: 01eae2a452971e4b68c042f788dee20a9b4d25d2
   TapUIKit-iOS: 760dd12591ef1637587c4376d2f085597c7cc663
 
-PODFILE CHECKSUM: 657f1b8c409528af774901659d27ac0dbf0fe034
+PODFILE CHECKSUM: f4e42e789d64fd45b2d4974ffbc5711f09791ec0
 
 COCOAPODS: 1.11.2

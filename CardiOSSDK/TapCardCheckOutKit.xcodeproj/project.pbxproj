@@ -38,6 +38,19 @@
 		E848091728998D49003FDF34 /* CardFieldsValidity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E848091628998D49003FDF34 /* CardFieldsValidity.swift */; };
 		E84809192899973F003FDF34 /* NetworkCallsLogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84809182899973F003FDF34 /* NetworkCallsLogsViewController.swift */; };
 		E8503AA72896512200D1B8B0 /* CardKitGoogle.plist in Resources */ = {isa = PBXBuildFile; fileRef = E8503AA62896512200D1B8B0 /* CardKitGoogle.plist */; };
+		E85090B42939C2F7007048A8 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85090B32939C2F7007048A8 /* IntroViewController.swift */; };
+		E85090B62939C3AB007048A8 /* giphy.gif in Resources */ = {isa = PBXBuildFile; fileRef = E85090B52939C3AB007048A8 /* giphy.gif */; };
+		E85090B82939C426007048A8 /* SimpleParallax.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85090B72939C426007048A8 /* SimpleParallax.swift */; };
+		E85090D2293A0D4B007048A8 /* tap_logo-2.png in Resources */ = {isa = PBXBuildFile; fileRef = E85090D1293A0D4A007048A8 /* tap_logo-2.png */; };
+		E85090D4293A14BD007048A8 /* tap_logo.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E85090D3293A14BC007048A8 /* tap_logo.pdf */; };
+		E85090D6293A1718007048A8 /* EKColors+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85090D5293A1718007048A8 /* EKColors+Additions.swift */; };
+		E85090D8293A1A28007048A8 /* EKAttributes+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85090D7293A1A28007048A8 /* EKAttributes+Additions.swift */; };
+		E85090DB293A2306007048A8 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85090DA293A2306007048A8 /* CartViewController.swift */; };
+		E85090DD293A23EF007048A8 /* CustomCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85090DC293A23EF007048A8 /* CustomCollectionCell.swift */; };
+		E85090E6293A31E5007048A8 /* giphy2.gif in Resources */ = {isa = PBXBuildFile; fileRef = E85090E5293A31E5007048A8 /* giphy2.gif */; };
+		E85090EA293A32EE007048A8 /* giphy3.gif in Resources */ = {isa = PBXBuildFile; fileRef = E85090E9293A32EE007048A8 /* giphy3.gif */; };
+		E85090EC293A4993007048A8 /* CardSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85090EB293A4993007048A8 /* CardSettingsViewController.swift */; };
+		E85090EF293A4B02007048A8 /* Eureka in Frameworks */ = {isa = PBXBuildFile; productRef = E85090EE293A4B02007048A8 /* Eureka */; };
 		E858E294293737DA003234B4 /* TapCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858E293293737DA003234B4 /* TapCardView.swift */; };
 		E858E296293737E6003234B4 /* TapCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E858E295293737E6003234B4 /* TapCardView.xib */; };
 		E86217BE28F00E9400EAAFA6 /* TestNewUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86217BD28F00E9400EAAFA6 /* TestNewUIViewController.swift */; };
@@ -64,6 +77,8 @@
 		E8A5AF9328BCD07B00620427 /* CustomDarkTheme.json in Resources */ = {isa = PBXBuildFile; fileRef = E832644427EA04C5005F3AAF /* CustomDarkTheme.json */; };
 		E8A5AF9428BCD7AC00620427 /* CustomLocalisation.json in Resources */ = {isa = PBXBuildFile; fileRef = E832644C27EA10FD005F3AAF /* CustomLocalisation.json */; };
 		E8ABA68F28EEA724000A9F73 /* TapCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ABA68E28EEA724000A9F73 /* TapCardViewController.swift */; };
+		E8D0CAE5293A8527003B9BD8 /* giphy4.gif in Resources */ = {isa = PBXBuildFile; fileRef = E8D0CAE4293A8527003B9BD8 /* giphy4.gif */; };
+		E8D0CAE7293B1B1C003B9BD8 /* ThreeDSConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D0CAE6293B1B1C003B9BD8 /* ThreeDSConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +162,18 @@
 		E848091628998D49003FDF34 /* CardFieldsValidity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFieldsValidity.swift; sourceTree = "<group>"; };
 		E84809182899973F003FDF34 /* NetworkCallsLogsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCallsLogsViewController.swift; sourceTree = "<group>"; };
 		E8503AA62896512200D1B8B0 /* CardKitGoogle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CardKitGoogle.plist; sourceTree = "<group>"; };
+		E85090B32939C2F7007048A8 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		E85090B52939C3AB007048A8 /* giphy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = giphy.gif; sourceTree = "<group>"; };
+		E85090B72939C426007048A8 /* SimpleParallax.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleParallax.swift; sourceTree = "<group>"; };
+		E85090D1293A0D4A007048A8 /* tap_logo-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tap_logo-2.png"; sourceTree = "<group>"; };
+		E85090D3293A14BC007048A8 /* tap_logo.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = tap_logo.pdf; sourceTree = "<group>"; };
+		E85090D5293A1718007048A8 /* EKColors+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKColors+Additions.swift"; sourceTree = "<group>"; };
+		E85090D7293A1A28007048A8 /* EKAttributes+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKAttributes+Additions.swift"; sourceTree = "<group>"; };
+		E85090DA293A2306007048A8 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		E85090DC293A23EF007048A8 /* CustomCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionCell.swift; sourceTree = "<group>"; };
+		E85090E5293A31E5007048A8 /* giphy2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = giphy2.gif; sourceTree = "<group>"; };
+		E85090E9293A32EE007048A8 /* giphy3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = giphy3.gif; sourceTree = "<group>"; };
+		E85090EB293A4993007048A8 /* CardSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSettingsViewController.swift; sourceTree = "<group>"; };
 		E858E293293737DA003234B4 /* TapCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCardView.swift; sourceTree = "<group>"; };
 		E858E295293737E6003234B4 /* TapCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TapCardView.xib; sourceTree = "<group>"; };
 		E86217BD28F00E9400EAAFA6 /* TestNewUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNewUIViewController.swift; sourceTree = "<group>"; };
@@ -174,6 +201,8 @@
 		E8A5AF8F28BCC67D00620427 /* CardInputDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardInputDemoViewController.h; sourceTree = "<group>"; };
 		E8A5AF9028BCC67D00620427 /* CardInputDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardInputDemoViewController.m; sourceTree = "<group>"; };
 		E8ABA68E28EEA724000A9F73 /* TapCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCardViewController.swift; sourceTree = "<group>"; };
+		E8D0CAE4293A8527003B9BD8 /* giphy4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = giphy4.gif; path = ../../../../../../Downloads/giphy4.gif; sourceTree = "<group>"; };
+		E8D0CAE6293B1B1C003B9BD8 /* ThreeDSConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeDSConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +220,7 @@
 			files = (
 				E832630A27E88C91005F3AAF /* TapCardCheckOutKit.framework in Frameworks */,
 				BBADB5ABAA6C652F7D3A3BCB /* Pods_TapCardCheckoutExample.framework in Frameworks */,
+				E85090EF293A4B02007048A8 /* Eureka in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +327,8 @@
 		E83262F627E88C6F005F3AAF /* TapCardCheckoutExample */ = {
 			isa = PBXGroup;
 			children = (
+				E85090D9293A22F0007048A8 /* CustomerAppSimulation */,
+				E85090B22939C2E3007048A8 /* Onboarding */,
 				E89B998028940B0800B03726 /* CreateCustomerViewController.swift */,
 				E83262F727E88C6F005F3AAF /* AppDelegate.swift */,
 				E83262F927E88C6F005F3AAF /* SceneDelegate.swift */,
@@ -304,6 +336,7 @@
 				E83262FD27E88C6F005F3AAF /* Main.storyboard */,
 				E83FD0D9288D590800057F22 /* amazon.jpeg */,
 				E832630027E88C71005F3AAF /* Assets.xcassets */,
+				E85090D3293A14BC007048A8 /* tap_logo.pdf */,
 				E832630227E88C71005F3AAF /* LaunchScreen.storyboard */,
 				E832630527E88C71005F3AAF /* Info.plist */,
 				E832644227EA04A8005F3AAF /* CustomLightTheme.json */,
@@ -355,6 +388,7 @@
 				E832644627EA09BD005F3AAF /* TapCardForumTheme.swift */,
 				E832644827EA0EE8005F3AAF /* TapCardForumLocalisation.swift */,
 				E848091628998D49003FDF34 /* CardFieldsValidity.swift */,
+				E8D0CAE6293B1B1C003B9BD8 /* ThreeDSConfiguration.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -373,6 +407,32 @@
 				E89B99782893A6E700B03726 /* NetworkManager+HandlingResponses.swift */,
 			);
 			path = ApiCalls;
+			sourceTree = "<group>";
+		};
+		E85090B22939C2E3007048A8 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				E8D0CAE4293A8527003B9BD8 /* giphy4.gif */,
+				E85090E5293A31E5007048A8 /* giphy2.gif */,
+				E85090E9293A32EE007048A8 /* giphy3.gif */,
+				E85090B52939C3AB007048A8 /* giphy.gif */,
+				E85090D1293A0D4A007048A8 /* tap_logo-2.png */,
+				E85090B32939C2F7007048A8 /* IntroViewController.swift */,
+				E85090B72939C426007048A8 /* SimpleParallax.swift */,
+				E85090D5293A1718007048A8 /* EKColors+Additions.swift */,
+				E85090D7293A1A28007048A8 /* EKAttributes+Additions.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		E85090D9293A22F0007048A8 /* CustomerAppSimulation */ = {
+			isa = PBXGroup;
+			children = (
+				E85090DA293A2306007048A8 /* CartViewController.swift */,
+				E85090DC293A23EF007048A8 /* CustomCollectionCell.swift */,
+				E85090EB293A4993007048A8 /* CardSettingsViewController.swift */,
+			);
+			path = CustomerAppSimulation;
 			sourceTree = "<group>";
 		};
 		E8A5AF7228BCC15900620427 /* TapCardCheckoutExampleObjc */ = {
@@ -455,6 +515,9 @@
 				E832630D27E88C91005F3AAF /* PBXTargetDependency */,
 			);
 			name = TapCardCheckoutExample;
+			packageProductDependencies = (
+				E85090EE293A4B02007048A8 /* Eureka */,
+			);
 			productName = TapCardCheckoutExample;
 			productReference = E83262F527E88C6F005F3AAF /* TapCardCheckoutExample.app */;
 			productType = "com.apple.product-type.application";
@@ -510,6 +573,9 @@
 				Base,
 			);
 			mainGroup = E83262D727E88B6E005F3AAF;
+			packageReferences = (
+				E85090ED293A4B02007048A8 /* XCRemoteSwiftPackageReference "Eureka" */,
+			);
 			productRefGroup = E83262E227E88B6E005F3AAF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -538,13 +604,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E85090E6293A31E5007048A8 /* giphy2.gif in Resources */,
+				E8D0CAE5293A8527003B9BD8 /* giphy4.gif in Resources */,
 				E832644527EA04C5005F3AAF /* CustomDarkTheme.json in Resources */,
+				E85090EA293A32EE007048A8 /* giphy3.gif in Resources */,
 				E832630427E88C71005F3AAF /* LaunchScreen.storyboard in Resources */,
 				E832644D27EA10FD005F3AAF /* CustomLocalisation.json in Resources */,
+				E85090D4293A14BD007048A8 /* tap_logo.pdf in Resources */,
 				E832630127E88C71005F3AAF /* Assets.xcassets in Resources */,
 				E83262FF27E88C6F005F3AAF /* Main.storyboard in Resources */,
 				E83FD0DA288D590800057F22 /* amazon.jpeg in Resources */,
+				E85090B62939C3AB007048A8 /* giphy.gif in Resources */,
 				E832644327EA04A8005F3AAF /* CustomLightTheme.json in Resources */,
+				E85090D2293A0D4B007048A8 /* tap_logo-2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -677,6 +749,7 @@
 				E832640827E9DBE0005F3AAF /* NetworkManagerExtension.swift in Sources */,
 				E832643727E9E193005F3AAF /* NetworkManagerApiCallsExtension.swift in Sources */,
 				E832643F27E9EBBC005F3AAF /* TapCardDataConfiguration.swift in Sources */,
+				E8D0CAE7293B1B1C003B9BD8 /* ThreeDSConfiguration.swift in Sources */,
 				E89B997B2893AD2300B03726 /* TapCheckout+WebPaymentHandler.swift in Sources */,
 				E89B99772892818600B03726 /* TapCallsResponseGenerator.swift in Sources */,
 				E832644927EA0EE8005F3AAF /* TapCardForumLocalisation.swift in Sources */,
@@ -697,10 +770,17 @@
 			files = (
 				E83262FC27E88C6F005F3AAF /* ViewController.swift in Sources */,
 				E874F806288586C50067DB3E /* ConfigurationSharedManager.swift in Sources */,
+				E85090DB293A2306007048A8 /* CartViewController.swift in Sources */,
 				E84809192899973F003FDF34 /* NetworkCallsLogsViewController.swift in Sources */,
 				E83262F827E88C6F005F3AAF /* AppDelegate.swift in Sources */,
 				E8ABA68F28EEA724000A9F73 /* TapCardViewController.swift in Sources */,
+				E85090B82939C426007048A8 /* SimpleParallax.swift in Sources */,
+				E85090B42939C2F7007048A8 /* IntroViewController.swift in Sources */,
+				E85090D6293A1718007048A8 /* EKColors+Additions.swift in Sources */,
 				E86217BE28F00E9400EAAFA6 /* TestNewUIViewController.swift in Sources */,
+				E85090EC293A4993007048A8 /* CardSettingsViewController.swift in Sources */,
+				E85090D8293A1A28007048A8 /* EKAttributes+Additions.swift in Sources */,
+				E85090DD293A23EF007048A8 /* CustomCollectionCell.swift in Sources */,
 				E874F804288585B70067DB3E /* DempSettingsViewController.swift in Sources */,
 				E89B998128940B0900B03726 /* CreateCustomerViewController.swift in Sources */,
 				E83262FA27E88C6F005F3AAF /* SceneDelegate.swift in Sources */,
@@ -963,7 +1043,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_TEAM = G46S76PUH4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TapCardCheckoutExample/Info.plist;
@@ -998,7 +1078,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_TEAM = G46S76PUH4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TapCardCheckoutExample/Info.plist;
@@ -1124,6 +1204,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E85090ED293A4B02007048A8 /* XCRemoteSwiftPackageReference "Eureka" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/xmartlabs/Eureka.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E85090EE293A4B02007048A8 /* Eureka */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E85090ED293A4B02007048A8 /* XCRemoteSwiftPackageReference "Eureka" */;
+			productName = Eureka;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E83262D827E88B6E005F3AAF /* Project object */;
 }

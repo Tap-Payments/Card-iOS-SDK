@@ -1,4 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-TapCardCheckoutExampleObjc/Pods-TapCardCheckoutExampleObjc-frameworks.sh
+${BUILT_PRODUCTS_DIR}/SwiftEntryKit/SwiftEntryKit.framework
 ${BUILT_PRODUCTS_DIR}/CommonDataModelsKit-iOS/CommonDataModelsKit_iOS.framework
 ${BUILT_PRODUCTS_DIR}/EasyTipView/EasyTipView.framework
 ${BUILT_PRODUCTS_DIR}/LocalisationManagerKit-iOS/LocalisationManagerKit_iOS.framework

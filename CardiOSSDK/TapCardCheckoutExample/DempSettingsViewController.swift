@@ -146,7 +146,7 @@ class DempSettingsViewController: UIViewController, CreateCustomerDelegate {
         
         for (index,string) in strings.enumerated() {
             let colorAction:UIAlertAction = .init(title: string, style: .default) { [weak self] _ in
-                sharedConfigurationSharedManager.scannerColor = colors[index]
+                //sharedConfigurationSharedManager.scannerColor = colors[index]
                 self?.scannerBorderColorButton.tintColor = sharedConfigurationSharedManager.scannerColor
             }
             

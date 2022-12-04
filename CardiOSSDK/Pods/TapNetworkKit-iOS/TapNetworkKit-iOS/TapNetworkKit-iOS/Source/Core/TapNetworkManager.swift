@@ -109,7 +109,7 @@ public class TapNetworkManager {
                 }else{
                     loggString = "\(loggString)\nBody :\n-----\n{\n}\n---------------\n"
                 }
-                UIPasteboard.general.string = "\(loggString)\n\(UIPasteboard.general.string ?? "")"
+                //UIPasteboard.general.string = "\(loggString)\n\(UIPasteboard.general.string ?? "")"
                 print(loggString)
             }
             
@@ -144,7 +144,7 @@ public class TapNetworkManager {
             let loggString:String = "Response :\n========\n\(operation.httpMethod.rawValue) \(operation.path)\nHeaders :\n------\n\(headersString)\nBody :\n-----\n\(bodySting)\n---------------\n"
             
             if self.consolePrintLoggingEnabled {
-                UIPasteboard.general.string = "\(loggString)\n\(UIPasteboard.general.string ?? "")"
+                //UIPasteboard.general.string = "\(loggString)\n\(UIPasteboard.general.string ?? "")"
                 print(loggString)
             }
             

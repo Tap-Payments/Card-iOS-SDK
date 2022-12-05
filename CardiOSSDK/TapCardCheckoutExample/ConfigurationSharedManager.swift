@@ -8,6 +8,7 @@
 import CommonDataModelsKit_iOS
 import LocalisationManagerKit_iOS
 import UIKit
+import TapCardCheckOutKit
 
 /// Singleton shared access to the  demo configuration
 let sharedConfigurationSharedManager = ConfigurationSharedManager()
@@ -80,8 +81,11 @@ class ConfigurationSharedManager {
     /// deines whether to show the detected brand icon besides the card number instead of the placeholdder
     var showBrandIcon:Bool = true
     
-    /// The zoomIn animation when showing the 3ds web page
-    var threeDSAnimationDuration:TimeInterval = 1.5
+    /// The  animation when showing the 3ds web page
+    var animationDuration:TimeInterval = 1
+    
+    /// The animation used to show the 3ds web page
+    var animationType:ThreeDsWebViewAnimationEnum = .BottomTransition
     
     /// The blur bg of the three ds page
     var threeDSBlurStyle:ThreeDSBlurStyle = .Dark

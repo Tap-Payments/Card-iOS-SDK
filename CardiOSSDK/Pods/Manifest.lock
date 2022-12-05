@@ -6,7 +6,6 @@ PODS:
     - TapCardVlidatorKit-iOS
     - TapKeychain
   - EasyTipView (2.1.0)
-  - IQKeyboardManagerSwift (6.5.10)
   - LocalisationManagerKit-iOS (1.0.4)
   - McPicker (3.0.0)
   - NBBottomSheet (1.2.0)
@@ -67,7 +66,6 @@ PODS:
 
 DEPENDENCIES:
   - CollectionViewSlantedLayout
-  - IQKeyboardManagerSwift
   - SwiftEntryKit
   - SwiftyGif
   - SwiftyRSA
@@ -81,7 +79,6 @@ SPEC REPOS:
     - CollectionViewSlantedLayout
     - CommonDataModelsKit-iOS
     - EasyTipView
-    - IQKeyboardManagerSwift
     - LocalisationManagerKit-iOS
     - McPicker
     - NBBottomSheet
@@ -108,7 +105,6 @@ SPEC CHECKSUMS:
   CollectionViewSlantedLayout: 24397455acd2461960bc45d394e0ef99c17d03ce
   CommonDataModelsKit-iOS: fbc7741430fbc6010862955755fb00253b78a334
   EasyTipView: a92b6edc377b81c5ac18e9fd35d5ee78e9409488
-  IQKeyboardManagerSwift: 52962c76ab33532f15ad9f3ff4e5715eda5335bb
   LocalisationManagerKit-iOS: bd1a9d16509a06dd1aea45b9f47cf21bdfe0796c
   McPicker: ba38be56a8194faa5249eca4226c364eed628044
   NBBottomSheet: aa7a52809b2d7b193f733247b8ce391a59904372
@@ -131,6 +127,6 @@ SPEC CHECKSUMS:
   TapThemeManager2020: 01eae2a452971e4b68c042f788dee20a9b4d25d2
   TapUIKit-iOS: 760dd12591ef1637587c4376d2f085597c7cc663
 
-PODFILE CHECKSUM: f4e42e789d64fd45b2d4974ffbc5711f09791ec0
+PODFILE CHECKSUM: e6d4da363515be920488965a1949259c0a705844
 
 COCOAPODS: 1.11.2

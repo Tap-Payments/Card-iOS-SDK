@@ -7,7 +7,6 @@ target 'TapCardCheckoutExample' do
   pod 'SwiftEntryKit'
   pod 'SwiftyGif'
   pod 'CollectionViewSlantedLayout'
-  pod 'IQKeyboardManagerSwift'
 
   # Pods for TapCardCheckoutExample
 

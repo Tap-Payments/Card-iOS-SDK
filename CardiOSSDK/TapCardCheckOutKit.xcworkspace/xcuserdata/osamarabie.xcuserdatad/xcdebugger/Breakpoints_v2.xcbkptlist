@@ -83,5 +83,69 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "05865CBF-59E7-4CD3-A22B-EB949307BE6E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TapCardCheckoutExample/CustomerAppSimulation/CardSettingsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "05865CBF-59E7-4CD3-A22B-EB949307BE6E - 1e19deda83ac63ac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Eureka.SegmentedRow&lt;Swift.String&gt;) -&gt; () in closure #10 (Eureka.SegmentedRow&lt;Swift.String&gt;) -&gt; () in TapCardCheckoutExample.CardSettingsViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "TapCardCheckoutExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/osamarabie/Desktop/Tap/TapCardCheckOutKit/CardiOSSDK/TapCardCheckoutExample/CustomerAppSimulation/CardSettingsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "99"
+                  endingLineNumber = "99"
+                  offsetFromSymbolStart = "58">
+               </Location>
+               <Location
+                  uuid = "05865CBF-59E7-4CD3-A22B-EB949307BE6E - 2b7784f9b3e8629e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (TapCardCheckOutKit.ThreeDsWebViewAnimationEnum) -&gt; Swift.Bool in closure #2 (Eureka.SegmentedRow&lt;Swift.String&gt;) -&gt; () in closure #10 (Eureka.SegmentedRow&lt;Swift.String&gt;) -&gt; () in TapCardCheckoutExample.CardSettingsViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "TapCardCheckoutExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/osamarabie/Desktop/Tap/TapCardCheckOutKit/CardiOSSDK/TapCardCheckoutExample/CustomerAppSimulation/CardSettingsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "99"
+                  endingLineNumber = "99"
+                  offsetFromSymbolStart = "71">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6DEE2B8E-392E-4633-9B8B-190DB1987B46"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TapCardCheckoutExample/CustomerAppSimulation/CardSettingsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

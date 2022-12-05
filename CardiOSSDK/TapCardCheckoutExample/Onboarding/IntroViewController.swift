@@ -194,7 +194,7 @@ class IntroViewController: UIViewController {
             displayMode: displayMode) {
                 SwiftEntryKit.dismiss(with:{
                     DispatchQueue.main.async {
-                        UIApplication.shared.open(URL(string: "https://www.tap.company")!)
+                        UIApplication.shared.open(URL(string: "https://www.tap.company?openChat=true")!)
                     }
                 })
             }

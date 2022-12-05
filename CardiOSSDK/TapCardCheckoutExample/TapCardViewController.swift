@@ -11,7 +11,7 @@ import TapCardCheckOutKit
 import CommonDataModelsKit_iOS
 import SwiftyGif
 import SwiftEntryKit
-
+import SnapKit
 class TapCardViewController: UIViewController, TapCardInputDelegatee {
     
     
@@ -45,10 +45,13 @@ class TapCardViewController: UIViewController, TapCardInputDelegatee {
         let gif = try! UIImage(gifName: "giphy4.gif")
         animatedBGImageView.setGifImage(gif, loopCount: -1) // Will loop forever
         // Do any additional setup after loading the view.
-        animatedBGImageView.addBackgroundPxEffect(strength: .Low)
-        tapCardView.addForegroundPxEffect(strength: .High)
-        
+        tapCardView.translatesAutoresizingMaskIntoConstraints = false
+        tapCardView.snp.remakeConstraints { make in
+            make.height.equalTo(0)
+        }
+        tapCardView.layoutIfNeeded()
         configureCardInput()
+        hideKeyboardWhenTappedAround()
     }
     
     @IBAction func getItButtonClicked(_ sender: Any) {
@@ -69,7 +72,9 @@ class TapCardViewController: UIViewController, TapCardInputDelegatee {
                                    tapCardInputDelegate: self,
                                    preloadCardHolderName: (sharedConfigurationSharedManager.cardName == "None") ? "" : sharedConfigurationSharedManager.cardName,
                                   editCardName: sharedConfigurationSharedManager.editCardHolderName,
-                                  threeDSConfiguration: .init(backgroundBlurStyle: sharedConfigurationSharedManager.threeDSBlurStyle.toBlurStyle(),zoomInAnimationDuration: sharedConfigurationSharedManager.threeDSAnimationDuration))
+                                  threeDSConfiguration: .init(backgroundBlurStyle: sharedConfigurationSharedManager.threeDSBlurStyle.toBlurStyle(),
+                                                              animationDuration: sharedConfigurationSharedManager.animationDuration,
+                                                              threeDsAnimationType: sharedConfigurationSharedManager.animationType))
     }
     
     
@@ -80,15 +85,21 @@ class TapCardViewController: UIViewController, TapCardInputDelegatee {
         
         if segment.selectedSegmentIndex == 0 {
             toAlpha = 0
+            tapCardView.snp.remakeConstraints { make in
+                make.height.equalTo(0)
+            }
         }else{
             toAlpha = 1
+            tapCardView.snp.remakeConstraints { make in
+                make.height.equalTo(158).priority(.high)
+            }
+            
         }
         
         UIView.animate(withDuration: 0.5) { [weak self] in
             self?.tapCardView.alpha = toAlpha
+            self?.tapCardView.layoutIfNeeded()
         }
-        
-        
         updateGetItButton()
     }
     
@@ -230,4 +241,18 @@ class TapCardViewController: UIViewController, TapCardInputDelegatee {
     }
     */
 
+}
+
+
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tapGesture = UITapGestureRecognizer(target: self,
+                                                action: #selector(hideKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func hideKeyboard() {
+        view.endEditing(true)
+    }
 }

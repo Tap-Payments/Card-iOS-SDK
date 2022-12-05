@@ -13,15 +13,18 @@ import UIKit
     
     /// The blur background shown behind the 3DS web page overlaying the current window
     internal var backgroundBlurStyle:UIBlurEffect.Style = .dark
-    /// The animation duration when zooming in the 3DS web page
-    internal var zoomInAnimationDuration:TimeInterval = 1
-    
+    /// The animation duration when in the 3DS web page
+    internal var animationDuration:TimeInterval = 1
+    /// The animation type when popping in the 3DS web view
+    internal var threeDsAnimationType:ThreeDsWebViewAnimationEnum = .BottomTransition
     /** Defines the attributes/configurations when displaying the 3DS web page
      - Parameter backgroundBlurStyle: The blur background shown behind the 3DS web page overlaying the current window. Default is DARK
      - Parameter zoomInAnimationDuration: The animation duration when zooming in the 3DS web page. Default is 1 second
+     - Parameter threeDsAnimationType : The animation type when popping in the 3DS web view
      */
-    @objc public init(backgroundBlurStyle: UIBlurEffect.Style = .dark, zoomInAnimationDuration: TimeInterval = 1) {
+    @objc public init(backgroundBlurStyle: UIBlurEffect.Style = .dark, animationDuration: TimeInterval = 1, threeDsAnimationType:ThreeDsWebViewAnimationEnum = .BottomTransition) {
         self.backgroundBlurStyle = backgroundBlurStyle
-        self.zoomInAnimationDuration = zoomInAnimationDuration
+        self.animationDuration = animationDuration
+        self.threeDsAnimationType = threeDsAnimationType
     }
 }

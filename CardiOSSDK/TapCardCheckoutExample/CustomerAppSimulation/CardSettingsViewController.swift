@@ -8,6 +8,7 @@
 import UIKit
 import Eureka
 import CommonDataModelsKit_iOS
+import TapCardCheckOutKit
 
 class CardSettingsViewController: FormViewController {
 
@@ -90,14 +91,31 @@ class CardSettingsViewController: FormViewController {
         })
         
         +++ Section("3DS Popup")
-        <<< PickerInlineRow<Double>(SettingsKeys.ThreeDsDuration.rawValue, { row in
-            row.title = "Zoom in animation duration"
-            row.value = sharedConfigurationSharedManager.threeDSAnimationDuration
-            row.options = [0.5,1,1.5,2,2.5]
-            row.onCellSelection { cell, row in
-                sharedConfigurationSharedManager.threeDSAnimationDuration = row.value ?? 1.0
+        <<< SegmentedRow<String>(SettingsKeys.ThreeDsAnimationType.rawValue, { row in
+            row.title = "Intro animation type"
+            row.options = ThreeDsWebViewAnimationEnum.allCases.map{ $0.toString() }
+            row.value = sharedConfigurationSharedManager.animationType.toString()
+            row.onChange { segmentRow in
+                sharedConfigurationSharedManager.animationType = ThreeDsWebViewAnimationEnum.allCases.filter{ $0.toString() == (segmentRow.value ?? "Bottom modal") }.first ?? .BottomTransition
+                switch sharedConfigurationSharedManager.animationType {
+                case .ZoomIn:
+                    sharedConfigurationSharedManager.animationDuration = 1.0
+                case .BottomTransition:
+                    sharedConfigurationSharedManager.animationDuration = 0.5
+                }
+                self.tableView.reloadData()
             }
         })
+        
+        <<< PickerInlineRow<Double>(SettingsKeys.ThreeDsAnimationDuration.rawValue, { row in
+            row.title = "Animation duration"
+            row.value = sharedConfigurationSharedManager.animationDuration
+            row.options = [0.5,1,1.5,2,2.5]
+            row.onCellSelection { cell, row in
+                sharedConfigurationSharedManager.animationDuration = row.value ?? 0.5
+            }
+        })
+        
         <<< PickerInlineRow<String>(SettingsKeys.ThreeDsBlur.rawValue, { row in
             row.title = "Backgroun blur"
             row.value = sharedConfigurationSharedManager.threeDSBlurStyle.toString()
@@ -144,7 +162,8 @@ enum SettingsKeys:String {
     case ScanningBorder
     case CardType
     case Customer
-    case ThreeDsDuration
+    case ThreeDsAnimationDuration
+    case ThreeDsAnimationType
     case ThreeDsBlur
     
 }

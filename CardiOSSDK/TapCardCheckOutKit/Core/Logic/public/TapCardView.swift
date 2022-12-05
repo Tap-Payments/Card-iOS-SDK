@@ -230,15 +230,22 @@ internal protocol ThreeDSViewControllerDelegatee {
         attributes.screenInteraction = .dismiss
         attributes.entryInteraction = .absorbTouches
         attributes.scroll = .edgeCrossingDisabled(swipeable: true)
-        attributes.entranceAnimation = .init(
-            scale: .init(from: 0, to: 1, duration: threeDSConfiguration.zoomInAnimationDuration, spring: .init(damping: 1, initialVelocity: 0))
-        )
+        switch threeDSConfiguration.threeDsAnimationType {
+            case .ZoomIn:
+            attributes.entranceAnimation = .init(
+                scale: .init(from: 0, to: 1, duration: threeDSConfiguration.animationDuration, spring: .init(damping: 1, initialVelocity: 0))
+            )
+        case.BottomTransition:
+            attributes.entranceAnimation = .init(
+                translate: .init(duration: threeDSConfiguration.animationDuration)
+            )
+        }
         attributes.exitAnimation = .init(
             translate: .init(duration: 0.35)
         )
         attributes.popBehavior = .animated(
             animation: .init(
-                translate: .init(duration: threeDSConfiguration.zoomInAnimationDuration)
+                translate: .init(duration: threeDSConfiguration.animationDuration)
                 //scale: .init(from: 0, to: 1, duration: 1.5)
             )
         )
@@ -499,6 +506,7 @@ internal protocol ThreeDSViewControllerDelegatee {
         self.tapCardInputDelegate?.eventHappened(with: .ThreeDSStarter)
         
         webViewModel = .init()
+        webViewModel.shouldShowHeaderView = false
         webViewModel.delegate = self
         
         let tapViewController = TapWebViewController.init(nibName: "TapWebViewController", bundle: Bundle.current)

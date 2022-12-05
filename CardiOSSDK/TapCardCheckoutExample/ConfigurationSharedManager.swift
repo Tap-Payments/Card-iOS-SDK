@@ -69,6 +69,9 @@ class ConfigurationSharedManager {
     /// Tells if we need to show the card brand or not
     var showCardBrands:Bool = true
     
+    /// Tells if we need to show the loading state in the card view or not
+    var showLoadingState:Bool = true
+    
     /// Tells if we need to show the card scanning or not
     var showCardScanning:Bool = true
     

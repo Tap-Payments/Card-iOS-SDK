@@ -32,6 +32,16 @@ class CardSettingsViewController: FormViewController {
                 sharedConfigurationSharedManager.showCardBrands = switchRow.value ?? true
             }
         })
+        
+        <<< SwitchRow(SettingsKeys.LoadingState.rawValue, { row in
+            row.title = "Show loading state"
+            row.value = sharedConfigurationSharedManager.showLoadingState
+            row.onChange { switchRow in
+                sharedConfigurationSharedManager.showLoadingState = switchRow.value ?? true
+            }
+        })
+        
+        
         <<< SegmentedRow<String>(SettingsKeys.CardType.rawValue, { row in
             row.title = "Allowed card types"
             row.options = cardTypes.allCases.map{ $0.description }
@@ -174,6 +184,7 @@ enum SettingsKeys:String {
     case ThreeDsAnimationType
     case ThreeDsBlur
     case ThreeDsHeader
+    case LoadingState
     
 }
 

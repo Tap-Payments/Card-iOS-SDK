@@ -93,8 +93,8 @@
             filePath = "TapCardCheckoutExample/CustomerAppSimulation/CardSettingsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
             <Locations>
@@ -127,6 +127,69 @@
                   startingLineNumber = "99"
                   endingLineNumber = "99"
                   offsetFromSymbolStart = "71">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "077D5565-6D13-4C6A-B4A4-EEB04506E9FD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TapCardCheckOutKit/Core/Logic/public/TapCardView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
+            landmarkName = "changeSelfEnablement(to:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "077D5565-6D13-4C6A-B4A4-EEB04506E9FD - 495422209d6703fa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TapCardCheckOutKit.TapCardView.changeSelfEnablement(to: Swift.Bool) -&gt; ()"
+                  moduleName = "TapCardCheckOutKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/osamarabie/Desktop/Tap/TapCardCheckOutKit/CardiOSSDK/TapCardCheckOutKit/Core/Logic/public/TapCardView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "238"
+                  endingLineNumber = "238"
+                  offsetFromSymbolStart = "1459">
+               </Location>
+               <Location
+                  uuid = "077D5565-6D13-4C6A-B4A4-EEB04506E9FD - 824743523117e0de"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 @Swift.MainActor () -&gt; () in TapCardCheckOutKit.TapCardView.changeSelfEnablement(to: Swift.Bool) -&gt; ()"
+                  moduleName = "TapCardCheckOutKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/osamarabie/Desktop/Tap/TapCardCheckOutKit/CardiOSSDK/TapCardCheckOutKit/Core/Logic/public/TapCardView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "238"
+                  endingLineNumber = "238"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "077D5565-6D13-4C6A-B4A4-EEB04506E9FD - ba345557e71e4f07"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #2 @Swift.MainActor () -&gt; () in TapCardCheckOutKit.TapCardView.changeSelfEnablement(to: Swift.Bool) -&gt; ()"
+                  moduleName = "TapCardCheckOutKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/osamarabie/Desktop/Tap/TapCardCheckOutKit/CardiOSSDK/TapCardCheckOutKit/Core/Logic/public/TapCardView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "238"
+                  endingLineNumber = "238"
+                  offsetFromSymbolStart = "62">
                </Location>
             </Locations>
          </BreakpointContent>

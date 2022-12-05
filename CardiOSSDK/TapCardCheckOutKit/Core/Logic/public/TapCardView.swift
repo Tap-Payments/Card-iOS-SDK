@@ -44,7 +44,9 @@ internal protocol ThreeDSViewControllerDelegatee {
     private var fullScanner:TapFullScreenScannerViewController?// = TapFullScreenScannerViewController(dataSource: self)
     /// The ui customization to the full screen scanner borer color and to show a blut
     private var tapScannerUICustomization:TapFullScreenUICustomizer? = .init()
-    
+    /// A view to display to show the loading state
+    @IBOutlet weak var loadingView: UIView!
+    /// The actual card form view
     @IBOutlet weak var cardView: TapCardTelecomPaymentView!
     /// Represents the main holding view
     @IBOutlet var contentView: UIView!
@@ -60,6 +62,8 @@ internal protocol ThreeDSViewControllerDelegatee {
             selectCorrectBrand()
         }
     }
+    /// Tells if we need to show the loading state in the card view or not
+    internal var showLoadingState:Bool = true
     /// Represents the view model for handling the card forum
     internal let tapCardTelecomPaymentViewModel: TapCardTelecomPaymentViewModel = .init()
     /// Represents the view model for handling the card brands bar
@@ -143,9 +147,10 @@ internal protocol ThreeDSViewControllerDelegatee {
      - Parameter editCardName: Indicates whether or not the user can edit the card holder name field. Default is true
      - Parameter showCardBrandIcon:deines whether to show the detected brand icon besides the card number instead of the placeholdder
      - Parameter threeDSConfiguration: Defines the attributes/configurations when displaying the 3DS web page
+     - Parameter showLoadingState: Tells if we need to show the loading state in the card view or not. Default is true
      */
     
-    @objc public func setupCardForm(locale:String = "en", collectCardHolderName:Bool = false, showCardBrandsBar:Bool = false, showCardScanner:Bool = false, tapScannerUICustomization:TapFullScreenUICustomizer? = .init() , transactionCurrency:TapCurrencyCode = .KWD, presentScannerInViewController:UIViewController?, allowedCardTypes:cardTypes = .All, tapCardInputDelegate:TapCardInputDelegatee? = nil, preloadCardHolderName:String = "", editCardName:Bool = true, threeDSConfiguration:ThreeDSConfiguration = .init()) {
+    @objc public func setupCardForm(locale:String = "en", collectCardHolderName:Bool = false, showCardBrandsBar:Bool = false, showCardScanner:Bool = false, tapScannerUICustomization:TapFullScreenUICustomizer? = .init() , transactionCurrency:TapCurrencyCode = .KWD, presentScannerInViewController:UIViewController?, allowedCardTypes:cardTypes = .All, tapCardInputDelegate:TapCardInputDelegatee? = nil, preloadCardHolderName:String = "", editCardName:Bool = true, threeDSConfiguration:ThreeDSConfiguration = .init(), showLoadingState:Bool = true) {
         // Set the locale
         self.locale = locale
         // Set the collection name ability
@@ -172,6 +177,8 @@ internal protocol ThreeDSViewControllerDelegatee {
         self.tapCardInputDelegate = tapCardInputDelegate
         // Set the attributes/configurations when displaying the 3DS web page
         self.threeDSConfiguration = threeDSConfiguration
+        // Tells if we need to show the loading state in the card view or not. Default is true
+        self.showLoadingState = showLoadingState
         // Init the card brands bar
         setupCardBrandsBarDataSource()
         // Adjust the UI now
@@ -206,17 +213,41 @@ internal protocol ThreeDSViewControllerDelegatee {
             return
         }
         tapCardInputDelegate?.eventHappened(with: .TokenizeStarted)
+        changeSelfEnablement(to: false)
         sharedNetworkManager.callCardTokenAPI(cardTokenRequestModel: TapCreateTokenWithCardDataRequest(card: nonNullTokenizeCard)) { [weak self] token in
+            self?.changeSelfEnablement(to: true)
             self?.tapCardInputDelegate?.eventHappened(with: .TokenizeEnded)
             onResponeReady(token)
         } onErrorOccured: { [weak self] error in
+            self?.changeSelfEnablement(to: true)
             self?.tapCardInputDelegate?.eventHappened(with: .TokenizeEnded)
             onErrorOccured(error, cardFieldsValidity)
         }
         
     }
     
-    
+    /// Enable/Disable self based on input
+    /// - Parameter to: True to enable self or false otherwise
+    private func changeSelfEnablement(to:Bool) {
+        isUserInteractionEnabled = to
+        // Only if it is allowed to show the loading state we will display it
+        guard showLoadingState else { return }
+        loadingView.translatesAutoresizingMaskIntoConstraints = false
+        let targetFrame = cardView.stackView.frame
+        loadingView.snp.remakeConstraints { make in
+            make.leading.equalTo(cardView.snp_leadingMargin).offset(targetFrame.origin.x)
+            make.trailing.equalTo(cardView.snp_trailingMargin).offset(-targetFrame.origin.x)
+            make.top.equalTo(targetFrame.origin.y)
+            make.width.equalTo(targetFrame.width)
+            make.height.equalTo(targetFrame.height)
+        }
+        loadingView.layoutIfNeeded()
+        DispatchQueue.main.async { [weak self] in
+            UIView.animate(withDuration: 0.2, delay: 0, options: []) {
+                self?.loadingView.alpha = to ? 0 : 1
+            }
+        }
+    }
     
     private func centeralPopUpAttributes() -> EKAttributes {
         var attributes: EKAttributes
@@ -326,15 +357,18 @@ internal protocol ThreeDSViewControllerDelegatee {
         sharedNetworkManager.dataConfig.metadata = metadata
         sharedNetworkManager.dataConfig.enfroce3DS = enforce3DS
         sharedNetworkManager.dataConfig.onResponeSaveCardReady = { [weak self] card in
+            self?.changeSelfEnablement(to: true)
             self?.tapCardInputDelegate?.eventHappened(with: .SaveCardEnded)
             onResponeReady(card)
         }
         sharedNetworkManager.dataConfig.onErrorSaveCardOccured = { [weak self] error, card in
+            self?.changeSelfEnablement(to: true)
             self?.tapCardInputDelegate?.eventHappened(with: .SaveCardEnded)
             onErrorOccured(error, card,cardFieldsValidity)
         }
         tapCardInputDelegate?.eventHappened(with: .SaveCardStarted)
         //showWebView(with: URL(string: "https://www.google.com")!)
+        changeSelfEnablement(to: false)
         // To save a card we need to tokenize it first
         sharedNetworkManager.callCardTokenAPI(cardTokenRequestModel: TapCreateTokenWithCardDataRequest(card: nonNullTokenizeCard),onResponeReady: { cardToken in
             // Now let us verify the card first
@@ -618,6 +652,8 @@ extension TapCardView {
         
         // background color
         self.tap_theme_backgroundColor = ThemeUIColorSelector.init(keyPath: "horizontalList.backgroundColor")
+        // loading view background color
+        loadingView.tap_theme_backgroundColor = ThemeUIColorSelector.init(keyPath: "inlineCard.commonAttributes.backgroundColor")
     }
     
     /// Listen to light/dark mde changes and apply the correct theme based on the new style

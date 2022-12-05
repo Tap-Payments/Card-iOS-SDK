@@ -82,7 +82,10 @@ class ConfigurationSharedManager {
     var showBrandIcon:Bool = true
     
     /// The  animation when showing the 3ds web page
-    var animationDuration:TimeInterval = 1
+    var animationDuration:TimeInterval = 0.5
+    
+    /// deines whether to show the heaer above the 3ds web view
+    var showWebViewHeader:Bool = true
     
     /// The animation used to show the 3ds web page
     var animationType:ThreeDsWebViewAnimationEnum = .BottomTransition

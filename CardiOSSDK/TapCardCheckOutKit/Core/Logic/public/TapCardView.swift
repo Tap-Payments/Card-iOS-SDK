@@ -506,7 +506,7 @@ internal protocol ThreeDSViewControllerDelegatee {
         self.tapCardInputDelegate?.eventHappened(with: .ThreeDSStarter)
         
         webViewModel = .init()
-        webViewModel.shouldShowHeaderView = false
+        webViewModel.shouldShowHeaderView = threeDSConfiguration.showHeaderView
         webViewModel.delegate = self
         
         let tapViewController = TapWebViewController.init(nibName: "TapWebViewController", bundle: Bundle.current)

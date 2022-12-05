@@ -125,6 +125,14 @@ class CardSettingsViewController: FormViewController {
             }
         })
         
+        <<< SwitchRow(SettingsKeys.ThreeDsHeader.rawValue, { row in
+            row.title = "Show header for web view"
+            row.value = sharedConfigurationSharedManager.showWebViewHeader
+            row.onChange { row in
+                sharedConfigurationSharedManager.showWebViewHeader = row.value ?? true
+            }
+        })
+        
         +++ Section("Customer")
         <<< ButtonRow(SettingsKeys.Customer.rawValue, { row in
             row.title = "Customer : \(sharedConfigurationSharedManager.customerDisplay)"
@@ -165,6 +173,7 @@ enum SettingsKeys:String {
     case ThreeDsAnimationDuration
     case ThreeDsAnimationType
     case ThreeDsBlur
+    case ThreeDsHeader
     
 }
 

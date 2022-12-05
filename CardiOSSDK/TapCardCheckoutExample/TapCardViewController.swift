@@ -74,7 +74,8 @@ class TapCardViewController: UIViewController, TapCardInputDelegatee {
                                   editCardName: sharedConfigurationSharedManager.editCardHolderName,
                                   threeDSConfiguration: .init(backgroundBlurStyle: sharedConfigurationSharedManager.threeDSBlurStyle.toBlurStyle(),
                                                               animationDuration: sharedConfigurationSharedManager.animationDuration,
-                                                              threeDsAnimationType: sharedConfigurationSharedManager.animationType))
+                                                              threeDsAnimationType: sharedConfigurationSharedManager.animationType,
+                                                              showHeaderView: sharedConfigurationSharedManager.showWebViewHeader))
     }
     
     

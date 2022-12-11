@@ -7,17 +7,24 @@
 
 import UIKit
 import TapUIKit_iOS
+import SwiftEntryKit
+import TapThemeManager2020
 
 internal class TapWebViewController: UIViewController {
     
     @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var closeButton: UIButton!
+    
     /// The webview model handler
     internal var webViewModel:TapWebViewModel?
     /// The url to load
     internal var url:URL?
+    /// Whether or not to call cancel action
+    internal var fireCancelAction:Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        matchThemeAttributes()
     }
 
     
@@ -30,7 +37,23 @@ internal class TapWebViewController: UIViewController {
         
         webViewModel.load(with: url)
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if fireCancelAction {
+            webViewModel?.delegate?.webViewCanceled()
+        }
+        print("DISAPPEAR")
+    }
 
+    @IBAction func closeButtonClicked(_ sender: Any) {
+        SwiftEntryKit.dismiss()
+    }
+    
+    func matchThemeAttributes() {
+        //closeButton.setImage(TapThemeManager.imageValue(for: "inlineCard.clearImage.image"), for: .normal)
+        closeButton.tap_theme_tintColor = .init(keyPath: "horizontalList.headers.gatewayHeader.leftButton.labelTextColor")
+    }
     /*
     // MARK: - Navigation
 
@@ -46,6 +69,7 @@ internal class TapWebViewController: UIViewController {
 
 extension TapWebViewController: ThreeDSViewControllerDelegatee {
     func disimiss() {
+        fireCancelAction = false
         dismiss(animated: true)
     }
 }

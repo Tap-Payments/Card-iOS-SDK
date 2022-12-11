@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TapWebViewController" customModule="TapCardCheckOutKit" customModuleProvider="target">
             <connections>
+                <outlet property="closeButton" destination="UEc-88-xiQ" id="EMj-0M-qaM"/>
                 <outlet property="stackView" destination="Unz-Nh-1rL" id="6Sc-rX-IJi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -45,6 +46,17 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UEc-88-xiQ">
+                    <rect key="frame" x="370" y="68" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="UEc-88-xiQ" secondAttribute="height" multiplier="1:1" id="G2R-4O-irF"/>
+                        <constraint firstAttribute="width" constant="24" id="sZM-NO-B80"/>
+                    </constraints>
+                    <buttonConfiguration key="configuration" style="plain"/>
+                    <connections>
+                        <action selector="closeButtonClicked:" destination="-1" eventType="touchUpInside" id="hQR-B4-xSO"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -55,6 +67,8 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Unz-Nh-1rL" secondAttribute="trailing" id="bGX-fz-FhO"/>
                 <constraint firstItem="YV9-v6-wRo" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="dUC-uk-vBK"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Unz-Nh-1rL" secondAttribute="bottom" id="dq3-qc-A9y"/>
+                <constraint firstItem="UEc-88-xiQ" firstAttribute="top" secondItem="Unz-Nh-1rL" secondAttribute="top" id="jdw-8l-8P0"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="UEc-88-xiQ" secondAttribute="trailing" constant="20" id="mvg-fq-hjI"/>
                 <constraint firstItem="Unz-Nh-1rL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="nM5-gM-nkI"/>
                 <constraint firstItem="Unz-Nh-1rL" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="x8f-IY-jCL"/>
             </constraints>

@@ -243,7 +243,7 @@ internal protocol ThreeDSViewControllerDelegatee {
         }
         loadingView.layoutIfNeeded()
         DispatchQueue.main.async { [weak self] in
-            UIView.animate(withDuration: 0.2, delay: 0, options: []) {
+            UIView.animate(withDuration: 0.5, delay: 0, options: []) {
                 self?.loadingView.alpha = to ? 0 : 1
             }
         }
@@ -294,7 +294,6 @@ internal protocol ThreeDSViewControllerDelegatee {
         attributes.positionConstraints.verticalOffset = 0
         attributes.positionConstraints.safeArea = .overridden
         attributes.statusBar = .dark
-        
         return attributes
         
     }

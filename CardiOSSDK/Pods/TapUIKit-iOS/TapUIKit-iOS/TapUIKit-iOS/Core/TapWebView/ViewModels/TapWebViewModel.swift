@@ -44,6 +44,9 @@ internal protocol TapWebViewDelegate {
      - Parameter error: The error that occured while loading this url
      */
     @objc func didFail(with error:Error,for url:URL?)
+    
+    /// Will be fired when the user cancels the authentication web view
+    @objc func webViewCanceled()
 
 }
 

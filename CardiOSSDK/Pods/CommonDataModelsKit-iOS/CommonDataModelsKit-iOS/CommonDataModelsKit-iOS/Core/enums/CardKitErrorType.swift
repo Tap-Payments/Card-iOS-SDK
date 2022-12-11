@@ -41,6 +41,7 @@ extension CardKitErrorType: CustomStringConvertible {
     @objc(SaveCardDisabled)         case SaveCardDisabled
     @objc(ThreeDSStarter)           case ThreeDSStarter
     @objc(ThreeDSEnded)             case ThreeDSEnded
+    @objc(ThreeDSCanceled)          case ThreeDSCanceled
 }
 
 // MARK: - CustomStringConvertible
@@ -70,6 +71,8 @@ extension CardKitEventType: CustomStringConvertible {
             return "User enabled saving the card"
         case .SaveCardDisabled:
             return "User disabled saving the card"
+        case .ThreeDSCanceled:
+            return "User canceled the 3DS authentication"
         }
     }
 }

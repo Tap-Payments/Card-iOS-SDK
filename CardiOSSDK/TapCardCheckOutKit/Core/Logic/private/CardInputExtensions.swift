@@ -93,6 +93,11 @@ extension TapCardView:TapWebViewModelDelegate {
         //handleError(error: "Failed to load:\n\(url?.absoluteString ?? "")\nWith Error :\n\(error)")
     }
     
+    public func webViewCanceled() {
+        self.tapCardInputDelegate?.eventHappened(with: .ThreeDSCanceled)
+        sharedNetworkManager.dataConfig.onErrorSaveCardOccured("User canceled", nil)
+    }
+    
     /**
      Used to decide the decision the web view should do based in the url being requested
      - Parameter forWebPayment url: The url being requested we need to decide the flow based on

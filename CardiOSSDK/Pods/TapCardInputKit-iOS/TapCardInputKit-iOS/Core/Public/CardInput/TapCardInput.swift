@@ -80,6 +80,8 @@ internal protocol TapCardInputCommonProtocol {
     internal lazy var stackView = UIStackView()
     /// The card brand image icon
     internal lazy var icon = UIImageView()
+    /// The underline view we will show when entering the CVV in save card mode
+    internal lazy var underlineView = UIView()
     /// The card brand last image icon, will be used to show it back after the CVV animation
     internal lazy var lastShownIcon:UIImage? = nil
     /// The scan button
@@ -312,6 +314,8 @@ internal protocol TapCardInputCommonProtocol {
         // declare our status to be saved card
         self.cardUIStatus = .SavedCard
         
+        self.cardDatachanged(cardStatusUI: self.cardUIStatus)
+        
     }
     
     
@@ -332,6 +336,14 @@ internal protocol TapCardInputCommonProtocol {
         return (cardNumber.isValid(cardNumber: tapCard.tapCardNumber),cardExpiry.isValid(),cardCVV.isValid(), showCardName ? cardName.isValid() : true)
     }
     
+    /**
+     Decides what is the status of the card number field
+     VALID, INVALID or INCOMPLETE
+     */
+    public func cardNumberValidationStatus() -> CrardInputTextFieldStatusEnum {
+        return cardNumber.textFieldStatus()
+    }
+    
     override public func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         TapThemeManager.changeThemeDisplay(for: self.traitCollection.userInterfaceStyle)
@@ -347,7 +359,7 @@ internal protocol TapCardInputCommonProtocol {
         savedCardNumberLabel.alpha = (cardUIStatus == .SavedCard) ? 1 : 0
         savedCardExpiryLabel.alpha = (cardUIStatus == .SavedCard) ? 1 : 0
         closeSavedCardButton.alpha = (cardUIStatus == .SavedCard) ? 1 : 0
-        
+        underlineView.alpha = (cardUIStatus == .SavedCard) ? 1 : 0
         // now let us see if we have to focus the CVV if we are filling in saved card data
         if cardUIStatus == .SavedCard {
             cardCVV.isUserInteractionEnabled = true
@@ -458,12 +470,18 @@ internal protocol TapCardInputCommonProtocol {
         // Defines an action handler to the close saved card button
         closeSavedCardButton.addTarget(self, action: #selector(closeSavedCardButtonClicked), for: .touchUpInside)
         closeSavedCardButton.setTitle("", for: .normal)
+        
         // Defines close saved card button icon
-        // Defines scan button icon
-        closeSavedCardButton.setImage(TapThemeManager.imageValue(for: "\(themePath).closeSavedCardIcon",from: Bundle(for: type(of: self))), for: .normal)
+        var closeSavedCardStatusImage:UIImage? = TapThemeManager.imageValue(for: "\(themePath).closeSavedCardIcon",from: Bundle(for: type(of: self)))
+        // We will need to flip it in case of Arabic as it is an arrow
+        if sharedLocalisationManager.localisationLocale == "ar" {
+            closeSavedCardStatusImage = closeSavedCardStatusImage?.withHorizontallyFlippedOrientation()
+        }
+        
+        closeSavedCardButton.setImage(closeSavedCardStatusImage, for: .normal)
         closeSavedCardButton.tap_theme_tintColor = ThemeUIColorSelector.init(keyPath: "\(themePath).iconImage.tint")
         
-        closeSavedCardButton.imageView?.contentMode = .scaleToFill
+        closeSavedCardButton.imageView?.contentMode = .scaleAspectFit
         closeSavedCardButton.contentHorizontalAlignment = .fill;
         closeSavedCardButton.contentVerticalAlignment = .fill;
         
@@ -492,6 +510,7 @@ internal protocol TapCardInputCommonProtocol {
         saveSwitch.tap_theme_thumbTintColor = ThemeUIColorSelector.init(keyPath: "\(themePath).saveCardOption.switchThumbColor")
         saveSwitch.tap_theme_onTintColor = ThemeUIColorSelector.init(keyPath: "\(themePath).saveCardOption.switchOnThumbColor")
         
+        underlineView.tap_theme_backgroundColor = ThemeUIColorSelector.init(keyPath: "\(themePath).commonAttributes.savedCardCvvUnderLineColor")
         
         updateShadow()
     }
@@ -804,10 +823,12 @@ internal protocol TapCardInputCommonProtocol {
         if cardUIStatus == .SavedCard {
             if cardCVV.isValid() {
                 // Then we need to hide it
-                self.scanButton.isHidden = true
+                // self.scanButton.isHidden = true
             }else{
                 // Let us show the CVV placeholder for more clarity
                 self.scanButton.setImage(TapThemeManager.imageValue(for: "\(themePath).commonAttributes.cvvPlaceHolder",from: Bundle(for: type(of: self))), for: .normal)
+                self.scanButton.imageView?.contentMode = .scaleAspectFit
+                self.scanButton.tap_theme_tintColor = ThemeUIColorSelector.init(keyPath: "\(themePath).scanImage.tint")
             }
             return
         }

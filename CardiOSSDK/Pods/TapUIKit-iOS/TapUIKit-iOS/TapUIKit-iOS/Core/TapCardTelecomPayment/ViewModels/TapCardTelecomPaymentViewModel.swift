@@ -80,6 +80,9 @@ import TapCardVlidatorKit_iOS
     /// Indicates whether or not to show scan a card functionality
     @objc public var showScanner:Bool = true
     
+    ///  Decide whether to show the normal card header or we need to add OR before the card title
+    @objc public var cardHeaderType:TapHorizontalHeaderType = .CardInputTitle
+    
     /// Indicates if the saved card switch is activated for Merchant
     @objc public var isMerchantSaveAllowed:Bool {
         return attachedView.saveCrdView.saveCardSwitch.isOn
@@ -122,7 +125,7 @@ import TapCardVlidatorKit_iOS
               allCardFieldsValid(),
               attachedView.cardInputView.cardUIStatus != .SavedCard else { return (false,false) }
         // Then yes we should show the save card view :)
-        return ((saveCardType == .All || saveCardType == .Merchant),( saveCardType == .All || saveCardType == .Tap))
+        return ((saveCardType == .All || saveCardType == .Merchant),(( saveCardType == .All || saveCardType == .Tap) && self.isMerchantSaveAllowed))
         
     }
     
@@ -177,7 +180,7 @@ import TapCardVlidatorKit_iOS
     @objc public func setCard(with card:TapCard,then focusCardNumber:Bool,shouldRemoveCurrentCard:Bool = true,for cardUIStatus:CardInputUIStatus) {
         tapCardTelecomPaymentView?.lastReportedTapCard = card
         tapCardTelecomPaymentView?.cardInputView.setCardData(tapCard: card, then: focusCardNumber,shouldRemoveCurrentCard:shouldRemoveCurrentCard,for: cardUIStatus)
-        tapCardTelecomPaymentView?.headerView.headerType = (cardUIStatus == .SavedCard) ? .SaveCardInputTitle : .CardInputTitle
+        tapCardTelecomPaymentView?.headerView.headerType = (cardUIStatus == .SavedCard) ? .SaveCardInputTitle : self.cardHeaderType
     }
     
     
@@ -226,13 +229,17 @@ import TapCardVlidatorKit_iOS
         guard let cardNumber:String = tapCard.tapCardNumber, cardNumber != "" else {
             return .Error
         }
+        
         // Let us get the validation status of the fields
         let (cardNumberValid,cardExpiryValid,cardCVVValid,cardNameValid) = tapCardTelecomPaymentView.cardInputView.fieldsValidationStatuses()
         
         // Firs we check the validation result of the card number (has the highest priority)
         if !cardNumberValid {
-            // If not valid, report a wrong card number hint
-            newStatus = .ErrorCardNumber
+            // If not valid, report a wrong card number hint,
+            // AS per new requirement we will only display the error message if it is invalid not in the incomplete state
+            if tapCardTelecomPaymentView.cardInputView.cardNumberValidationStatus() == .Invalid {
+                newStatus = .ErrorCardNumber
+            }
         }else {
             // Now we need to check if there is text in CVV and Expiry
             if !cardExpiryValid {
@@ -274,6 +281,11 @@ import TapCardVlidatorKit_iOS
 
 extension TapCardTelecomPaymentViewModel: TapSaveCardViewDelegate {
     public func saveCardChanged(for saveCardType: SaveCardType, to enabled: Bool) {
+        // If the user switches off the save card for merchant switch, we will have to hide the save card for tap details
+        if saveCardType == .Merchant {
+            let (showSaveForMerchant,showSaveForTap) = shouldShowSaveCardView()
+            attachedView.shouldShowSaveCardView(showSaveForMerchant,showSaveForTap)
+        }
         delegate?.saveCardChanged(for: saveCardType, to: enabled)
     }
 }

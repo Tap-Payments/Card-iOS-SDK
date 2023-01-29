@@ -8,6 +8,15 @@
 
 import Foundation
 import class UIKit.UIImage
+
+/// A protocol to communicate between the owner with this view model
+@objc public protocol TapActionButtonViewModelDelegate {
+    /// Fired whenever the button started loading state
+    @objc func didStartLoading()
+    /// Fired whenever the button ended the loading
+    @objc func didEndLoading()
+}
+
 /// A protocol to communicate with the view controller with this view model
 internal protocol TapActionButtonViewDelegate {
     
@@ -46,6 +55,9 @@ internal protocol TapActionButtonViewDelegate {
         }
     }
     
+    /// A protocol to communicate between the owner with this view model
+    @objc public var delegate:TapActionButtonViewModelDelegate?
+    
     /// A block representing the action to be executed when the button is clicked, please assign this accordignly based on the latest action required/fied from the main checkout screen
     @objc public var buttonActionBlock:()->() = {}
     
@@ -54,6 +66,15 @@ internal protocol TapActionButtonViewDelegate {
      */
     @objc public func startLoading(completion: @escaping ()->() = {}) {
         viewDelegate?.startLoading(completion: completion)
+    }
+    
+    /// Add this custom string to be displayed beside the main title of the button. for example Pay FOR TAP PAYMENTS
+    @objc public var appendCustomTitle:String = "" {
+        didSet{
+            if oldValue != appendCustomTitle {
+                viewDelegate?.reload()
+            }
+        }
     }
     
     
@@ -94,6 +115,20 @@ internal protocol TapActionButtonViewDelegate {
             // assign the new status
             self.buttonStatus = status
         }
+    }
+    
+    /**
+     Computes the correct title to be displayed within the pay button
+     - returns: The correct displaying title given the current button status and if there is any custom string to append if passed by the owner
+     */
+    internal func buttonDisplayTitle() -> String {
+        // The base title given the status
+        var buttonTitle:String = buttonStatus.buttonTitle()
+        // Only in case of charge or authorize we consider the custom string
+        if buttonStatus == .InvalidPayment || buttonStatus == .ValidPayment {
+            buttonTitle = "\(buttonTitle) \(appendCustomTitle)"
+        }
+        return buttonTitle
     }
     
     /**

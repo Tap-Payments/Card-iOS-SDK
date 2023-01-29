@@ -56,6 +56,7 @@ import TapThemeManager2020
             viewModel?.tapCardTelecomPaymentView = self
             cardInputView.showScanningOption = viewModel?.showScanner ?? true
             saveCrdView.delegate = viewModel
+            saveCrdForTapView.delegate = viewModel
         }
     }
     
@@ -140,6 +141,7 @@ import TapThemeManager2020
         
         // Adjust visibility  the save for merchant & tap views
         
+        saveCrdForTapView.ev?.dismiss()
         saveCrdView.isHidden = !finalMerchantVisibility
         saveCrdForTapView.isHidden = !finalTapVisibility
         
@@ -155,6 +157,7 @@ import TapThemeManager2020
             stackView.addArrangedSubview(saveCrdForTapView)
         }else{
             stackView.removeArrangedSubview(saveCrdForTapView)
+            saveCrdForTapView.isSavedCardEnabled = false
         }
         
         
@@ -272,7 +275,7 @@ import TapThemeManager2020
     /// Used to reset all segment selections and input fields upon changing the data source
     private func clearViews() {
         // Adjust the header view
-        headerView.headerType = .CardInputTitle
+        headerView.headerType = viewModel?.cardHeaderType ?? .CardInputTitle
         // Reset the card input
         cardInputView.reset()
         // Re init the card input
@@ -281,6 +284,7 @@ import TapThemeManager2020
         tapCardPhoneListViewModel.resetCurrentSegment()
         lastReportedTapCard = .init()
         viewModel?.delegate?.brandDetected(for: .unknown, with: .Invalid,cardStatusUI: .NormalCard)
+        saveCrdForTapView.ev?.dismiss()
     }
     
     /// Call this to claculate the required height for the view. Takes in consideration the visibility of name row, save title, save subtitle, supported brands
@@ -320,7 +324,7 @@ extension TapCardTelecomPaymentView: TapCardInputProtocol {
     
     public func closeSavedCard() {
         viewModel?.delegate?.closeSavedCardClicked()
-        headerView.headerType = .CardInputTitle
+        headerView.headerType = viewModel?.cardHeaderType ?? .CardInputTitle
     }
     
     public func heightChanged() {
@@ -329,6 +333,8 @@ extension TapCardTelecomPaymentView: TapCardInputProtocol {
     
     public func dataChanged(tapCard: TapCard) {
         hintStatus = viewModel?.decideHintStatus(with: tapCard, and: cardInputView.cardUIStatus)
+        lastReportedTapCard = tapCard
+        viewModel?.showHideSaveCardView()
     }
     
     public func cardDataChanged(tapCard: TapCard,cardStatusUI:CardInputUIStatus) {

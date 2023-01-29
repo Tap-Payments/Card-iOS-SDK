@@ -50,6 +50,8 @@ import TapCardScanner_iOS
     @IBOutlet weak var tapActionButtonHeightConstraint: NSLayoutConstraint!
     /// Used to push and pull the whole views above the keybaod when it is shown or dimissed
     @IBOutlet weak var tapActionButtonBottomConstraint: NSLayoutConstraint!
+    /// Used to push and pull the whole views above the keybaod when it is shown or dimissed
+    @IBOutlet weak var tapPoweredByTapBottomConstraint: NSLayoutConstraint!
     /// Reference to the tap action button
     @IBOutlet weak var tapActionButton: TapActionButton!
     /// Saves the current keyboard height when it is visible
@@ -60,7 +62,7 @@ import TapCardScanner_iOS
     
     /// Computes the needed bottom space margin including the button + the powered by tap view
     internal var neededBottomSpaceMargin:Double {
-        return tapActionButtonHeightConstraint.constant + powereByTapView.frame.height
+        return tapActionButtonHeightConstraint.constant + powereByTapView.frame.height + tapActionButtonBottomConstraint.constant
     }
     
     
@@ -118,7 +120,7 @@ import TapCardScanner_iOS
      */
     internal func neededSize() -> CGSize {
         var contentSize = scrollView.contentSize
-        contentSize.height += neededBottomSpaceMargin
+        contentSize.height += neededBottomSpaceMargin + tapPoweredByTapBottomConstraint.constant
         return contentSize
     }
     
@@ -247,7 +249,11 @@ import TapCardScanner_iOS
         var currentViewsHeight:CGFloat = 0
         stackView.arrangedSubviews.forEach{ currentViewsHeight += ($0.frame.height > 0) ? $0.frame.height : 45 }
         
-        return TapConstantManager.maxAllowedHeight - currentViewsHeight - tapActionButton.frame.origin.y
+        if tapActionButtonBottomConstraint.constant + tapActionButtonHeightConstraint.constant == 0 {
+            return TapConstantManager.maxAllowedHeight - currentViewsHeight
+        }else{
+            return TapConstantManager.maxAllowedHeight - currentViewsHeight - tapActionButton.frame.origin.y
+        }
     }
     
     /**

@@ -26,13 +26,15 @@ import EasyTipView
     /// A delegate to listen to events fired from the save card view
     @objc public var delegate:TapSaveCardViewDelegate?
     /// Indicates whether or not the user checked the save card for Tap box
-    internal var isSavedCardEnabled:Bool = true {
+    internal var isSavedCardEnabled:Bool = false {
         didSet{
             if oldValue != isSavedCardEnabled {
                 handleSaveCardForTapChanged()
             }
         }
     }
+    /// The tooltip component to show info about saving a card for TAP
+    internal var ev:EasyTipView?
     
     internal let themePath:String = "inlineCard.saveCardForTapOption"
     // Mark:- Init methods
@@ -57,11 +59,8 @@ import EasyTipView
         // first of all, disable the info button so the user cannot show duplicates of the tooltip
         saveInfoButton.isUserInteractionEnabled = false
         // Theme the tool tip, localise it and show it :)
-        EasyTipView.show(forView: saveInfoButton,
-                         withinSuperview: self.superview,
-                         text: TapLocalisationManager.shared.localisedValue(for: "TapCardInputKit.cardSaveForTapInfo", with: TapCommonConstants.pathForDefaultLocalisation()),
-                         preferences: themeSaveCardToolTip(),
-                         delegate: self)
+        ev = EasyTipView(text: TapLocalisationManager.shared.localisedValue(for: "TapCardInputKit.cardSaveForTapInfo", with: TapCommonConstants.pathForDefaultLocalisation()), preferences: themeSaveCardToolTip(), delegate: self)
+        ev?.show(animated: true, forView: saveInfoButton, withinSuperview: self.superview)
     }
     
     /// Generates the right theme for the tooltip
@@ -81,6 +80,8 @@ import EasyTipView
     internal func handleSaveCardForTapChanged() {
         // Update the UI of the checkbox
         saveCardButton.tap_theme_tintColor = ThemeUIColorSelector.init(keyPath: isSavedCardEnabled ? "\(themePath).saveButtonActivatedTintColor" : "\(themePath).saveButtonDeactivatedTintColor")
+        // No image when unselected as per new UI requirements
+        saveCardButton.image = isSavedCardEnabled ? UIImage(systemName: "checkmark.square.fill") : UIImage(systemName: "square.fill")
         // Inform the delegate
         delegate?.saveCardChanged(for: .Tap, to: isSavedCardEnabled)
     }
@@ -155,6 +156,9 @@ extension TapInternalSaveCard {
         
         // Theme teh save card buttons
         saveCardButton.tap_theme_tintColor = ThemeUIColorSelector.init(keyPath: isSavedCardEnabled ? "\(themePath).saveButtonActivatedTintColor" : "\(themePath).saveButtonDeactivatedTintColor")
+        
+        saveCardButton.image = isSavedCardEnabled ? UIImage(systemName: "checkmark.square.fill") : UIImage(systemName: "square.fill")
+        
         saveInfoButton.tap_theme_tintColor = ThemeUIColorSelector.init(keyPath: "\(themePath).infoButtonTintColor")
         
         layoutIfNeeded()

@@ -297,6 +297,7 @@
 			children = (
 				E8503AA62896512200D1B8B0 /* CardKitGoogle.plist */,
 				E832631527E8993C005F3AAF /* Theme.json */,
+				E89B997D2893C76B00B03726 /* TapWebViewController.xib */,
 				E832630F27E89420005F3AAF /* TapCardInputView.xib */,
 				E858E295293737E6003234B4 /* TapCardView.xib */,
 			);
@@ -310,7 +311,6 @@
 				E832640727E9DBE0005F3AAF /* NetworkManagerExtension.swift */,
 				E832631327E8950D005F3AAF /* CardInputExtensions.swift */,
 				E89B997C2893C76B00B03726 /* TapWebViewController.swift */,
-				E89B997D2893C76B00B03726 /* TapWebViewController.xib */,
 			);
 			path = private;
 			sourceTree = "<group>";

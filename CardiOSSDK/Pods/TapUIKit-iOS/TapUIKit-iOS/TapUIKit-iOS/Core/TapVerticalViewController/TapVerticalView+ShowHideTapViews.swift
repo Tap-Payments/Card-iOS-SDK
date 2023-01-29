@@ -94,7 +94,7 @@ extension TapVerticalView {
     public func showScanner(with delegate:TapInlineScannerProtocl,for dataSource:TapScannerDataSource?) {
         endEditing(true)
         // Remove all non needed views preparing for showing the scanner afterwards
-        remove(viewType: TapChipHorizontalList.self, with: .init(), and: true)
+        remove(viewType: TapAmountSectionView.self, with: .init(), and: true, skipSelf: true)
         // Hide the action button as it is required to hide it nby the design for this scenario
         hideActionButton()
         // Create the hint view that shws the status of the scanner
@@ -112,7 +112,7 @@ extension TapVerticalView {
             // Show the scanner hint view
             self?.attach(hintView: hintView, to: TapAmountSectionView.self,with: true)
             // Show the scanner view itself
-            self?.add(view: tapCardScannerView, with: [.init(for: .fadeIn)],shouldFillHeight: true)
+            self?.add(view: tapCardScannerView, with: [.init(for: .slideIn, with: 0.3, wait: 0.3)],shouldFillHeight: true)
         }
     }
     
@@ -127,7 +127,7 @@ extension TapVerticalView {
         // Kill the camera and garbage collect anything leaking from the scanner activity
         scannerView.killScanner()
         // Remove the scanner view
-        remove(view: scannerView, with: .init())
+        remove(view: scannerView, with: .init(for: .slideOut, with: 0.2))
         // Inform the amount section that now we are showing the default view, hence it changes the title and the action of the amount's action button
         changeTapAmountSectionStatus(to: .DefaultView)
         // Remove any hints view that were visible because of the scanner view if any
@@ -155,7 +155,7 @@ extension TapVerticalView {
         // Push the action button by the required space height
         tapActionButtonBottomConstraint.constant = spaceRect.height - 150
         // Save the current pushing padding height
-        keyboardPadding = spaceRect.height - 100
+        keyboardPadding = spaceRect.height - 80
         if #available(iOS 13.0, *) {}else {
             keyboardPadding = 0
         }
@@ -172,6 +172,7 @@ extension TapVerticalView {
         // Change the scroll view content size to reflect the adding space to show the keyboard
         self.delaySizeChange = false
         self.scrollView.contentSize = currentContentSize
+        self.scrollView.scrollToBottom()
     }
     
     
@@ -221,17 +222,17 @@ extension TapVerticalView {
     }
     
     /// Hide the action button fade out + height decrease
-    @objc  public func hideActionButton() {
+    @objc  public func hideActionButton(fadeInDuation:Double = 0.25, fadeInDelay:Double = 0) {
         tapActionButtonHeightConstraint.priority = .required
         tapActionButtonHeightConstraint.constant = 0
-        tapActionButton.fadeOut()
+        tapActionButton.fadeOut(duration: fadeInDuation, delay: fadeInDelay)
         tapActionButton.updateConstraints()
         
         powereByTapView.snp.remakeConstraints { make in
             make.height.equalTo(0)
         }
         
-        powereByTapView.fadeOut()
+        powereByTapView.fadeOut(duration: fadeInDuation, delay: fadeInDelay)
         powereByTapView.layoutIfNeeded()
         powereByTapView.updateConstraints()
         
@@ -263,5 +264,14 @@ extension TapVerticalView {
         }else {
             add(view: hintView,at: (attachToViewIndex+1), with: requiredAnimations)
         }
+    }
+}
+
+
+fileprivate extension UIScrollView {
+    
+    func scrollToBottom() {
+        let bottomOffset = CGPoint(x: 0, y: contentSize.height - bounds.size.height + contentInset.bottom)
+        setContentOffset(bottomOffset, animated: true)
     }
 }

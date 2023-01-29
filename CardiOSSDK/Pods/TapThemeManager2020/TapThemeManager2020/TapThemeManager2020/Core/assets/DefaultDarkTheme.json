@@ -1,3 +1,4 @@
+
 {
     "GlobalValues" : {
         "Colors" : {
@@ -7,9 +8,10 @@
             "black30" : "#00000026",
             "lightPeach" : "#98989f",
             "greyishBrown" : "#ffffff",
+            "greyishBrown2" : "#C1C1C1",
             "veryLightPinkTwo" : "#404043",
             "brownGrey" : "#98989f",
-            "whiteTwo": "#2b2b2f",
+            "whiteTwo": "#211F1F",
             "deepSkyBlue": "#007aff",
             "white30":"#ffffff4D",
             "lightPeriwinkle": "#d9d9da",
@@ -30,7 +32,7 @@
             "deepSkyBlue15":"#007aff26",
             "brownGreyFive":"#aeaeae",
             "deepSkyBlue15":"#007aff26",
-            "veryLightPinkThree": "#1c1c1e",
+            "veryLightPinkThree": "#2C2A29",
             "azure": "#009aff",
             "brownGreySix": "#a7a7a7",
             "brownGreySeven": "#7e7e7e",
@@ -39,6 +41,12 @@
             "cancelBorder": "#DEDEDE"
         }
     },
+    "asyncView": {
+        "labelsFont":"Roboto-Regular,20",
+        "labelsColor":"greyishBrown",
+        "codeLabelFont":"Roboto-Regular,30",
+        "codeLabelColor":"greyishBrown"
+    },
     "inlineCard": {
         "commonAttributes": {
             "backgroundColor": "black",
@@ -46,7 +54,8 @@
             "cornerRadius": 8,
             "borderWidth": 0,
             "itemSpacing": 5,
-            "cvvPlaceHolder": "dark-cvv",
+            "cvvPlaceHolder": "cvv",
+            "savedCardCvvUnderLineColor": "#CFCFCF",
             "shadow":{
                 "color": "black30",
                 "radius": 8,
@@ -61,7 +70,7 @@
             "width": 32,
             "tint": "cardPlaceHolder"
         },
-        "closeSavedCardIcon" : "closeSavedCardInputIcon",
+        "closeSavedCardIcon" : "closeSavedCardInputIconArrow",
         "scanImage": {
             "image": "scanIcon",
             "selected": "selectedScan",
@@ -74,8 +83,8 @@
             "tint": "cardPlaceHolder"
         },
         "textFields": {
-            "textColor": "greyishBrown",
-            "errorTextColor": "#FF0000",
+            "textColor": "#CFCFCF",
+            "errorTextColor": "#CFCFCF",
             "font" : "Roboto-Light,14",
             "saveCardFontDots" : "Roboto-Bold,24",
             "placeHolderColor" : "cardPlaceHolder"
@@ -96,9 +105,9 @@
         }
     },
     "customerDataCollection": {
-        "backgroundColor":"white",
+        "backgroundColor":"black",
         "shadow":{
-            "color": "#FFFFFF26",
+            "color": "black30",
             "radius": 8,
             "offsetWidth": 0,
             "offsetHeight": 0,
@@ -107,8 +116,8 @@
         "textfields":{
             "font":"Roboto-Light,14",
             "countryCodeLabelFont":"Roboto,14",
-            "color":"greyishBrown",
-            "placeHolderColor":"##9F9F9F"
+            "color":"#CFCFCF",
+            "placeHolderColor":"cardPlaceHolder"
         },
         "countryPicker": {
             "countryCell":{
@@ -117,7 +126,9 @@
                 "titleLabelColor":"greyishBrown"
             },
             "countryTable":{
-                "backgroundColor":"white"
+                "backgroundColor":"white",
+                "titleFont" : "Roboto-Bold,24",
+                "titleColor" : "greyishBrown"
             }
         },
         "cornerRadius":8
@@ -292,7 +303,7 @@
         "width" : 75,
         "height" : 4,
         "corner" : 2,
-        "backgroundColor": "white"
+        "backgroundColor": "black"
     },
     "loyaltyView" : {
         "cardView": {
@@ -338,7 +349,7 @@
         "merchantLogoPlaceHolderColor" : "black",
         "merchantLogoPlaceHolderFont" : "Roboto-Regular,16",
         "merchantLogoPlaceHolderLabelColor" : "white",
-        "backgroundColor" : "white",
+        "backgroundColor" : "black",
         "closeCheckoutIcon": "closeCheckoutDarkIcon",
         "cancelButton": {
             "titleLabelFont" : "Roboto-Light,13",
@@ -352,7 +363,7 @@
         "convertedAmountLabelFont" : "Roboto-Light,14",
         "convertedAmountLabelColor" : "brownGrey",
         "itemsLabelFont" : "Roboto-Regular,10",
-        "itemsLabelColor" : "greyishBrown",
+        "itemsLabelColor" : "greyishBrown2",
         "itemsNumberButtonBackgroundColor" : "whiteTwo",
         "itemsNumberButtonBorder" : {
             "color" : "veryLightPinkTwo",
@@ -360,7 +371,7 @@
         },
         "itemsButtonArrowIcon":"arrowItemsIcon",
         "itemsNumberButtonCorner" : 10,
-        "backgroundColor" : "white"
+        "backgroundColor" : "black"
     },
     "horizontalList": {
         "backgroundColor" : "whiteTwo",
@@ -371,18 +382,18 @@
                 "backgroundColor" : "whiteTwo",
                 "leftButton": {
                     "labelTextFont": "Roboto-Regular,10",
-                    "labelTextColor": "greyishBrown"
+                    "labelTextColor": "greyishBrown2"
                 },
                 "rightButton": {
                     "labelTextFont": "Roboto-Regular,10",
-                    "labelTextColor": "greyishBrown"
+                    "labelTextColor": "greyishBrown2"
                 }
             }
         },
         "chips": {
             "radius" : 8,
             "currencyChip": {
-                "backgroundColor" : "white",
+                "backgroundColor" : "black",
                 "labelTextFont": "Roboto-Regular,12",
                 "labelTextColor": "greyishBrown",
                 "selected": {
@@ -409,7 +420,7 @@
                 }
             },
             "gatewayChip": {
-                "backgroundColor" : "white",
+                "backgroundColor" : "black",
                 "logoutIcon": "logoutIcon",
                 "selected": {
                     "shadow": {
@@ -462,11 +473,11 @@
                 }
             },
             "applePayChip": {
-                "backgroundColor" : "black",
+                "backgroundColor" : "#FFFFFF",
                 "applePayTitleFont": "Roboto-Regular,14",
-                "applePayTitleColor": "greyishBrown",
+                "applePayTitleColor": "#000000",
                 "appleLogoTitleFont": "Roboto-Regular,16",
-                "appleLogoTitleColor": "greyishBrown",
+                "appleLogoTitleColor": "#000000",
                 "selected": {
                     "shadow": {
                         "color" : "vibrantGreenTwo",
@@ -491,7 +502,7 @@
                 }
             },
             "savedCardChip": {
-                "backgroundColor" : "white",
+                "backgroundColor" : "black",
                 "labelTextFont": "Roboto-Regular,12",
                 "labelTextColor": "greyishBrown",
                 "editMode": {
@@ -574,7 +585,7 @@
         },
         "weAcceptLabel":{
             "textFont": "Roboto,10",
-            "textColor": "greyishBrown",
+            "textColor": "greyishBrown2",
         }
     },
     "TapVerticalView":
@@ -635,7 +646,7 @@
             "textColor": "greyishBrown",
             "font" : "Roboto-Light,10"
         },
-        "tapLogo":"poweredByTapLogo"
+        "tapLogo":"poweredByTapLogoDark"
     },
     "goPay": {
         "loginBar" :{
@@ -704,7 +715,7 @@
         "Invalid" : {
             "goLoginBackgroundColor" : "clear",
             "backgroundColor" : "veryLightPinkThree",
-            "titleLabelColor" : "brownGrey"
+            "titleLabelColor" : "#626262"
         },
         "Valid" : {
             "goLoginBackgroundColor" : "deepSkyBlue",
@@ -713,7 +724,7 @@
         },
         "BackgroundColor": {
             "Otp" : "clear",
-            "default" : "whiteTwo"
+            "default" : "clear"
         }
     },
     "TapOtpView": {

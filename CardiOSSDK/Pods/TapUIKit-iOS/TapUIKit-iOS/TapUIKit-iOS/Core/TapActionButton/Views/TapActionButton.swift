@@ -81,7 +81,7 @@ import TapThemeManager2020
     
     /// Fetch the displayed title from the view model
     private func fetchData() {
-        payButton.setTitle(viewModel?.buttonStatus.buttonTitle(), for: .normal)
+        payButton.setTitle(viewModel?.buttonDisplayTitle(), for: .normal)
         payButton.isUserInteractionEnabled = viewModel?.buttonStatus.isButtonEnabled() ?? false
     }
     
@@ -150,7 +150,7 @@ extension TapActionButton:TapActionButtonViewDelegate {
     
     
     func expand() {
-        payButton.fadeIn()
+        
         loaderGif.fadeOut()
         loaderGif.delegate = nil
         viewHolderWidth.constant = frame.width - 32
@@ -158,7 +158,9 @@ extension TapActionButton:TapActionButtonViewDelegate {
         UIView.animate(withDuration: 1.0, animations: { [weak self] in
             self?.viewHolder.updateConstraints()
             self?.layoutIfNeeded()
-        })
+        }) { x in
+            self.payButton?.fadeIn()
+        }
     }
     
     func shrink(with image:UIImage? = nil) {
@@ -166,6 +168,8 @@ extension TapActionButton:TapActionButtonViewDelegate {
         UIView.animate(withDuration: 1.0, animations: { [weak self] in
             self?.viewHolder.updateConstraints()
             self?.layoutIfNeeded()
+            self?.viewModel?.delegate?.didEndLoading()
+            self?.viewModel?.delegate?.didStartLoading()
         })
         
         guard let image = image else { return }

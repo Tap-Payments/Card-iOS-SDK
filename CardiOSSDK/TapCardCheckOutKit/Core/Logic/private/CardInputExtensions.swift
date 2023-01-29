@@ -59,6 +59,11 @@ extension Bundle {
 }
 
 extension TapCardView:TapWebViewModelDelegate {
+    public func webViewCanceled(showingFullScreen: Bool) {
+        self.tapCardInputDelegate?.eventHappened(with: .ThreeDSCanceled)
+        sharedNetworkManager.dataConfig.onErrorSaveCardOccured("User canceled", nil)
+    }
+    
     
     public func willLoad(request: URLRequest) -> WKNavigationActionPolicy {
         // Double check, there is a url to load :)

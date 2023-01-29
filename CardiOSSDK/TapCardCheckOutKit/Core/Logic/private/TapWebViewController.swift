@@ -41,7 +41,7 @@ internal class TapWebViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if fireCancelAction {
-            webViewModel?.delegate?.webViewCanceled()
+            webViewModel?.delegate?.webViewCanceled(showingFullScreen: false)
         }
         print("DISAPPEAR")
     }

@@ -582,6 +582,10 @@ internal protocol ThreeDSViewControllerDelegatee {
 }
 
 extension TapCardView:TapCardTelecomPaymentProtocol {
+    public func cardFieldsAreFocused() {
+        
+    }
+    
     public func saveCardChanged(for saveCardType: SaveCardType, to enabled: Bool) {
         print("Save card changed to: \(enabled)")
         tapCardInputDelegate?.eventHappened(with: enabled ? .SaveCardEnabled : .SaveCardDisabled)

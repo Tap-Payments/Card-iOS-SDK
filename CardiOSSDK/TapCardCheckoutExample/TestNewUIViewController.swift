@@ -61,6 +61,10 @@ class TestNewUIViewController: UIViewController {
 
 
 extension TestNewUIViewController:TapCardTelecomPaymentProtocol {
+    func cardFieldsAreFocused() {
+        
+    }
+    
     func saveCardChanged(for saveCardType: SaveCardType, to enabled: Bool) {
         print("Save card changed to: \(enabled)")
     }

@@ -41,6 +41,21 @@ class CardSettingsViewController: FormViewController {
             }
         })
         
+        <<< SwitchRow(SettingsKeys.SDKCardForceLTR.rawValue, { row in
+            row.title = "Force LTR"
+            row.value = sharedConfigurationSharedManager.forceLTR
+            row.onChange { switchRow in
+                sharedConfigurationSharedManager.forceLTR = switchRow.value ?? true
+            }
+        })
+        
+        <<< SwitchRow(SettingsKeys.FloatingSavedCard.rawValue, { row in
+            row.title = "Show saved card as a floating view"
+            row.value = sharedConfigurationSharedManager.floatingSavedCard
+            row.onChange { switchRow in
+                sharedConfigurationSharedManager.floatingSavedCard = switchRow.value ?? true
+            }
+        })
         
         <<< SegmentedRow<String>(SettingsKeys.CardType.rawValue, { row in
             row.title = "Allowed card types"
@@ -185,6 +200,8 @@ enum SettingsKeys:String {
     case ThreeDsBlur
     case ThreeDsHeader
     case LoadingState
+    case FloatingSavedCard
+    case SDKCardForceLTR
     
 }
 

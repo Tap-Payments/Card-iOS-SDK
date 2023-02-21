@@ -38,6 +38,13 @@
             "cancelBorder": "#DEDEDE"
         }
     },
+    "poweredByTap": {
+        "powerLabel": {
+            "textColor": "greyishBrown",
+            "font" : "Roboto-Light,10"
+        },
+        "tapLogo":"poweredByTapLogoDark"
+    },
     "inlineCard": {
         "commonAttributes": {
             "backgroundColor": "black",

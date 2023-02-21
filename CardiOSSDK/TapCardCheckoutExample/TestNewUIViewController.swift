@@ -93,7 +93,7 @@ extension TestNewUIViewController:TapCardTelecomPaymentProtocol {
         
     }
     
-    func brandDetected(for cardBrand: CardBrand, with validation: CrardInputTextFieldStatusEnum,cardStatusUI: CardInputUIStatus) {
+    func brandDetected(for cardBrand: CardBrand, with validation: CrardInputTextFieldStatusEnum,cardStatusUI: CardInputUIStatus,isCVVFocused: Bool) {
         //tapActionButtonViewModel.buttonStatus = (validation == .Valid) ? .ValidPayment : .InvalidPayment
         // Based on the detected brand type we decide the action button status
         if cardBrand.brandSegmentIdentifier == "telecom" {

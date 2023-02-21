@@ -95,6 +95,12 @@ class ConfigurationSharedManager {
     
     /// The blur bg of the three ds page
     var threeDSBlurStyle:ThreeDSBlurStyle = .Dark
+    
+    /// Indicates whether or not the user can edit the card holder name field. Default is true
+    var floatingSavedCard:Bool = false
+    
+    /// Whether to force LTR in arabic for card form
+    var forceLTR:Bool = false
 }
 
 

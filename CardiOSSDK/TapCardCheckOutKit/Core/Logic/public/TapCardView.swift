@@ -15,8 +15,8 @@ import TapCardVlidatorKit_iOS
 import LocalisationManagerKit_iOS
 import TapCardScanner_iOS
 import TapThemeManager2020
-import TapThemeManager2020
 import SwiftEntryKit
+import SwiftyGif
 
 /// A protorocl to communicate with the three ds web view controller
 internal protocol ThreeDSViewControllerDelegatee {
@@ -62,6 +62,8 @@ internal protocol ThreeDSViewControllerDelegatee {
             selectCorrectBrand()
         }
     }
+    /// loader view
+    @IBOutlet weak var loadingGif: UIImageView!
     /// Tells if we need to show the loading state in the card view or not
     internal var showLoadingState:Bool = true
     /// Represents the view model for handling the card forum
@@ -128,6 +130,10 @@ internal protocol ThreeDSViewControllerDelegatee {
     
     /// A preloading value for the card holder name if needed
     internal var preloadCardHolderName:String = ""
+    /// If true, the save card view will be a floating one without a bg color
+    internal var floatingSavedCard:Bool = false
+    /// Force LTR in card mode even in arabic language
+    internal var forceLTR:Bool = false
     /// Indicates whether or not the user can edit the card holder name field. Default is true
     internal var editCardName:Bool = true
     
@@ -148,9 +154,11 @@ internal protocol ThreeDSViewControllerDelegatee {
      - Parameter showCardBrandIcon:deines whether to show the detected brand icon besides the card number instead of the placeholdder
      - Parameter threeDSConfiguration: Defines the attributes/configurations when displaying the 3DS web page
      - Parameter showLoadingState: Tells if we need to show the loading state in the card view or not. Default is true
+     - Parameter floatingSavedCard: Indicates whether or not the user can edit the card holder name field. Default is true
+     - Parameter Force LTR in card mode even in arabic language
      */
     
-    @objc public func setupCardForm(locale:String = "en", collectCardHolderName:Bool = false, showCardBrandsBar:Bool = false, showCardScanner:Bool = false, tapScannerUICustomization:TapFullScreenUICustomizer? = .init() , transactionCurrency:TapCurrencyCode = .KWD, presentScannerInViewController:UIViewController?, allowedCardTypes:cardTypes = .All, tapCardInputDelegate:TapCardInputDelegatee? = nil, preloadCardHolderName:String = "", editCardName:Bool = true, threeDSConfiguration:ThreeDSConfiguration = .init(), showLoadingState:Bool = true) {
+    @objc public func setupCardForm(locale:String = "en", collectCardHolderName:Bool = false, showCardBrandsBar:Bool = false, showCardScanner:Bool = false, tapScannerUICustomization:TapFullScreenUICustomizer? = .init() , transactionCurrency:TapCurrencyCode = .KWD, presentScannerInViewController:UIViewController?, allowedCardTypes:cardTypes = .All, tapCardInputDelegate:TapCardInputDelegatee? = nil, preloadCardHolderName:String = "", editCardName:Bool = true, threeDSConfiguration:ThreeDSConfiguration = .init(), showLoadingState:Bool = true, floatingSavedCard:Bool = false, forceLTR:Bool = false) {
         // Set the locale
         self.locale = locale
         // Set the collection name ability
@@ -179,6 +187,10 @@ internal protocol ThreeDSViewControllerDelegatee {
         self.threeDSConfiguration = threeDSConfiguration
         // Tells if we need to show the loading state in the card view or not. Default is true
         self.showLoadingState = showLoadingState
+        // Indicates whether or not the user can edit the card holder name field. Default is true
+        self.floatingSavedCard = floatingSavedCard
+        // Force LTR in card mode even in arabic language
+        self.forceLTR = forceLTR
         // Init the card brands bar
         setupCardBrandsBarDataSource()
         // Adjust the UI now
@@ -403,6 +415,9 @@ internal protocol ThreeDSViewControllerDelegatee {
         tapCardTelecomPaymentViewModel.showCardBrandsBar = showCardBrands
         tapCardTelecomPaymentViewModel.showScanner = showCardScanner
         tapCardTelecomPaymentViewModel.preloadCardHolderName = preloadCardHolderName
+        tapCardTelecomPaymentViewModel.shouldThemeSelf = floatingSavedCard
+        tapCardTelecomPaymentViewModel.showPoweredByTapView = true
+        tapCardTelecomPaymentViewModel.shouldFlip = !forceLTR
         // Assign the delegates and the view models
         tapCardTelecomPaymentViewModel.delegate = self
         tapCardTelecomPaymentViewModel.tapCardPhoneListViewModel = tapCardPhoneListViewModel
@@ -420,6 +435,11 @@ internal protocol ThreeDSViewControllerDelegatee {
         tapCardPhoneListViewModel.dataSource = dataSource
         // Auto select the card section
         tapCardPhoneListViewModel.select(segment: "cards")
+        // Set the loading gif
+        let loadingBudle:Bundle = Bundle.init(for: TapActionButton.self)
+        let imageData = try? Data(contentsOf: loadingBudle.url(forResource: "Black-loader", withExtension: "gif")!)
+        let gif = try! UIImage(gifData: imageData!)
+        loadingGif.setGifImage(gif, loopCount: 100) // Will loop forever
     }
     
     
@@ -582,6 +602,7 @@ internal protocol ThreeDSViewControllerDelegatee {
 }
 
 extension TapCardView:TapCardTelecomPaymentProtocol {
+    
     public func cardFieldsAreFocused() {
         
     }
@@ -615,7 +636,7 @@ extension TapCardView:TapCardTelecomPaymentProtocol {
         currentTapCard = tapCard
     }
     
-    public func brandDetected(for cardBrand: CardBrand, with validation: CrardInputTextFieldStatusEnum,cardStatusUI: CardInputUIStatus) {
+    public func brandDetected(for cardBrand: CardBrand, with validation: CrardInputTextFieldStatusEnum,cardStatusUI: CardInputUIStatus,isCVVFocused: Bool) {
         //tapActionButtonViewModel.buttonStatus = (validation == .Valid) ? .ValidPayment : .InvalidPayment
         // Based on the detected brand type we decide the action button status
         if cardBrand.brandSegmentIdentifier == "telecom" {
@@ -671,4 +692,3 @@ extension TapCardView {
         applyTheme()
     }
 }
-    

@@ -33,4 +33,5 @@ pod 'TapApplicationV2'
 pod 'SwiftyRSA'
 pod 'TapKeychain'
 pod 'SwiftEntryKit'
+pod 'SwiftyGif'
 end

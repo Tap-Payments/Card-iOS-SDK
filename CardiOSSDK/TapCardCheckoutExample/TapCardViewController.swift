@@ -76,7 +76,9 @@ class TapCardViewController: UIViewController, TapCardInputDelegatee {
                                                               animationDuration: sharedConfigurationSharedManager.animationDuration,
                                                               threeDsAnimationType: sharedConfigurationSharedManager.animationType,
                                                               showHeaderView: sharedConfigurationSharedManager.showWebViewHeader),
-                                  showLoadingState: sharedConfigurationSharedManager.showLoadingState)
+                                  showLoadingState: sharedConfigurationSharedManager.showLoadingState,
+                                  floatingSavedCard: sharedConfigurationSharedManager.floatingSavedCard,
+                                  forceLTR: sharedConfigurationSharedManager.forceLTR)
     }
     
     

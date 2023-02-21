@@ -38,6 +38,9 @@ import TapThemeManager2020
     /// The view used to ask the user if he wants to save the card for TAP for later usage
     internal var saveCrdForTapView:TapInternalSaveCard = .init()
     
+    /// Powered by tap view to be displayed within the card brands in case of a standalone card kit
+    @IBOutlet weak var poweredByTapView: PoweredByTapView!
+    
     /// The view model that has the needed payment options and data source to display the payment view
     public var tapCardPhoneListViewModel:TapCardPhoneBarListViewModel = .init() {
         didSet {
@@ -191,6 +194,10 @@ import TapThemeManager2020
         self.layoutIfNeeded()
         self.tapCardPhoneListView.layoutIfNeeded()
         self.tapCardPhoneListView.alpha = finalVisibility ? 1 : 0
+        
+        self.poweredByTapView.layoutIfNeeded()
+        self.poweredByTapView.alpha = (finalVisibility && (viewModel?.showPoweredByTapView ?? false)) ? 1 : 0
+        
         self.updateHeight()
         
         /*// Animate showing/hiding the supported brands bar
@@ -212,6 +219,8 @@ import TapThemeManager2020
      */
     internal func reportHintStatus(with status:TapHintViewStatusEnum?) {
         // Check if there is a status to show, or we need to hide the hint view
+        matchThemeAttributes()
+        
         guard let status = status, status != .None else {
             viewModel?.delegate?.hideHints()
             removeHintView()
@@ -268,7 +277,7 @@ import TapThemeManager2020
             hintStatus = .Error
         }else if segment == "cards" {
             cardInputView.fadeIn()
-            hintStatus = viewModel?.decideHintStatus(with: lastReportedTapCard)
+            hintStatus = viewModel?.decideHintStatus(with: lastReportedTapCard,isCVVFocused: false)
         }
     }
     
@@ -279,11 +288,11 @@ import TapThemeManager2020
         // Reset the card input
         cardInputView.reset()
         // Re init the card input
-        cardInputView.setup(for: .InlineCardInput, showCardName: viewModel?.collectCardName ?? false, showCardBrandIcon: true, allowedCardBrands: tapCardPhoneListViewModel.dataSource.map{ $0.associatedCardBrand }.filter{ $0.brandSegmentIdentifier == "cards" }.map{ $0.rawValue }, cardsIconsUrls: tapCardPhoneListViewModel.generateBrandsWithIcons(), preloadCardHolderName: viewModel?.preloadCardHolderName ?? "", editCardName: viewModel?.editCardName ?? true)
+        cardInputView.setup(for: .InlineCardInput, showCardName: viewModel?.collectCardName ?? false, showCardBrandIcon: true, allowedCardBrands: tapCardPhoneListViewModel.dataSource.map{ $0.associatedCardBrand }.filter{ $0.brandSegmentIdentifier == "cards" }.map{ $0.rawValue }, cardsIconsUrls: tapCardPhoneListViewModel.generateBrandsWithIcons(), preloadCardHolderName: viewModel?.preloadCardHolderName ?? "", editCardName: viewModel?.editCardName ?? true, shouldFlip: viewModel?.shouldFlip ?? true, shouldThemeSelf: viewModel?.shouldThemeSelf ?? false)
         // Reset any selection done on the bar layout
         tapCardPhoneListViewModel.resetCurrentSegment()
         lastReportedTapCard = .init()
-        viewModel?.delegate?.brandDetected(for: .unknown, with: .Invalid,cardStatusUI: .NormalCard)
+        viewModel?.delegate?.brandDetected(for: .unknown, with: .Invalid,cardStatusUI: .NormalCard, isCVVFocused: false)
         saveCrdForTapView.ev?.dismiss()
     }
     
@@ -322,6 +331,7 @@ import TapThemeManager2020
 extension TapCardTelecomPaymentView: TapCardInputProtocol {
     public func cardFieldsAreFocused() {
         viewModel?.delegate?.cardFieldsAreFocused()
+        //viewModel?.changeEnableStatus(to: true)
     }
     
     
@@ -335,20 +345,20 @@ extension TapCardTelecomPaymentView: TapCardInputProtocol {
         updateHeight()
     }
     
-    public func dataChanged(tapCard: TapCard) {
-        hintStatus = viewModel?.decideHintStatus(with: tapCard, and: cardInputView.cardUIStatus)
+    public func dataChanged(tapCard: TapCard,isCVVFocused:Bool) {
+        hintStatus = viewModel?.decideHintStatus(with: tapCard, and: cardInputView.cardUIStatus, isCVVFocused: isCVVFocused)
         lastReportedTapCard = tapCard
         viewModel?.showHideSaveCardView()
     }
     
-    public func cardDataChanged(tapCard: TapCard,cardStatusUI:CardInputUIStatus) {
+    public func cardDataChanged(tapCard: TapCard,cardStatusUI:CardInputUIStatus, isCVVFocused:Bool) {
         viewModel?.delegate?.cardDataChanged(tapCard: tapCard, cardStatusUI:cardStatusUI)
         lastReportedTapCard = tapCard
-        hintStatus = viewModel?.decideHintStatus(with: tapCard, and: cardInputView.cardUIStatus)
+        hintStatus = viewModel?.decideHintStatus(with: tapCard, and: cardInputView.cardUIStatus, isCVVFocused: isCVVFocused)
         viewModel?.showHideSaveCardView()
     }
     
-    public func brandDetected(for cardBrand: CardBrand, with validation: CrardInputTextFieldStatusEnum, cardStatusUI:CardInputUIStatus) {
+    public func brandDetected(for cardBrand: CardBrand, with validation: CrardInputTextFieldStatusEnum, cardStatusUI:CardInputUIStatus, isCVVFocused:Bool) {
         
         if validation == .Invalid || cardBrand == .unknown {
             tapCardPhoneListViewModel.resetCurrentSegment()
@@ -358,7 +368,7 @@ extension TapCardTelecomPaymentView: TapCardInputProtocol {
             tapCardPhoneListViewModel.select(brand: cardBrand, with: true)
         }
         viewModel?.decideVisibilityOfSupportedBrandsBar()
-        viewModel?.delegate?.brandDetected(for: cardBrand, with: validation, cardStatusUI: cardStatusUI)
+        viewModel?.delegate?.brandDetected(for: cardBrand, with: validation, cardStatusUI: cardStatusUI, isCVVFocused: isCVVFocused)
     }
     
     public func scanCardClicked() {
@@ -386,7 +396,7 @@ extension TapCardTelecomPaymentView: TapPhoneInputProtocol {
             tapCardPhoneListViewModel.select(brand: cardBrand, with: true)
         }
         
-        viewModel?.delegate?.brandDetected(for: cardBrand, with: validation,cardStatusUI: .NormalCard)
+        viewModel?.delegate?.brandDetected(for: cardBrand, with: validation,cardStatusUI: .NormalCard, isCVVFocused: false)
         if validation == .Valid {
             endEditing(true)
         }
@@ -410,12 +420,29 @@ extension TapCardTelecomPaymentView {
         contentView.backgroundColor = .clear
         
         // background color
-        stackView.tap_theme_backgroundColor = ThemeUIColorSelector.init(keyPath: "inlineCard.commonAttributes.backgroundColor")
+        // If the card field is set to theme itself, then our parent view will be clear and coloring
+        if viewModel?.shouldThemeSelf ?? false {
+            stackView.backgroundColor = .clear
+            saveCrdView.changeSeparatorViewVisibilty(to: false)
+        }else{
+            // Otherwise, the parent view will have to theme instead
+            stackView.tap_theme_backgroundColor = ThemeUIColorSelector.init(keyPath: "inlineCard.commonAttributes.backgroundColor")
+            saveCrdView.changeSeparatorViewVisibilty(to: true)
+        }
+        saveCrdView.changeBottomSeparatorViewVisibilty(to: (viewModel?.saveCardType == .All || viewModel?.saveCardType == .Tap))
         // The border color
         stackView.layer.tap_theme_borderColor = ThemeCgColorSelector.init(keyPath: "inlineCard.commonAttributes.borderColor")
         // The border width
         stackView.layer.tap_theme_borderWidth = ThemeCGFloatSelector.init(keyPath: "inlineCard.commonAttributes.borderWidth")
         // The border rounded corners
+        // The whole view will be rounded if this view is fully wrapping the card fields + the save card views. Otherwise, it needs to adjust its lower corners
+        // to be straight in case a hint view is visible to make them look well integrated
+        cardInputView.applyRoundedCornersMask(for: [.layerMaxXMinYCorner, .layerMinXMinYCorner,[.layerMaxXMaxYCorner, .layerMinXMaxYCorner]])
+        if viewModel?.shouldThemeSelf ?? false {
+            if shouldShowHintView() {
+                cardInputView.applyRoundedCornersMask(for: [.layerMaxXMinYCorner, .layerMinXMinYCorner])
+            }
+        }
         stackView.layer.tap_theme_cornerRadious = ThemeCGFloatSelector.init(keyPath: "inlineCard.commonAttributes.cornerRadius")
         
         stackView.layer.shadowRadius = CGFloat(TapThemeManager.numberValue(for: "inlineCard.commonAttributes.shadow.radius")?.floatValue ?? 0)

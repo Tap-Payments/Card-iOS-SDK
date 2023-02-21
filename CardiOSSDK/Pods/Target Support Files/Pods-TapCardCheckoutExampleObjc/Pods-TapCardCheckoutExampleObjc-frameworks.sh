@@ -177,6 +177,7 @@ code_sign_if_enabled() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftEntryKit/SwiftEntryKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftyGif/SwiftyGif.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/CommonDataModelsKit-iOS/CommonDataModelsKit_iOS.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/EasyTipView/EasyTipView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FlagKit/FlagKit.framework"
@@ -201,6 +202,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftEntryKit/SwiftEntryKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftyGif/SwiftyGif.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/CommonDataModelsKit-iOS/CommonDataModelsKit_iOS.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/EasyTipView/EasyTipView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FlagKit/FlagKit.framework"

@@ -105,6 +105,16 @@ SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+			<string>See https://bugfender.com/terms-of-service/</string>
+			<key>License</key>
+			<string>Commercial</string>
+			<key>Title</key>
+			<string>BugfenderSDK</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
 			<string>MIT License
 
 Copyright (c) 2020 Tap Payments

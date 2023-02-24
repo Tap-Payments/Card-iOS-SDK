@@ -59,7 +59,7 @@ class CartViewController: UIViewController {
         // Override point for customization after application launch.
         view.isUserInteractionEnabled = false
         showProcessingNote(attributes: EntriesAttributes.customLoadingAttributes())
-        let cardDataConfig:TapCardDataConfiguration = .init(sdkMode: .sandbox, localeIdentifier: sharedConfigurationSharedManager.selectedLocale, secretKey: .init(sandbox: "sk_test_yKOxBvwq3oLlcGS6DagZYHM2", production: "sk_live_V4UDhitI0r7sFwHCfNB6xMKp"))
+        let cardDataConfig:TapCardDataConfiguration = .init(sdkMode: .sandbox, localeIdentifier: sharedConfigurationSharedManager.selectedLocale, secretKey: .init(sandbox: "sk_test_yKOxBvwq3oLlcGS6DagZYHM2", production: "sk_live_V4UDhitI0r7sFwHCfNB6xMKp"),enableApiLogging: sharedConfigurationSharedManager.loggingCapabilities().map{ $0.rawValue })
         
         TapCardForumConfiguration.shared.configure(dataConfig: cardDataConfig, customTheme: .init(with: "CustomLightTheme", and: "CustomDarkTheme", from: .LocalJsonFile)) {
             DispatchQueue.main.async { [weak self] in

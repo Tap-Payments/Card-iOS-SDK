@@ -8,6 +8,8 @@
 import Foundation
 import TapThemeManager2020
 import LocalisationManagerKit_iOS
+import TapNetworkKit_iOS
+import BugfenderSDK
 /// The shared configuration needed to set up the tap card forum on boot
 @objc public class TapCardForumConfiguration: NSObject {
     

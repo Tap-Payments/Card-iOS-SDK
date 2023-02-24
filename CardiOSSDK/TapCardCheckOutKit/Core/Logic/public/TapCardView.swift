@@ -17,6 +17,7 @@ import TapCardScanner_iOS
 import TapThemeManager2020
 import SwiftEntryKit
 import SwiftyGif
+import BugfenderSDK
 
 /// A protorocl to communicate with the three ds web view controller
 internal protocol ThreeDSViewControllerDelegatee {
@@ -191,6 +192,8 @@ internal protocol ThreeDSViewControllerDelegatee {
         self.floatingSavedCard = floatingSavedCard
         // Force LTR in card mode even in arabic language
         self.forceLTR = forceLTR
+        // Log session details
+        logSessionConfigurations()
         // Init the card brands bar
         setupCardBrandsBarDataSource()
         // Adjust the UI now
@@ -198,6 +201,31 @@ internal protocol ThreeDSViewControllerDelegatee {
         addActualCardInputView()
     }
     
+    /// Will store the configurations the merchant passed when starting the card sdk session
+    internal func logSessionConfigurations() {
+        var configurations:[String:Any]         = [:]
+        configurations["locale"]                = locale
+        configurations["currency"]              = sharedNetworkManager.dataConfig.transactionCurrency.appleRawValue
+        configurations["collectCardHolderName"] = collectCardHolderName
+        configurations["showCardBrands"]        = showCardBrands
+        configurations["showCardScanner"]       = showCardScanner
+        configurations["allowedCardTypes"]      = allowedCardType.description
+        configurations["preloadCardHolderName"] = preloadCardHolderName
+        configurations["editCardName"]          = editCardName
+        configurations["showLoadingState"]      = showLoadingState
+        configurations["floatingSavedCard"]     = floatingSavedCard
+        configurations["forceLTR"]              = forceLTR
+        
+        // Log it as a json string
+        if let theJSONData = try?  JSONSerialization.data(
+            withJSONObject: configurations,
+            options: .prettyPrinted
+        ),
+           let theJSONText = String(data: theJSONData,
+                                    encoding: String.Encoding.ascii) {
+            Bugfender.setDeviceString(theJSONText, forKey: "Session configurations")
+        }
+    }
     
     /**
      Handles tokenizing the current card data.
@@ -530,7 +558,7 @@ internal protocol ThreeDSViewControllerDelegatee {
               let _ : CreateTokenCard = try? .init(card: nonNullCard, address: nil) else {
             return false
         }
-        
+        sharedNetworkManager.dataConfig.logBF(message: "Finished valid card data for \(sharedNetworkManager.dataConfig.tapBinLookUpResponse?.binNumber ?? "")", tag: .EVENTS)
         return true
     }
     
@@ -551,7 +579,7 @@ internal protocol ThreeDSViewControllerDelegatee {
      */
     private func showWebView(with url:URL) {
         // make sure we have a parent controller to navigate with
-        guard let nonNullParentController : UIViewController = parentController else {
+        guard let _ : UIViewController = parentController else {
             sharedNetworkManager.dataConfig.onErrorSaveCardOccured("To save a card, you need to tell us what is the parent UIViewController to start the 3ds process with",nil)
             return
         }
@@ -568,7 +596,7 @@ internal protocol ThreeDSViewControllerDelegatee {
         tapViewController.url = url
         let attributes = centeralPopUpAttributes()
         
-        DispatchQueue.main.async { [weak self] in
+        DispatchQueue.main.async {
             /*tapViewController.stackView.addArrangedSubview((self?.webViewModel.attachedView)!)
             self?.webViewModel.load(with: url)*/
             
@@ -623,8 +651,8 @@ extension TapCardView:TapCardTelecomPaymentProtocol {
     
     
     public func showHint(with status: TapHintViewStatusEnum) {
-        let hintViewModel:TapHintViewModel = .init(with: status)
-        let hintView:TapHintView = hintViewModel.createHintView()
+        //let hintViewModel:TapHintViewModel = .init(with: status)
+        //let hintView:TapHintView = hintViewModel.createHintView()
         //tapVerticalView.attach(hintView: hintView, to: TapCardTelecomPaymentView.self,with: true)
     }
     

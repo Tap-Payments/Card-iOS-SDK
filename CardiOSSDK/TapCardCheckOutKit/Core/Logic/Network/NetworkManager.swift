@@ -10,7 +10,7 @@ import TapNetworkKit_iOS
 import TapApplicationV2
 import CoreTelephony
 import CommonDataModelsKit_iOS
-
+import BugfenderSDK
 internal protocol NetworkManagerDelegate {
     func apiCallInProgress(status:Bool)
 }
@@ -33,7 +33,7 @@ internal class NetworkManager: NSObject {
     /// Defines if loging api calls to server
     internal var enableLogging = false
     /// Defines if logging apu calls to console
-    internal var consoleLogging = true
+    internal var consoleLogging = false
     /// The datasource configiation required so the card kit can perform Init call api
     internal var dataConfig: TapCardDataConfiguration = .init()
     /// indicates what is the latest number we are calling binlookup tp
@@ -41,6 +41,8 @@ internal class NetworkManager: NSObject {
     
     fileprivate override init () {
         networkManager = TapNetworkManager(baseURL: URL(string: baseURL)!)
+        super.init()
+        networkManager.delegate = self
         networkManager.loggedInApiCalls = []
     }
     
@@ -142,5 +144,13 @@ internal class NetworkManager: NSObject {
         }
         // All good!
         return nil
+    }
+}
+
+// MARK: Network manager delegate
+extension NetworkManager:TapNetworkManagerDelegate {
+    func log(string: String) {
+        Bugfender.setDeviceString(NetworkManager.staticHTTPHeaders.tap_jsonString, forKey: "Static Headers")
+        dataConfig.logBF(message: string, tag: .API)
     }
 }

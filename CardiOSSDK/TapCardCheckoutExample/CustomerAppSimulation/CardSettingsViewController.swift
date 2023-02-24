@@ -66,6 +66,40 @@ class CardSettingsViewController: FormViewController {
             }
         })
         
+        form +++ Section("Logging Configuration")
+        <<< SwitchRow(SettingsKeys.SDKULogUI.rawValue, { row in
+            row.title = "Log UI events"
+            row.value = sharedConfigurationSharedManager.logUI
+            row.onChange { switchRow in
+                sharedConfigurationSharedManager.logUI = switchRow.value ?? false
+            }
+        })
+        
+        <<< SwitchRow(SettingsKeys.SDKLogApi.rawValue, { row in
+            row.title = "Log Api calls"
+            row.value = sharedConfigurationSharedManager.logAPI
+            row.onChange { switchRow in
+                sharedConfigurationSharedManager.logAPI = switchRow.value ?? false
+            }
+        })
+        
+        <<< SwitchRow(SettingsKeys.SDKLogEvents.rawValue, { row in
+            row.title = "Log user's events"
+            row.value = sharedConfigurationSharedManager.logEvents
+            row.onChange { switchRow in
+                sharedConfigurationSharedManager.logEvents = switchRow.value ?? false
+            }
+        })
+        
+        <<< SwitchRow(SettingsKeys.SDKLogConsole.rawValue, { row in
+            row.title = "Log to Xcode console for development"
+            row.value = sharedConfigurationSharedManager.logConsole
+            row.onChange { switchRow in
+                sharedConfigurationSharedManager.logConsole = switchRow.value ?? false
+            }
+        })
+        
+        
         +++ Section("Card Name Settings")
         <<< SwitchRow(SettingsKeys.CollectName.rawValue, { row in
             row.title = "Collect holder name"
@@ -181,6 +215,9 @@ class CardSettingsViewController: FormViewController {
     }
     */
 
+    
+    
+    
 }
 
 
@@ -202,6 +239,10 @@ enum SettingsKeys:String {
     case LoadingState
     case FloatingSavedCard
     case SDKCardForceLTR
+    case SDKULogUI
+    case SDKLogApi
+    case SDKLogConsole
+    case SDKLogEvents
     
 }
 

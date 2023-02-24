@@ -9,6 +9,7 @@ import Foundation
 import CommonDataModelsKit_iOS
 import TapCardVlidatorKit_iOS
 import TapNetworkKit_iOS
+import BugfenderSDK
 
 internal extension NetworkManager {
     
@@ -21,7 +22,6 @@ internal extension NetworkManager {
     func configSDK(onCheckOutReady: @escaping () -> () = {},onErrorOccured: @escaping(Error?)->() = {_ in}) {
         
         // As per the backend logic, we will have to hit Config, then Init.
-        
         // Create the Config request with the configured data from the user
         let configRequest = sharedNetworkManager.createConfigRequestModel()
         

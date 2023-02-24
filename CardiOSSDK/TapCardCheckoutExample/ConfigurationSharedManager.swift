@@ -47,6 +47,18 @@ class ConfigurationSharedManager {
     /// Tells if we need to collect the card holder name or not
     var collectCardHolderName:Bool = false
     
+    /// Tells if we need to log UI events
+    var logUI:Bool = false
+    
+    /// Tells if we need to log in console
+    var logConsole:Bool = true
+    
+    /// Tells if we need to log user event
+    var logEvents:Bool = true
+    
+    /// Tells if we need to log api calls
+    var logAPI:Bool = true
+    
     /// Tells if we need to preload the card name field
     var cardName:String = ""
     
@@ -101,6 +113,25 @@ class ConfigurationSharedManager {
     
     /// Whether to force LTR in arabic for card form
     var forceLTR:Bool = false
+    
+    func loggingCapabilities() -> [TapLoggingType] {
+        
+        var allowedLogging:[TapLoggingType] = []
+        if logUI {
+            allowedLogging.append(.UI)
+        }
+        if logAPI {
+            allowedLogging.append(.API)
+        }
+        if logEvents {
+            allowedLogging.append(.EVENTS)
+        }
+        if logConsole {
+            allowedLogging.append(.CONSOLE)
+        }
+        
+        return allowedLogging
+    }
 }
 
 

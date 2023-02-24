@@ -34,8 +34,9 @@ internal class TapWebViewController: UIViewController {
         guard let webViewModel = webViewModel, let url = url else { return }
         
         stackView.addArrangedSubview(webViewModel.attachedView)
-        
-        webViewModel.load(with: url)
+        DispatchQueue.main.async { [weak self] in
+            self?.webViewModel?.load(with: url)
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {

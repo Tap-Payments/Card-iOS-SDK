@@ -61,7 +61,7 @@ class CartViewController: UIViewController {
         showProcessingNote(attributes: EntriesAttributes.customLoadingAttributes())
         let cardDataConfig:TapCardDataConfiguration = .init(sdkMode: .sandbox, localeIdentifier: sharedConfigurationSharedManager.selectedLocale, secretKey: .init(sandbox: "pk_test_YhUjg9PNT8oDlKJ1aE2fMRz7", production: "sk_live_V4UDhitI0r7sFwHCfNB6xMKp"),enableApiLogging: sharedConfigurationSharedManager.loggingCapabilities().map{ $0.rawValue })
         
-        TapCardForumConfiguration.shared.configure(dataConfig: cardDataConfig, customTheme: .init(with: "CustomLightTheme", and: "CustomDarkTheme", from: .LocalJsonFile)) {
+        TapCardForumConfiguration.shared.configure(dataConfig: cardDataConfig, customTheme: nil) {
             DispatchQueue.main.async { [weak self] in
                 SwiftEntryKit.dismiss()
                 self?.view.isUserInteractionEnabled = true

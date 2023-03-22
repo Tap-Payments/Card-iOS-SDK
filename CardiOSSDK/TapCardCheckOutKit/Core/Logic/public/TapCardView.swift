@@ -47,6 +47,8 @@ internal protocol ThreeDSViewControllerDelegatee {
     private var tapScannerUICustomization:TapFullScreenUICustomizer? = .init()
     /// A view to display to show the loading state
     @IBOutlet weak var loadingView: UIView!
+    /// The blur overlay
+    @IBOutlet weak var loadingBlurView: CardVisualEffectView!
     /// The actual card form view
     @IBOutlet weak var cardView: TapCardTelecomPaymentView!
     /// Represents the main holding view
@@ -704,8 +706,16 @@ extension TapCardView {
         
         // background color
         self.tap_theme_backgroundColor = ThemeUIColorSelector.init(keyPath: "horizontalList.backgroundColor")
-        // loading view background color
-        loadingView.tap_theme_backgroundColor = ThemeUIColorSelector.init(keyPath: "inlineCard.commonAttributes.backgroundColor")
+        // loading blur view
+        loadingView.layer.tap_theme_cornerRadious = ThemeCGFloatSelector.init(keyPath: "inlineCard.commonAttributes.cornerRadius")
+        loadingView.clipsToBounds = true
+        
+        loadingBlurView.blurRadius = 10
+        loadingBlurView.scale = 1
+        loadingBlurView.layer.tap_theme_cornerRadious = ThemeCGFloatSelector.init(keyPath: "inlineCard.commonAttributes.cornerRadius")
+        loadingBlurView.colorTint = TapThemeManager.colorValue(for: "inlineCard.blur3dsoverlay.tint")
+        loadingBlurView.colorTintAlpha = CGFloat(TapThemeManager.numberValue(for: "inlineCard.blur3dsoverlay.tintAlpha")?.floatValue ?? 0)
+        
     }
     
     /// Listen to light/dark mde changes and apply the correct theme based on the new style

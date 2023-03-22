@@ -58,6 +58,8 @@
 		E86217C028F0102D00EAAFA6 /* TapCardKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86217BF28F0102D00EAAFA6 /* TapCardKit.swift */; };
 		E874F804288585B70067DB3E /* DempSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874F803288585B70067DB3E /* DempSettingsViewController.swift */; };
 		E874F806288586C50067DB3E /* ConfigurationSharedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874F805288586C50067DB3E /* ConfigurationSharedManager.swift */; };
+		E892848529CAF85C007CE43E /* UIViewEffectViewiOS14.swift in Sources */ = {isa = PBXBuildFile; fileRef = E892848329CAF85B007CE43E /* UIViewEffectViewiOS14.swift */; };
+		E892848629CAF85C007CE43E /* CardVisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E892848429CAF85C007CE43E /* CardVisualEffectView.swift */; };
 		E89B99772892818600B03726 /* TapCallsResponseGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B99762892818600B03726 /* TapCallsResponseGenerator.swift */; };
 		E89B99792893A6E700B03726 /* NetworkManager+HandlingResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B99782893A6E700B03726 /* NetworkManager+HandlingResponses.swift */; };
 		E89B997B2893AD2300B03726 /* TapCheckout+WebPaymentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B997A2893AD2300B03726 /* TapCheckout+WebPaymentHandler.swift */; };
@@ -182,6 +184,8 @@
 		E86217BF28F0102D00EAAFA6 /* TapCardKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCardKit.swift; sourceTree = "<group>"; };
 		E874F803288585B70067DB3E /* DempSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DempSettingsViewController.swift; sourceTree = "<group>"; };
 		E874F805288586C50067DB3E /* ConfigurationSharedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationSharedManager.swift; sourceTree = "<group>"; };
+		E892848329CAF85B007CE43E /* UIViewEffectViewiOS14.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewEffectViewiOS14.swift; path = "Pods/TapUIKit-iOS/TapUIKit-iOS/TapUIKit-iOS/Core/Extensions/UIViewEffectViewiOS14.swift"; sourceTree = SOURCE_ROOT; };
+		E892848429CAF85C007CE43E /* CardVisualEffectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardVisualEffectView.swift; path = "Pods/TapUIKit-iOS/TapUIKit-iOS/TapUIKit-iOS/Core/Extensions/CardVisualEffectView.swift"; sourceTree = SOURCE_ROOT; };
 		E89B99762892818600B03726 /* TapCallsResponseGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCallsResponseGenerator.swift; sourceTree = "<group>"; };
 		E89B99782893A6E700B03726 /* NetworkManager+HandlingResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkManager+HandlingResponses.swift"; sourceTree = "<group>"; };
 		E89B997A2893AD2300B03726 /* TapCheckout+WebPaymentHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TapCheckout+WebPaymentHandler.swift"; sourceTree = "<group>"; };
@@ -307,6 +311,8 @@
 		E83262EF27E88BEC005F3AAF /* private */ = {
 			isa = PBXGroup;
 			children = (
+				E892848429CAF85C007CE43E /* CardVisualEffectView.swift */,
+				E892848329CAF85B007CE43E /* UIViewEffectViewiOS14.swift */,
 				E89B997A2893AD2300B03726 /* TapCheckout+WebPaymentHandler.swift */,
 				E832640727E9DBE0005F3AAF /* NetworkManagerExtension.swift */,
 				E832631327E8950D005F3AAF /* CardInputExtensions.swift */,
@@ -753,6 +759,7 @@
 				E832643727E9E193005F3AAF /* NetworkManagerApiCallsExtension.swift in Sources */,
 				E832643F27E9EBBC005F3AAF /* TapCardDataConfiguration.swift in Sources */,
 				E8D0CAE7293B1B1C003B9BD8 /* ThreeDSConfiguration.swift in Sources */,
+				E892848529CAF85C007CE43E /* UIViewEffectViewiOS14.swift in Sources */,
 				E89B997B2893AD2300B03726 /* TapCheckout+WebPaymentHandler.swift in Sources */,
 				E89B99772892818600B03726 /* TapCallsResponseGenerator.swift in Sources */,
 				E832644927EA0EE8005F3AAF /* TapCardForumLocalisation.swift in Sources */,
@@ -763,6 +770,7 @@
 				E89B99792893A6E700B03726 /* NetworkManager+HandlingResponses.swift in Sources */,
 				E858E294293737DA003234B4 /* TapCardView.swift in Sources */,
 				E832644F27EA20F3005F3AAF /* TapCardForumConfiguration.swift in Sources */,
+				E892848629CAF85C007CE43E /* CardVisualEffectView.swift in Sources */,
 				E89B997E2893C76B00B03726 /* TapWebViewController.swift in Sources */,
 				E832631227E89435005F3AAF /* TapCardInputView.swift in Sources */,
 			);

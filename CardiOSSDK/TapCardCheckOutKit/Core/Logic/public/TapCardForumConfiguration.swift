@@ -66,7 +66,7 @@ import BugfenderSDK
         // Store the configueation data for further access
         sharedNetworkManager.dataConfig = nonNullDataConfig
         // Infotm the network manager to init itself from the init api
-        sharedNetworkManager.configSDK(onCheckOutReady: onCheckOutReady, onErrorOccured: onErrorOccured)
+        sharedNetworkManager.initialiseSDKFromAPI(onCheckOutReady: onCheckOutReady, onErrorOccured: onErrorOccured)
     }
     
     

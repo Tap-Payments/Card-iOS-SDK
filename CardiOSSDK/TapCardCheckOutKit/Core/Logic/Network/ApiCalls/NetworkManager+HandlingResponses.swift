@@ -14,23 +14,15 @@ extension NetworkManager {
     
     
     // MARK:- Init based methods
-    /**
-     Handles the result of the config api by storing it in the right place to be further processed
-     - Parameter configModel: The response model from backend we need to deal with
-     */
-    func handleConfigResponse(configModel:TapConfigResponseModel) {
-        // Store the config model for further access
-        sharedNetworkManager.dataConfig.configModelResponse = configModel
-    }
     
     /**
      Handles the response of init api call. Stores the data for further access
      - Parameter initModel: The init response model from the latest INIT api call
      */
     func handleInitResponse(initModel: TapInitResponseModel) {
-        
+        sharedNetworkManager.dataConfig.initModelResponse = initModel
         sharedNetworkManager.dataConfig.sdkSettings = initModel.data
-        sharedNetworkManager.dataConfig.paymentOptions = initModel.cardPaymentOptions.paymentOptions        
+        sharedNetworkManager.dataConfig.paymentOptions = initModel.paymentOptions.paymentOptions
         sharedNetworkManager.dataConfig.paymentOptions = sharedNetworkManager.dataConfig.paymentOptions?.filter { ($0.paymentType == .Card) }
     }
     

@@ -29,6 +29,7 @@ import TapThemeManager2020
         }
     }
     
+    @IBOutlet weak var loadingBlurView: CardVisualEffectView!
     /// The hint view to show an error/warning message to indicate to the user what does he need to do next
     internal var hintView:TapHintView = .init()
     
@@ -192,10 +193,11 @@ import TapThemeManager2020
         tapLoadingGif.setGifImage(gif, loopCount: 100) // Will loop forever
         
         if to {
-            pre3DSLoadingView.fadeIn()
-            cardInputView.fadeOut(duration:0.1)
-            saveCrdView.fadeOut(duration:0.1)
-            saveCrdForTapView.fadeOut(duration:0.1)
+            pre3DSLoadingView.fadeIn(){ _ in
+                //self.cardInputView.fadeOut(duration:0.0)
+            }
+            saveCrdView.fadeOut(duration:0.25)
+            saveCrdForTapView.fadeOut(duration:0.25)
         }else {
             pre3DSLoadingView.fadeOut()
         }
@@ -441,6 +443,9 @@ extension TapCardTelecomPaymentView {
         backgroundColor = .clear
         contentView.backgroundColor = .clear
         
+        loadingBlurView.blurRadius = 10
+        loadingBlurView.scale = 1
+        
         // background color
         // If the card field is set to theme itself, then our parent view will be clear and coloring
         if viewModel?.shouldThemeSelf ?? false {
@@ -467,6 +472,10 @@ extension TapCardTelecomPaymentView {
         }
         stackView.layer.tap_theme_cornerRadious = ThemeCGFloatSelector.init(keyPath: "inlineCard.commonAttributes.cornerRadius")
         pre3DSLoadingView.layer.tap_theme_cornerRadious = ThemeCGFloatSelector.init(keyPath: "inlineCard.commonAttributes.cornerRadius")
+        pre3DSLoadingView.clipsToBounds = true
+        loadingBlurView.layer.tap_theme_cornerRadious = ThemeCGFloatSelector.init(keyPath: "inlineCard.commonAttributes.cornerRadius")
+        
+        
         
         stackView.layer.shadowRadius = CGFloat(TapThemeManager.numberValue(for: "inlineCard.commonAttributes.shadow.radius")?.floatValue ?? 0)
         stackView.layer.tap_theme_shadowColor = ThemeCgColorSelector.init(keyPath: "inlineCard.commonAttributes.shadow.color")
@@ -478,6 +487,9 @@ extension TapCardTelecomPaymentView {
         hintView.layer.cornerRadius = stackView.layer.cornerRadius
         hintView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         
+        // The blur 3ds overlay
+        loadingBlurView.colorTint = TapThemeManager.colorValue(for: "inlineCard.blur3dsoverlay.tint")
+        loadingBlurView.colorTintAlpha = CGFloat(TapThemeManager.numberValue(for: "inlineCard.blur3dsoverlay.tintAlpha")?.floatValue ?? 0)
         
         layoutIfNeeded()
     }

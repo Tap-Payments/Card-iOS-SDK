@@ -97,8 +97,8 @@ import BugfenderSDK
     /// Holding the allowed card brands to process for the logged in merchant
     internal var paymentOptions:[PaymentOption]?
     
-    /// Holding the latest Config response from the middleware
-    internal var configModelResponse: TapConfigResponseModel?
+    /// Holding the latest Init response from the middleware
+    internal var initModelResponse: TapInitResponseModel?
     
     /// Holding the latest look up response from the middleware
     internal var tapBinLookUpResponse: TapBinResponseModel?

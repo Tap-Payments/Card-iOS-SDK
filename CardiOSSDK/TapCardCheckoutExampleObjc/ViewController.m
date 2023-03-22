@@ -23,7 +23,7 @@
     
     [_startButton setEnabled:NO];
     
-    TapCardDataConfiguration* cardDataConfig = [[TapCardDataConfiguration alloc]initWithSdkMode:Sandbox localeIdentifier:@"en" secretKey: [[SecretKey alloc]initWithSandbox:@"sk_test_yKOxBvwq3oLlcGS6DagZYHM2" production:@"sk_live_V4UDhitI0r7sFwHCfNB6xMKp"]];
+    TapCardDataConfiguration* cardDataConfig = [[TapCardDataConfiguration alloc]initWithSdkMode:Sandbox localeIdentifier:@"en" secretKey: [[SecretKey alloc]initWithSandbox:@"pk_test_YhUjg9PNT8oDlKJ1aE2fMRz7" production:@"sk_live_V4UDhitI0r7sFwHCfNB6xMKp"]];
     
     [TapCardForumConfiguration.shared configureWithDataConfig:cardDataConfig
                                                   customTheme:[[TapCardForumTheme alloc] initWith:@"CustomLightTheme" and:@"CustomDarkTheme" from: TapCardForumThemeTypeLocalJsonFile]
@@ -41,7 +41,7 @@
      // get the local file url
      NSURL* customLocalisationFileURL = [[NSBundle mainBundle] URLForResource:@"CustomLocalisation" withExtension:@"json"];
      
-     [[TapCardDataConfiguration alloc]initWithSdkMode:Sandbox localeIdentifier:@"en" secretKey: [[SecretKey alloc]initWithSandbox:@"sk_test_yKOxBvwq3oLlcGS6DagZYHM2" production:@"sk_live_V4UDhitI0r7sFwHCfNB6xMKp"]];
+     [[TapCardDataConfiguration alloc]initWithSdkMode:Sandbox localeIdentifier:@"en" secretKey: [[SecretKey alloc]initWithSandbox:@"pk_test_YhUjg9PNT8oDlKJ1aE2fMRz7" production:@"sk_live_V4UDhitI0r7sFwHCfNB6xMKp"]];
      
      [TapCardForumConfiguration.shared configureWithDataConfig:cardDataConfig
      customTheme:[[TapCardForumTheme alloc] initWith:@"CustomLightTheme" and:@"CustomDarkTheme" from: TapCardForumThemeTypeLocalJsonFile] customLocalisation:[[TapCardForumLocalisation alloc]initWith:customLocalisationFileURL from:TapLocalisationTypeLocalJsonFile shouldFlip:NO localeIdentifier:@"en"] onCheckOutReady:^{

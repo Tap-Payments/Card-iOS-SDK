@@ -17,39 +17,12 @@ internal extension NetworkManager {
     typealias Completion<Response: Decodable> = (Response?, TapSDKError?) -> Void
     
     /// Responsible for making the network calls needed to boot the SDK like init and payment options
-    /// - Parameter onCheckoutRead: A block to execure upon completion
-    /// - Parameter onErrorOccured: A block to execure upon error
-    func configSDK(onCheckOutReady: @escaping () -> () = {},onErrorOccured: @escaping(Error?)->() = {_ in}) {
-        
-        // As per the backend logic, we will have to hit Config, then Init.
-        // Create the Config request with the configured data from the user
-        let configRequest = sharedNetworkManager.createConfigRequestModel()
-        
-        // Change the model into a dictionary
-        guard let bodyDictionary = NetworkManager.convertModelToDictionary(configRequest, callingCompletionOnFailure: { error in
-            return
-        }) else { return }
-        
-        
-        sharedNetworkManager.makeApiCall(routing: .ConfigAPI, resultType: TapConfigResponseModel.self, body: .init(body: bodyDictionary), httpMethod: .POST) { [weak self] (session, result, error) in
-            guard let configModel:TapConfigResponseModel = result as? TapConfigResponseModel else { self?.handleError(error: "Unexpected error when parsing into TapConfigResponseModel")
-                return }
-            // Let us store the config object for further access
-            self?.handleConfigResponse(configModel: configModel)
-            // We got the middleware token, now let us init the SDK and get the merchant and payment types details
-            self?.initialiseSDKFromAPI(onCheckOutReady: onCheckOutReady)
-        } onError: { (session, result, errorr) in
-            onErrorOccured(errorr)
-            self.handleError(error: errorr)
-        }
-    }
-    
-    /// Responsible for making the network calls needed to boot the SDK like init and payment options
     /// /// - Parameter onCheckoutRead: A block to execure upon completion
     /// - Parameter onErrorOccured: A block to execure upon error
     func initialiseSDKFromAPI(onCheckOutReady: @escaping () -> () = {} ,onErrorOccured: @escaping(Error?)->() = {_ in}) {
         // As per the backend logic, we will have to hit INIT
-        sharedNetworkManager.makeApiCall(routing: .InitAPI, resultType: TapInitResponseModel.self, httpMethod: .POST) { [weak self] (session, result, error) in
+       
+        sharedNetworkManager.makeApiCall(routing: .CheckoutProfileApi, resultType: TapInitResponseModel.self, body: .init(body: [:]) ,httpMethod: .POST) { [weak self] (session, result, error) in
             guard let initModel:TapInitResponseModel = result as? TapInitResponseModel else { self?.handleError(error: "Unexpected error when parsing into TapInitResponseModel")
                 return }
             self?.handleInitResponse(initModel: initModel)

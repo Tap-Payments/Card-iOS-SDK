@@ -57,6 +57,19 @@ import BugfenderSDK
         configureSDK(onCheckOutReady: onCheckOutReady, onErrorOccured: onErrorOccured)
     }
     
+    /// Apply the default theme only if the user didn't pass a custom theme already
+    internal func loadDefaultTheme(defaultTheme:TapCardForumTheme) {
+        if let _ = customTheme { return }
+        // Then no custom theme was provided, let us load the default theme
+        customTheme = defaultTheme
+    }
+    
+    /// Apply the default localisation only if the user didn't pass a custom localisation already
+    internal func loadDefaultTheme(defaultLocalisation:TapCardForumLocalisation) {
+        if let _ = customLocalisation { return }
+        // Then no custom localisation was provided, let us load the default localisation
+        customLocalisation = defaultLocalisation
+    }
     
     /// Calls the init api and make all the data for card brands and tokenization availbe
     /// - Parameter onCheckoutRead: A block to execure upon completion

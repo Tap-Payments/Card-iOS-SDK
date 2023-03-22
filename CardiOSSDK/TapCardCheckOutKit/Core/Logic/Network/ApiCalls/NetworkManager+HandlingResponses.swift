@@ -24,8 +24,13 @@ extension NetworkManager {
         sharedNetworkManager.dataConfig.sdkSettings = initModel.data
         sharedNetworkManager.dataConfig.paymentOptions = initModel.paymentOptions.paymentOptions
         sharedNetworkManager.dataConfig.paymentOptions = sharedNetworkManager.dataConfig.paymentOptions?.filter { ($0.paymentType == .Card) }
+        
+        DispatchQueue.main.async {
+            // Load the default theme & localisations if the user didn't pass any custom values
+            TapCardForumConfiguration.shared.loadDefaultTheme(defaultTheme: .init(with: initModel.assets.theme.light, and: initModel.assets.theme.dark , from: .RemoteJsonFile))
+            TapCardForumConfiguration.shared.loadDefaultTheme(defaultLocalisation: .init(with: URL(string: initModel.assets.localisation.url), from: .RemoteJsonFile, localeIdentifier: sharedNetworkManager.dataConfig.localeIdentifier))
+        }
     }
-    
     
     // MARK:- Card binlookup based methods
     

@@ -39,9 +39,7 @@
                             </visualEffectView>
                         </subviews>
                     </view>
-                    <vibrancyEffect style="fill">
-                        <blurEffect style="prominent"/>
-                    </vibrancyEffect>
+                    <blurEffect style="light"/>
                 </visualEffectView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Unz-Nh-1rL">
                     <rect key="frame" x="0.0" y="68" width="414" height="794"/>

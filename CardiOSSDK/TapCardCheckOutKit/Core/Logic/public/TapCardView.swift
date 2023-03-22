@@ -598,12 +598,16 @@ internal protocol ThreeDSViewControllerDelegatee {
         tapViewController.url = url
         let attributes = centeralPopUpAttributes()
         
-        DispatchQueue.main.async {
-            /*tapViewController.stackView.addArrangedSubview((self?.webViewModel.attachedView)!)
-            self?.webViewModel.load(with: url)*/
-            
-            SwiftEntryKit.display(entry: tapViewController, using: attributes)
+        tapViewController.webViewModel?.load(with: url)
+        
+        tapViewController.webViewModel?.idleForWhile = {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1000)) {
+                tapViewController.webViewModel?.idleForWhile = {}
+                SwiftEntryKit.display(entry: tapViewController, using: attributes)
+                //parentController.present(tapViewController, animated: true)
+            }
         }
+        
     }
     
     

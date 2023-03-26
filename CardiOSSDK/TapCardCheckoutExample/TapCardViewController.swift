@@ -137,6 +137,15 @@ class TapCardViewController: UIViewController, TapCardInputDelegatee {
     }
     
     func tokenizeCardClicked() {
+        
+        let rect2 = tapCardView.frame
+        let newRect = UIAccessibility.convertToScreenCoordinates(rect2, in: view)
+        print(tapCardView.bounds)
+        print(tapCardView.frame)
+        print(rect2)
+        print(newRect)
+        
+        
         self.view.isUserInteractionEnabled = false
         showProcessingNote(attributes: EntriesAttributes.customLoadingAttributes(),text:"Tokenizing the card..")
         tapCardView.tokenizeCard { [weak self] token in

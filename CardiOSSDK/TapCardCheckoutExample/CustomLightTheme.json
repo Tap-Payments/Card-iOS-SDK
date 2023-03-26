@@ -44,9 +44,13 @@
             "textColor": "lightGrey",
             "font" : "Roboto-Light,10"
         },
-        "tapLogo":"poweredByTapLogo"
+        "tapLogo":"Powered-by-tap-Light"
     },
     "inlineCard": {
+        "blur3dsoverlay": {
+            "tint": "#FFFFFF",
+            "tintAlpha": 0
+        },
         "commonAttributes": {
             "backgroundColor": "white",
             "borderColor": "clear",
@@ -54,12 +58,12 @@
             "borderWidth": 0,
             "itemSpacing": 5,
             "cvvPlaceHolder": "light-cvv",
-            "shadow":{
+            "shadow": {
                 "color": "#00000026",
-                "radius": 8,
-                "offsetWidth": 0,
                 "offsetHeight": 0,
-                "opacity": 1
+                "offsetWidth": 0,
+                "opacity": 1,
+                "radius": 4
             },
             "widthMargin": 7
         },
@@ -109,11 +113,13 @@
     },
     "horizontalList": {
         "backgroundColor" : "clear",
+        "change1":"",
         "itemSpacing" : 10,
         "margin" : 18,
         "headers": {
             "gatewayHeader": {
                 "backgroundColor" : "clear",
+                "change2":"",
                 "leftButton": {
                     "labelTextFont": "Roboto-Regular,10",
                     "labelTextColor": "white"
@@ -128,6 +134,7 @@
     "cardPhoneList":
     {
         "backgroundColor": "clear",
+        "change3":"",
         "maxWidth":60,
         "insets":0,
         "underline":{
@@ -154,7 +161,8 @@
         },
         "weAcceptLabel":{
             "textFont": "Roboto,10",
-            "textColor": "white"
+            "textColor": "white",
+            "change4":"",
         }
     },
     "Hints":

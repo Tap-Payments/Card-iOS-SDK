@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9V9-7E-fiS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lqF-gx-fwy">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -443,6 +443,65 @@
             </objects>
             <point key="canvasLocation" x="892.75362318840587" y="1772.5446428571429"/>
         </scene>
+        <!--Test View Controller-->
+        <scene sceneID="Vbm-fn-LbM">
+            <objects>
+                <viewController id="lqF-gx-fwy" customClass="TestViewController" customModule="TapCardCheckoutExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z4g-ew-lAT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tyL-L2-EsM">
+                                <rect key="frame" x="0.0" y="400" width="414" height="496"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wUN-9V-Dky">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1265"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SOS-p1-sZa">
+                                                <rect key="frame" x="169.5" y="1130" width="75" height="35"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <action selector="clicked:" destination="lqF-gx-fwy" eventType="touchUpInside" id="bOQ-ja-sxk"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="SOS-p1-sZa" firstAttribute="centerX" secondItem="wUN-9V-Dky" secondAttribute="centerX" id="12Y-ED-BVz"/>
+                                            <constraint firstAttribute="bottom" secondItem="SOS-p1-sZa" secondAttribute="bottom" constant="100" id="K63-il-gUe"/>
+                                            <constraint firstAttribute="height" constant="1265" id="KK0-AH-jjr"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="wUN-9V-Dky" firstAttribute="width" secondItem="mdw-6a-Iu6" secondAttribute="width" id="Ixn-1T-FEp"/>
+                                    <constraint firstItem="wUN-9V-Dky" firstAttribute="bottom" secondItem="zwY-eJ-IU2" secondAttribute="bottom" id="TmS-eR-qTS"/>
+                                    <constraint firstItem="wUN-9V-Dky" firstAttribute="top" secondItem="zwY-eJ-IU2" secondAttribute="top" id="Tym-1s-zKV"/>
+                                    <constraint firstItem="wUN-9V-Dky" firstAttribute="leading" secondItem="zwY-eJ-IU2" secondAttribute="leading" id="iwQ-kd-00Q"/>
+                                    <constraint firstItem="wUN-9V-Dky" firstAttribute="trailing" secondItem="zwY-eJ-IU2" secondAttribute="trailing" id="mhf-dP-AOj"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="zwY-eJ-IU2"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="mdw-6a-Iu6"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vbt-bt-7HY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="tyL-L2-EsM" secondAttribute="bottom" id="MUm-Xz-bwh"/>
+                            <constraint firstItem="tyL-L2-EsM" firstAttribute="leading" secondItem="vbt-bt-7HY" secondAttribute="leading" id="ejr-Fd-0H7"/>
+                            <constraint firstItem="tyL-L2-EsM" firstAttribute="trailing" secondItem="vbt-bt-7HY" secondAttribute="trailing" id="j90-Fj-Ng4"/>
+                            <constraint firstItem="tyL-L2-EsM" firstAttribute="top" secondItem="z4g-ew-lAT" secondAttribute="top" constant="400" id="wyr-Sc-ICH"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="button" destination="SOS-p1-sZa" id="bc1-wq-Xt9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M5z-0Q-Imw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="901.44927536231887" y="2465.625"/>
+        </scene>
         <!--Cart View Controller-->
         <scene sceneID="k5x-oZ-eR5">
             <objects>
@@ -481,7 +540,7 @@
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20 KWD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uza-vW-4CE">
-                                                            <rect key="frame" x="293" y="30" width="74" height="21"/>
+                                                            <rect key="frame" x="292" y="30" width="75" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

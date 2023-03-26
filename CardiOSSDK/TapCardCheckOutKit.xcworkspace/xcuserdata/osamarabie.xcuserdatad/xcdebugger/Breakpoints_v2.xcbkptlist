@@ -7,49 +7,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "13FEA3E3-5E71-473D-BA71-7A7F2AA1A707"
+            uuid = "412B37BA-8259-4FDF-91FC-098B16E51429"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TapCardCheckOutKit/Core/Logic/public/TapCardForumConfiguration.swift"
+            filePath = "TapCardCheckoutExample/TapCardViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "loadDefaultTheme(defaultTheme:)"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "tokenizeCardClicked()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "13FEA3E3-5E71-473D-BA71-7A7F2AA1A707 - e93b6c733ed860c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TapCardCheckOutKit.TapCardForumConfiguration.loadDefaultTheme(defaultTheme: TapCardCheckOutKit.TapCardForumTheme) -&gt; ()"
-                  moduleName = "TapCardCheckOutKit"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/osamarabie/Desktop/Tap/TapCardCheckOutKit/CardiOSSDK/TapCardCheckOutKit/Core/Logic/public/TapCardForumConfiguration.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "64"
-                  endingLineNumber = "64"
-                  offsetFromSymbolStart = "118">
-               </Location>
-               <Location
-                  uuid = "13FEA3E3-5E71-473D-BA71-7A7F2AA1A707 - e93b6c733ed860c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TapCardCheckOutKit.TapCardForumConfiguration.loadDefaultTheme(defaultTheme: TapCardCheckOutKit.TapCardForumTheme) -&gt; ()"
-                  moduleName = "TapCardCheckOutKit"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/osamarabie/Desktop/Tap/TapCardCheckOutKit/CardiOSSDK/TapCardCheckOutKit/Core/Logic/public/TapCardForumConfiguration.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "64"
-                  endingLineNumber = "64"
-                  offsetFromSymbolStart = "120">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

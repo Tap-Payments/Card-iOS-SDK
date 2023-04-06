@@ -34,5 +34,5 @@ pod 'SwiftyRSA'
 pod 'TapKeychain'
 pod 'SwiftEntryKit'
 pod 'SwiftyGif'
-pod 'BugfenderSDK'
+pod 'BugfenderSDK', '1.11.0'
 end

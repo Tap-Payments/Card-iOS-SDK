@@ -1,5 +1,5 @@
 PODS:
-  - BugfenderSDK (1.12.0)
+  - BugfenderSDK (1.11.0)
   - CollectionViewSlantedLayout (3.1.1)
   - CommonDataModelsKit-iOS (1.0.116):
     - SwiftyRSA
@@ -72,7 +72,7 @@ PODS:
     - TapThemeManager2020
 
 DEPENDENCIES:
-  - BugfenderSDK
+  - BugfenderSDK (= 1.11.0)
   - CollectionViewSlantedLayout
   - SwiftEntryKit
   - SwiftyGif
@@ -111,7 +111,7 @@ SPEC REPOS:
     - TapUIKit-iOS
 
 SPEC CHECKSUMS:
-  BugfenderSDK: 96943aa224308f0deecd11185cd4e438d82a6350
+  BugfenderSDK: b31a017a6a6ee3e2e834ae36148e9b70fb33c20f
   CollectionViewSlantedLayout: 24397455acd2461960bc45d394e0ef99c17d03ce
   CommonDataModelsKit-iOS: 4ff68228b6154f9bc37bb55ad6ddde67b396035f
   EasyTipView: a92b6edc377b81c5ac18e9fd35d5ee78e9409488
@@ -137,6 +137,6 @@ SPEC CHECKSUMS:
   TapThemeManager2020: c064188a552487326fb77c91b052a075dd861cd8
   TapUIKit-iOS: acf45c301ed45b2536d7f07db3b8795a25306b0c
 
-PODFILE CHECKSUM: 82c7eda29be76bd2e108f7c721378847b3cbd3dc
+PODFILE CHECKSUM: cf734b3052b8fc7950de1aa2c0bb9d3721b30d69
 
 COCOAPODS: 1.11.2

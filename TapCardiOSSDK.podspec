@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "TapCardiOSSDK"
-  spec.version      = "0.0.37"
+  spec.version      = "0.0.38"
   spec.summary      = "From the shelf PCI compliant card entry forum."
 
   # This description is used to generate tags and improve search results.
@@ -142,7 +142,7 @@ Pod::Spec.new do |spec|
   spec.dependency'TapKeychain'
   spec.dependency'SwiftEntryKit'
   spec.dependency'SwiftyGif'
-  spec.dependency "BugfenderSDK"
+  spec.dependency "BugfenderSDK", "1.11.0"
   spec.pod_target_xcconfig = {
     'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
   }

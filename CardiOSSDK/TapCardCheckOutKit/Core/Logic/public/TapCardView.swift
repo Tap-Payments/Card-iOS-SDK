@@ -430,7 +430,7 @@ internal protocol ThreeDSViewControllerDelegatee {
     /// Fetches the card forum view from the view model and add it to the parent view
     private func addActualCardInputView() {
         // assign the view models
-        tapCardTelecomPaymentViewModel.saveCardType = .Merchant
+        tapCardTelecomPaymentViewModel.saveCardType = .None
         cardView.viewModel = tapCardTelecomPaymentViewModel
         cardView.tapCardPhoneListViewModel = tapCardPhoneListViewModel
     }
@@ -467,7 +467,7 @@ internal protocol ThreeDSViewControllerDelegatee {
         tapCardPhoneListViewModel.select(segment: "cards")
         // Set the loading gif
         let loadingBudle:Bundle = Bundle.init(for: TapActionButton.self)
-        let imageData = try? Data(contentsOf: loadingBudle.url(forResource: "Black-loader", withExtension: "gif")!)
+        let imageData = try? Data(contentsOf: loadingBudle.url(forResource: TapThemeManager.stringValue(for: "inlineCard.loaderImage") ?? "Black-loader", withExtension: "gif")!)
         let gif = try! UIImage(gifData: imageData!)
         loadingGif.setGifImage(gif, loopCount: 100) // Will loop forever
     }
@@ -591,7 +591,6 @@ internal protocol ThreeDSViewControllerDelegatee {
         webViewModel = .init()
         webViewModel.shouldShowHeaderView = threeDSConfiguration.showHeaderView
         webViewModel.delegate = self
-        
         let tapViewController = TapWebViewController.init(nibName: "TapWebViewController", bundle: Bundle.current)
         self.threeDSDelegate = tapViewController
         tapViewController.webViewModel = webViewModel

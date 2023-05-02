@@ -9,6 +9,7 @@ import UIKit
 import TapUIKit_iOS
 import SwiftEntryKit
 import TapThemeManager2020
+import LocalisationManagerKit_iOS
 
 internal class TapWebViewController: UIViewController {
     
@@ -35,6 +36,7 @@ internal class TapWebViewController: UIViewController {
         
         stackView.addArrangedSubview(webViewModel.attachedView)
         DispatchQueue.main.async { [weak self] in
+            self?.view.semanticContentAttribute = TapLocalisationManager.shared.localisationLocale == "ar" ? .forceRightToLeft : .forceLeftToRight
             self?.webViewModel?.load(with: url)
         }
     }

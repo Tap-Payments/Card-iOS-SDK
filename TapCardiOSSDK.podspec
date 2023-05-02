@@ -142,7 +142,7 @@ Pod::Spec.new do |spec|
   spec.dependency'TapKeychain'
   spec.dependency'SwiftEntryKit'
   spec.dependency'SwiftyGif'
-  spec.dependency "BugfenderSDK", "1.11.0"
+  spec.dependency "BugfenderSDK", '1.11.0'
   spec.pod_target_xcconfig = {
     'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
   }

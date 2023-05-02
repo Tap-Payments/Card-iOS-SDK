@@ -55,9 +55,10 @@ import Nuke
         guard let iconURLString:String = viewModel.icon, iconURLString.isValidURL(), let iconURL:URL = URL(string: iconURLString) else { gatewayIconImageView.image = nil
             return
         }
-        Nuke.DataLoader.sharedUrlCache.removeAllCachedResponses()
+        //Nuke.DataLoader.sharedUrlCache.removeAllCachedResponses()
         gatewayIconImageView.downloadImage(with: iconURL, nukeOptions: nil)
         gatewayIconImageView.contentMode = .scaleAspectFill
+        
         // Apply the editing ui if needed
         changedEditMode(to: viewModel.editMode)
     }

@@ -85,7 +85,7 @@ import BugfenderSDK
     internal var secretKey:SecretKey = .init(sandbox: "", production: "")
     
     /// The currency you want to show the card brands that accepts it. Default is KWD
-    internal var transactionCurrency: TapCurrencyCode = .KWD
+    internal var transactionCurrency: TapCurrencyCode = .SAR
     /// The attached customer passed for this transaction (e.g. save card)
     internal var transactionCustomer: TapCustomer?
     /// Metdata object will be a representation of [String:String] dictionary to be used whenever such a common model needed

@@ -67,6 +67,7 @@ class TapCardViewController: UIViewController, TapCardInputDelegatee {
                                    showCardScanner: sharedConfigurationSharedManager.showCardScanning,
                                    tapScannerUICustomization: .init(tapFullScreenScanBorderColor: sharedConfigurationSharedManager.scannerColor,
                                                                     blurCardScannerBackground:sharedConfigurationSharedManager.blurScanner),
+                                  transactionCurrency: .SAR,
                                    presentScannerInViewController: self,
                                    allowedCardTypes: sharedConfigurationSharedManager.allowedCardTypes,
                                    tapCardInputDelegate: self,

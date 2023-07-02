@@ -52,5 +52,53 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BB44681F-1826-4ED9-BA41-5ACAED4927D2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/TapUIKit-iOS/TapUIKit-iOS/TapUIKit-iOS/Core/TapCardsTelecomBar/ViewModels/TapCardPhoneBarListViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "generateViews(with:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BB44681F-1826-4ED9-BA41-5ACAED4927D2 - d4fcac2ff90eed49"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (TapUIKit_iOS.TapCardPhoneIconViewModel) -&gt; TapUIKit_iOS.TapCardPhoneIconView in TapUIKit_iOS.TapCardPhoneBarListViewModel.generateViews(with: CoreGraphics.CGFloat) -&gt; Swift.Array&lt;TapUIKit_iOS.TapCardPhoneIconView&gt;"
+                  moduleName = "TapUIKit_iOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/osamarabie/desktop/Tap/TapCardCheckOutKit/CardiOSSDK/Pods/TapUIKit-iOS/TapUIKit-iOS/TapUIKit-iOS/Core/TapCardsTelecomBar/ViewModels/TapCardPhoneBarListViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "130"
+                  endingLineNumber = "130"
+                  offsetFromSymbolStart = "269">
+               </Location>
+               <Location
+                  uuid = "BB44681F-1826-4ED9-BA41-5ACAED4927D2 - d4fcac2ff90eed49"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (TapUIKit_iOS.TapCardPhoneIconViewModel) -&gt; TapUIKit_iOS.TapCardPhoneIconView in TapUIKit_iOS.TapCardPhoneBarListViewModel.generateViews(with: CoreGraphics.CGFloat) -&gt; Swift.Array&lt;TapUIKit_iOS.TapCardPhoneIconView&gt;"
+                  moduleName = "TapUIKit_iOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/osamarabie/desktop/Tap/TapCardCheckOutKit/CardiOSSDK/Pods/TapUIKit-iOS/TapUIKit-iOS/TapUIKit-iOS/Core/TapCardsTelecomBar/ViewModels/TapCardPhoneBarListViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "130"
+                  endingLineNumber = "130"
+                  offsetFromSymbolStart = "625">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

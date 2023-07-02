@@ -49,13 +49,13 @@ class CardSettingsViewController: FormViewController {
             }
         })
         
-        <<< SwitchRow(SettingsKeys.FloatingSavedCard.rawValue, { row in
+        /*<<< SwitchRow(SettingsKeys.FloatingSavedCard.rawValue, { row in
             row.title = "Show saved card as a floating view"
             row.value = sharedConfigurationSharedManager.floatingSavedCard
             row.onChange { switchRow in
                 sharedConfigurationSharedManager.floatingSavedCard = switchRow.value ?? true
             }
-        })
+        })*/
         
         <<< SegmentedRow<String>(SettingsKeys.CardType.rawValue, { row in
             row.title = "Allowed card types"

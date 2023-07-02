@@ -159,7 +159,7 @@ extension Array where Element == PaymentOption {
     /// - Parameter supportsCurrency: Pass this optional if you want to filter out cards that support a certain currency
     func toTapCardPhoneIconViewModel(supportsCurrency:TapCurrencyCode = .ALL) -> [TapCardPhoneIconViewModel] {
         return self.filter{ supportsCurrency == .ALL || $0.supportedCurrencies.contains(supportsCurrency) }
-            .map{ .init(associatedCardBrand: $0.brand , tapCardPhoneIconUrl: $0.correctBackEndImageURL().absoluteString) }
+            .map{ .init(associatedCardBrand: $0.brand , tapCardPhoneIconUrl: $0.correctBackEndImageURL().absoluteString, paymentOptionIdentifier: $0.identifier) }
     }
     
 }

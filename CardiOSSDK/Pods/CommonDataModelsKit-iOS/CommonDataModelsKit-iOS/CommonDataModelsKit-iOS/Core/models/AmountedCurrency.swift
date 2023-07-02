@@ -29,35 +29,29 @@ import UIKit
     /// Will hold the list of urls to support different themes for the icons
     public var currencyLogos:CurrencyLogos? = nil
     
-    /// Ordering parameter.
-    public let orderBy: Int
     
     /// Will do the correct fetching of which image to use, the default backend url or the correct light-dark cdn hosted url
-    /// - Parameter showMonoForLightMode: Indicates whether to show the light or the light colored
-    public func correctBackEndImageURL(showMonoForLightMode:Bool = false) -> URL {
+    /// - Parameter showMonoForLightMode: Indicates whether to show the light or the light mono
+    /// - Parameter showColoredForDarkMode: Indicates whether to show the dark or the dark colored
+    public func correctBackEndImageURL(showMonoForLightMode:Bool = false, showColoredForDarkMode:Bool) -> URL {
         // Check if we have right values passed in the cdn logos options
         guard let logos = currencyLogos,
               let lightModePNGString = logos.light?.png,
               let darkModePNGString  = logos.dark?.png,
+              let lightMonoModePNGString = logos.light_mono?.png,
+              let darkColoredModePNGString = logos.dark_colored?.png,
               let lightModePNGUrl    = URL(string: lightModePNGString),
-              let darkModePNGUrl     = URL(string: darkModePNGString) else { return URL(string: flag) ?? URL(string: "")! }
+              let darkModePNGUrl     = URL(string: darkModePNGString),
+              let lightMonoModePNGUrl    = URL(string: lightMonoModePNGString),
+              let darkColoredModePNGUrl     = URL(string: darkColoredModePNGString) else { return URL(string: flag) ?? URL(string: "")! }
         
         
         // we will return based on the theme
         if #available(iOS 12.0, *) {
-            if UIScreen.main.traitCollection.userInterfaceStyle == .light {
-                if showMonoForLightMode {
-                    guard let lightMonoModePNGString = logos.light_colored?.png,
-                          let lightMonoModePNGUrl    = URL(string: lightMonoModePNGString) else { return lightModePNGUrl }
-                    return lightMonoModePNGUrl
-                }
-                return lightModePNGUrl
-            } else {
-                return darkModePNGUrl
-            }
+            return UIScreen.main.traitCollection.userInterfaceStyle == .light ? showMonoForLightMode ?  lightMonoModePNGUrl : lightModePNGUrl : showColoredForDarkMode ? darkColoredModePNGUrl : darkModePNGUrl
         } else {
             // Fallback on earlier versions
-            return lightModePNGUrl
+            return showMonoForLightMode ?  lightMonoModePNGUrl : lightModePNGUrl
         }
         
     }
@@ -72,11 +66,11 @@ import UIKit
     }
     // MARK: Methods
     
-    @objc public convenience init(_ currency: TapCurrencyCode, _ amount: Double, _ flag: String, _ decimalDigits: Int = 2, _ rate: Double = 1, currencyLogos:CurrencyLogos? = nil, orderBy:Int = 1000) {
-        self.init(currency, amount, currency.symbolRawValue, flag, decimalDigits, rate, currencyLogos: currencyLogos, orderBy:orderBy)
+    @objc public convenience init(_ currency: TapCurrencyCode, _ amount: Double, _ flag: String, _ decimalDigits: Int = 2, _ rate: Double = 1, currencyLogos:CurrencyLogos? = nil) {
+        self.init(currency, amount, currency.symbolRawValue, flag, decimalDigits, rate, currencyLogos: currencyLogos)
     }
     
-    @objc public init(_ currency: TapCurrencyCode, _ amount: Double, _ currencySymbol: String, _ flag: String, _ decimalDigits: Int = 2, _ rate: Double = 1, currencyLogos:CurrencyLogos? = nil, orderBy:Int = 1000) {
+    @objc public init(_ currency: TapCurrencyCode, _ amount: Double, _ currencySymbol: String, _ flag: String, _ decimalDigits: Int = 2, _ rate: Double = 1, currencyLogos:CurrencyLogos? = nil) {
         
         self.currency       = currency
         self.amount         = amount
@@ -85,7 +79,6 @@ import UIKit
         self.decimalDigits  = decimalDigits
         self.rate           = rate
         self.currencyLogos  = currencyLogos
-        self.orderBy        = orderBy
     }
     
     // MARK: - Private -
@@ -99,7 +92,6 @@ import UIKit
         case flag           = "flag"
         case currencyLogos  = "logos"
         case decimalDigits  = "decimal_digit"
-        case orderBy        = "order_by"
     }
     
     public override func isEqual(_ object: Any?) -> Bool {
@@ -125,11 +117,8 @@ import UIKit
     public let light: CurrencyLogo?
     /// The dark icons urls
     public let dark: CurrencyLogo?
-    /// The light_colored icons urls
-    public let light_colored: CurrencyLogo?
+    /// The light_mono icons urls
+    public let light_mono: CurrencyLogo?
+    /// The dark_colored icons urls
+    public let dark_colored: CurrencyLogo?
 }
-
-
-
-// MARK: - SortableByOrder
-extension AmountedCurrency: SortableByOrder {}

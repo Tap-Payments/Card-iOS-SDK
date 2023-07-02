@@ -1,4 +1,45 @@
 {
+    "CurrencyWidget": {
+        "amountLabel": {
+            "color": "#CFCFCF80",
+            "font": "Roboto-Regular,13"
+        },
+        "background": {
+            "color": "#000000",
+            "cornerRadius": 8,
+            "shadow": {
+                "blurRadius": 8,
+                "color": "#00000026"
+            }
+        },
+        "confirmButton": {
+            "backgroundColor": "#FFFFFF",
+            "cornerRadius": 24,
+            "titleFont": "Roboto-Regular,12",
+            "titleFontColor": "#000000"
+        },
+        "currencyDropDown": {
+            "arrowDownImageName": "chevrondown",
+            "arrowDownTint": "#7C7C7C",
+            "arrowUpImageName": "chevronup",
+            "backgroundColor": "#000000DE",
+            "borderColor": "#3C3737DE",
+            "cornerRadius": 8,
+            "labelColor": "#CFCFCF99",
+            "labelFont": "Roboto-Regular,13",
+            "onHoverColor": "#171515",
+            "onHoverCornerMargin": 8,
+            "onHoverCornerRadius": 8,
+            "shadowBlur": 64,
+            "shadowColor": "#4B484780",
+            "shadowOffsetHeight": 24,
+            "shadowOffsetWidth": 0
+        },
+        "messageLabel": {
+            "color": "#CFCFCF",
+            "font": "Roboto-Regular,13"
+        }
+    },
     "GlobalValues": {
         "Colors": {
             "apricot30": "#ffbe604C",
@@ -81,6 +122,13 @@
             "textColor": "#FBDFD2",
             "textFont": "Roboto-Light,12"
         }
+    },
+    "Nfc": {
+        "bottomTextColor": "brownGreySix",
+        "bottomTextFont": "Roboto-Light,14",
+        "topTextBackgroundColor": "whiteTwo",
+        "topTextColor": "brownGreySix",
+        "topTextFont": "Roboto-Light,12"
     },
     "TapCurrencyPromptView": {
         "backgroundColor": "#211F1F",
@@ -232,6 +280,12 @@
     "cardPhoneList": {
         "backgroundColor": "whiteTwo",
         "icon": {
+            "iconsWidth": {
+                "3": 32,
+                "4": 32,
+                "10": 32,
+                "28": 32
+            },
             "otherSegmentSelected": {
                 "alpha": 0.5,
                 "backgroundColor": "clear"
@@ -529,7 +583,7 @@
                 },
                 "editMode": {
                     "alpha": 0.8,
-                    "deleteIcon": "deleteCardIconLight"
+                    "deleteIcon": "deleteCardIconDark"
                 },
                 "labelTextColor": "greyishBrown",
                 "labelTextFont": "Roboto-Regular,12",
@@ -607,6 +661,7 @@
             "width": 32
         },
         "loaderImage": "3sec-white-loader-2",
+        "poweredByTapLogo": "Poweredbytapx",
         "saveCardForTapOption": {
             "infoButtonTintColor": "#626262",
             "labelTextColor": "#7E7E7E",
@@ -636,16 +691,16 @@
         },
         "textFields": {
             "errorTextColor": "#CFCFCF",
-            "font": "Roboto-Light,14",
+            "font": "Roboto-Regular,14",
             "placeHolderColor": "cardPlaceHolder",
             "saveCardFontDots": "Roboto-Bold,24",
             "textColor": "#CFCFCF"
         }
     },
     "itemsList": {
-        "backgroundColor": "white",
+        "backgroundColor": "clear",
         "item": {
-            "backgroundColor": "white",
+            "backgroundColor": "clear",
             "calculatedPriceLabelColor": "brownGrey",
             "calculatedPriceLabelFont": "Roboto-Regular,12",
             "count": {

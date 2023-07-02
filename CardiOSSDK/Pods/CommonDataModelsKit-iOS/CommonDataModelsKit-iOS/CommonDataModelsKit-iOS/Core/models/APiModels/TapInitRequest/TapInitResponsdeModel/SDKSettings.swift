@@ -43,6 +43,7 @@ public struct SDKSettings {
         case permissions            = "permissions"
         case merchantLogo           = "logo"
         case merchantName           = "name"
+        case merchantCountry        = "country_code"
         case encryptionKey          = "encryption_key"
         case deviceID               = "device_id"
         case merchant               = "merchant"
@@ -62,7 +63,8 @@ extension SDKSettings: Decodable {
         let encryptionKey           = try container.decode(String.self,                 forKey: .encryptionKey)
         let merchantName            = try container.decode(String.self,                 forKey: .merchantName)
         let merchantLogo            = try container.decode(String.self,                 forKey: .merchantLogo)
-        let merchant                = Merchant(logoURL: merchantLogo, name: merchantName)
+        let merchantCountry         = try container.decode(String.self,                 forKey: .merchantCountry)
+        let merchant                = Merchant(logoURL: merchantLogo, name: merchantName, countryCode: merchantCountry)
         let internalSettings        = try container.decode(InternalSDKSettings.self,    forKey: .internalSettings)
         
         let permissions             = try container.decodeIfPresent(Permissions.self,   forKey: .permissions) ?? .tap_none
@@ -133,36 +135,11 @@ public struct TapThemeAssetsModel:Codable {
     /// The dark mode theme url
     public let dark:String
     
-    /// The card theme model
-    public let card:TapCardThemeAssetsModel?
-    
-}
-
-
-/// The model for fetching the default assets urls for the light and dark themes
-public struct TapCardThemeAssetsModel:Codable {
-    
-    /// The light mode theme url
-    public let light:String
-    
-    /// The dark mode theme url
-    public let dark:String
-    
 }
 
 
 /// The model for fetching the default assets urls for the localisations
 public struct TapLocalisationAssetsModel:Codable {
-    /// The localisation url
-    public let url:String
-    
-    /// The card loclisation model
-    public let card:TapCardLocalisationAssetsModel?
-}
-
-
-/// The model for fetching the default assets urls for the localisations
-public struct TapCardLocalisationAssetsModel:Codable {
     /// The localisation url
     public let url:String
 }

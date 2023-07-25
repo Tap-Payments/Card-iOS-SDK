@@ -635,6 +635,10 @@ internal protocol ThreeDSViewControllerDelegatee {
 }
 
 extension TapCardView:TapCardTelecomPaymentProtocol {
+    public func showSavedCard() -> Bool {
+        return true
+    }
+    
     
     public func cardFieldsAreFocused() {
         

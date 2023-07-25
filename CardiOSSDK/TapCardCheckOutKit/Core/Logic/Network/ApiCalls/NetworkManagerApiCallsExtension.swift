@@ -21,8 +21,15 @@ internal extension NetworkManager {
     /// - Parameter onErrorOccured: A block to execure upon error
     func initialiseSDKFromAPI(onCheckOutReady: @escaping () -> () = {} ,onErrorOccured: @escaping(Error?)->() = {_ in}) {
         // As per the backend logic, we will have to hit INIT
-       
-        sharedNetworkManager.makeApiCall(routing: .CheckoutProfileApi, resultType: TapInitResponseModel.self, body: .init(body: [:]) ,httpMethod: .POST) { [weak self] (session, result, error) in
+        
+        let tapPaymentOptionsRequestModel:TapPaymentOptionsRequestModel = .init(transactionMode: .cardTokenization, amount: 1, items: [.init(title: "Dummy title", description: "Dummy description", price: 1, quantity: 1, discount: nil, currency: sharedNetworkManager.dataConfig.transactionCurrency)], shipping: nil, taxes: nil, currency: sharedNetworkManager.dataConfig.transactionCurrency, merchantID: "", customer: .defaultCustomer(), destinationGroup: nil, paymentType: .Card, totalAmount: 1, topup: nil, reference: nil, supportedCurrencies: nil)
+        
+        // Change the model into a dictionary
+        guard let bodyDictionary = NetworkManager.convertModelToDictionary(tapPaymentOptionsRequestModel, callingCompletionOnFailure: { error in
+            fatalError("Failed to parse the Checkout profile api request model \(error?.localizedDescription ?? "")")
+        }) else { return }
+        
+        sharedNetworkManager.makeApiCall(routing: .CheckoutProfileApi, resultType: TapInitResponseModel.self, body: .init(body: bodyDictionary) ,httpMethod: .POST) { [weak self] (session, result, error) in
             guard let initModel:TapInitResponseModel = result as? TapInitResponseModel else { self?.handleError(error: "Unexpected error when parsing into TapInitResponseModel")
                 return }
             self?.handleInitResponse(initModel: initModel)

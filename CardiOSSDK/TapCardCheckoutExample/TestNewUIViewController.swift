@@ -61,6 +61,10 @@ class TestNewUIViewController: UIViewController {
 
 
 extension TestNewUIViewController:TapCardTelecomPaymentProtocol {
+    func showSavedCard() -> Bool {
+        return true
+    }
+    
     func cardFieldsAreFocused() {
         
     }

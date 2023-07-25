@@ -80,7 +80,7 @@ SZhWp4Mnd6wjVgXAsQIDAQAB
      - Returns: The sandbox or production secret key based on the SDK mode
      */
     static func secretKey() -> String {
-        return (sharedNetworkManager.dataConfig.sdkMode == .sandbox) ?  sharedNetworkManager.dataConfig.secretKey.sandbox : sharedNetworkManager.dataConfig.secretKey.production
+        return (sharedNetworkManager.dataConfig.sdkMode == .sandbox) ?  sharedNetworkManager.dataConfig.publicKey.sandbox : sharedNetworkManager.dataConfig.publicKey.production
     }
     
     

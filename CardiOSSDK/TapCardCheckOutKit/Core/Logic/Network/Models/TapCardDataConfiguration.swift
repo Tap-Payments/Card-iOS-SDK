@@ -9,6 +9,7 @@ import Foundation
 import CommonDataModelsKit_iOS
 import LocalisationManagerKit_iOS
 import BugfenderSDK
+import TapCardVlidatorKit_iOS
 
 /// The datasource configiation required so the card kit can perform Init call api
 @objc public class TapCardDataConfiguration: NSObject {
@@ -24,7 +25,7 @@ import BugfenderSDK
         super.init()
         self.sdkMode = sdkMode
         self.localeIdentifier = localeIdentifier
-        self.secretKey = secretKey
+        self.publicKey = secretKey
         self.enableLogging = enableApiLogging.map{ TapLoggingType(rawValue: $0) ?? .CONSOLE }
         configureBugFinder()
         SharedCommongDataModels.sharedCommongDataModels.sdkMode = sdkMode
@@ -82,7 +83,7 @@ import BugfenderSDK
         }
     }
     /// The secret keys providede to your business from TAP.
-    internal var secretKey:SecretKey = .init(sandbox: "", production: "")
+    internal var publicKey:SecretKey = .init(sandbox: "", production: "")
     
     /// The currency you want to show the card brands that accepts it. Default is KWD
     internal var transactionCurrency: TapCurrencyCode = .SAR
@@ -111,4 +112,157 @@ import BugfenderSDK
     
     /// a block to eecute upon card save fails
     internal var onErrorSaveCardOccured: (Error?,TapCreateCardVerificationResponseModel?)->() = { _,_ in}
+}
+
+
+//MARK: Enums
+/// An enum to define the required scope of the tap card sdk
+@objc public enum Scope: Int {
+    /// This means, that the expected functionality of the tap card sdk is to generate a tap token for the customer's card
+    case TapToken
+}
+/// An enum to state the different allowed authentication techniques
+@objc public enum SupportedPaymentAuthentications:Int {
+    /// The threeD authentications provided by the banks
+    case ThreeDS
+    /// To be used only when using union pay cards inside China
+    case EMV
+}
+
+
+/// An enum to state the shape aof the card's edge
+@objc public enum CardEdges:Int {
+    /// The cad view will have a cornered radius
+    case Curved
+    /// To card view will have a rectangular shape
+    case Staright
+}
+
+
+/// An enum to state the card input direction
+@objc public enum CardDirection:Int {
+    /// Will be LTR in English and RTL in Arabic
+    case Dynamic
+    /// Will be LTR in English and Arabic
+    case LTR
+}
+
+
+//MARK: Configuration models
+/// A model that represents the amount and the currency combined
+@objc public class Transaction: NSObject {
+    /// The amount of the transaction. Only of use, in authorize & purchase modes Default is 1
+    internal var amount: Double = 1
+    /// The currency you want to show the card brands that accepts it. Default is KWD
+    internal var currency: TapCurrencyCode = .KWD
+    
+    /// A model that represents the amount and the currency combined
+    /// - Parameter amount: Only of use, in authorize & purchase modes Default is 1
+    /// - Parameter currency: The currency you want to show the card brands that accepts it. Default is KWD
+    @objc public init(amount:Double = 1, currency: TapCurrencyCode = .KWD) {
+        self.amount = amount
+        self.currency = currency
+    }
+}
+
+
+
+/// A model that represents the details and configurations related to the merchant
+@objc public class Merchant: NSObject {
+    /// The tap merchant identifier.
+    internal var id: String = ""
+    
+    /// A model that represents the details and configurations related to the merchant
+    /// - Parameter id: The tap merchant identifier.
+    @objc public init(id:String = "") {
+        self.id = id
+    }
+}
+
+
+
+/// A model that represents the details of the acceptance levels and payment methods
+@objc public class Acceptance: NSObject {
+    /// The supported brands set by the merchant for this transaction. Default is All
+    internal var supportedBrands: [CardBrand] = CardBrand.allCases
+    /// The supported funding source for the card payments used by the customer whether debit or credit. Default is All
+    internal var supportedFundSource: cardTypes = .All
+    /// The supported authentications for th card used by the customer. Default is 3ds
+    internal var supportedPaymentAuthentications:[SupportedPaymentAuthentications] = [.ThreeDS]
+    
+    /// SWIFT A model that represents the details of the acceptance levels and payment methods
+    /// - Parameter supportedBrands: The supported brands set by the merchant for this transaction. Default is All
+    /// - Parameter supportedFundSource: The supported funding source for the card payments used by the customer whether debit or credit. Default is All
+    /// - Parameter supportedPaymentAuthentications: The supported authentications for th card used by the customer. Default is 3ds
+    public init(supportedBrands:[CardBrand] = CardBrand.allCases, supportedFundSource: cardTypes = .All,  supportedPaymentAuthentications:[SupportedPaymentAuthentications] = [.ThreeDS] ) {
+        self.supportedBrands = supportedBrands
+        self.supportedFundSource = supportedFundSource
+        self.supportedPaymentAuthentications = supportedPaymentAuthentications
+    }
+    
+    
+    /// ObjectiveC A model that represents the details of the acceptance levels and payment methods
+    /// - Parameter supportedBrands: The supported brands set by the merchant for this transaction. Default is All
+    /// - Parameter supportedFundSource: The supported funding source for the card payments used by the customer whether debit or credit. Default is All
+    /// - Parameter supportedPaymentAuthentications: The supported authentications for th card used by the customer. Default is 3ds
+    @objc public init (supportedBrands:[Int] = CardBrand.allCases.map{ $0.rawValue }, supportedFundSource: cardTypes = .All,  supportedPaymentAuthentications:[Int] = [SupportedPaymentAuthentications.ThreeDS.rawValue] ) {
+        self.supportedBrands = supportedBrands.compactMap{ CardBrand(rawValue: $0) }
+        self.supportedFundSource = supportedFundSource
+        self.supportedPaymentAuthentications = supportedPaymentAuthentications.compactMap{ SupportedPaymentAuthentications(rawValue: $0) }
+    }
+}
+
+
+
+
+/// A model that decides the visibilty of the card fields. For now, only Card name is adjustable.
+@objc public class Fields: NSObject {
+    /// Decides whether to show/hide the card holder name. Default is false
+    internal var cardHolder: Bool = false
+    
+    /// A model that decides the visibilty of the card fields. For now, only Card name is adjustable.
+    /// - Parameter cardHolder: Decides whether to show/hide the card holder name. Default is false
+    @objc public init(cardHolder:Bool = false) {
+        self.cardHolder = cardHolder
+    }
+}
+
+
+
+/// A model that decides the visibilty of some componens related to the card sdk. So the merchant can adjust the UX as much as possible to fit his UI
+@objc public class Addons: NSObject {
+    /// Decides whether to show/hide the loader on topp of the card, whever the card is doing some action (e.g. tokennizing a card.) Default is true
+    internal var loader: Bool = true
+    /// Decides whether to show/hide the the supported card brands bar underneath the card input form. Default is true
+    internal var displayPaymentBrands: Bool = true
+    
+    /// A model that decides the visibilty of some componens related to the card sdk. So the merchant can adjust the UX as much as possible to fit his UI
+    /// - Parameter loader: Decides whether to show/hide the loader on topp of the card, whever the card is doing some action (e.g. tokennizing a card.) Default is true
+    /// - Parameter displayPaymentBrands : Decides whether to show/hide the the supported card brands bar underneath the card input form. Default is true
+    @objc public init(loader:Bool = true, displayPaymentBrands: Bool = true) {
+        self.loader = loader
+        self.displayPaymentBrands = displayPaymentBrands
+    }
+}
+
+
+
+/// A model of parameters that controls a bit the look and feel of the card sdk.
+@objc public class Interface: NSObject {
+    /// Defines the locale to display the card with. accepted values en,ar and default is en
+    internal var locale: String = "en"
+    /// Defines the direction/text alignment of the card input fields. Default is dynamic to follow the locale's alignment
+    internal var direction: CardDirection = .Dynamic
+    /// Defines the shape aof the card’s edge. Default is curved
+    internal var edges: CardEdges = .Curved
+    
+    /// A model of parameters that controls a bit the look and feel of the card sdk.
+    /// - Parameter loader: Defines the locale to display the card with. accepted values en,ar and default is en
+    /// - Parameter displayPaymentBrands : Defines the direction/text alignment of the card input fields. Default is dynamic to follow the locale's alignment
+    /// - Parameter edges: Defines the shape aof the card’s edge. Default is curved
+    @objc public init(locale:String = "en", direction: CardDirection = .Dynamic, edges: CardEdges = .Curved) {
+        self.locale = locale
+        self.direction = direction
+        self.edges = edges
+    }
 }

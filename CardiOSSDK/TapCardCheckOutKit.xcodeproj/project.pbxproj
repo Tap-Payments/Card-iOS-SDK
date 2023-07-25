@@ -381,18 +381,10 @@
 				E832641C27E9DF59005F3AAF /* ApiCalls */,
 				E832641727E9DE22005F3AAF /* Utils */,
 				E832641627E9DE1E005F3AAF /* Models */,
-				E832641127E9DD2A005F3AAF /* Enums */,
 				E832640527E9DB05005F3AAF /* NetworkManager.swift */,
 				E89B99762892818600B03726 /* TapCallsResponseGenerator.swift */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		E832641127E9DD2A005F3AAF /* Enums */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Enums;
 			sourceTree = "<group>";
 		};
 		E832641627E9DE1E005F3AAF /* Models */ = {

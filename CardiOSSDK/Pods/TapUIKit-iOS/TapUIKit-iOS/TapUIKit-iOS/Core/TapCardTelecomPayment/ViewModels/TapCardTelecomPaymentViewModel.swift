@@ -136,6 +136,7 @@ import TapThemeManager2020
         guard saveCardType != .None,
               allCardFieldsValid(),
               attachedView.cardInputView.cardUIStatus != .SavedCard,
+              attachedView.pre3DSLoadingView.alpha == 0,
               delegate?.showSavedCard() ?? true else { return (false,false) }
         // Then yes we should show the save card view :)
         return ((saveCardType == .All || saveCardType == .Merchant),(( saveCardType == .All || saveCardType == .Tap) && self.isMerchantSaveAllowed))
@@ -197,10 +198,11 @@ import TapThemeManager2020
      - Parameter tapCard: The TapCard that holds the data needed to be filled into the textfields
      - Parameter then focusCardNumber: Indicate whether we need to focus the card number after setting the card data
      - Parameter for cardUIStatus: Indicates whether the given card is from a normal process like scanning or to show the special UI for a saved card flow
+     - Parameter forceNoFocus: If it is true, then no field will be focused whatsoever
      */
-    @objc public func setCard(with card:TapCard,then focusCardNumber:Bool,shouldRemoveCurrentCard:Bool = true,for cardUIStatus:CardInputUIStatus) {
+    @objc public func setCard(with card:TapCard,then focusCardNumber:Bool,shouldRemoveCurrentCard:Bool = true,for cardUIStatus:CardInputUIStatus, forceNoFocus:Bool = false) {
         tapCardTelecomPaymentView?.lastReportedTapCard = card
-        tapCardTelecomPaymentView?.cardInputView.setCardData(tapCard: card, then: focusCardNumber,shouldRemoveCurrentCard:shouldRemoveCurrentCard,for: cardUIStatus)
+        tapCardTelecomPaymentView?.cardInputView.setCardData(tapCard: card, then: focusCardNumber,shouldRemoveCurrentCard:shouldRemoveCurrentCard,for: cardUIStatus, forceNoFocus: forceNoFocus)
         tapCardTelecomPaymentView?.headerView.headerType = (cardUIStatus == .SavedCard) ? .SaveCardInputTitle : self.cardHeaderType
     }
     
@@ -210,7 +212,10 @@ import TapThemeManager2020
         tapCardTelecomPaymentView?.cardInputView.saveCardDataBeforeMovingToSavedCard()
     }
     
-    @objc public func addFullScreen(view:UIView?) {
+    /// Adds a view on top of the current card element
+    /// - Parameter view: The view to add on top full size of the card element view
+    /// - Parameter shouldFadeIn: The view added will fade in if it is true. Otherwise, it will appear right away
+    @objc public func addFullScreen(view:UIView?, shouldFadeIn:Bool = false) {
         guard let view = view else { return }
         view.translatesAutoresizingMaskIntoConstraints = false
         view.alpha = 0
@@ -225,7 +230,11 @@ import TapThemeManager2020
         }
         view.layoutIfNeeded()
         attachedView.layoutIfNeeded()
-        view.fadeIn(duration:0.5)
+        if shouldFadeIn {
+            view.fadeIn(duration:0.5)
+        }else{
+            view.alpha = 1
+        }
         attachedView.pre3DSLoadingView.fadeOut(duration:0.1)
     }
     
@@ -245,13 +254,15 @@ import TapThemeManager2020
      */
     @objc public func changeEnableStatus(to:Bool = true, doPostLogic:Bool = false) {
         // Check if it is neccessary
-        guard (to && self.attachedView.alpha != 1) || (!to && self.attachedView.alpha != 0) else { return }
+        guard (to && self.attachedView.stackView.alpha != 1) || (!to && self.attachedView.stackView.alpha != 0) else { return }
         
-        UIView.animate(withDuration: 0.2) {
+        UIView.animate(withDuration: 0.3) {
             if !to {
-                self.attachedView.alpha = 0.3
+                self.attachedView.stackView.alpha = 0.4
+                self.attachedView.stackView.transform = CGAffineTransform(scaleX: 0.94, y: 0.94)
             }else{
-                self.attachedView.alpha = 1
+                self.attachedView.stackView.alpha = 1
+                self.attachedView.stackView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
             }
         } completion: { done in
             if to {

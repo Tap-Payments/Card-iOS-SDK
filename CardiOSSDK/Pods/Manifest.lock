@@ -1,7 +1,7 @@
 PODS:
   - BugfenderSDK (1.11.0)
   - CollectionViewSlantedLayout (3.1.1)
-  - CommonDataModelsKit-iOS (1.0.135):
+  - CommonDataModelsKit-iOS (1.0.136):
     - SwiftyRSA
     - TapAdditionsKitV2
     - TapCardVlidatorKit-iOS
@@ -35,7 +35,7 @@ PODS:
   - TapCardScanner-iOS (1.0.25):
     - CommonDataModelsKit-iOS
     - TapCardVlidatorKit-iOS
-  - TapCardVlidatorKit-iOS (1.0.20)
+  - TapCardVlidatorKit-iOS (1.0.21)
   - TapFontKit-iOS (0.0.9):
     - TapSwiftFixesV2
   - TapKeychain (1.0.5)
@@ -110,7 +110,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   BugfenderSDK: b31a017a6a6ee3e2e834ae36148e9b70fb33c20f
   CollectionViewSlantedLayout: 24397455acd2461960bc45d394e0ef99c17d03ce
-  CommonDataModelsKit-iOS: 96e65ce6922b468ab54e72580e6007dd75ae0e8c
+  CommonDataModelsKit-iOS: 039803e2bb818027539f7e713e94af1c37dab244
   EasyTipView: a92b6edc377b81c5ac18e9fd35d5ee78e9409488
   LocalisationManagerKit-iOS: 4c140a36e66d34af69424a311659df3bd6cc793a
   McPicker: ba38be56a8194faa5249eca4226c364eed628044
@@ -125,7 +125,7 @@ SPEC CHECKSUMS:
   TapApplicationV2: aee3d046c4272778431e1535de6cab34e1269f8c
   TapCardInputKit-iOS: 2ce88eb653e6fbe817945c9cfe9961eb295289e4
   TapCardScanner-iOS: 9db044847348ddb7a3b4ca262b33842e83d71a6e
-  TapCardVlidatorKit-iOS: 00ac65c44019f955234640e5d4ca583f639edca2
+  TapCardVlidatorKit-iOS: c7be3b2831dd7f327ae8c4df328eb625653b4232
   TapFontKit-iOS: 51ed2ddbe9f2b5ece1cc587ed45af9147e5c6fc1
   TapKeychain: 143aa70bb2d1b094e0298e944660264034c79849
   TapNetworkKit-iOS: 92c8c7feae384dc2595f8f270853ee3cf8ea3380

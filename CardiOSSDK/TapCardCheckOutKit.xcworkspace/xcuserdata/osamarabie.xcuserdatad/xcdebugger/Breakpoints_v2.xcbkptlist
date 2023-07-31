@@ -3,22 +3,4 @@
    uuid = "7C591549-5AE9-4052-A22C-3CBDE624C8A8"
    type = "0"
    version = "2.0">
-   <Breakpoints>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "63E7EEEB-4EA1-44DE-9A0A-A4B4F417E7A5"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TapCardCheckOutKit/Core/Logic/Network/ApiCalls/NetworkManagerApiCallsExtension.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "initialiseSDKFromAPI(onCheckOutReady:onErrorOccured:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-   </Breakpoints>
 </Bucket>

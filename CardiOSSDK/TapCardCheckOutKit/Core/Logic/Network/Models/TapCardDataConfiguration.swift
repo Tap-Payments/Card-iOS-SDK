@@ -38,6 +38,7 @@ import TapCardScanner_iOS
         self.fields = fields
         self.addons = addons
         self.interface = interface
+        self.transcation = transcation
         configureBugFinder()
     }
     

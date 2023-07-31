@@ -10,25 +10,35 @@ import CommonDataModelsKit_iOS
 import LocalisationManagerKit_iOS
 import BugfenderSDK
 import TapCardVlidatorKit_iOS
+import TapCardScanner_iOS
 
 /// The datasource configiation required so the card kit can perform Init call api
 @objc public class TapCardDataConfiguration: NSObject {
     
     /**
-     The datasource configiation required so the card kit can perform Init call api
-     - Parameter sdkMode: Represents the mode of the sdk . Whether sandbox or production
-     - Parameter localeIdentifier : The ISO 639-1 Code language identefier, please note if the passed locale is wrong or not found in the localisation files, we will show the keys instead of the values
-     - Parameter secretKey: The secret keys providede to your business from TAP.
-     - Parameter enableApiLogging: Defines which level of logging do you wnt to enable. Please pass the raw value for the enums [TapLoggingType](x-source-tag://TapLoggingType)
+     Card configuration model to customize the logic and ui/ux of the tap card element
+     - Parameter publickKey : The public keys providede to your business from Tap integration team.
+     - Parameter scope: An enum to define the required scope of the tap card sdk. Default is to generate Tap Token for the card
+     - Parameter transaction: A model that represents the amount and the currency combined. Default is 1 KWD
+     - Parameter merchant: A model that represents the details and configurations related to the merchant. Including your merchant id provided by Tap integration team
+     - Parameter customer: Represents the model for the customer if any.
+     - Parameter acceptance: A model that represents the details of the acceptance levels and payment methods. Like, payment methods, payment brands, types of allowed cards etc. Default is to accept all allowed payment methods activiated to your business from Tap integration team.
+     - Parameter fields: Defines which card fields you want to show/hide. Currently, only card name is controllable and default is true.
+     - Parameter addons: A model that decides the visibilty of some componens related to the card sdk. So the merchant can adjust the UX as much as possible to fit his UI
+     - Parameter interface: A model of parameters that controls a bit the look and feel of the card sdk.
      */
-    @objc public init(sdkMode: SDKMode = .sandbox, localeIdentifier: String = "en", secretKey: SecretKey = .init(sandbox: "", production: ""), enableApiLogging:[Int] = [TapLoggingType.CONSOLE.rawValue]) {
+    @objc public init (publicKey:SecretKey, scope: Scope = .TapToken, transcation: Transaction = .init(), merchant: Merchant, customer: TapCustomer = TapCustomer.defaultCustomer(), acceptance: Acceptance = .init(), fields: Fields = .init(), addons: Addons = .init(), interface: Interface = .init()) {
         super.init()
-        self.sdkMode = sdkMode
-        self.localeIdentifier = localeIdentifier
-        self.publicKey = secretKey
-        self.enableLogging = enableApiLogging.map{ TapLoggingType(rawValue: $0) ?? .CONSOLE }
+        self.publicKey = publicKey
+        self.enableLogging = [.CONSOLE]
+        self.scope = scope
+        self.customer = customer
+        self.merchant = merchant
+        self.acceptance = acceptance
+        self.fields = fields
+        self.addons = addons
+        self.interface = interface
         configureBugFinder()
-        SharedCommongDataModels.sharedCommongDataModels.sdkMode = sdkMode
     }
     
     
@@ -37,6 +47,34 @@ import TapCardVlidatorKit_iOS
     
     
     // MARK: - Private shared values
+    /// The public keys providede to your business from Tap integration team.
+    internal var publicKey:SecretKey = .init(sandbox: "pk_test_YhUjg9PNT8oDlKJ1aE2fMRz7", production: "sk_live_V4UDhitI0r7sFwHCfNB6xMKp")
+    /// An enum to define the required scope of the tap card sdk. Default is to generate Tap Token for the card
+    internal var  scope: Scope = .TapToken
+    /// A model that represents the amount and the currency combined. Default is 1 KWD
+    internal var transcation: Transaction = .init()
+    /// A model that represents the details and configurations related to the merchant. Including your merchant id provided by Tap integration team
+    internal var merchant: Merchant = .init()
+    /// Represents the model for the customer if any.
+    internal var customer: TapCustomer = TapCustomer.defaultCustomer()
+    /// A model that represents the details of the acceptance levels and payment methods. Like, payment methods, payment brands, types of allowed cards etc. Default is to accept all allowed payment methods activiated to your business from Tap integration team.
+    internal var acceptance: Acceptance = .init() {
+        didSet{
+            SharedCommongDataModels.sharedCommongDataModels.sdkMode = acceptance.sdkMode
+            SharedCommongDataModels.sharedCommongDataModels.allowedCardTypes = [CardType(cardType: acceptance.supportedFundSource)]
+        }
+    }
+    /// Defines which card fields you want to show/hide. Currently, only card name is controllable and default is true.
+    internal var fields: Fields = .init()
+    /// A model that decides the visibilty of some componens related to the card sdk. So the merchant can adjust the UX as much as possible to fit his UI
+    internal var addons: Addons = .init()
+    /// A model of parameters that controls a bit the look and feel of the card sdk.
+    internal var interface: Interface = .init() {
+        didSet{
+            TapLocalisationManager.shared.localisationLocale = interface.locale
+        }
+    }
+    
     
     /// Configures and start sthe session with the bug finder logging platform
     internal func configureBugFinder() {
@@ -67,32 +105,15 @@ import TapCardVlidatorKit_iOS
         bfprint(message, tag: tag.stringValue, level: level)
     }
     
-    /// Represents the mode of the sdk . Whether sandbox or production
-    internal var sdkMode:SDKMode = .sandbox{
-        didSet{
-            SharedCommongDataModels.sharedCommongDataModels.sdkMode = sdkMode
-        }
-    }
     /// Defines which level of logging do you wnt to enable.
     internal var enableLogging:[TapLoggingType] = [.CONSOLE]
     
-    /// The ISO 639-1 Code language identefier, please note if the passed locale is wrong or not found in the localisation files, we will show the keys instead of the values
-    internal var localeIdentifier:String = "en"{
-        didSet{
-            TapLocalisationManager.shared.localisationLocale = localeIdentifier
-        }
-    }
-    /// The secret keys providede to your business from TAP.
-    internal var publicKey:SecretKey = .init(sandbox: "", production: "")
-    
-    /// The currency you want to show the card brands that accepts it. Default is KWD
-    internal var transactionCurrency: TapCurrencyCode = .SAR
-    /// The attached customer passed for this transaction (e.g. save card)
-    internal var transactionCustomer: TapCustomer?
     /// Metdata object will be a representation of [String:String] dictionary to be used whenever such a common model needed
     internal var metadata:TapMetadata? = nil
     /// Should we always ask for 3ds while saving the card. Default is true
-    internal var enfroce3DS:Bool = true
+    internal var enfroce3DS:Bool  {
+        acceptance.supportedPaymentAuthentications.contains(.ThreeDS)
+    }
     /// Holding the latest init response model to fetch requierd data when needed like session token or encryption key
     internal var sdkSettings:SDKSettings?
     /// Holding the allowed card brands to process for the logged in merchant
@@ -131,20 +152,40 @@ import TapCardVlidatorKit_iOS
 
 
 /// An enum to state the shape aof the card's edge
-@objc public enum CardEdges:Int {
+@objc public enum CardEdges:Int, CaseIterable {
     /// The cad view will have a cornered radius
     case Curved
     /// To card view will have a rectangular shape
-    case Staright
+    case Straight
+    
+    /// a string representtion for the card edges enm cases
+    public var toString:String {
+        switch self {
+        case .Curved:
+            return "Curved"
+        case .Straight:
+            return "Straight"
+        }
+    }
 }
 
 
 /// An enum to state the card input direction
-@objc public enum CardDirection:Int {
+@objc public enum CardDirection:Int, CaseIterable {
     /// Will be LTR in English and RTL in Arabic
     case Dynamic
     /// Will be LTR in English and Arabic
     case LTR
+    
+    /// a string representtion for the direction enm cases
+    public var toString:String {
+        switch self {
+        case .Dynamic:
+            return "Dynamic"
+        case .LTR:
+            return "LTR"
+        }
+    }
 }
 
 
@@ -152,9 +193,9 @@ import TapCardVlidatorKit_iOS
 /// A model that represents the amount and the currency combined
 @objc public class Transaction: NSObject {
     /// The amount of the transaction. Only of use, in authorize & purchase modes Default is 1
-    internal var amount: Double = 1
+    public var amount: Double = 1
     /// The currency you want to show the card brands that accepts it. Default is KWD
-    internal var currency: TapCurrencyCode = .KWD
+    public var currency: TapCurrencyCode = .KWD
     
     /// A model that represents the amount and the currency combined
     /// - Parameter amount: Only of use, in authorize & purchase modes Default is 1
@@ -170,7 +211,7 @@ import TapCardVlidatorKit_iOS
 /// A model that represents the details and configurations related to the merchant
 @objc public class Merchant: NSObject {
     /// The tap merchant identifier.
-    internal var id: String = ""
+    public var id: String = ""
     
     /// A model that represents the details and configurations related to the merchant
     /// - Parameter id: The tap merchant identifier.
@@ -184,20 +225,24 @@ import TapCardVlidatorKit_iOS
 /// A model that represents the details of the acceptance levels and payment methods
 @objc public class Acceptance: NSObject {
     /// The supported brands set by the merchant for this transaction. Default is All
-    internal var supportedBrands: [CardBrand] = CardBrand.allCases
+    public var supportedBrands: [CardBrand] = [.americanExpress, .mada, .masterCard, .omanNet, .visa, .meeza]
     /// The supported funding source for the card payments used by the customer whether debit or credit. Default is All
-    internal var supportedFundSource: cardTypes = .All
+    public var supportedFundSource: cardTypes = .All
     /// The supported authentications for th card used by the customer. Default is 3ds
     internal var supportedPaymentAuthentications:[SupportedPaymentAuthentications] = [.ThreeDS]
+    /// The SDK mode you want to try your transactions with. Default is sandbox
+    public var sdkMode:SDKMode = .sandbox
     
     /// SWIFT A model that represents the details of the acceptance levels and payment methods
     /// - Parameter supportedBrands: The supported brands set by the merchant for this transaction. Default is All
     /// - Parameter supportedFundSource: The supported funding source for the card payments used by the customer whether debit or credit. Default is All
     /// - Parameter supportedPaymentAuthentications: The supported authentications for th card used by the customer. Default is 3ds
-    public init(supportedBrands:[CardBrand] = CardBrand.allCases, supportedFundSource: cardTypes = .All,  supportedPaymentAuthentications:[SupportedPaymentAuthentications] = [.ThreeDS] ) {
+    /// - Parameter sdkMode: The enviroment you ware performing the transaction within.
+    public init(supportedBrands:[CardBrand] = [.americanExpress, .mada, .masterCard, .omanNet, .visa, .meeza], supportedFundSource: cardTypes = .All,  supportedPaymentAuthentications:[SupportedPaymentAuthentications] = [.ThreeDS], sdkMode: SDKMode = .sandbox) {
         self.supportedBrands = supportedBrands
         self.supportedFundSource = supportedFundSource
         self.supportedPaymentAuthentications = supportedPaymentAuthentications
+        self.sdkMode = sdkMode
     }
     
     
@@ -205,10 +250,12 @@ import TapCardVlidatorKit_iOS
     /// - Parameter supportedBrands: The supported brands set by the merchant for this transaction. Default is All
     /// - Parameter supportedFundSource: The supported funding source for the card payments used by the customer whether debit or credit. Default is All
     /// - Parameter supportedPaymentAuthentications: The supported authentications for th card used by the customer. Default is 3ds
-    @objc public init (supportedBrands:[Int] = CardBrand.allCases.map{ $0.rawValue }, supportedFundSource: cardTypes = .All,  supportedPaymentAuthentications:[Int] = [SupportedPaymentAuthentications.ThreeDS.rawValue] ) {
+    /// - Parameter sdkMode: The enviroment you ware performing the transaction within.
+    @objc public init (supportedBrands:[Int] = [CardBrand.americanExpress, CardBrand.mada, CardBrand.masterCard, CardBrand.omanNet, CardBrand.visa, CardBrand.meeza].map{ $0.rawValue }, supportedFundSource: cardTypes = .All,  supportedPaymentAuthentications:[Int] = [SupportedPaymentAuthentications.ThreeDS.rawValue], sdkMode: SDKMode) {
         self.supportedBrands = supportedBrands.compactMap{ CardBrand(rawValue: $0) }
         self.supportedFundSource = supportedFundSource
         self.supportedPaymentAuthentications = supportedPaymentAuthentications.compactMap{ SupportedPaymentAuthentications(rawValue: $0) }
+        self.sdkMode = sdkMode
     }
 }
 
@@ -218,7 +265,7 @@ import TapCardVlidatorKit_iOS
 /// A model that decides the visibilty of the card fields. For now, only Card name is adjustable.
 @objc public class Fields: NSObject {
     /// Decides whether to show/hide the card holder name. Default is false
-    internal var cardHolder: Bool = false
+    public var cardHolder: Bool = false
     
     /// A model that decides the visibilty of the card fields. For now, only Card name is adjustable.
     /// - Parameter cardHolder: Decides whether to show/hide the card holder name. Default is false
@@ -232,16 +279,20 @@ import TapCardVlidatorKit_iOS
 /// A model that decides the visibilty of some componens related to the card sdk. So the merchant can adjust the UX as much as possible to fit his UI
 @objc public class Addons: NSObject {
     /// Decides whether to show/hide the loader on topp of the card, whever the card is doing some action (e.g. tokennizing a card.) Default is true
-    internal var loader: Bool = true
+    public var loader: Bool = true
     /// Decides whether to show/hide the the supported card brands bar underneath the card input form. Default is true
-    internal var displayPaymentBrands: Bool = true
+    public var displayPaymentBrands: Bool = true
+    /// Decides whether or not to show the card scanning functionality. Default is true
+    public var displayCardScanning: Bool = true
     
     /// A model that decides the visibilty of some componens related to the card sdk. So the merchant can adjust the UX as much as possible to fit his UI
     /// - Parameter loader: Decides whether to show/hide the loader on topp of the card, whever the card is doing some action (e.g. tokennizing a card.) Default is true
     /// - Parameter displayPaymentBrands : Decides whether to show/hide the the supported card brands bar underneath the card input form. Default is true
-    @objc public init(loader:Bool = true, displayPaymentBrands: Bool = true) {
+    /// - Parameter displayCardScanning: Decides whether or not to show the card scanning functionality. Default is true
+    @objc public init(loader:Bool = true, displayPaymentBrands: Bool = true, displayCardScanning: Bool = true) {
         self.loader = loader
         self.displayPaymentBrands = displayPaymentBrands
+        self.displayCardScanning = displayCardScanning
     }
 }
 
@@ -250,19 +301,24 @@ import TapCardVlidatorKit_iOS
 /// A model of parameters that controls a bit the look and feel of the card sdk.
 @objc public class Interface: NSObject {
     /// Defines the locale to display the card with. accepted values en,ar and default is en
-    internal var locale: String = "en"
+    public var locale: String = "en"
     /// Defines the direction/text alignment of the card input fields. Default is dynamic to follow the locale's alignment
-    internal var direction: CardDirection = .Dynamic
+    public var direction: CardDirection = .Dynamic
     /// Defines the shape aof the card’s edge. Default is curved
-    internal var edges: CardEdges = .Curved
+    public var edges: CardEdges = .Curved
+    ///The ui customization to the full screen scanner borer color and to show a blur
+    public var tapScannerUICustomization:TapFullScreenUICustomizer = .init()
     
     /// A model of parameters that controls a bit the look and feel of the card sdk.
-    /// - Parameter loader: Defines the locale to display the card with. accepted values en,ar and default is en
+    /// - Parameter locale: Defines the locale to display the card with. accepted values en,ar and default is en
     /// - Parameter displayPaymentBrands : Defines the direction/text alignment of the card input fields. Default is dynamic to follow the locale's alignment
     /// - Parameter edges: Defines the shape aof the card’s edge. Default is curved
-    @objc public init(locale:String = "en", direction: CardDirection = .Dynamic, edges: CardEdges = .Curved) {
+    /// - Parameter tapScannerUICustomization: The ui customization to the full screen scanner borer color and to show a blur
+    @objc public init(locale:String = "en", direction: CardDirection = .Dynamic, edges: CardEdges = .Curved, tapScannerUICustomization:TapFullScreenUICustomizer = .init()) {
         self.locale = locale
         self.direction = direction
         self.edges = edges
+        self.tapScannerUICustomization = .init(tapFullScreenScanBorderColor: .green,
+                                               blurCardScannerBackground: true)
     }
 }

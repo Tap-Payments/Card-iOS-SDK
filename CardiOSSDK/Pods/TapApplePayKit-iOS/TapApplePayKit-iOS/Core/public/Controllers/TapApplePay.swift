@@ -215,7 +215,7 @@ import TapNetworkKit_iOS
     ///
     internal static func loadMerchantData(for tapApplePayRequest:TapApplePayRequest?,onResponeReady: @escaping (TapInitResponseModel) -> () = {_ in}, onErrorOccured: @escaping(TapNetworkManager.RequestCompletionClosure)) {
         
-        let tapPaymentOptionsRequestModel:TapPaymentOptionsRequestModel = TapPaymentOptionsRequestModel(transactionMode: .purchase, amount: tapApplePayRequest?.paymentAmount ?? 1, items: [.init(title: "PAY", description: "APPLE PAY", price: tapApplePayRequest?.paymentAmount ?? 1, quantity: 1, discount: nil, currency: tapApplePayRequest?.currencyCode ?? .USD)], shipping: nil, taxes: nil, currency: tapApplePayRequest?.currencyCode ?? .USD, merchantID: nil, customer: .defaultCustomer(), destinationGroup: nil, paymentType: .Device, totalAmount: tapApplePayRequest?.paymentAmount ?? 1, topup: nil, reference: nil, supportedCurrencies:nil)
+        let tapPaymentOptionsRequestModel:TapPaymentOptionsRequestModel = TapPaymentOptionsRequestModel(transactionMode: .purchase, amount: tapApplePayRequest?.paymentAmount ?? 1, items: [.init(title: "PAY", description: "APPLE PAY", price: tapApplePayRequest?.paymentAmount ?? 1, quantity: 1, discount: nil, currency: tapApplePayRequest?.currencyCode ?? .USD)], shipping: nil, taxes: nil, currency: tapApplePayRequest?.currencyCode ?? .USD, merchantID: nil, customer: .defaultCustomer(), destinationGroup: nil, paymentType: .Device, totalAmount: tapApplePayRequest?.paymentAmount ?? 1, topup: nil, reference: nil, supportedCurrencies:nil, supportedPaymentMethods: nil)
         
         // Change the model into a dictionary
         guard let bodyDictionary = TapApplePay.convertModelToDictionary(tapPaymentOptionsRequestModel, callingCompletionOnFailure: { error in

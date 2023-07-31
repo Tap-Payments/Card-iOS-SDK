@@ -7,97 +7,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A0FFBC93-E5D5-4FFB-86AB-23618F7205FF"
+            uuid = "63E7EEEB-4EA1-44DE-9A0A-A4B4F417E7A5"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pods/TapUIKit-iOS/TapUIKit-iOS/TapUIKit-iOS/Core/TapCardTelecomPayment/Views/TapCardTelecomPaymentView.swift"
+            filePath = "TapCardCheckOutKit/Core/Logic/Network/ApiCalls/NetworkManagerApiCallsExtension.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "559"
-            endingLineNumber = "559"
-            landmarkName = "matchThemeAttributes()"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "initialiseSDKFromAPI(onCheckOutReady:onErrorOccured:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "A0FFBC93-E5D5-4FFB-86AB-23618F7205FF - 8476471854e514d6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TapUIKit_iOS.TapCardTelecomPaymentView.matchThemeAttributes() -&gt; ()"
-                  moduleName = "TapUIKit_iOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/osamarabie/desktop/Tap/TapCardCheckOutKit/CardiOSSDK/Pods/TapUIKit-iOS/TapUIKit-iOS/TapUIKit-iOS/Core/TapCardTelecomPayment/Views/TapCardTelecomPaymentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "561"
-                  endingLineNumber = "561"
-                  offsetFromSymbolStart = "8624">
-               </Location>
-               <Location
-                  uuid = "A0FFBC93-E5D5-4FFB-86AB-23618F7205FF - 8476471854e51b14"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TapUIKit_iOS.TapCardTelecomPaymentView.matchThemeAttributes() -&gt; ()"
-                  moduleName = "TapUIKit_iOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/osamarabie/desktop/Tap/TapCardCheckOutKit/CardiOSSDK/Pods/TapUIKit-iOS/TapUIKit-iOS/TapUIKit-iOS/Core/TapCardTelecomPayment/Views/TapCardTelecomPaymentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "559"
-                  endingLineNumber = "559"
-                  offsetFromSymbolStart = "8615">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BB44681F-1826-4ED9-BA41-5ACAED4927D2"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pods/TapUIKit-iOS/TapUIKit-iOS/TapUIKit-iOS/Core/TapCardsTelecomBar/ViewModels/TapCardPhoneBarListViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
-            landmarkName = "generateViews(with:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "BB44681F-1826-4ED9-BA41-5ACAED4927D2 - d4fcac2ff90eed49"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (TapUIKit_iOS.TapCardPhoneIconViewModel) -&gt; TapUIKit_iOS.TapCardPhoneIconView in TapUIKit_iOS.TapCardPhoneBarListViewModel.generateViews(with: CoreGraphics.CGFloat) -&gt; Swift.Array&lt;TapUIKit_iOS.TapCardPhoneIconView&gt;"
-                  moduleName = "TapUIKit_iOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/osamarabie/desktop/Tap/TapCardCheckOutKit/CardiOSSDK/Pods/TapUIKit-iOS/TapUIKit-iOS/TapUIKit-iOS/Core/TapCardsTelecomBar/ViewModels/TapCardPhoneBarListViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "130"
-                  endingLineNumber = "130"
-                  offsetFromSymbolStart = "269">
-               </Location>
-               <Location
-                  uuid = "BB44681F-1826-4ED9-BA41-5ACAED4927D2 - d4fcac2ff90eed49"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (TapUIKit_iOS.TapCardPhoneIconViewModel) -&gt; TapUIKit_iOS.TapCardPhoneIconView in TapUIKit_iOS.TapCardPhoneBarListViewModel.generateViews(with: CoreGraphics.CGFloat) -&gt; Swift.Array&lt;TapUIKit_iOS.TapCardPhoneIconView&gt;"
-                  moduleName = "TapUIKit_iOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/osamarabie/desktop/Tap/TapCardCheckOutKit/CardiOSSDK/Pods/TapUIKit-iOS/TapUIKit-iOS/TapUIKit-iOS/Core/TapCardsTelecomBar/ViewModels/TapCardPhoneBarListViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "130"
-                  endingLineNumber = "130"
-                  offsetFromSymbolStart = "625">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

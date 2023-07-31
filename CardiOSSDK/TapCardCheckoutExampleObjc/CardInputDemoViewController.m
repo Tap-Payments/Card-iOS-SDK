@@ -11,38 +11,36 @@
 
 @interface CardInputDemoViewController () <TapCardInputDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *tokenizeButton;
-@property (weak, nonatomic) IBOutlet TapCardInputView *tapCardInput;
+@property (weak, nonatomic) IBOutlet TapCardView *tapCardInput;
 
 @end
 
-@implementation CardInputDemoViewController
+@implementation CardInputDemoViewController 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [_tapCardInput setupCardFormWithLocale:@"en"
-                     collectCardHolderName:YES
-                         showCardBrandsBar:YES
-                           showCardScanner:YES
-                 tapScannerUICustomization:nil
-                       transactionCurrency:TapCurrencyCodeKWD
-            presentScannerInViewController:self
-                          allowedCardTypes:All
-                      tapCardInputDelegate:self
-                     preloadCardHolderName:@""
-                              editCardName:YES
-                         showCardBrandIcon:YES];
+    [_tapCardInput setupCardFormWithPresentScannerInViewController:self tapCardInputDelegate:self];
 }
 - (IBAction)tokenizeClicked:(id)sender {
     
     self.view.userInteractionEnabled = NO;
     
-    [_tapCardInput tokenizeCardOnResponeReady:^(Token * token) {
+    
+    if([_tapCardInput canProcessCard]) {
+        [_tapCardInput tokenizeCardOnTokenReady:^(CheckoutToken * token) {
+            NSLog(@"%@",[token identifier]);
+        } onErrorOccured:^(NSError * error, CardFieldsValidity * cardFieldsValidity) {
+            [self showAlert:@"Error" message:[NSString stringWithFormat:@"%@\nAlso, tap card indicated the validity of the fields as follows :\nNumber: %i\nExpiry: %i\nCVV: %i\nName:%i",error.localizedDescription,cardFieldsValidity.cardNumberValidationStatus,cardFieldsValidity.cardExpiryValidationStatus,cardFieldsValidity.cardCVVValidationStatus,cardFieldsValidity.cardNameValidationStatus]];
+        }];
+    }
+    
+    /*[_tapCardInput tokenizeCardOnResponeReady:^(Token * token) {
         [self showAlert:@"Tokenized" message:token.identifier];
     } onErrorOccured:^(NSError * error, CardFieldsValidity * cardFieldsValidity) {
         [self showAlert:@"Error" message:[NSString stringWithFormat:@"%@\nAlso, tap card indicated the validity of the fields as follows :\nNumber: %i\nExpiry: %i\nCVV: %i\nName:%i",error.localizedDescription,cardFieldsValidity.cardNumberValidationStatus,cardFieldsValidity.cardExpiryValidationStatus,cardFieldsValidity.cardCVVValidationStatus,cardFieldsValidity.cardNameValidationStatus]];
-    }];
+    }];*/
     
 }
 
@@ -84,14 +82,8 @@
             NSLog(@"The card kit started tokenizing the entered card data.");
         case TokenizeEnded:
             NSLog(@"The card kit ended tokenizing the entered card data.");
-        case SaveCardStarted:
-            NSLog(@"The card kit started saving the entered card data.");
-        case SaveCardEnded:
-            NSLog(@"The card kit ended saving the entered card data.");
-        case ThreeDSStarter:
-            NSLog(@"The 3DS process started while saving a card.");
-        case ThreeDSEnded:
-            NSLog(@"The 3DS process ended while saving a card.");
+        default:
+            NSLog(@"Other events");
     }
 }
 

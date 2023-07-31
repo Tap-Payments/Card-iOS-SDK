@@ -36,7 +36,7 @@ class CartViewController: UIViewController {
         collectionViewLayout.isLastCellExcluded = true
         
         // load merchant data
-        configureSDK()
+        // configureSDK()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,12 +59,16 @@ class CartViewController: UIViewController {
         // Override point for customization after application launch.
         view.isUserInteractionEnabled = false
         showProcessingNote(attributes: EntriesAttributes.customLoadingAttributes())
-        let cardDataConfig:TapCardDataConfiguration = .init(sdkMode: .sandbox, localeIdentifier: sharedConfigurationSharedManager.selectedLocale, secretKey: .init(sandbox: "pk_test_YhUjg9PNT8oDlKJ1aE2fMRz7", production: "sk_live_V4UDhitI0r7sFwHCfNB6xMKp"),enableApiLogging: sharedConfigurationSharedManager.loggingCapabilities().map{ $0.rawValue })
         
-        TapCardForumConfiguration.shared.configure(dataConfig: cardDataConfig, customTheme: nil) {
+        let cardDataConfig:TapCardDataConfiguration = .init(publicKey: sharedConfigurationSharedManager.publicKey, scope: sharedConfigurationSharedManager.scope, transcation: sharedConfigurationSharedManager.transcation, merchant: sharedConfigurationSharedManager.merchant, customer: sharedConfigurationSharedManager.customer, acceptance: sharedConfigurationSharedManager.acceptance, fields: sharedConfigurationSharedManager.fields, addons: sharedConfigurationSharedManager.addons, interface: sharedConfigurationSharedManager.interface)
+        
+        TapCardForumConfiguration.shared.configure(dataConfig: cardDataConfig) {
             DispatchQueue.main.async { [weak self] in
                 SwiftEntryKit.dismiss()
                 self?.view.isUserInteractionEnabled = true
+                let viewContoller:TapCardViewController = self?.storyboard?.instantiateViewController(withIdentifier: "TapCardViewController") as! TapCardViewController
+                //viewContoller.savedCustomer = sharedConfigurationSharedManager.savedCustomer
+                self?.present(viewContoller, animated: false)
             }
         } onErrorOccured: { error in
             DispatchQueue.main.async { [weak self] in
@@ -100,9 +104,7 @@ class CartViewController: UIViewController {
     }
     
     @IBAction func checkoutClicked(_ sender: Any) {
-        let viewContoller:TapCardViewController = self.storyboard?.instantiateViewController(withIdentifier: "TapCardViewController") as! TapCardViewController
-        viewContoller.savedCustomer = sharedConfigurationSharedManager.savedCustomer
-        present(viewContoller, animated: false)
+        configureSDK()
     }
     
     // Bumps a notification structured entry

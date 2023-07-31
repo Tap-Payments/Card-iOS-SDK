@@ -28,7 +28,12 @@ internal protocol ThreeDSViewControllerDelegatee {
 
 
 /// A protocol to listen to fired events form the card kit
-@objc public protocol TapCardInputDelegatee {
+@objc public protocol TapCardInputDelegate {
+    /**
+     Will be called whenever an error occured during processing the transaction.
+     - Parameter error: The error type whether it is related to network or to card.
+     - Parameter message: A descriptive message to indicate what happened during the error
+     */
     @objc func errorOccured(with error:CardKitErrorType, message:String)
     /**
      Be updated by listening to events fired from the card kit
@@ -38,7 +43,7 @@ internal protocol ThreeDSViewControllerDelegatee {
 }
 
 /// Represents the on the shelf card forum entry view
-@IBDesignable @objcMembers public class TapCardView: UIView {
+@objcMembers public class TapCardView: UIView {
     /// Holds the last style theme applied
     private var lastUserInterfaceStyle:UIUserInterfaceStyle = .light
     /// The full scanner object that we will use to start scanning on demand
@@ -79,7 +84,7 @@ internal protocol ThreeDSViewControllerDelegatee {
     /// A protorocl to communicate with the three ds web view controller
     internal var threeDSDelegate: ThreeDSViewControllerDelegatee?
     /// A delegate listens for needed actions and callbacks
-    internal var tapCardInputDelegate:TapCardInputDelegatee?
+    internal var tapCardInputDelegate:TapCardInputDelegate?
     /// Represents the data source for the card brands bar
     var dataSource:[TapCardPhoneIconViewModel] = []
     /// Holds the latest card info provided by the user
@@ -141,59 +146,41 @@ internal protocol ThreeDSViewControllerDelegatee {
     internal var editCardName:Bool = true
     
     /**
-     Call this method for optional attributes defining and configueation for the card form
-     - Parameter locale: The locale identifer(e.g. en, ar, etc.0 Default value is en
-     - Parameter collectCardHolderName: Indicates whether ot not the card form will ask for the card holder name. Default is false
-     - Parameter showCardBrandsBar: Indicates whether ot not the card form will show the card brands bar. Default is false
-     - Parameter showCardScanner: Indicates whether ot not the card scanner. Default is false
-     - Parameter tapScannerUICustomization: The ui customization to the full screen scanner borer color and to show a blur
-     - Parameter transactionCurrency: The currency you want to show the card brands that accepts it. Default is KWD
      - Parameter presentScannerInViewController: The UIViewController that will display the scanner into
-     - Parameter blurCardScannerBackground: The ui customization to the full screen scanner borer color and to show a blur
-     - Parameter allowedCardTypes: Decides which cards shall we accept. Default is All
      - Parameter tapCardInputDelegate: A delegate listens for needed actions and callbacks
-     - Parameter preloadCardHolderName:  A preloading value for the card holder name if needed
-     - Parameter editCardName: Indicates whether or not the user can edit the card holder name field. Default is true
-     - Parameter showCardBrandIcon:deines whether to show the detected brand icon besides the card number instead of the placeholdder
-     - Parameter threeDSConfiguration: Defines the attributes/configurations when displaying the 3DS web page
-     - Parameter showLoadingState: Tells if we need to show the loading state in the card view or not. Default is true
-     - Parameter floatingSavedCard: Indicates whether or not the user can edit the card holder name field. Default is true
-     - Parameter Force LTR in card mode even in arabic language
      */
     
-    @objc public func setupCardForm(locale:String = "en", collectCardHolderName:Bool = false, showCardBrandsBar:Bool = false, showCardScanner:Bool = false, tapScannerUICustomization:TapFullScreenUICustomizer? = .init() , transactionCurrency:TapCurrencyCode = .KWD, presentScannerInViewController:UIViewController?, allowedCardTypes:cardTypes = .All, tapCardInputDelegate:TapCardInputDelegatee? = nil, preloadCardHolderName:String = "", editCardName:Bool = true, threeDSConfiguration:ThreeDSConfiguration = .init(), showLoadingState:Bool = true, floatingSavedCard:Bool = false, forceLTR:Bool = false) {
+    @objc public func setupCardForm( presentScannerInViewController:UIViewController?,  tapCardInputDelegate:TapCardInputDelegate? = nil) {
         // Set the locale
-        self.locale = locale
+        self.locale = sharedNetworkManager.dataConfig.interface.locale
         // Set the collection name ability
-        self.collectCardHolderName = collectCardHolderName
+        self.collectCardHolderName = sharedNetworkManager.dataConfig.fields.cardHolder
         // Set the card bar ability
-        self.showCardBrands = showCardBrandsBar
+        self.showCardBrands = sharedNetworkManager.dataConfig.addons.displayPaymentBrands
         // The ui customization to the full screen scanner borer color and to show a blur
-        self.tapScannerUICustomization = tapScannerUICustomization
-        // Set the needed currency
-        sharedNetworkManager.dataConfig.transactionCurrency = transactionCurrency
+        self.tapScannerUICustomization = sharedNetworkManager.dataConfig.interface.tapScannerUICustomization
         // Indicates whether ot not the card scanner. Default is false
-        self.showCardScanner = showCardScanner
+        self.showCardScanner = sharedNetworkManager.dataConfig.addons.displayCardScanning
         // The UIViewController that will display the scanner into
         self.presentScannerInViewController = presentScannerInViewController
         // Decides which cards shall we accept
-        self.allowedCardType = allowedCardTypes
+        self.allowedCardType = sharedNetworkManager.dataConfig.acceptance.supportedFundSource
         // A delegate listens for needed actions and callbacks
         self.tapCardInputDelegate = tapCardInputDelegate
         /// Set the preloading value for card name
-        self.preloadCardHolderName = preloadCardHolderName
+        self.preloadCardHolderName = sharedNetworkManager.dataConfig.customer.nameOnCard
         /// Set the editibility for the card name field
-        self.editCardName = editCardName
+        self.editCardName = sharedNetworkManager.dataConfig.customer.editable
         // A delegate listens for needed actions and callbacks
         self.tapCardInputDelegate = tapCardInputDelegate
         // Set the attributes/configurations when displaying the 3DS web page
-        self.threeDSConfiguration = threeDSConfiguration
+        self.threeDSConfiguration = .init()
         // Tells if we need to show the loading state in the card view or not. Default is true
-        self.showLoadingState = showLoadingState
+        self.showLoadingState = sharedNetworkManager.dataConfig.addons.loader
         // Indicates whether or not the user can edit the card holder name field. Default is true
-        self.floatingSavedCard = floatingSavedCard
+        self.floatingSavedCard = true
         // Force LTR in card mode even in arabic language
-        self.forceLTR = forceLTR
+        self.forceLTR = sharedNetworkManager.dataConfig.interface.direction == .LTR
         // Log session details
         logSessionConfigurations()
         // Init the card brands bar
@@ -207,7 +194,7 @@ internal protocol ThreeDSViewControllerDelegatee {
     internal func logSessionConfigurations() {
         var configurations:[String:Any]         = [:]
         configurations["locale"]                = locale
-        configurations["currency"]              = sharedNetworkManager.dataConfig.transactionCurrency.appleRawValue
+        configurations["currency"]              = sharedNetworkManager.dataConfig.transcation.currency.appleRawValue
         configurations["collectCardHolderName"] = collectCardHolderName
         configurations["showCardBrands"]        = showCardBrands
         configurations["showCardScanner"]       = showCardScanner
@@ -227,45 +214,6 @@ internal protocol ThreeDSViewControllerDelegatee {
                                     encoding: String.Encoding.ascii) {
             Bugfender.setDeviceString(theJSONText, forKey: "Session configurations")
         }
-    }
-    
-    /**
-     Handles tokenizing the current card data.
-     - Parameter onResponeReady: A callback to listen when a token is successfully generated
-     - Parameter onErrorOccured: A callback to listen when tokenization fails with error message and the validity of all the card fields for your own interest
-     */
-    @objc public func tokenizeCard(onResponeReady: @escaping (CommonDataModelsKit_iOS.Token) -> () = {_ in}, onErrorOccured: @escaping(Error,CardFieldsValidity)->() = {_,_  in}) {
-        // get the validity of all fields
-        let (cardNumberValidationStatus, cardExpiryValidationStatus, cardCVVValidationStatus, cardNameValidationStatus) = cardView.cardInputView.fieldsValidationStatuses()
-        
-        let cardFieldsValidity = CardFieldsValidity(cardNumberValidationStatus: cardNumberValidationStatus, cardExpiryValidationStatus: cardExpiryValidationStatus, cardCVVValidationStatus: cardCVVValidationStatus, cardNameValidationStatus: cardNameValidationStatus)
-        
-        // Check that the card kit is already initilzed
-        guard let _ = sharedNetworkManager.dataConfig.sdkSettings else {
-            onErrorOccured("You have to call the initCardForm method first. This allows the card form to get the data needed to communicate with Tap's backend apis.",cardFieldsValidity)
-            return
-        }
-        
-        // Check that the user entered a valid card data first
-        guard let nonNullCard = currentTapCard,
-              validation == .Valid,
-              allFieldsAreValid(),
-              let nonNullTokenizeCard:CreateTokenCard = try? .init(card: nonNullCard, address: nil) else {
-            onErrorOccured("The user didn't enter a valid card data to tokenize. Please prompt the user to do so first.",cardFieldsValidity)
-            return
-        }
-        tapCardInputDelegate?.eventHappened(with: .TokenizeStarted)
-        changeSelfEnablement(to: false)
-        sharedNetworkManager.callCardTokenAPI(cardTokenRequestModel: TapCreateTokenWithCardDataRequest(card: nonNullTokenizeCard)) { [weak self] token in
-            self?.changeSelfEnablement(to: true)
-            self?.tapCardInputDelegate?.eventHappened(with: .TokenizeEnded)
-            onResponeReady(token)
-        } onErrorOccured: { [weak self] error in
-            self?.changeSelfEnablement(to: true)
-            self?.tapCardInputDelegate?.eventHappened(with: .TokenizeEnded)
-            onErrorOccured(error, cardFieldsValidity)
-        }
-        
     }
     
     /// Enable/Disable self based on input
@@ -340,6 +288,44 @@ internal protocol ThreeDSViewControllerDelegatee {
         
     }
     
+    /**
+     Handles tokenizing the current card data.
+     - Parameter onTokenReady: A callback to listen when a token is successfully generated
+     - Parameter onErrorOccured: A callback to listen when tokenization fails with error message and the validity of all the card fields for your own interest
+     */
+    @objc public func tokenizeCard(onTokenReady: @escaping (CommonDataModelsKit_iOS.Token) -> () = {_ in}, onErrorOccured: @escaping(Error,CardFieldsValidity)->() = {_,_  in}) {
+        // get the validity of all fields
+        let (cardNumberValidationStatus, cardExpiryValidationStatus, cardCVVValidationStatus, cardNameValidationStatus) = cardView.cardInputView.fieldsValidationStatuses()
+        
+        let cardFieldsValidity = CardFieldsValidity(cardNumberValidationStatus: cardNumberValidationStatus, cardExpiryValidationStatus: cardExpiryValidationStatus, cardCVVValidationStatus: cardCVVValidationStatus, cardNameValidationStatus: cardNameValidationStatus)
+        
+        // Check that the card kit is already initilzed
+        guard let _ = sharedNetworkManager.dataConfig.sdkSettings else {
+            onErrorOccured("You have to call the initCardForm method first. This allows the card form to get the data needed to communicate with Tap's backend apis.",cardFieldsValidity)
+            return
+        }
+        
+        // Check that the user entered a valid card data first
+        guard let nonNullCard = currentTapCard,
+              validation == .Valid,
+              allFieldsAreValid(),
+              let nonNullTokenizeCard:CreateTokenCard = try? .init(card: nonNullCard, address: nil) else {
+            onErrorOccured("The user didn't enter a valid card data to tokenize. Please prompt the user to do so first.",cardFieldsValidity)
+            return
+        }
+        tapCardInputDelegate?.eventHappened(with: .TokenizeStarted)
+        changeSelfEnablement(to: false)
+        sharedNetworkManager.callCardTokenAPI(cardTokenRequestModel: TapCreateTokenWithCardDataRequest(card: nonNullTokenizeCard)) { [weak self] token in
+            self?.changeSelfEnablement(to: true)
+            self?.tapCardInputDelegate?.eventHappened(with: .TokenizeEnded)
+            onTokenReady(token)
+        } onErrorOccured: { [weak self] error in
+            self?.changeSelfEnablement(to: true)
+            self?.tapCardInputDelegate?.eventHappened(with: .TokenizeEnded)
+            onErrorOccured(error, cardFieldsValidity)
+        }
+        
+    }
     
     /**
      Call this method to change the currency at run time. Please note that this will reset the card data and change the visible card brands.
@@ -347,14 +333,14 @@ internal protocol ThreeDSViewControllerDelegatee {
      */
     @objc public func updateTransactionCurrenct(to currency:TapCurrencyCode) {
         // set the new currency
-        sharedNetworkManager.dataConfig.transactionCurrency = currency
+        sharedNetworkManager.dataConfig.transcation.currency = currency
         // reset card form data
         cardView.cardInputView.reset()
         // reload the bar view
         setupCardBrandsBarDataSource()
     }
     
-    /**
+    /*/**
      Handles saving the current card data.
      - Parameter customer: The customer to save the card with.
      - Parameter parentController: The parent controller will be used to present the web view whenever a 3DS is required to save the card details
@@ -365,7 +351,7 @@ internal protocol ThreeDSViewControllerDelegatee {
      - Parameter on3DSWebViewWillAppear: A callback to tell the consumer app the 3ds web view will start
      - Parameter on3DSWebViewDismissed: A callback to tell he consumer app the 3ds web view is over
      */
-    @objc public func saveCard(customer:TapCustomer, parentController:UIViewController,
+    @objc private func saveCard(customer:TapCustomer, parentController:UIViewController,
                                metadata:TapMetadata? = nil,
                                enforce3DS:Bool = true,
                                onResponeReady: @escaping (TapCreateCardVerificationResponseModel) -> () = {_ in},
@@ -394,9 +380,13 @@ internal protocol ThreeDSViewControllerDelegatee {
         // clear previous needed data
         sharedNetworkManager.dataConfig.cardVerify = nil
         // save to be needed data
-        sharedNetworkManager.dataConfig.transactionCustomer = customer
+        sharedNetworkManager.dataConfig.customer = customer
         sharedNetworkManager.dataConfig.metadata = metadata
-        sharedNetworkManager.dataConfig.enfroce3DS = enforce3DS
+        sharedNetworkManager.dataConfig.acceptance.supportedPaymentAuthentications.removeAll(where: {$0 == .ThreeDS})
+        if enforce3DS {
+            sharedNetworkManager.dataConfig.acceptance.supportedPaymentAuthentications.append(.ThreeDS)
+        }
+        
         sharedNetworkManager.dataConfig.onResponeSaveCardReady = { [weak self] card in
             self?.changeSelfEnablement(to: true)
             self?.tapCardInputDelegate?.eventHappened(with: .SaveCardEnded)
@@ -419,7 +409,7 @@ internal protocol ThreeDSViewControllerDelegatee {
         }) { error in
             onErrorOccured(error,nil,cardFieldsValidity)
         }
-    }
+    }*/
     
     /// Used as a consolidated method to do all the needed steps upon creating the view
     private func commonInit() {
@@ -458,7 +448,7 @@ internal protocol ThreeDSViewControllerDelegatee {
     /// Will fetch the correct card brands from the loaded payment options based on the transaction currency
     private func setupCardBrandsBarDataSource() {
         // Get data from the Network Manager
-        dataSource = Array(sharedNetworkManager.dataConfig.paymentOptions?.toTapCardPhoneIconViewModel(supportsCurrency: sharedNetworkManager.dataConfig.transactionCurrency) ?? [])
+        dataSource = Array(sharedNetworkManager.dataConfig.paymentOptions?.toTapCardPhoneIconViewModel(supportsCurrency: sharedNetworkManager.dataConfig.transcation.currency) ?? [])
         // Update the card input brands
         cardView.cardInputView.allowedCardBrands = dataSource.map{ $0.associatedCardBrand.rawValue }
         // Apply the new data source
@@ -722,7 +712,6 @@ extension TapCardView {
         loadingBlurView.layer.tap_theme_cornerRadious = ThemeCGFloatSelector.init(keyPath: "inlineCard.commonAttributes.cornerRadius")
         loadingBlurView.colorTint = TapThemeManager.colorValue(for: "inlineCard.blur3dsoverlay.tint")
         loadingBlurView.colorTintAlpha = CGFloat(TapThemeManager.numberValue(for: "inlineCard.blur3dsoverlay.tintAlpha")?.floatValue ?? 0)
-        
     }
     
     /// Listen to light/dark mde changes and apply the correct theme based on the new style

@@ -29,7 +29,7 @@ extension NetworkManager {
             // Load the default theme & localisations if the user didn't pass any custom values
             TapCardForumConfiguration.shared.loadDefaultTheme(defaultTheme: .init(with: initModel.assets.theme.card?.light ?? initModel.assets.theme.light, and: initModel.assets.theme.card?.dark ?? initModel.assets.theme.dark , from: .RemoteJsonFile))
             
-            TapCardForumConfiguration.shared.loadDefaultTheme(defaultLocalisation: .init(with: URL(string: initModel.assets.localisation.card?.url ?? initModel.assets.localisation.url) , from: .RemoteJsonFile, localeIdentifier: sharedNetworkManager.dataConfig.localeIdentifier))
+            TapCardForumConfiguration.shared.loadDefaultTheme(defaultLocalisation: .init(with: URL(string: initModel.assets.localisation.card?.url ?? initModel.assets.localisation.url) , from: .RemoteJsonFile, localeIdentifier: sharedNetworkManager.dataConfig.interface.locale))
         }
     }
     

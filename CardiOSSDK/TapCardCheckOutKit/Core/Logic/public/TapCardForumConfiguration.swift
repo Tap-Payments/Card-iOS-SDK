@@ -44,16 +44,12 @@ import TapNetworkKit_iOS
     /**
      Populate the card forum configuration with the required data.
      - Parameter dataConfig: The data configured by you as a merchant (e.g. secret key, locale, etc.). Required
-     - Parameter cusomTheme: The theme object which contains the path to the local or to the remote custom light and dark themes. Optional
-     - Parameter customLocalisation: The localisation object which contains the path to the local or to the remote custom localisation files. Optional
-     - Parameter onCheckoutRead: A block to execure upon completion
+     - Parameter onCardSdkReady: A block to execure upon completion
      - Parameter onErrorOccured: A block to execure upon error
      */
-    @objc public func configure(dataConfig: TapCardDataConfiguration, customTheme: TapCardForumTheme? = nil, customLocalisation: TapCardForumLocalisation? = nil,onCheckOutReady: @escaping () -> () = {} ,onErrorOccured: @escaping(Error?)->() = {_ in}) {
+    @objc public func configure(dataConfig: TapCardDataConfiguration, onCardSdkReady: @escaping () -> () = {} ,onErrorOccured: @escaping(Error?)->() = {_ in}) {
         self.dataConfig = dataConfig
-        self.customTheme = customTheme
-        self.customLocalisation = customLocalisation
-        configureSDK(onCheckOutReady: onCheckOutReady, onErrorOccured: onErrorOccured)
+        configureSDK(onCheckOutReady: onCardSdkReady, onErrorOccured: onErrorOccured)
     }
     
     /// Apply the default theme only if the user didn't pass a custom theme already

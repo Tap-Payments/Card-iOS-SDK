@@ -12,7 +12,7 @@ import CommonDataModelsKit_iOS
 import SwiftyGif
 import SwiftEntryKit
 import SnapKit
-class TapCardViewController: UIViewController, TapCardInputDelegatee {
+class TapCardViewController: UIViewController, TapCardInputDelegate {
     
     
     func eventHappened(with event: CardKitEventType) {
@@ -46,12 +46,14 @@ class TapCardViewController: UIViewController, TapCardInputDelegatee {
         animatedBGImageView.setGifImage(gif, loopCount: -1) // Will loop forever
         // Do any additional setup after loading the view.
         tapCardView.translatesAutoresizingMaskIntoConstraints = false
-        tapCardView.snp.remakeConstraints { make in
-            make.height.equalTo(0)
-        }
+        /*tapCardView.snp.remakeConstraints { make in
+            make.height.equalTo(158).priority(.high)
+        }*/
         tapCardView.layoutIfNeeded()
         configureCardInput()
         hideKeyboardWhenTappedAround()
+        updateGetItButton()
+        getItButton.alpha = 0.5
     }
     
     @IBAction func getItButtonClicked(_ sender: Any) {
@@ -60,92 +62,30 @@ class TapCardViewController: UIViewController, TapCardInputDelegatee {
     
     /// Apply the configurations
     func configureCardInput() {
-        
-        tapCardView.setupCardForm(locale: sharedConfigurationSharedManager.selectedLocale,
-                                   collectCardHolderName: sharedConfigurationSharedManager.collectCardHolderName,
-                                   showCardBrandsBar: sharedConfigurationSharedManager.showCardBrands,
-                                   showCardScanner: sharedConfigurationSharedManager.showCardScanning,
-                                   tapScannerUICustomization: .init(tapFullScreenScanBorderColor: sharedConfigurationSharedManager.scannerColor,
-                                                                    blurCardScannerBackground:sharedConfigurationSharedManager.blurScanner),
-                                  transactionCurrency: .SAR,
-                                   presentScannerInViewController: self,
-                                   allowedCardTypes: sharedConfigurationSharedManager.allowedCardTypes,
-                                   tapCardInputDelegate: self,
-                                   preloadCardHolderName: (sharedConfigurationSharedManager.cardName == "None") ? "" : sharedConfigurationSharedManager.cardName,
-                                  editCardName: sharedConfigurationSharedManager.editCardHolderName,
-                                  threeDSConfiguration: .init(backgroundBlurStyle: sharedConfigurationSharedManager.threeDSBlurStyle.toBlurStyle(),
-                                                              animationDuration: sharedConfigurationSharedManager.animationDuration,
-                                                              threeDsAnimationType: sharedConfigurationSharedManager.animationType,
-                                                              showHeaderView: sharedConfigurationSharedManager.showWebViewHeader),
-                                  showLoadingState: sharedConfigurationSharedManager.showLoadingState,
-                                  floatingSavedCard: sharedConfigurationSharedManager.floatingSavedCard,
-                                  forceLTR: sharedConfigurationSharedManager.forceLTR)
+        tapCardView.setupCardForm(presentScannerInViewController: self, tapCardInputDelegate: self)
     }
-    
-    
-    @IBAction func payOptionChanged(_ sender: Any) {
-        guard let segment:UISegmentedControl = sender as? UISegmentedControl else { return }
-        
-        var toAlpha = 0.0
-        
-        if segment.selectedSegmentIndex == 0 {
-            toAlpha = 0
-            tapCardView.snp.remakeConstraints { make in
-                make.height.equalTo(0)
-            }
-        }else{
-            toAlpha = 1
-            tapCardView.snp.remakeConstraints { make in
-                make.height.equalTo(158).priority(.high)
-            }
-            
-        }
-        
-        UIView.animate(withDuration: 0.5) { [weak self] in
-            self?.tapCardView.alpha = toAlpha
-            self?.tapCardView.layoutIfNeeded()
-        }
-        updateGetItButton()
-    }
-    
     
     func updateGetItButton() {
-        if segment.selectedSegmentIndex == 0 {
-            getItButton.isUserInteractionEnabled = true
-            getItButton.alpha = 1
-            getItAction = { [weak self] in
-                self?.dismiss(animated: true)
-            }
-        }else{
-            getItButton.isUserInteractionEnabled = tapCardView.canProcessCard() ? true : false
-            getItButton.alpha = tapCardView.canProcessCard() ? 1 : 0.5
-            getItAction = { [weak self] in
-                let options:UIAlertController = .init(title: "Many options!", message: "We provide different functionalities on demand. Which one you want to simulate?", preferredStyle: .actionSheet)
-                options.addAction(.init(title: "Tokenize", style: .default,handler: { [weak self] _ in
-                    self?.tokenizeCardClicked()
-                }))
-                options.addAction(.init(title: "Save card", style: .default,handler: { [weak self] _ in
-                    self?.saveCardClicked()
-                }))
-                options.addAction(.init(title: "Cancel", style: .cancel,handler: { _ in
-                    
-                }))
-                DispatchQueue.main.async {
-                    self?.present(options, animated: true)
-                }
+        getItButton.isUserInteractionEnabled = tapCardView.canProcessCard() ? true : false
+        getItButton.alpha = tapCardView.canProcessCard() ? 1 : 0.5
+        getItAction = { [weak self] in
+            let options:UIAlertController = .init(title: "Many options!", message: "We provide different functionalities on demand. Which one you want to simulate?", preferredStyle: .actionSheet)
+            options.addAction(.init(title: "Tokenize", style: .default,handler: { [weak self] _ in
+                self?.tokenizeCardClicked()
+            }))
+            /*options.addAction(.init(title: "Save card", style: .default,handler: { [weak self] _ in
+             self?.saveCardClicked()
+             }))*/
+            options.addAction(.init(title: "Cancel", style: .cancel,handler: { _ in
+                
+            }))
+            DispatchQueue.main.async {
+                self?.present(options, animated: true)
             }
         }
     }
     
     func tokenizeCardClicked() {
-        
-        let rect2 = tapCardView.frame
-        let newRect = UIAccessibility.convertToScreenCoordinates(rect2, in: view)
-        print(tapCardView.bounds)
-        print(tapCardView.frame)
-        print(rect2)
-        print(newRect)
-        
         
         self.view.isUserInteractionEnabled = false
         showProcessingNote(attributes: EntriesAttributes.customLoadingAttributes(),text:"Tokenizing the card..")
@@ -164,7 +104,7 @@ class TapCardViewController: UIViewController, TapCardInputDelegatee {
     }
     
     
-    func saveCardClicked() {
+    /*func saveCardClicked() {
         let alert:UIAlertController = .init(title: "3DS", message: "Always force 3ds?", preferredStyle: .alert)
         alert.addAction(.init(title: "Yes", style: .destructive,handler: { [weak self] _ in
             self?.startSavingCard(enforce3DS: true)
@@ -197,7 +137,7 @@ class TapCardViewController: UIViewController, TapCardInputDelegatee {
                 self?.showAlert(title: "Card save status \(card.status.stringValue)", message: "Backend error message : \(message)\nWith code : \(errorCode)")
             }
         }
-    }
+    }*/
     
     
     private func showProcessingNote(attributes: EKAttributes, text:String) {

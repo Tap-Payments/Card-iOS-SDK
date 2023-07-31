@@ -86,7 +86,7 @@ import Foundation
      - Returns: A default tap customer for testing with the email of "taptestingemail@gmail.com"
      */
     public static func defaultCustomer() -> TapCustomer {
-        return try! .init(emailAddress: TapEmailAddress(emailAddressString: "taptestingemail@gmail.com"), phoneNumber: nil, name: "Tap Testing Default",address: nil)
+        return try! .init(emailAddress: TapEmailAddress(emailAddressString: "taptestingemail@gmail.com"), phoneNumber: .init(isdNumber: "965", phoneNumber: "90064542"), name: "Tap Testing Default",address: nil)
     }
     
     
@@ -157,11 +157,15 @@ import Foundation
     
     /// Initializes the customer with the customer identifier.
     ///
-    /// - Parameter identifier: Customer identifier.
+    /// - Parameters:
+    ///    - identifier: Customer identifier.
+    ///   - nameOnCard: If we want to preload a name valye in the card holder name field
+    ///   - editable: If we want to make the card holder name field editable
+    /// 
     /// - Throws: Invalid customer info error.
-    public convenience init(identifier: String) throws {
+    public convenience init(identifier: String,  nameOnCard:String = "", editable:Bool = true) throws {
         
-        try self.init(identifier: identifier, emailAddress: nil, phoneNumber: nil, firstName: nil, middleName: nil, lastName: nil, address: nil, nameOnCard: "", editable: true)
+        try self.init(identifier: identifier, emailAddress: nil, phoneNumber: nil, firstName: nil, middleName: nil, lastName: nil, address: nil, nameOnCard: nameOnCard, editable: editable)
     }
     
     /// Initializes the customer with the customer identifier.

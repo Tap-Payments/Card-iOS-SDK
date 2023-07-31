@@ -15,122 +15,32 @@ let sharedConfigurationSharedManager = ConfigurationSharedManager()
 
 /// Responsible for accessing the  users module on Firebase
 class ConfigurationSharedManager {
+    /// The public keys providede to your business from Tap integration team.
+    var publicKey:SecretKey = .init(sandbox: "pk_test_YhUjg9PNT8oDlKJ1aE2fMRz7", production: "sk_live_V4UDhitI0r7sFwHCfNB6xMKp")
+    /// An enum to define the required scope of the tap card sdk. Default is to generate Tap Token for the card
+    var  scope: Scope = .TapToken
+    /// A model that represents the amount and the currency combined. Default is 1 KWD
+    var transcation: Transaction = .init()
+    /// A model that represents the details and configurations related to the merchant. Including your merchant id provided by Tap integration team
+    var merchant: TapCardCheckOutKit.Merchant = .init()
+    /// Represents the model for the customer if any.
+    var customer: TapCustomer = TapCustomer.defaultCustomer()
+    /// A model that represents the details of the acceptance levels and payment methods. Like, payment methods, payment brands, types of allowed cards etc. Default is to accept all allowed payment methods activiated to your business from Tap integration team.
+    var acceptance: Acceptance = .init()
+    /// Defines which card fields you want to show/hide. Currently, only card name is controllable and default is true.
+    var fields: Fields = .init()
+    /// A model that decides the visibilty of some componens related to the card sdk. So the merchant can adjust the UX as much as possible to fit his UI
+    var addons: Addons = .init()
+    /// A model of parameters that controls a bit the look and feel of the card sdk.
+    var interface: Interface = .init()
     
-    /// The selected locale
-    var selectedLocale:String = "en" {
-        didSet{
-            TapLocalisationManager.shared.localisationLocale = selectedLocale
-        }
-    }
-    
-    /// The saved customer object
-    var savedCustomer:TapCustomer? {
-        if let data = UserDefaults.standard.value(forKey:"customerSevedKey") as? Data {
-            do {
-                return try PropertyListDecoder().decode(TapCustomer.self, from: data)
-            } catch {
-                print("error paymentTypes: \(error.localizedDescription)")
-            }
-        }
-        return try! .init(identifier: "cus_TS075220212320q2RD0707283")
-    }
-    
-    /// The displayable title for the customer in action
-    var customerDisplay:String {
-        guard let customerName = savedCustomer?.firstName else {
-            return savedCustomer?.identifier ?? ""
-        }
-        
-        return customerName
-    }
-    
-    /// Tells if we need to collect the card holder name or not
-    var collectCardHolderName:Bool = false
-    
-    /// Tells if we need to log UI events
-    var logUI:Bool = false
-    
-    /// Tells if we need to log in console
-    var logConsole:Bool = true
-    
-    /// Tells if we need to log user event
-    var logEvents:Bool = true
-    
-    /// Tells if we need to log api calls
-    var logAPI:Bool = true
-    
-    /// Tells if we need to preload the card name field
-    var cardName:String = ""
-    
-    /// Tells if the user can edit the card name field
-    var editCardHolderName:Bool = true
-    
-    
-    /// Tells if the scanner bg should be blurred
-    var blurScanner:Bool = true
-    
-    /// Tells if the scanner borders colors
-    var scannerColor:UIColor {
-        return scannerColorEnum.toColor()
-    }
-    
-    /// Tells if the scanner borders colors
-    var scannerColorEnum:ScannerBlurColor = .Green
-    
-    
-    /// Tells if we need to show the card brand or not
-    var showCardBrands:Bool = true
-    
-    /// Tells if we need to show the loading state in the card view or not
-    var showLoadingState:Bool = true
-    
-    /// Tells if we need to show the card scanning or not
-    var showCardScanning:Bool = true
-    
-    /// Tells if we need to use the online custom theme
-    var customTheme:Bool = false
-    
-    /// Tells what type of cards should be allowed
-    var allowedCardTypes:cardTypes = .All
-    
-    /// deines whether to show the detected brand icon besides the card number instead of the placeholdder
-    var showBrandIcon:Bool = true
-    
-    /// The  animation when showing the 3ds web page
-    var animationDuration:TimeInterval = 0.5
-    
-    /// deines whether to show the heaer above the 3ds web view
-    var showWebViewHeader:Bool = true
-    
-    /// The animation used to show the 3ds web page
-    var animationType:ThreeDsWebViewAnimationEnum = .BottomTransition
-    
-    /// The blur bg of the three ds page
-    var threeDSBlurStyle:ThreeDSBlurStyle = .Dark
-    
-    /// Indicates whether or not the user can edit the card holder name field. Default is true
-    var floatingSavedCard:Bool = false
-    
-    /// Whether to force LTR in arabic for card form
-    var forceLTR:Bool = false
-    
-    func loggingCapabilities() -> [TapLoggingType] {
-        
-        var allowedLogging:[TapLoggingType] = []
-        if logUI {
-            allowedLogging.append(.UI)
-        }
-        if logAPI {
-            allowedLogging.append(.API)
-        }
-        if logEvents {
-            allowedLogging.append(.EVENTS)
-        }
-        if logConsole {
-            allowedLogging.append(.CONSOLE)
+    func customerDisplay() -> String {
+        if let customerID = customer.identifier,
+           customerID != "" {
+            return customerID
         }
         
-        return allowedLogging
+        return customer.firstName ?? "No customer identified"
     }
 }
 
@@ -165,7 +75,7 @@ enum ScannerBlurColor: CaseIterable {
 }
 
 
-
+/*
 enum ThreeDSBlurStyle: CaseIterable {
     case Light
     case ExtraLight
@@ -205,3 +115,4 @@ enum ThreeDSBlurStyle: CaseIterable {
         }
     }
 }
+*/

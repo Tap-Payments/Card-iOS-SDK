@@ -35,7 +35,7 @@ internal class NetworkManager: NSObject {
     /// Defines if logging apu calls to console
     internal var consoleLogging = false
     /// The datasource configiation required so the card kit can perform Init call api
-    internal var dataConfig: TapCardDataConfiguration = .init()
+    internal var dataConfig: TapCardDataConfiguration = .init(publicKey: .init(sandbox: "", production: ""), merchant: .init())
     /// indicates what is the latest number we are calling binlookup tp
     internal var binLookUpInProcessNumber:String?
     

@@ -8,7 +8,8 @@
 #import "ViewController.h"
 @import TapCardCheckOutKit;
 @import CommonDataModelsKit_iOS;
-
+@import TapCardVlidatorKit_iOS;
+@import TapCardScanner_iOS;
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -22,37 +23,41 @@
     // Do any additional setup after loading the view.
     
     [_startButton setEnabled:NO];
+    CheckoutSecretKey* publicKey = [[CheckoutSecretKey alloc]initWithSandbox:@"pk_test_YhUjg9PNT8oDlKJ1aE2fMRz7" production:@"sk_live_V4UDhitI0r7sFwHCfNB6xMKp"];
+    Scope scope = ScopeTapToken;
+    Transaction* transaction = [[Transaction alloc]initWithAmount:1 currency:TapCurrencyCodeKWD];
+    Merchant* merchant = [[Merchant alloc]initWithId:@"ID"];
+    TapCustomer* customer = [[TapCustomer alloc]initWithEmailAddress:[[TapEmailAddress alloc] initWithEmailAddressString:@"tap@company.com"]
+                                                         phoneNumber:[[TapPhone alloc]initWithIsdNumber:@"" phoneNumber:@"" error:nil]
+                                                           firstName:@"First Name"
+                                                          middleName:@"Not Needed"
+                                                            lastName:@"Last Name"
+                                                             address:nil
+                                                          nameOnCard:@"Customer's card holder name"
+                                                            editable:YES];
+    CardBrand brand = CardBrandMada;
     
-    TapCardDataConfiguration* cardDataConfig = [[TapCardDataConfiguration alloc]initWithSdkMode:Sandbox localeIdentifier:@"en" secretKey: [[SecretKey alloc]initWithSandbox:@"pk_test_YhUjg9PNT8oDlKJ1aE2fMRz7" production:@"sk_live_V4UDhitI0r7sFwHCfNB6xMKp"]];
+    Acceptance* acceptance = [[Acceptance alloc]
+                              initWithSupportedBrands:@[@(CardBrandMada),@(CardBrandMasterCard)]
+                              supportedFundSource:All
+                              supportedPaymentAuthentications:@[@(SupportedPaymentAuthenticationsThreeDS),@(SupportedPaymentAuthenticationsEMV)]
+                              sdkMode:Sandbox];
     
-    [TapCardForumConfiguration.shared configureWithDataConfig:cardDataConfig
-                                                  customTheme:[[TapCardForumTheme alloc] initWith:@"CustomLightTheme" and:@"CustomDarkTheme" from: TapCardForumThemeTypeLocalJsonFile]
-                                           customLocalisation:nil
-                                           onCheckOutReady:^{
+    Fields* fields = [[Fields alloc] initWithCardHolder:YES];
+    Addons* addons = [[Addons alloc]initWithLoader:YES
+                              displayPaymentBrands:YES
+                               displayCardScanning:YES];
+    Interface* interface = [[Interface alloc]initWithLocale:@"en" direction:CardDirectionDynamic edges:CardEdgesCurved tapScannerUICustomization:Nil];
+    
+    TapCardDataConfiguration* cardDataConfig = [[TapCardDataConfiguration alloc]initWithPublicKey:publicKey scope:scope transcation:transaction merchant:merchant customer:customer acceptance:acceptance fields:fields addons:addons interface:interface];
+    
+    
+    [TapCardForumConfiguration.shared configureWithDataConfig:cardDataConfig onCardSdkReady:^{
         NSLog(@"%@",@"Checkout is ready");
         [self.startButton setEnabled:YES];
     } onErrorOccured:^(NSError * error) {
         NSLog(@"%@ %@",@"Error :",error.localizedDescription);
     }];
-    
-    
-    /**
-     How to apply custom localistion and theming, whether from local or remote file
-     // get the local file url
-     NSURL* customLocalisationFileURL = [[NSBundle mainBundle] URLForResource:@"CustomLocalisation" withExtension:@"json"];
-     
-     [[TapCardDataConfiguration alloc]initWithSdkMode:Sandbox localeIdentifier:@"en" secretKey: [[SecretKey alloc]initWithSandbox:@"pk_test_YhUjg9PNT8oDlKJ1aE2fMRz7" production:@"sk_live_V4UDhitI0r7sFwHCfNB6xMKp"]];
-     
-     [TapCardForumConfiguration.shared configureWithDataConfig:cardDataConfig
-     customTheme:[[TapCardForumTheme alloc] initWith:@"CustomLightTheme" and:@"CustomDarkTheme" from: TapCardForumThemeTypeLocalJsonFile] customLocalisation:[[TapCardForumLocalisation alloc]initWith:customLocalisationFileURL from:TapLocalisationTypeLocalJsonFile shouldFlip:NO localeIdentifier:@"en"] onCheckOutReady:^{
-     NSLog(@"%@",@"Checkout is ready");
-     [self.startButton setEnabled:YES];
-     } onErrorOccured:^(NSError * error) {
-     NSLog(@"%@ %@",@"Error :",error.localizedDescription);
-     }];
-     */
-    
-    
 }
 
 

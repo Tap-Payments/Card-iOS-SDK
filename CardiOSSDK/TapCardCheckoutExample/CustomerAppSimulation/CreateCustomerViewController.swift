@@ -23,18 +23,28 @@ class CreateCustomerViewController: UIViewController {
     @IBOutlet weak var countryCodeTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var loadingLoader: UIActivityIndicatorView!
+    @IBOutlet weak var nameOnCardTextField: UITextField!
+    @IBOutlet weak var editableSwitch: UISwitch!
+    
     var customerDelegate: CreateCustomerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        firstNameTextField.text = sharedConfigurationSharedManager.customer.firstName
+        lastNameTextField.text  = sharedConfigurationSharedManager.customer.lastName
+        emailTextField.text  = sharedConfigurationSharedManager.customer.emailAddress?.value
+        customerIDTextField.text  = sharedConfigurationSharedManager.customer.identifier
+        countryCodeTextField.text  = sharedConfigurationSharedManager.customer.phoneNumber?.isdNumber
+        phoneNumberTextField.text  = sharedConfigurationSharedManager.customer.phoneNumber?.phoneNumber
+        nameOnCardTextField.text = sharedConfigurationSharedManager.customer.nameOnCard
+        editableSwitch.isOn = sharedConfigurationSharedManager.customer.editable
         // Do any additional setup after loading the view.
     }
     
 
     @IBAction func createCustomerClicked(_ sender: Any) {
         let tempCountry:Country = try! .init(isoCode: "KW")
-        let tempAdddress:Address = .init(type:.residential,
+        let tempAdddress:Address = .init(type:.commercial,
                                          country: tempCountry,
                                          line1: "asdasd",
                                          line2: "sadsadas",
@@ -47,7 +57,10 @@ class CreateCustomerViewController: UIViewController {
         // to add a customer whether he adds name + (email or phone) or the customer id
         if let customerID = customerIDTextField.text,
            !customerID.isEmpty {
-            customerDelegate?.customerCreated(customer: try! .init(identifier: customerID))
+            let customer:TapCustomer = try! .init(identifier: customerID)
+            customer.nameOnCard = nameOnCardTextField.text ?? ""
+            customer.editable = editableSwitch.isOn
+            customerDelegate?.customerCreated(customer: customer)
             dismiss(animated: true)
         }else if let firstName = firstNameTextField.text {
             do {
@@ -59,10 +72,10 @@ class CreateCustomerViewController: UIViewController {
                 if let phoneText = phoneNumberTextField.text, let code = countryCodeTextField.text {
                     phone = try .init(isdNumber: code, phoneNumber: phoneText)
                 }
-                if let customer: TapCustomer = try .init(emailAddress: email, phoneNumber: phone, name: firstName, address: tempAdddress) {
+                if let customer: TapCustomer = try .init(emailAddress: email, phoneNumber: phone, name: firstName, address: tempAdddress, nameOnCard: nameOnCardTextField.text ?? "", editable: editableSwitch.isOn) {
                     UserDefaults.standard.set(try! PropertyListEncoder().encode(customer), forKey: "customerSevedKey")
                 }
-                customerDelegate?.customerCreated(customer: try .init(emailAddress: email, phoneNumber: phone, name: firstName, address: tempAdddress))
+                customerDelegate?.customerCreated(customer: try .init(emailAddress: email, phoneNumber: phone, name: firstName, address: tempAdddress, nameOnCard: nameOnCardTextField.text ?? "", editable: editableSwitch.isOn))
                 dismiss(animated: true)
             }catch {
                 if let nonNullerror:TapSDKKnownError = error as? TapSDKKnownError {
@@ -87,4 +100,15 @@ class CreateCustomerViewController: UIViewController {
     }
     */
 
+}
+
+
+extension CreateCustomerViewController: TapCardInputDelegate {
+    func errorOccured(with error: CommonDataModelsKit_iOS.CardKitErrorType, message: String) {
+        
+    }
+    
+    func eventHappened(with event: CommonDataModelsKit_iOS.CardKitEventType) {
+        
+    }
 }

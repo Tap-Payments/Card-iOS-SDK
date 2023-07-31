@@ -18,16 +18,14 @@ extension NetworkManager {
      */
     func createCardVerificationRequestModel(for token:Token) -> TapCreateCardVerificationRequestModel? {
         
-        guard let customer = sharedNetworkManager.dataConfig.transactionCustomer else {
-            return nil
-        }
+        let customer = sharedNetworkManager.dataConfig.customer
         
         let requires3DSecure    = sharedNetworkManager.dataConfig.enfroce3DS
         let shouldSaveCard      = true
         let metadata            = sharedNetworkManager.dataConfig.metadata
         let source              = SourceRequest(token: token)
         let redirect            = TrackingURL(url: WebPaymentHandlerConstants.returnURL)
-        let currency            = sharedNetworkManager.dataConfig.transactionCurrency
+        let currency            = sharedNetworkManager.dataConfig.transcation.currency
         
         
         return TapCreateCardVerificationRequestModel                    (is3DSecureRequired:    requires3DSecure,

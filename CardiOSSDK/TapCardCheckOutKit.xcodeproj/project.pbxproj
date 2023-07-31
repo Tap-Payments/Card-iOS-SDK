@@ -14,7 +14,6 @@
 		E83262E727E88B6E005F3AAF /* TapCardCheckOutKit.h in Headers */ = {isa = PBXBuildFile; fileRef = E83262E427E88B6E005F3AAF /* TapCardCheckOutKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E83262F827E88C6F005F3AAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83262F727E88C6F005F3AAF /* AppDelegate.swift */; };
 		E83262FA27E88C6F005F3AAF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83262F927E88C6F005F3AAF /* SceneDelegate.swift */; };
-		E83262FC27E88C6F005F3AAF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83262FB27E88C6F005F3AAF /* ViewController.swift */; };
 		E83262FF27E88C6F005F3AAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E83262FD27E88C6F005F3AAF /* Main.storyboard */; };
 		E832630127E88C71005F3AAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E832630027E88C71005F3AAF /* Assets.xcassets */; };
 		E832630427E88C71005F3AAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E832630227E88C71005F3AAF /* LaunchScreen.storyboard */; };
@@ -28,20 +27,13 @@
 		E832640827E9DBE0005F3AAF /* NetworkManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832640727E9DBE0005F3AAF /* NetworkManagerExtension.swift */; };
 		E832643727E9E193005F3AAF /* NetworkManagerApiCallsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832643627E9E193005F3AAF /* NetworkManagerApiCallsExtension.swift */; };
 		E832643F27E9EBBC005F3AAF /* TapCardDataConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832643E27E9EBBC005F3AAF /* TapCardDataConfiguration.swift */; };
-		E832644327EA04A8005F3AAF /* CustomLightTheme.json in Resources */ = {isa = PBXBuildFile; fileRef = E832644227EA04A8005F3AAF /* CustomLightTheme.json */; };
-		E832644527EA04C5005F3AAF /* CustomDarkTheme.json in Resources */ = {isa = PBXBuildFile; fileRef = E832644427EA04C5005F3AAF /* CustomDarkTheme.json */; };
 		E832644727EA09BD005F3AAF /* TapCardForumTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832644627EA09BD005F3AAF /* TapCardForumTheme.swift */; };
 		E832644927EA0EE8005F3AAF /* TapCardForumLocalisation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832644827EA0EE8005F3AAF /* TapCardForumLocalisation.swift */; };
-		E832644D27EA10FD005F3AAF /* CustomLocalisation.json in Resources */ = {isa = PBXBuildFile; fileRef = E832644C27EA10FD005F3AAF /* CustomLocalisation.json */; };
 		E832644F27EA20F3005F3AAF /* TapCardForumConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832644E27EA20F3005F3AAF /* TapCardForumConfiguration.swift */; };
-		E83FD0DA288D590800057F22 /* amazon.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E83FD0D9288D590800057F22 /* amazon.jpeg */; };
 		E842D24329FF9C8400745029 /* DefaultDarkTheme.json in Resources */ = {isa = PBXBuildFile; fileRef = E842D24229FF9C8400745029 /* DefaultDarkTheme.json */; };
 		E848091728998D49003FDF34 /* CardFieldsValidity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E848091628998D49003FDF34 /* CardFieldsValidity.swift */; };
-		E84809192899973F003FDF34 /* NetworkCallsLogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84809182899973F003FDF34 /* NetworkCallsLogsViewController.swift */; };
 		E84EC896293DD77B00AC6C09 /* ThreeDsWebViewAnimationEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84EC895293DD77B00AC6C09 /* ThreeDsWebViewAnimationEnum.swift */; };
 		E8503AA72896512200D1B8B0 /* CardKitGoogle.plist in Resources */ = {isa = PBXBuildFile; fileRef = E8503AA62896512200D1B8B0 /* CardKitGoogle.plist */; };
-		E85090B42939C2F7007048A8 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85090B32939C2F7007048A8 /* IntroViewController.swift */; };
-		E85090B62939C3AB007048A8 /* giphy.gif in Resources */ = {isa = PBXBuildFile; fileRef = E85090B52939C3AB007048A8 /* giphy.gif */; };
 		E85090B82939C426007048A8 /* SimpleParallax.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85090B72939C426007048A8 /* SimpleParallax.swift */; };
 		E85090D2293A0D4B007048A8 /* tap_logo-2.png in Resources */ = {isa = PBXBuildFile; fileRef = E85090D1293A0D4A007048A8 /* tap_logo-2.png */; };
 		E85090D4293A14BD007048A8 /* tap_logo.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E85090D3293A14BC007048A8 /* tap_logo.pdf */; };
@@ -49,15 +41,11 @@
 		E85090D8293A1A28007048A8 /* EKAttributes+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85090D7293A1A28007048A8 /* EKAttributes+Additions.swift */; };
 		E85090DB293A2306007048A8 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85090DA293A2306007048A8 /* CartViewController.swift */; };
 		E85090DD293A23EF007048A8 /* CustomCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85090DC293A23EF007048A8 /* CustomCollectionCell.swift */; };
-		E85090E6293A31E5007048A8 /* giphy2.gif in Resources */ = {isa = PBXBuildFile; fileRef = E85090E5293A31E5007048A8 /* giphy2.gif */; };
-		E85090EA293A32EE007048A8 /* giphy3.gif in Resources */ = {isa = PBXBuildFile; fileRef = E85090E9293A32EE007048A8 /* giphy3.gif */; };
 		E85090EC293A4993007048A8 /* CardSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85090EB293A4993007048A8 /* CardSettingsViewController.swift */; };
 		E85090EF293A4B02007048A8 /* Eureka in Frameworks */ = {isa = PBXBuildFile; productRef = E85090EE293A4B02007048A8 /* Eureka */; };
 		E858E294293737DA003234B4 /* TapCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858E293293737DA003234B4 /* TapCardView.swift */; };
 		E858E296293737E6003234B4 /* TapCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E858E295293737E6003234B4 /* TapCardView.xib */; };
-		E86217BE28F00E9400EAAFA6 /* TestNewUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86217BD28F00E9400EAAFA6 /* TestNewUIViewController.swift */; };
 		E86217C028F0102D00EAAFA6 /* TapCardKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86217BF28F0102D00EAAFA6 /* TapCardKit.swift */; };
-		E874F804288585B70067DB3E /* DempSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874F803288585B70067DB3E /* DempSettingsViewController.swift */; };
 		E874F806288586C50067DB3E /* ConfigurationSharedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874F805288586C50067DB3E /* ConfigurationSharedManager.swift */; };
 		E892848529CAF85C007CE43E /* UIViewEffectViewiOS14.swift in Sources */ = {isa = PBXBuildFile; fileRef = E892848329CAF85B007CE43E /* UIViewEffectViewiOS14.swift */; };
 		E892848629CAF85C007CE43E /* CardVisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E892848429CAF85C007CE43E /* CardVisualEffectView.swift */; };
@@ -77,13 +65,10 @@
 		E8A5AF8A28BCC17B00620427 /* TapCardCheckOutKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E83262E127E88B6E005F3AAF /* TapCardCheckOutKit.framework */; platformFilter = ios; };
 		E8A5AF8B28BCC17B00620427 /* TapCardCheckOutKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E83262E127E88B6E005F3AAF /* TapCardCheckOutKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E8A5AF9128BCC67D00620427 /* CardInputDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A5AF9028BCC67D00620427 /* CardInputDemoViewController.m */; };
-		E8A5AF9228BCD07B00620427 /* CustomLightTheme.json in Resources */ = {isa = PBXBuildFile; fileRef = E832644227EA04A8005F3AAF /* CustomLightTheme.json */; };
-		E8A5AF9328BCD07B00620427 /* CustomDarkTheme.json in Resources */ = {isa = PBXBuildFile; fileRef = E832644427EA04C5005F3AAF /* CustomDarkTheme.json */; };
-		E8A5AF9428BCD7AC00620427 /* CustomLocalisation.json in Resources */ = {isa = PBXBuildFile; fileRef = E832644C27EA10FD005F3AAF /* CustomLocalisation.json */; };
 		E8ABA68F28EEA724000A9F73 /* TapCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ABA68E28EEA724000A9F73 /* TapCardViewController.swift */; };
-		E8ABC0B529CDA1E5006C2B3A /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ABC0B429CDA1E5006C2B3A /* TestViewController.swift */; };
 		E8D0CAE7293B1B1C003B9BD8 /* ThreeDSConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D0CAE6293B1B1C003B9BD8 /* ThreeDSConfiguration.swift */; };
-		E8F93423293D0A14008C3B78 /* giphy4.gif in Resources */ = {isa = PBXBuildFile; fileRef = E8F93422293D0A14008C3B78 /* giphy4.gif */; };
+		E8DAF46C2A73878100BD6FE7 /* giphy4.gif in Resources */ = {isa = PBXBuildFile; fileRef = E8DAF46B2A73878100BD6FE7 /* giphy4.gif */; };
+		E8DAF46E2A75095F00BD6FE7 /* DirectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DAF46D2A75095F00BD6FE7 /* DirectViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,7 +129,6 @@
 		E83262F527E88C6F005F3AAF /* TapCardCheckoutExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TapCardCheckoutExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E83262F727E88C6F005F3AAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E83262F927E88C6F005F3AAF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E83262FB27E88C6F005F3AAF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E83262FE27E88C6F005F3AAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E832630027E88C71005F3AAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E832630327E88C71005F3AAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -157,20 +141,13 @@
 		E832640727E9DBE0005F3AAF /* NetworkManagerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerExtension.swift; sourceTree = "<group>"; };
 		E832643627E9E193005F3AAF /* NetworkManagerApiCallsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerApiCallsExtension.swift; sourceTree = "<group>"; };
 		E832643E27E9EBBC005F3AAF /* TapCardDataConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCardDataConfiguration.swift; sourceTree = "<group>"; };
-		E832644227EA04A8005F3AAF /* CustomLightTheme.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CustomLightTheme.json; sourceTree = "<group>"; };
-		E832644427EA04C5005F3AAF /* CustomDarkTheme.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CustomDarkTheme.json; sourceTree = "<group>"; };
 		E832644627EA09BD005F3AAF /* TapCardForumTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCardForumTheme.swift; sourceTree = "<group>"; };
 		E832644827EA0EE8005F3AAF /* TapCardForumLocalisation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCardForumLocalisation.swift; sourceTree = "<group>"; };
-		E832644C27EA10FD005F3AAF /* CustomLocalisation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CustomLocalisation.json; sourceTree = "<group>"; };
 		E832644E27EA20F3005F3AAF /* TapCardForumConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCardForumConfiguration.swift; sourceTree = "<group>"; };
-		E83FD0D9288D590800057F22 /* amazon.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = amazon.jpeg; sourceTree = "<group>"; };
 		E842D24229FF9C8400745029 /* DefaultDarkTheme.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DefaultDarkTheme.json; sourceTree = "<group>"; };
 		E848091628998D49003FDF34 /* CardFieldsValidity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFieldsValidity.swift; sourceTree = "<group>"; };
-		E84809182899973F003FDF34 /* NetworkCallsLogsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCallsLogsViewController.swift; sourceTree = "<group>"; };
 		E84EC895293DD77B00AC6C09 /* ThreeDsWebViewAnimationEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeDsWebViewAnimationEnum.swift; sourceTree = "<group>"; };
 		E8503AA62896512200D1B8B0 /* CardKitGoogle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CardKitGoogle.plist; sourceTree = "<group>"; };
-		E85090B32939C2F7007048A8 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
-		E85090B52939C3AB007048A8 /* giphy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = giphy.gif; sourceTree = "<group>"; };
 		E85090B72939C426007048A8 /* SimpleParallax.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleParallax.swift; sourceTree = "<group>"; };
 		E85090D1293A0D4A007048A8 /* tap_logo-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tap_logo-2.png"; sourceTree = "<group>"; };
 		E85090D3293A14BC007048A8 /* tap_logo.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = tap_logo.pdf; sourceTree = "<group>"; };
@@ -178,14 +155,10 @@
 		E85090D7293A1A28007048A8 /* EKAttributes+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKAttributes+Additions.swift"; sourceTree = "<group>"; };
 		E85090DA293A2306007048A8 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		E85090DC293A23EF007048A8 /* CustomCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionCell.swift; sourceTree = "<group>"; };
-		E85090E5293A31E5007048A8 /* giphy2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = giphy2.gif; sourceTree = "<group>"; };
-		E85090E9293A32EE007048A8 /* giphy3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = giphy3.gif; sourceTree = "<group>"; };
 		E85090EB293A4993007048A8 /* CardSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSettingsViewController.swift; sourceTree = "<group>"; };
 		E858E293293737DA003234B4 /* TapCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCardView.swift; sourceTree = "<group>"; };
 		E858E295293737E6003234B4 /* TapCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TapCardView.xib; sourceTree = "<group>"; };
-		E86217BD28F00E9400EAAFA6 /* TestNewUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNewUIViewController.swift; sourceTree = "<group>"; };
 		E86217BF28F0102D00EAAFA6 /* TapCardKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCardKit.swift; sourceTree = "<group>"; };
-		E874F803288585B70067DB3E /* DempSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DempSettingsViewController.swift; sourceTree = "<group>"; };
 		E874F805288586C50067DB3E /* ConfigurationSharedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationSharedManager.swift; sourceTree = "<group>"; };
 		E892848329CAF85B007CE43E /* UIViewEffectViewiOS14.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewEffectViewiOS14.swift; path = "Pods/TapUIKit-iOS/TapUIKit-iOS/TapUIKit-iOS/Core/Extensions/UIViewEffectViewiOS14.swift"; sourceTree = SOURCE_ROOT; };
 		E892848429CAF85C007CE43E /* CardVisualEffectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardVisualEffectView.swift; path = "Pods/TapUIKit-iOS/TapUIKit-iOS/TapUIKit-iOS/Core/Extensions/CardVisualEffectView.swift"; sourceTree = SOURCE_ROOT; };
@@ -210,9 +183,9 @@
 		E8A5AF8F28BCC67D00620427 /* CardInputDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardInputDemoViewController.h; sourceTree = "<group>"; };
 		E8A5AF9028BCC67D00620427 /* CardInputDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardInputDemoViewController.m; sourceTree = "<group>"; };
 		E8ABA68E28EEA724000A9F73 /* TapCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCardViewController.swift; sourceTree = "<group>"; };
-		E8ABC0B429CDA1E5006C2B3A /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		E8D0CAE6293B1B1C003B9BD8 /* ThreeDSConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeDSConfiguration.swift; sourceTree = "<group>"; };
-		E8F93422293D0A14008C3B78 /* giphy4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = giphy4.gif; sourceTree = "<group>"; };
+		E8DAF46B2A73878100BD6FE7 /* giphy4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = giphy4.gif; sourceTree = "<group>"; };
+		E8DAF46D2A75095F00BD6FE7 /* DirectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -342,25 +315,15 @@
 			children = (
 				E85090D9293A22F0007048A8 /* CustomerAppSimulation */,
 				E85090B22939C2E3007048A8 /* Onboarding */,
-				E89B998028940B0800B03726 /* CreateCustomerViewController.swift */,
 				E83262F727E88C6F005F3AAF /* AppDelegate.swift */,
 				E83262F927E88C6F005F3AAF /* SceneDelegate.swift */,
-				E83262FB27E88C6F005F3AAF /* ViewController.swift */,
 				E83262FD27E88C6F005F3AAF /* Main.storyboard */,
-				E83FD0D9288D590800057F22 /* amazon.jpeg */,
 				E832630027E88C71005F3AAF /* Assets.xcassets */,
 				E85090D3293A14BC007048A8 /* tap_logo.pdf */,
 				E832630227E88C71005F3AAF /* LaunchScreen.storyboard */,
 				E832630527E88C71005F3AAF /* Info.plist */,
-				E832644227EA04A8005F3AAF /* CustomLightTheme.json */,
-				E832644427EA04C5005F3AAF /* CustomDarkTheme.json */,
-				E832644C27EA10FD005F3AAF /* CustomLocalisation.json */,
-				E874F803288585B70067DB3E /* DempSettingsViewController.swift */,
 				E874F805288586C50067DB3E /* ConfigurationSharedManager.swift */,
-				E84809182899973F003FDF34 /* NetworkCallsLogsViewController.swift */,
-				E8ABA68E28EEA724000A9F73 /* TapCardViewController.swift */,
-				E86217BD28F00E9400EAAFA6 /* TestNewUIViewController.swift */,
-				E8ABC0B429CDA1E5006C2B3A /* TestViewController.swift */,
+				E8DAF46D2A75095F00BD6FE7 /* DirectViewController.swift */,
 			);
 			path = TapCardCheckoutExample;
 			sourceTree = "<group>";
@@ -419,12 +382,7 @@
 		E85090B22939C2E3007048A8 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				E8F93422293D0A14008C3B78 /* giphy4.gif */,
-				E85090E5293A31E5007048A8 /* giphy2.gif */,
-				E85090E9293A32EE007048A8 /* giphy3.gif */,
-				E85090B52939C3AB007048A8 /* giphy.gif */,
 				E85090D1293A0D4A007048A8 /* tap_logo-2.png */,
-				E85090B32939C2F7007048A8 /* IntroViewController.swift */,
 				E85090B72939C426007048A8 /* SimpleParallax.swift */,
 				E85090D5293A1718007048A8 /* EKColors+Additions.swift */,
 				E85090D7293A1A28007048A8 /* EKAttributes+Additions.swift */,
@@ -435,6 +393,9 @@
 		E85090D9293A22F0007048A8 /* CustomerAppSimulation */ = {
 			isa = PBXGroup;
 			children = (
+				E8DAF46B2A73878100BD6FE7 /* giphy4.gif */,
+				E89B998028940B0800B03726 /* CreateCustomerViewController.swift */,
+				E8ABA68E28EEA724000A9F73 /* TapCardViewController.swift */,
 				E85090DA293A2306007048A8 /* CartViewController.swift */,
 				E85090DC293A23EF007048A8 /* CustomCollectionCell.swift */,
 				E85090EB293A4993007048A8 /* CardSettingsViewController.swift */,
@@ -558,7 +519,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1330;
-				LastUpgradeCheck = 1340;
+				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					E83262E027E88B6E005F3AAF = {
 						CreatedOnToolsVersion = 13.3;
@@ -612,18 +573,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E85090E6293A31E5007048A8 /* giphy2.gif in Resources */,
-				E8F93423293D0A14008C3B78 /* giphy4.gif in Resources */,
-				E832644527EA04C5005F3AAF /* CustomDarkTheme.json in Resources */,
-				E85090EA293A32EE007048A8 /* giphy3.gif in Resources */,
 				E832630427E88C71005F3AAF /* LaunchScreen.storyboard in Resources */,
-				E832644D27EA10FD005F3AAF /* CustomLocalisation.json in Resources */,
+				E8DAF46C2A73878100BD6FE7 /* giphy4.gif in Resources */,
 				E85090D4293A14BD007048A8 /* tap_logo.pdf in Resources */,
 				E832630127E88C71005F3AAF /* Assets.xcassets in Resources */,
 				E83262FF27E88C6F005F3AAF /* Main.storyboard in Resources */,
-				E83FD0DA288D590800057F22 /* amazon.jpeg in Resources */,
-				E85090B62939C3AB007048A8 /* giphy.gif in Resources */,
-				E832644327EA04A8005F3AAF /* CustomLightTheme.json in Resources */,
 				E85090D2293A0D4B007048A8 /* tap_logo-2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -632,12 +586,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8A5AF9328BCD07B00620427 /* CustomDarkTheme.json in Resources */,
 				E8A5AF8328BCC15B00620427 /* LaunchScreen.storyboard in Resources */,
-				E8A5AF9428BCD7AC00620427 /* CustomLocalisation.json in Resources */,
 				E8A5AF8028BCC15B00620427 /* Assets.xcassets in Resources */,
 				E8A5AF7E28BCC15900620427 /* Main.storyboard in Resources */,
-				E8A5AF9228BCD07B00620427 /* CustomLightTheme.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -779,23 +730,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E83262FC27E88C6F005F3AAF /* ViewController.swift in Sources */,
 				E874F806288586C50067DB3E /* ConfigurationSharedManager.swift in Sources */,
-				E8ABC0B529CDA1E5006C2B3A /* TestViewController.swift in Sources */,
 				E85090DB293A2306007048A8 /* CartViewController.swift in Sources */,
-				E84809192899973F003FDF34 /* NetworkCallsLogsViewController.swift in Sources */,
 				E83262F827E88C6F005F3AAF /* AppDelegate.swift in Sources */,
 				E8ABA68F28EEA724000A9F73 /* TapCardViewController.swift in Sources */,
 				E85090B82939C426007048A8 /* SimpleParallax.swift in Sources */,
-				E85090B42939C2F7007048A8 /* IntroViewController.swift in Sources */,
 				E85090D6293A1718007048A8 /* EKColors+Additions.swift in Sources */,
-				E86217BE28F00E9400EAAFA6 /* TestNewUIViewController.swift in Sources */,
 				E85090EC293A4993007048A8 /* CardSettingsViewController.swift in Sources */,
 				E85090D8293A1A28007048A8 /* EKAttributes+Additions.swift in Sources */,
 				E85090DD293A23EF007048A8 /* CustomCollectionCell.swift in Sources */,
-				E874F804288585B70067DB3E /* DempSettingsViewController.swift in Sources */,
 				E89B998128940B0900B03726 /* CreateCustomerViewController.swift in Sources */,
 				E83262FA27E88C6F005F3AAF /* SceneDelegate.swift in Sources */,
+				E8DAF46E2A75095F00BD6FE7 /* DirectViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1055,7 +1001,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 40;
+				CURRENT_PROJECT_VERSION = 42;
 				DEVELOPMENT_TEAM = G46S76PUH4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TapCardCheckoutExample/Info.plist;
@@ -1090,7 +1036,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 40;
+				CURRENT_PROJECT_VERSION = 42;
 				DEVELOPMENT_TEAM = G46S76PUH4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TapCardCheckoutExample/Info.plist;

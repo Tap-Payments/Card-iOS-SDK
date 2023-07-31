@@ -35,5 +35,12 @@ extension cardTypes: CustomStringConvertible {
             case .All:            return "All"
         }
     }
+    
+    public static func from(string:String) -> cardTypes {
+        guard let cardType:cardTypes = cardTypes.allCases.first(where: { $0.description.lowercased() == string.lowercased() }) else {
+            fatalError("Cannot create a card of type \(string)")
+        }
+        return cardType
+    }
 }
 

@@ -468,15 +468,17 @@ internal protocol ThreeDSViewControllerDelegatee {
      - Parameter for cardBrand: The card brand we need to know all the schemes it supports
      - Returns: List of supported schemes by the provided brand
      */
-    private func fetchSupportedCardSchemes(for cardBrand:CardBrand?) -> CardBrandWithSchemes? {
+    private func fetchSupportedCardSchemes(for cardScheme:CardBrand?, and cardBrand:CardBrand) -> CardBrandWithSchemes? {
         
-        guard let cardBrand = cardBrand,
+        guard let cardScheme = cardScheme,
               let _ = sharedNetworkManager.dataConfig.paymentOptions,
               let _ = sharedNetworkManager.dataConfig.tapBinLookUpResponse else {
             return nil
         }
+        var listOfSupportedBrandsWithSchemes:[CardBrand] = [cardBrand, cardScheme]
+        listOfSupportedBrandsWithSchemes.append(contentsOf: sharedNetworkManager.dataConfig.paymentOptions?.filter{  $0.brand == cardScheme  }.first?.supportedCardBrands ?? [])
         
-        return .init(sharedNetworkManager.dataConfig.paymentOptions?.filter{  $0.brand == cardBrand  }.first?.supportedCardBrands ?? [], cardBrand)
+        return .init(Array(Set(listOfSupportedBrandsWithSchemes)), cardScheme)
     }
     
     /// Responsible for deciding which card brand should be underlined if any
@@ -523,7 +525,7 @@ internal protocol ThreeDSViewControllerDelegatee {
         if allowedCardType == .All || binResponse.cardType.cardType == allowedCardType {
             // Then it is allowed to proceed on with it :)
             // Set the favorite card brand as per the binlook up response
-            CardValidator.favoriteCardBrand = fetchSupportedCardSchemes(for: sharedNetworkManager.dataConfig.tapBinLookUpResponse?.scheme?.cardBrand)
+            CardValidator.favoriteCardBrand = fetchSupportedCardSchemes(for: binResponse.scheme?.cardBrand, and: binResponse.cardBrand)
             /*let (brand,status) = tapCardInput.cardBrandWithStatus()
              if brand != cardBrand {
              cardBrand = brand

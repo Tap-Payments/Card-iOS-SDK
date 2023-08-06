@@ -19,8 +19,10 @@ Table of contents
   - [PublicKey](https://github.com/Tap-Payments/TapCardCheckOutKit#CollectPublicKey)
   - [Scope](https://github.com/Tap-Payments/TapCardCheckOutKit#CollectScope)
   - [Transaction](https://github.com/Tap-Payments/TapCardCheckOutKit#CollectTransaction)
+  - [Order](https://github.com/Tap-Payments/TapCardCheckOutKit#CollectOrder)
   - [Merchant](https://github.com/Tap-Payments/TapCardCheckOutKit#CollectMerchant)
   - [Customer](https://github.com/Tap-Payments/TapCardCheckOutKit#CollectCustomer)
+  - [Features](https://github.com/Tap-Payments/TapCardCheckOutKit#CollectFeatures)
   - [Acceptance](https://github.com/Tap-Payments/TapCardCheckOutKit#CollectAcceptance)
   - [Fields](https://github.com/Tap-Payments/TapCardCheckOutKit#CollectFields)
   - [Addons](https://github.com/Tap-Payments/TapCardCheckOutKit#CollectAddons)
@@ -132,6 +134,21 @@ var transcation: Transaction = .init(amount:Double = 1, currency: TapCurrencyCod
 Transaction transaction = [[Transaction alloc]initWithAmount:1 currency:TapCurrencyCodeKWD];
 ```
 
+
+#### [](https://github.com/Tap-Payments/TapCardCheckOutKit#CollectOrder)Define Order(1.4)
+
+A  model that represents the reference to Tap order if needed
+
+##### Code samples:
+
+```swift
+var order: Order = .init(identifier: "")
+```
+
+```c
+CheckoutOrder* order = [[CheckoutOrder alloc]initWithIdentifier:@""];
+```
+
 #### [](https://github.com/Tap-Payments/TapCardCheckOutKit#CollectMerchant)Define Merchant(1.4)
 
 A model that represents the details and configurations related to the merchant. Including your merchant id provided by Tap integration team.
@@ -193,6 +210,24 @@ TapCustomer* customer = [[TapCustomer alloc]initWithEmailAddress:[[TapEmailAddre
 | nameOnCard | If you want to fill the card holder name field in the card form. | Optional, Default is **""** | `"Card holder name"` |
 | editable | If you want to make the card holder name editable or not. | Optional, Default is **TRUE** | `"true"` |
 
+
+#### [](https://github.com/Tap-Payments/TapCardCheckOutKit#CollectFeatures)Define Features (1.7)
+
+A model that decides the enablement of some of teh Tap provided features related to UI/UX
+
+##### Code samples:
+
+```swift
+/// A model that decides the enablement of some of teh Tap provided features related to UI/UX
+    /// - Parameter acceptanceBadge : Decides whether to show/hide the the supported card brands bar underneath the card input form. Default is true
+    var features: Features = .init(acceptanceBadge: true)
+```
+
+```c
+Features* features = [[Features alloc] initWithAcceptanceBadge:YES];
+```
+
+
 #### [](https://github.com/Tap-Payments/TapCardCheckOutKit#CollectAcceptance)Define Acceptance(1.6)
 
 Represents the details of the acceptance details, like payment methods, transaction's environment, card types, etc. Default is to accept all allowed payment methods activiated to your business from Tap integration team.
@@ -249,13 +284,11 @@ A model that decides the visibilty of some componens related to the card sdk. So
 
 ```swift
 var addons: Addons = .init(loader: true,
-                           displayPaymentBrands: true
                            displayCardScanning: true)
 ```
 
 ```c
 Addons* addons = [[Addons alloc]initWithLoader:YES
-                              displayPaymentBrands:YES
                                displayCardScanning:YES];
 ```
 
@@ -264,7 +297,6 @@ Addons* addons = [[Addons alloc]initWithLoader:YES
 | Parameter | Description | Required | Sample |
 | --- | --- | --- | --- |
 | loader | Decides whether to show/hide the loader on topp of the card, whever the card is doing some action (e.g. tokennizing a card.) Default is **true** | NO  | true |
-| displayPaymentBrands | Decides whether to show/hide the the supported card brands bar underneath the card input form. Default is **true** | NO  | true |
 | displayCardScanning | Decides whether or not to show the card scanning functionality. Default is **true** | NO  | true |
 
 #### [](https://github.com/Tap-Payments/TapCardCheckOutKit#CollectInterface)Define Interface (1.9)
@@ -278,14 +310,16 @@ var interface: Interface = .init(locale: "en",
                                  direction: .Dynamic,
                                  edges: .Curved,
                                  tapScannerUICustomization: .init(tapFullScreenScanBorderColor: .green,
-                                                                  blurCardScannerBackground: true))
+                                                                  blurCardScannerBackground: true),
+                                 powered: true)
 ```
 
 ```c
 Interface* interface = [[Interface alloc]initWithLocale:@"en"
                         direction:CardDirectionDynamic
                         edges:CardEdgesCurved
-                        tapScannerUICustomization: nil];
+                        tapScannerUICustomization: nil
+                        powered: YES];
 ```
 
 ##### Interface's parameters documentation:
@@ -296,6 +330,7 @@ Interface* interface = [[Interface alloc]initWithLocale:@"en"
 | direction | Defines the direction/text alignment of the card input fields. Default is **dynamic** to follow the locale's alignment | NO  | `.LTR` or `.Dynamic` |
 | edges | Defines the shape aof the card’s edge. Default is **curved** | NO  | `.curved` or `.straight` |
 | tapScannerUICustomization | The ui customization to the full screen scanner borer color and to show a blur. Default is `green` & `blur`. | NO  | `.init( tapFullScreenScanBorderColor : .green , <br/>blurCardScannerBackground : true )` |
+| powered | Display the powered by tap logo. Default is **true** | NO  | `true` or `false` |
 
 ### [](https://github.com/Tap-Payments/TapCardCheckOutKit#PassConfig)Pass configurations to Card SDK (2)
 

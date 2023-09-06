@@ -8,7 +8,6 @@
 
 import UIKit
 import CommonDataModelsKit_iOS
-import TapCardCheckOutKit
 
 protocol CreateCustomerDelegate {
     func customerCreated(customer:TapCustomer)
@@ -100,15 +99,4 @@ class CreateCustomerViewController: UIViewController {
     }
     */
 
-}
-
-
-extension CreateCustomerViewController: TapCardInputDelegate {
-    func errorOccured(with error: CommonDataModelsKit_iOS.CardKitErrorType, message: String) {
-        
-    }
-    
-    func eventHappened(with event: CommonDataModelsKit_iOS.CardKitEventType) {
-        
-    }
 }

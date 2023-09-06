@@ -110,8 +110,8 @@
             filePath = "TapCardCheckOutKit/Core/Logic/public/TapCardView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "528"
-            endingLineNumber = "528"
+            startingLineNumber = "533"
+            endingLineNumber = "533"
             landmarkName = "handleBinLookUp()"
             landmarkType = "7">
          </BreakpointContent>
@@ -126,8 +126,8 @@
             filePath = "TapCardCheckOutKit/Core/Logic/public/TapCardView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "473"
-            endingLineNumber = "473"
+            startingLineNumber = "478"
+            endingLineNumber = "478"
             landmarkName = "fetchSupportedCardSchemes(for:and:)"
             landmarkType = "7">
             <Locations>
@@ -168,7 +168,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "53AFE437-6727-4C01-A444-6ACC673C83E7"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Pods/TapCardVlidatorKit-iOS/TapCardVlidatorKit-iOS/TapCardVlidatorKit-iOS/Core/public/CardValidator.swift"
@@ -177,6 +177,22 @@
             startingLineNumber = "56"
             endingLineNumber = "56"
             landmarkName = "validate(cardNumber:preferredBrands:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8B8D5D63-2AE1-4F2D-992D-1D51BE78F4D6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TapCardCheckOutKit/Core/Logic/Network/ApiCalls/NetworkManager+HandlingResponses.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "handleInitResponse(initModel:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

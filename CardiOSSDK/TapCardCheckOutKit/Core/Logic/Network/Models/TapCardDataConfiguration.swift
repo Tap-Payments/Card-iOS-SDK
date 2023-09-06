@@ -19,21 +19,25 @@ import TapCardScanner_iOS
      Card configuration model to customize the logic and ui/ux of the tap card element
      - Parameter publickKey : The public keys providede to your business from Tap integration team.
      - Parameter scope: An enum to define the required scope of the tap card sdk. Default is to generate Tap Token for the card
+     - Parameter order: A  model that represents the reference to Tap order if needed
      - Parameter transaction: A model that represents the amount and the currency combined. Default is 1 KWD
      - Parameter merchant: A model that represents the details and configurations related to the merchant. Including your merchant id provided by Tap integration team
      - Parameter customer: Represents the model for the customer if any.
+     - Parameter features: A model that decides the enablement of some of teh Tap provided features related to UI/UX
      - Parameter acceptance: A model that represents the details of the acceptance levels and payment methods. Like, payment methods, payment brands, types of allowed cards etc. Default is to accept all allowed payment methods activiated to your business from Tap integration team.
      - Parameter fields: Defines which card fields you want to show/hide. Currently, only card name is controllable and default is true.
      - Parameter addons: A model that decides the visibilty of some componens related to the card sdk. So the merchant can adjust the UX as much as possible to fit his UI
      - Parameter interface: A model of parameters that controls a bit the look and feel of the card sdk.
      */
-    @objc public init (publicKey:SecretKey, scope: Scope = .TapToken, transcation: Transaction = .init(), merchant: Merchant, customer: TapCustomer = TapCustomer.defaultCustomer(), acceptance: Acceptance = .init(), fields: Fields = .init(), addons: Addons = .init(), interface: Interface = .init()) {
+    @objc public init (publicKey:SecretKey, scope: Scope = .TapToken, transcation: Transaction = .init(), order:Order? = nil, merchant: Merchant, customer: TapCustomer = TapCustomer.defaultCustomer(), features:Features = .init(), acceptance: Acceptance = .init(), fields: Fields = .init(), addons: Addons = .init(), interface: Interface = .init()) {
         super.init()
         self.publicKey = publicKey
         self.enableLogging = [.CONSOLE]
         self.scope = scope
+        self.order = order
         self.customer = customer
         self.merchant = merchant
+        self.features = features
         self.acceptance = acceptance
         self.fields = fields
         self.addons = addons
@@ -52,12 +56,16 @@ import TapCardScanner_iOS
     internal var publicKey:SecretKey = .init(sandbox: "pk_test_YhUjg9PNT8oDlKJ1aE2fMRz7", production: "sk_live_V4UDhitI0r7sFwHCfNB6xMKp")
     /// An enum to define the required scope of the tap card sdk. Default is to generate Tap Token for the card
     internal var  scope: Scope = .TapToken
+    /// A  model that represents the reference to Tap order if needed
+    internal var order: Order? = nil
     /// A model that represents the amount and the currency combined. Default is 1 KWD
     internal var transcation: Transaction = .init()
     /// A model that represents the details and configurations related to the merchant. Including your merchant id provided by Tap integration team
     internal var merchant: Merchant = .init()
     /// Represents the model for the customer if any.
     internal var customer: TapCustomer = TapCustomer.defaultCustomer()
+    /// A model that decides the enablement of some of teh Tap provided features related to UI/UX
+    internal var features: Features = .init()
     /// A model that represents the details of the acceptance levels and payment methods. Like, payment methods, payment brands, types of allowed cards etc. Default is to accept all allowed payment methods activiated to your business from Tap integration team.
     internal var acceptance: Acceptance = .init() {
         didSet{
@@ -221,8 +229,6 @@ import TapCardScanner_iOS
     }
 }
 
-
-
 /// A model that represents the details of the acceptance levels and payment methods
 @objc public class Acceptance: NSObject {
     /// The supported brands set by the merchant for this transaction. Default is All
@@ -277,22 +283,33 @@ import TapCardScanner_iOS
 
 
 
+
+/// A model that decides the enablement of some of teh Tap provided features related to UI/UX
+@objc public class Features: NSObject {
+    /// Decides whether to show/hide the the supported card brands bar underneath the card input form. Default is true
+    public var acceptanceBadge: Bool = true
+    
+    /// A model that decides the enablement of some of teh Tap provided features related to UI/UX
+    /// - Parameter acceptanceBadge : Decides whether to show/hide the the supported card brands bar underneath the card input form. Default is true
+    @objc public init(acceptanceBadge: Bool = true) {
+        self.acceptanceBadge = acceptanceBadge
+    }
+}
+
+
+
 /// A model that decides the visibilty of some componens related to the card sdk. So the merchant can adjust the UX as much as possible to fit his UI
 @objc public class Addons: NSObject {
     /// Decides whether to show/hide the loader on topp of the card, whever the card is doing some action (e.g. tokennizing a card.) Default is true
     public var loader: Bool = true
-    /// Decides whether to show/hide the the supported card brands bar underneath the card input form. Default is true
-    public var displayPaymentBrands: Bool = true
     /// Decides whether or not to show the card scanning functionality. Default is true
     public var displayCardScanning: Bool = true
     
     /// A model that decides the visibilty of some componens related to the card sdk. So the merchant can adjust the UX as much as possible to fit his UI
     /// - Parameter loader: Decides whether to show/hide the loader on topp of the card, whever the card is doing some action (e.g. tokennizing a card.) Default is true
-    /// - Parameter displayPaymentBrands : Decides whether to show/hide the the supported card brands bar underneath the card input form. Default is true
     /// - Parameter displayCardScanning: Decides whether or not to show the card scanning functionality. Default is true
-    @objc public init(loader:Bool = true, displayPaymentBrands: Bool = true, displayCardScanning: Bool = true) {
+    @objc public init(loader:Bool = true, displayCardScanning: Bool = true) {
         self.loader = loader
-        self.displayPaymentBrands = displayPaymentBrands
         self.displayCardScanning = displayCardScanning
     }
 }
@@ -309,17 +326,21 @@ import TapCardScanner_iOS
     public var edges: CardEdges = .Curved
     ///The ui customization to the full screen scanner borer color and to show a blur
     public var tapScannerUICustomization:TapFullScreenUICustomizer = .init()
+    /// Display the powered by tap logo
+    public var powered:Bool = true
     
     /// A model of parameters that controls a bit the look and feel of the card sdk.
     /// - Parameter locale: Defines the locale to display the card with. accepted values en,ar and default is en
     /// - Parameter displayPaymentBrands : Defines the direction/text alignment of the card input fields. Default is dynamic to follow the locale's alignment
     /// - Parameter edges: Defines the shape aof the card’s edge. Default is curved
     /// - Parameter tapScannerUICustomization: The ui customization to the full screen scanner borer color and to show a blur
-    @objc public init(locale:String = "en", direction: CardDirection = .Dynamic, edges: CardEdges = .Curved, tapScannerUICustomization:TapFullScreenUICustomizer = .init()) {
+    /// - Parameter powered: Display the powered by tap logo
+    @objc public init(locale:String = "en", direction: CardDirection = .Dynamic, edges: CardEdges = .Curved, tapScannerUICustomization:TapFullScreenUICustomizer = .init(), powered:Bool = true) {
         self.locale = locale
         self.direction = direction
         self.edges = edges
         self.tapScannerUICustomization = .init(tapFullScreenScanBorderColor: .green,
                                                blurCardScannerBackground: true)
+        self.powered = powered
     }
 }

@@ -130,6 +130,9 @@ internal protocol ThreeDSViewControllerDelegatee {
     /// Indicates whether ot not the card scanner. Default is false
     private var showCardScanner:Bool = false
     
+    /// Indicates whether ot not the powered by tap. Default is true
+    private var showPoweredBy:Bool = true
+    
     /// The UIViewController that will display the scanner into
     private var presentScannerInViewController:UIViewController?
     
@@ -156,7 +159,7 @@ internal protocol ThreeDSViewControllerDelegatee {
         // Set the collection name ability
         self.collectCardHolderName = sharedNetworkManager.dataConfig.fields.cardHolder
         // Set the card bar ability
-        self.showCardBrands = sharedNetworkManager.dataConfig.addons.displayPaymentBrands
+        self.showCardBrands = sharedNetworkManager.dataConfig.features.acceptanceBadge
         // The ui customization to the full screen scanner borer color and to show a blur
         self.tapScannerUICustomization = sharedNetworkManager.dataConfig.interface.tapScannerUICustomization
         // Indicates whether ot not the card scanner. Default is false
@@ -181,6 +184,8 @@ internal protocol ThreeDSViewControllerDelegatee {
         self.floatingSavedCard = true
         // Force LTR in card mode even in arabic language
         self.forceLTR = sharedNetworkManager.dataConfig.interface.direction == .LTR
+        // Indicates whether ot not the powered by tap. Default is true
+        self.showPoweredBy = sharedNetworkManager.dataConfig.interface.powered
         // Log session details
         logSessionConfigurations()
         // Init the card brands bar
@@ -436,7 +441,7 @@ internal protocol ThreeDSViewControllerDelegatee {
         tapCardTelecomPaymentViewModel.showScanner = showCardScanner
         tapCardTelecomPaymentViewModel.preloadCardHolderName = preloadCardHolderName
         tapCardTelecomPaymentViewModel.shouldThemeSelf = floatingSavedCard
-        tapCardTelecomPaymentViewModel.showPoweredByTapView = true
+        tapCardTelecomPaymentViewModel.showPoweredByTapView = showPoweredBy
         tapCardTelecomPaymentViewModel.shouldFlip = !forceLTR
         // Assign the delegates and the view models
         tapCardTelecomPaymentViewModel.delegate = self

@@ -25,6 +25,10 @@ class ConfigurationSharedManager {
     var merchant: TapCardCheckOutKit.Merchant = .init()
     /// Represents the model for the customer if any.
     var customer: TapCustomer = TapCustomer.defaultCustomer()
+    /// A  model that represents the reference to Tap order if needed
+    internal var order: Order? = nil
+    /// A model that decides the enablement of some of teh Tap provided features related to UI/UX
+    internal var features: Features = .init()
     /// A model that represents the details of the acceptance levels and payment methods. Like, payment methods, payment brands, types of allowed cards etc. Default is to accept all allowed payment methods activiated to your business from Tap integration team.
     var acceptance: Acceptance = .init()
     /// Defines which card fields you want to show/hide. Currently, only card name is controllable and default is true.

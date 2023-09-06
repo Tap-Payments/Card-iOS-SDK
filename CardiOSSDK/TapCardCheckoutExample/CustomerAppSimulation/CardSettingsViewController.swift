@@ -53,6 +53,16 @@ class CardSettingsViewController: FormViewController {
         })
         
        
+        form +++ Section("Order")
+        <<< TextRow("CardOrderID", { row in
+            row.title = "Tap order id"
+            row.placeholder = "Create order and pass its id if needed"
+            row.value = sharedConfigurationSharedManager.order?.identifier ?? ""
+            row.onChange { textRow in
+                sharedConfigurationSharedManager.order = Order(identifier: textRow.value ?? "")
+            }
+        })
+        
         form +++ Section("Transaction")
         <<< PickerInlineRow<String>(SettingsKeys.TransactionCurrency.rawValue, { row in
             row.title = "Currency"
@@ -96,6 +106,16 @@ class CardSettingsViewController: FormViewController {
                 self?.present(customerCreate, animated: true)
                 customerCreate.customerDelegate = self
                 
+            }
+        })
+        
+        form +++ Section("Features")
+        
+        <<< SwitchRow("AddonsdisplayPaymentBrands", { row in
+            row.title = "Display acceptance badge"
+            row.value =  sharedConfigurationSharedManager.features.acceptanceBadge
+            row.onChange { switchRow in
+                sharedConfigurationSharedManager.features.acceptanceBadge = switchRow.value ?? true
             }
         })
         
@@ -163,14 +183,6 @@ class CardSettingsViewController: FormViewController {
             }
         })
         
-        <<< SwitchRow("AddonsdisplayPaymentBrands", { row in
-            row.title = "Display payments brands"
-            row.value =  sharedConfigurationSharedManager.addons.displayPaymentBrands
-            row.onChange { switchRow in
-                sharedConfigurationSharedManager.addons.displayPaymentBrands = switchRow.value ?? true
-            }
-        })
-        
         <<< SwitchRow("AddonsdisplayCardScannings", { row in
             row.title = "Display card scanning"
             row.value =  sharedConfigurationSharedManager.addons.displayCardScanning
@@ -207,6 +219,14 @@ class CardSettingsViewController: FormViewController {
             row.value =  sharedConfigurationSharedManager.interface.edges.toString
             row.onChange { switchRow in
                 sharedConfigurationSharedManager.interface.edges =  CardEdges.allCases.first(where: { $0.toString == row.value }) ?? .Curved
+            }
+        })
+        
+        <<< SwitchRow("CardPowered", { row in
+            row.title = "Powered by tap"
+            row.value = sharedConfigurationSharedManager.interface.powered
+            row.onChange { switchRow in
+                sharedConfigurationSharedManager.interface.powered = switchRow.value ?? true
             }
         })
         

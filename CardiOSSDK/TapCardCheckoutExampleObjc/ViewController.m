@@ -25,6 +25,9 @@
     [_startButton setEnabled:NO];
     CheckoutSecretKey* publicKey = [[CheckoutSecretKey alloc]initWithSandbox:@"pk_test_YhUjg9PNT8oDlKJ1aE2fMRz7" production:@"sk_live_V4UDhitI0r7sFwHCfNB6xMKp"];
     Scope scope = ScopeTapToken;
+    CheckoutOrder* order = [[CheckoutOrder alloc]initWithIdentifier:@""];
+    Features* features = [[Features alloc]initWithAcceptanceBadge:YES];
+    
     Transaction* transaction = [[Transaction alloc]initWithAmount:1 currency:TapCurrencyCodeKWD];
     Merchant* merchant = [[Merchant alloc]initWithId:@"ID"];
     TapCustomer* customer = [[TapCustomer alloc]initWithEmailAddress:[[TapEmailAddress alloc] initWithEmailAddressString:@"tap@company.com"]
@@ -45,11 +48,10 @@
     
     Fields* fields = [[Fields alloc] initWithCardHolder:YES];
     Addons* addons = [[Addons alloc]initWithLoader:YES
-                              displayPaymentBrands:YES
                                displayCardScanning:YES];
-    Interface* interface = [[Interface alloc]initWithLocale:@"en" direction:CardDirectionDynamic edges:CardEdgesCurved tapScannerUICustomization:Nil];
+    Interface* interface = [[Interface alloc]initWithLocale:@"en" direction:CardDirectionDynamic edges:CardEdgesCurved tapScannerUICustomization:Nil powered:YES];
     
-    TapCardDataConfiguration* cardDataConfig = [[TapCardDataConfiguration alloc]initWithPublicKey:publicKey scope:scope transcation:transaction merchant:merchant customer:customer acceptance:acceptance fields:fields addons:addons interface:interface];
+    TapCardDataConfiguration* cardDataConfig = [[TapCardDataConfiguration alloc]initWithPublicKey:publicKey scope:scope transcation:transaction order:order merchant:merchant customer:customer features:features acceptance:acceptance fields:fields addons:addons interface:interface];
     
     
     [TapCardForumConfiguration.shared configureWithDataConfig:cardDataConfig onCardSdkReady:^{

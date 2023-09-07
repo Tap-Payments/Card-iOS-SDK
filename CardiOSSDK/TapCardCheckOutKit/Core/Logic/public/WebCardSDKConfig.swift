@@ -11,16 +11,16 @@ import CommonDataModelsKit_iOS
 
 
 
-class CardWebMerchant: Codable {
-    internal init(id: String) {
+@objc public class CardWebMerchant:NSObject, Codable {
+    @objc  init(id: String) {
         self.id = id
     }
     
     var id: String
 }
 
-class CardWebTransaction: Codable {
-    internal init(amount: Double = 1, currency: TapCurrencyCode = .SAR) {
+@objc public class CardWebTransaction:NSObject, Codable {
+    @objc  init(amount: Double = 1, currency: TapCurrencyCode = .SAR) {
         self.amount = amount
         self.currency = currency
     }
@@ -29,8 +29,8 @@ class CardWebTransaction: Codable {
     var currency:TapCurrencyCode = .SAR
 }
 
-class CardWebCustomer: Codable {
-    internal init(id: String, name: [CardWebCustomerName], nameOnCard: String, editable: Bool, contact: CardWebContact) {
+@objc public class CardWebCustomer:NSObject, Codable {
+    @objc  init(id: String, name: [CardWebCustomerName], nameOnCard: String, editable: Bool, contact: CardWebContact) {
         self.id = id
         self.name = name
         self.nameOnCard = nameOnCard
@@ -45,8 +45,8 @@ class CardWebCustomer: Codable {
     var contact: CardWebContact
 }
 
-class CardWebCustomerName: Codable {
-    internal init(lang: String, first: String, last: String, middle: String) {
+@objc public class CardWebCustomerName:NSObject, Codable {
+    @objc  init(lang: String, first: String, last: String, middle: String) {
         self.lang = lang
         self.first = first
         self.last = last
@@ -59,8 +59,8 @@ class CardWebCustomerName: Codable {
     var middle: String
 }
 
-class CardWebContact: Codable {
-    internal init(email: String, phone: CardWebPhone) {
+@objc public class CardWebContact:NSObject, Codable {
+    @objc  init(email: String, phone: CardWebPhone) {
         self.email = email
         self.phone = phone
     }
@@ -69,8 +69,8 @@ class CardWebContact: Codable {
     var phone: CardWebPhone
 }
 
-class CardWebPhone: Codable {
-    internal init(countryCode: String, number: String) {
+@objc public class CardWebPhone:NSObject, Codable {
+    @objc  init(countryCode: String, number: String) {
         self.countryCode = countryCode
         self.number = number
     }
@@ -79,18 +79,23 @@ class CardWebPhone: Codable {
     var number: String
 }
 
-class CardWebAcceptance: Codable {
-    internal init(supportedBrands: [CardBrand], supportedCards: [cardTypes]) {
+@objc public class CardWebAcceptance:NSObject, Codable {
+    init(supportedBrands: [CardBrand], supportedCards: [cardTypes]) {
         self.supportedBrands = supportedBrands
         self.supportedCards = supportedCards
+    }
+    
+    @objc init(supportedBrands: [Int], supportedCards:[Int]) {
+        self.supportedBrands = supportedBrands.map{ CardBrand(rawValue: $0) ?? .unknown }
+        self.supportedCards = supportedBrands.map{ cardTypes(rawValue: $0) ?? .All }
     }
     
     var supportedBrands: [CardBrand]
     var supportedCards: [cardTypes]
 }
 
-class CardWebInterface: Codable {
-    internal init(local: String, theme: String, edges: String, direction: String) {
+@objc public class CardWebInterface:NSObject, Codable {
+    @objc  init(local: String, theme: String, edges: String, direction: String) {
         self.local = local
         self.theme = theme
         self.edges = edges
@@ -103,16 +108,16 @@ class CardWebInterface: Codable {
     var direction: String
 }
 
-class CardWebFields: Codable {
-    internal init(cardHolder: Bool) {
+@objc public class CardWebFields:NSObject, Codable {
+    @objc init(cardHolder: Bool) {
         self.cardHolder = cardHolder
     }
     
     var cardHolder: Bool
 }
 
-class CardWebAddons: Codable {
-    internal init(displayPaymentBrands: Bool, loader: Bool, saveCard: Bool) {
+@objc public class CardWebAddons:NSObject, Codable {
+    @objc init(displayPaymentBrands: Bool, loader: Bool, saveCard: Bool) {
         self.displayPaymentBrands = displayPaymentBrands
         self.loader = loader
         self.saveCard = saveCard
@@ -124,7 +129,7 @@ class CardWebAddons: Codable {
 
 }
 
-class CardWebSDKConfig: Codable {
+@objc public class CardWebSDKConfig: NSObject, Codable {
   
     
     var publicKey: String
@@ -136,7 +141,7 @@ class CardWebSDKConfig: Codable {
     var addons: CardWebAddons
     var interface: CardWebInterface
     
-    internal init(publicKey: String, merchant: CardWebMerchant, transaction: CardWebTransaction, customer: CardWebCustomer, acceptance: CardWebAcceptance, fields: CardWebFields, addons: CardWebAddons, interface: CardWebInterface) {
+    @objc public init(publicKey: String, merchant: CardWebMerchant, transaction: CardWebTransaction, customer: CardWebCustomer, acceptance: CardWebAcceptance, fields: CardWebFields, addons: CardWebAddons, interface: CardWebInterface) {
         self.publicKey = publicKey
         self.merchant = merchant
         self.transaction = transaction

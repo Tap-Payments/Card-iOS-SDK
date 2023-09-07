@@ -7,6 +7,7 @@
 
 import UIKit
 import WebKit
+import TapCardCheckOutKit
 
 class CardWebSDKExample: UIViewController, WKNavigationDelegate {
     @IBOutlet weak var webView: WebCardView!
@@ -19,9 +20,9 @@ class CardWebSDKExample: UIViewController, WKNavigationDelegate {
         webView?.setDelegate(delegate: self)
 //        webView?.initWebCardSDK(config: config!)
         webView?.initWebCardSDK(configString: """
-{"publicKey":"pk_test_YhUjg9PNT8oDlKJ1aE2fMRz7","merchant":{"id":""},"transaction":{"amount":1,"currency":"SAR"},"customer":{"id":"","name":[{"lang":"en","first":"Ahmed","last":"Sharkawy","middle":"Mohamed"}],"nameOnCard":"Ahmed Sharkawy","editable":true,"contact":{"email":"ahmed@gmail.com","phone":{"countryCode":"20","number":"1000000000"}}},"acceptance":{"supportedBrands":["AMEX","VISA","MASTERCARD","MADA"],"supportedCards":["CREDIT","DEBIT"]},"fields":{"cardHolder":true},"addons":{"displayPaymentBrands":false,"loader":true,"saveCard":true},"interface":{"locale":"en","theme":"light","edges":"curved","direction":"ltr"}}
+{"publicKey":"pk_test_YhUjg9PNT8oDlKJ1aE2fMRz7","merchant":{"id":""},"transaction":{"amount":1,"currency":"SAR"},"customer":{"id":"","name":[{"lang":"en","first":"Ahmed","last":"Sharkawy","middle":"Mohamed"}],"nameOnCard":"Ahmed Sharkawy","editable":true,"contact":{"email":"ahmed@gmail.com","phone":{"countryCode":"20","number":"1000000000"}}},"acceptance":{"supportedBrands":["AMEX","VISA","MASTERCARD","MADA"],"supportedCards":["CREDIT","DEBIT"]},"fields":{"cardHolder":true},"addons":{"displayPaymentBrands":true,"loader":true,"saveCard":true},"interface":{"locale":"en","theme":"light","edges":"curved","direction":"ltr"}}
 """)
-        self.view.backgroundColor = .blue
+        //self.view.backgroundColor = .blue
     }
 
     

@@ -7,22 +7,23 @@
 
 import UIKit
 import WebKit
+import SnapKit
 
-protocol WebCardViewDelegate {
-    func onReady()
-    func onFocus()
-    func onBinIdentification(data: String)
-    func onValidInput(valid: Bool)
-    func onInvalidInput(invalid: Bool)
-    func onSuccess(data: String)
-    func onError(data: String)
-    func onHeightChange(height: Double)
+@objc public protocol WebCardViewDelegate {
+    @objc func onReady()
+    @objc func onFocus()
+    @objc func onBinIdentification(data: String)
+    @objc func onValidInput(valid: Bool)
+    @objc func onInvalidInput(invalid: Bool)
+    @objc func onSuccess(data: String)
+    @objc func onError(data: String)
+    @objc func onHeightChange(height: Double)
     
 }
-class WebCardView: UIView, WKNavigationDelegate {
+@objc public class WebCardView: UIView, WKNavigationDelegate {
     
-    var webView: WKWebView?
-    var delegate: WebCardViewDelegate?
+    internal var webView: WKWebView?
+    internal var delegate: WebCardViewDelegate?
     
     
     //MARK: - Init methods
@@ -79,7 +80,7 @@ class WebCardView: UIView, WKNavigationDelegate {
         initWebView( config.dictionary ?? [:])
     }
     
-    func setDelegate(delegate: WebCardViewDelegate) {
+    @objc public func setDelegate(delegate: WebCardViewDelegate) {
         self.delegate = delegate
     }
     
@@ -87,7 +88,7 @@ class WebCardView: UIView, WKNavigationDelegate {
         initWebView(configDict)
     }
     
-    func initWebCardSDK(configString: String) {
+    @objc public func initWebCardSDK(configString: String) {
         let urlEncodedJson = configString.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)
         let urlString = "https://demo.dev.tap.company/v2/sdk/checkout?type=card-iframe&configurations=\(urlEncodedJson!)"
         openUrl(url: URL(string: urlString)!)
@@ -126,7 +127,7 @@ class WebCardView: UIView, WKNavigationDelegate {
         return queryItems
     }
     
-    func generateTapToken() {
+    @objc public func generateTapToken() {
         webView?.evaluateJavaScript("window.generateTapToken()")
     }
     
@@ -138,7 +139,7 @@ class WebCardView: UIView, WKNavigationDelegate {
         }
     }
     
-    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+    public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         var action: WKNavigationActionPolicy?
         
         defer {
@@ -147,6 +148,10 @@ class WebCardView: UIView, WKNavigationDelegate {
         
         guard let url = navigationAction.request.url else { return }
         print("navigationAction", url.absoluteString)
+        
+        if url.absoluteString.hasPrefix("tapcardwebsdk") {
+            action = .cancel
+        }
         
         switch url.absoluteString {
         case _ where url.absoluteString.contains("onReady"):
@@ -173,9 +178,19 @@ class WebCardView: UIView, WKNavigationDelegate {
             break
             
         case _ where url.absoluteString.contains("onHeightChange"):
-            print(getQueryItems(url.absoluteString)["data"])
+
             let height = Double(getQueryItems(url.absoluteString)["data"] ?? "95")
-            delegate?.onHeightChange(height: height ?? 95)
+            //delegate?.onHeightChange(height: height ?? 95)
+            DispatchQueue.main.async {
+                self.snp.updateConstraints { make in
+                    make.height.equalTo(height ?? 95)
+                }
+                
+                self.layoutIfNeeded()
+                self.updateConstraints()
+                self.layoutSubviews()
+                self.webView?.layoutIfNeeded()
+            }
             break
         default:
             break

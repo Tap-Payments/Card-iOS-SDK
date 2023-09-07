@@ -2342,7 +2342,7 @@ extension TapCurrencyCode:Encodable {
     public func encode(to encoder: Encoder) throws {
         
         var container = encoder.singleValueContainer()
-        try container.encode(self.appleRawValue.lowercased())
+        try container.encode(self.appleRawValue.uppercased())
     }
     
 }

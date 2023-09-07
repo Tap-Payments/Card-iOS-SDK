@@ -12,7 +12,7 @@ import TapCardCheckOutKit
 import CommonDataModelsKit_iOS
 
 class CartViewController: UIViewController {
-
+    
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewLayout: CollectionViewSlantedLayout!
@@ -57,31 +57,25 @@ class CartViewController: UIViewController {
     // load merchant data
     func configureSDK() {
         // Override point for customization after application launch.
-        view.isUserInteractionEnabled = false
-        showProcessingNote(attributes: EntriesAttributes.customLoadingAttributes())
+        //        view.isUserInteractionEnabled = false
         
-        let cardDataConfig:TapCardDataConfiguration = .init(publicKey: sharedConfigurationSharedManager.publicKey, scope: sharedConfigurationSharedManager.scope, transcation: sharedConfigurationSharedManager.transcation, merchant: sharedConfigurationSharedManager.merchant, customer: sharedConfigurationSharedManager.customer, acceptance: sharedConfigurationSharedManager.acceptance, fields: sharedConfigurationSharedManager.fields, addons: sharedConfigurationSharedManager.addons, interface: sharedConfigurationSharedManager.interface)
+//        let viewContoller: CardWebSDKExample = CardWebSDKExample()
+        let config = CardWebSDKConfig(publicKey: sharedConfigurationSharedManager.publicKey.sandbox,
+                                      merchant: CardWebMerchant(id: sharedConfigurationSharedManager.merchant.id),
+                                      transaction: CardWebTransaction(amount: sharedConfigurationSharedManager.transcation.amount,
+                                                                      currency: sharedConfigurationSharedManager.transcation.currency),
+                                      customer: CardWebCustomer(id: sharedConfigurationSharedManager.customer.identifier ?? "",
+                                                                name: [
+                                                                    CardWebCustomerName(lang: sharedConfigurationSharedManager.customer.locale ?? "en", first: sharedConfigurationSharedManager.customer.firstName ?? "", last: sharedConfigurationSharedManager.customer.lastName ?? "", middle: sharedConfigurationSharedManager.customer.middleName ?? "")
+                                                                ], nameOnCard: sharedConfigurationSharedManager.customer.nameOnCard, editable: sharedConfigurationSharedManager.customer.editable, contact: CardWebContact(email: sharedConfigurationSharedManager.customer.emailAddress?.value ?? "" , phone: CardWebPhone(countryCode: sharedConfigurationSharedManager.customer.phoneNumber?.isdNumber ?? "", number: sharedConfigurationSharedManager.customer.phoneNumber?.phoneNumber ?? ""))), acceptance: CardWebAcceptance(supportedBrands: sharedConfigurationSharedManager.acceptance.supportedBrands, supportedCards: [sharedConfigurationSharedManager.acceptance.supportedFundSource]), fields: CardWebFields(cardHolder: sharedConfigurationSharedManager.fields.cardHolder), addons: CardWebAddons(displayPaymentBrands: sharedConfigurationSharedManager.addons.displayCardScanning, loader: sharedConfigurationSharedManager.addons.loader, saveCard: true), interface: CardWebInterface(local: sharedConfigurationSharedManager.interface.locale, theme: "light", edges: sharedConfigurationSharedManager.interface.edges.toString.lowercased(), direction: sharedConfigurationSharedManager.interface.direction.toString.lowercased()))
         
-        TapCardForumConfiguration.shared.configure(dataConfig: cardDataConfig) {
-            DispatchQueue.main.async { [weak self] in
-                SwiftEntryKit.dismiss()
-                self?.view.isUserInteractionEnabled = true
-                let viewContoller:TapCardViewController = self?.storyboard?.instantiateViewController(withIdentifier: "TapCardViewController") as! TapCardViewController
-                //viewContoller.savedCustomer = sharedConfigurationSharedManager.savedCustomer
-                self?.present(viewContoller, animated: false)
-            }
-        } onErrorOccured: { error in
-            DispatchQueue.main.async { [weak self] in
-                SwiftEntryKit.dismiss()
-                self?.view.isUserInteractionEnabled = true
-                let uiAlertController:UIAlertController = .init(title: "Error from middleware", message: error?.localizedDescription ?? "", preferredStyle: .actionSheet)
-                let uiAlertAction:UIAlertAction = .init(title: "Retry", style: .destructive) { _ in
-                    self?.configureSDK()
-                }
-                uiAlertController.addAction(uiAlertAction)
-                self?.present(uiAlertController, animated: true)
-            }
-        }
+        let viewContoller:CardWebSDKExample = self.storyboard?.instantiateViewController(withIdentifier: "CardWebSDKExample") as! CardWebSDKExample
+        viewContoller.setConfig(config: config)
+
+        //viewContoller.savedCustomer = sharedConfigurationSharedManager.savedCustomer
+        
+        self.present(viewContoller, animated: false)
+        
     }
     
     private func showProcessingNote(attributes: EKAttributes) {
@@ -154,17 +148,17 @@ class CartViewController: UIViewController {
     }
     
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 

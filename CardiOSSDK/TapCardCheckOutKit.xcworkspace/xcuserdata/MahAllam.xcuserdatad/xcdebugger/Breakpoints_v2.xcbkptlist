@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "65F43933-B7AA-469B-ACD6-2CB43C0CC6B5"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4DA2A8F2-5C9E-40FA-B0DE-7B63A9CE1D44"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TapCardCheckOutKit/Core/Logic/public/WebCardView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "webView(_:decidePolicyFor:decisionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4DA2A8F2-5C9E-40FA-B0DE-7B63A9CE1D44 - 8092b26b732f7dbc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TapCardCheckoutExample.WebCardView.webView(_: __C.WKWebView, decidePolicyFor: __C.WKNavigationAction, decisionHandler: (__C.WKNavigationActionPolicy) -&gt; ()) -&gt; ()"
+                  moduleName = "TapCardCheckoutExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MahAllam/ReactNative/tap/Card-iOS-SDK/CardiOSSDK/TapCardCheckOutKit/Core/Logic/public/WebCardView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "143"
+                  endingLineNumber = "143"
+                  offsetFromSymbolStart = "1269">
+               </Location>
+               <Location
+                  uuid = "4DA2A8F2-5C9E-40FA-B0DE-7B63A9CE1D44 - 97190e5c69d42650"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TapCardCheckOutKit.WebCardView.webView(_: __C.WKWebView, decidePolicyFor: __C.WKNavigationAction, decisionHandler: (__C.WKNavigationActionPolicy) -&gt; ()) -&gt; ()"
+                  moduleName = "TapCardCheckOutKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MahAllam/ReactNative/tap/Card-iOS-SDK/CardiOSSDK/TapCardCheckOutKit/Core/Logic/public/WebCardView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "143"
+                  endingLineNumber = "143"
+                  offsetFromSymbolStart = "1269">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F6D0D3DE-BBDC-4A7E-B6A3-78211363822D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TapCardCheckOutKit/Core/Logic/public/WebCardView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "webView(_:decidePolicyFor:decisionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F6D0D3DE-BBDC-4A7E-B6A3-78211363822D - 8092b26b732f7d1b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TapCardCheckoutExample.WebCardView.webView(_: __C.WKWebView, decidePolicyFor: __C.WKNavigationAction, decisionHandler: (__C.WKNavigationActionPolicy) -&gt; ()) -&gt; ()"
+                  moduleName = "TapCardCheckoutExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MahAllam/ReactNative/tap/Card-iOS-SDK/CardiOSSDK/TapCardCheckOutKit/Core/Logic/public/WebCardView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "146"
+                  endingLineNumber = "146"
+                  offsetFromSymbolStart = "1667">
+               </Location>
+               <Location
+                  uuid = "F6D0D3DE-BBDC-4A7E-B6A3-78211363822D - 97190e5c69d426f7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TapCardCheckOutKit.WebCardView.webView(_: __C.WKWebView, decidePolicyFor: __C.WKNavigationAction, decisionHandler: (__C.WKNavigationActionPolicy) -&gt; ()) -&gt; ()"
+                  moduleName = "TapCardCheckOutKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MahAllam/ReactNative/tap/Card-iOS-SDK/CardiOSSDK/TapCardCheckOutKit/Core/Logic/public/WebCardView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "146"
+                  endingLineNumber = "146"
+                  offsetFromSymbolStart = "1667">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FB5F4D06-B2CC-4722-B4FA-8B3B5CC611C0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TapCardCheckOutKit/Core/Logic/public/WebCardView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "webView(_:decidePolicyFor:decisionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FB5F4D06-B2CC-4722-B4FA-8B3B5CC611C0 - 8092b26b732f7af6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TapCardCheckoutExample.WebCardView.webView(_: __C.WKWebView, decidePolicyFor: __C.WKNavigationAction, decisionHandler: (__C.WKNavigationActionPolicy) -&gt; ()) -&gt; ()"
+                  moduleName = "TapCardCheckoutExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MahAllam/ReactNative/tap/Card-iOS-SDK/CardiOSSDK/TapCardCheckOutKit/Core/Logic/public/WebCardView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "149"
+                  endingLineNumber = "149"
+                  offsetFromSymbolStart = "2080">
+               </Location>
+               <Location
+                  uuid = "FB5F4D06-B2CC-4722-B4FA-8B3B5CC611C0 - 97190e5c69d4211a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TapCardCheckOutKit.WebCardView.webView(_: __C.WKWebView, decidePolicyFor: __C.WKNavigationAction, decisionHandler: (__C.WKNavigationActionPolicy) -&gt; ()) -&gt; ()"
+                  moduleName = "TapCardCheckOutKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MahAllam/ReactNative/tap/Card-iOS-SDK/CardiOSSDK/TapCardCheckOutKit/Core/Logic/public/WebCardView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "149"
+                  endingLineNumber = "149"
+                  offsetFromSymbolStart = "2080">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A9C9ACC7-B8E0-4AC8-8AF2-49F62724BD14"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TapCardCheckOutKit/Core/Logic/public/WebCardView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
+            landmarkName = "webView(_:decidePolicyFor:decisionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A9C9ACC7-B8E0-4AC8-8AF2-49F62724BD14 - 8092b26b732f7a55"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TapCardCheckoutExample.WebCardView.webView(_: __C.WKWebView, decidePolicyFor: __C.WKNavigationAction, decisionHandler: (__C.WKNavigationActionPolicy) -&gt; ()) -&gt; ()"
+                  moduleName = "TapCardCheckoutExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MahAllam/ReactNative/tap/Card-iOS-SDK/CardiOSSDK/TapCardCheckOutKit/Core/Logic/public/WebCardView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "152"
+                  endingLineNumber = "152"
+                  offsetFromSymbolStart = "2663">
+               </Location>
+               <Location
+                  uuid = "A9C9ACC7-B8E0-4AC8-8AF2-49F62724BD14 - 97190e5c69d421b9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TapCardCheckOutKit.WebCardView.webView(_: __C.WKWebView, decidePolicyFor: __C.WKNavigationAction, decisionHandler: (__C.WKNavigationActionPolicy) -&gt; ()) -&gt; ()"
+                  moduleName = "TapCardCheckOutKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MahAllam/ReactNative/tap/Card-iOS-SDK/CardiOSSDK/TapCardCheckOutKit/Core/Logic/public/WebCardView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "152"
+                  endingLineNumber = "152"
+                  offsetFromSymbolStart = "2663">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B55E80DD-A2BA-4F3E-9FB6-81B1E490032F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TapCardCheckOutKit/Core/Logic/public/WebCardView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
+            landmarkName = "webView(_:decidePolicyFor:decisionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B55E80DD-A2BA-4F3E-9FB6-81B1E490032F - 8092b26b732f7bac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TapCardCheckoutExample.WebCardView.webView(_: __C.WKWebView, decidePolicyFor: __C.WKNavigationAction, decisionHandler: (__C.WKNavigationActionPolicy) -&gt; ()) -&gt; ()"
+                  moduleName = "TapCardCheckoutExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MahAllam/ReactNative/tap/Card-iOS-SDK/CardiOSSDK/TapCardCheckOutKit/Core/Logic/public/WebCardView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159"
+                  offsetFromSymbolStart = "3550">
+               </Location>
+               <Location
+                  uuid = "B55E80DD-A2BA-4F3E-9FB6-81B1E490032F - 97190e5c69d42040"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TapCardCheckOutKit.WebCardView.webView(_: __C.WKWebView, decidePolicyFor: __C.WKNavigationAction, decisionHandler: (__C.WKNavigationActionPolicy) -&gt; ()) -&gt; ()"
+                  moduleName = "TapCardCheckOutKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MahAllam/ReactNative/tap/Card-iOS-SDK/CardiOSSDK/TapCardCheckOutKit/Core/Logic/public/WebCardView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159"
+                  offsetFromSymbolStart = "3550">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "43FFECF5-141D-4D7E-9E53-F578AA5EDB0D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TapCardCheckOutKit/Core/Logic/public/WebCardView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
+            landmarkName = "webView(_:decidePolicyFor:decisionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "43FFECF5-141D-4D7E-9E53-F578AA5EDB0D - 8092b26b732f7b28"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TapCardCheckoutExample.WebCardView.webView(_: __C.WKWebView, decidePolicyFor: __C.WKNavigationAction, decisionHandler: (__C.WKNavigationActionPolicy) -&gt; ()) -&gt; ()"
+                  moduleName = "TapCardCheckoutExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MahAllam/ReactNative/tap/Card-iOS-SDK/CardiOSSDK/TapCardCheckOutKit/Core/Logic/public/WebCardView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "163"
+                  endingLineNumber = "163"
+                  offsetFromSymbolStart = "4133">
+               </Location>
+               <Location
+                  uuid = "43FFECF5-141D-4D7E-9E53-F578AA5EDB0D - 97190e5c69d420c4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TapCardCheckOutKit.WebCardView.webView(_: __C.WKWebView, decidePolicyFor: __C.WKNavigationAction, decisionHandler: (__C.WKNavigationActionPolicy) -&gt; ()) -&gt; ()"
+                  moduleName = "TapCardCheckOutKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MahAllam/ReactNative/tap/Card-iOS-SDK/CardiOSSDK/TapCardCheckOutKit/Core/Logic/public/WebCardView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "163"
+                  endingLineNumber = "163"
+                  offsetFromSymbolStart = "4133">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "732F4FB8-048B-4EC6-8798-A2C96429C946"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TapCardCheckOutKit/Core/Logic/public/WebCardView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "webView(_:decidePolicyFor:decisionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "732F4FB8-048B-4EC6-8798-A2C96429C946 - 8092b26b732f7c21"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TapCardCheckoutExample.WebCardView.webView(_: __C.WKWebView, decidePolicyFor: __C.WKNavigationAction, decisionHandler: (__C.WKNavigationActionPolicy) -&gt; ()) -&gt; ()"
+                  moduleName = "TapCardCheckoutExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MahAllam/ReactNative/tap/Card-iOS-SDK/CardiOSSDK/TapCardCheckOutKit/Core/Logic/public/WebCardView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "140"
+                  endingLineNumber = "140"
+                  offsetFromSymbolStart = "998">
+               </Location>
+               <Location
+                  uuid = "732F4FB8-048B-4EC6-8798-A2C96429C946 - 97190e5c69d427cd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TapCardCheckOutKit.WebCardView.webView(_: __C.WKWebView, decidePolicyFor: __C.WKNavigationAction, decisionHandler: (__C.WKNavigationActionPolicy) -&gt; ()) -&gt; ()"
+                  moduleName = "TapCardCheckOutKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MahAllam/ReactNative/tap/Card-iOS-SDK/CardiOSSDK/TapCardCheckOutKit/Core/Logic/public/WebCardView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "140"
+                  endingLineNumber = "140"
+                  offsetFromSymbolStart = "998">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "64DCE939-9426-4F83-8DEF-C5F53693B9B5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TapCardCheckOutKit/Core/Logic/public/WebCardView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
+            landmarkName = "webView(_:decidePolicyFor:decisionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "64DCE939-9426-4F83-8DEF-C5F53693B9B5 - 8092b26b732f78a4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TapCardCheckoutExample.WebCardView.webView(_: __C.WKWebView, decidePolicyFor: __C.WKNavigationAction, decisionHandler: (__C.WKNavigationActionPolicy) -&gt; ()) -&gt; ()"
+                  moduleName = "TapCardCheckoutExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MahAllam/ReactNative/tap/Card-iOS-SDK/CardiOSSDK/TapCardCheckOutKit/Core/Logic/public/WebCardView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "167"
+                  endingLineNumber = "167"
+                  offsetFromSymbolStart = "4919">
+               </Location>
+               <Location
+                  uuid = "64DCE939-9426-4F83-8DEF-C5F53693B9B5 - 97190e5c69d42348"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TapCardCheckOutKit.WebCardView.webView(_: __C.WKWebView, decidePolicyFor: __C.WKNavigationAction, decisionHandler: (__C.WKNavigationActionPolicy) -&gt; ()) -&gt; ()"
+                  moduleName = "TapCardCheckOutKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MahAllam/ReactNative/tap/Card-iOS-SDK/CardiOSSDK/TapCardCheckOutKit/Core/Logic/public/WebCardView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "167"
+                  endingLineNumber = "167"
+                  offsetFromSymbolStart = "4919">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

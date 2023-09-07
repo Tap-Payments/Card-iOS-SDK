@@ -17,6 +17,10 @@
 
 // MARK: - Encodable
 extension cardTypes: Encodable {
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        try container.encode(self.description)
+    }
 }
 
 // MARK: - Decodable

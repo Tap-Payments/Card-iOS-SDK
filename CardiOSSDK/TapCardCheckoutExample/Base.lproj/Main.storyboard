@@ -48,7 +48,7 @@
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20 KWD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uza-vW-4CE">
-                                                            <rect key="frame" x="291" y="30" width="74" height="21"/>
+                                                            <rect key="frame" x="290" y="30" width="75" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -558,6 +558,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="07I-gE-MSA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2434.7826086956525" y="809.59821428571422"/>
+        </scene>
+        <!--Card WebSDK Example-->
+        <scene sceneID="ISF-rv-PjC">
+            <objects>
+                <viewController restorationIdentifier="CardWebSDKExample" storyboardIdentifier="CardWebSDKExample" id="Wc9-69-Lyo" customClass="CardWebSDKExample" customModule="TapCardCheckoutExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EAl-mR-uam">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bod-Wc-AmF" customClass="WebCardView" customModule="TapCardCheckoutExample" customModuleProvider="target">
+                                <rect key="frame" x="10" y="58" width="394" height="135"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="135" id="VbA-Me-H6o"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9S-bt-d4B">
+                                <rect key="frame" x="0.0" y="213" width="414" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="MN3-bJ-EKX"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="generateToken:" destination="Wc9-69-Lyo" eventType="touchUpInside" id="djI-ip-ppQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="BWH-QC-izc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="m9S-bt-d4B" firstAttribute="leading" secondItem="BWH-QC-izc" secondAttribute="leading" id="1aP-5a-E1y"/>
+                            <constraint firstItem="Bod-Wc-AmF" firstAttribute="leading" secondItem="BWH-QC-izc" secondAttribute="leading" constant="10" id="IBU-ux-wSb"/>
+                            <constraint firstItem="Bod-Wc-AmF" firstAttribute="top" secondItem="BWH-QC-izc" secondAttribute="top" constant="10" id="KTD-WE-d7d"/>
+                            <constraint firstItem="m9S-bt-d4B" firstAttribute="top" secondItem="Bod-Wc-AmF" secondAttribute="bottom" constant="20" id="UZG-Yn-wSf"/>
+                            <constraint firstItem="BWH-QC-izc" firstAttribute="trailing" secondItem="m9S-bt-d4B" secondAttribute="trailing" id="qvw-oE-yXN"/>
+                            <constraint firstItem="BWH-QC-izc" firstAttribute="trailing" secondItem="Bod-Wc-AmF" secondAttribute="trailing" constant="10" id="sM6-j2-0Sz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="button" destination="m9S-bt-d4B" id="Spb-n4-qwx"/>
+                        <outlet property="webView" destination="Bod-Wc-AmF" id="xWp-db-A8B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="acH-Qg-8yB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3358" y="810"/>
         </scene>
     </scenes>
     <resources>

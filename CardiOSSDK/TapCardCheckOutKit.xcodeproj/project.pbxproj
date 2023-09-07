@@ -10,6 +10,14 @@
 		3B1A474E67114984F29F43AB /* Pods_TapCardCheckoutExampleObjc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5945403C82C768649B6AE384 /* Pods_TapCardCheckoutExampleObjc.framework */; };
 		4630C9E98983B0A1A514926A /* Pods_TapCardCheckOutKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95BD0FD8D531C7E28085527C /* Pods_TapCardCheckOutKit.framework */; };
 		BBADB5ABAA6C652F7D3A3BCB /* Pods_TapCardCheckoutExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93326734CE10E55531CF012C /* Pods_TapCardCheckoutExample.framework */; };
+		D64588302AA8EE8100DF390B /* TapCurrencyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D645882F2AA8EE8100DF390B /* TapCurrencyCode.swift */; };
+		D64588312AA8EE8100DF390B /* TapCurrencyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D645882F2AA8EE8100DF390B /* TapCurrencyCode.swift */; };
+		D64588322AA8EE8100DF390B /* TapCurrencyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D645882F2AA8EE8100DF390B /* TapCurrencyCode.swift */; };
+		D64588332AA8EE8400DF390B /* WebCardSDKConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D645882D2AA8EB9900DF390B /* WebCardSDKConfig.swift */; };
+		D64588352AA8F62500DF390B /* CardWebSDKExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64588342AA8F62500DF390B /* CardWebSDKExample.swift */; };
+		D64E8DE22AA9C04A0077E433 /* WebCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64E8DE12AA9C04A0077E433 /* WebCardView.swift */; };
+		D64E8DE32AA9C2AC0077E433 /* WebCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64E8DE12AA9C04A0077E433 /* WebCardView.swift */; };
+		D64E8DE42AA9C3F80077E433 /* WebCardSDKConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D645882D2AA8EB9900DF390B /* WebCardSDKConfig.swift */; };
 		E83262E627E88B6E005F3AAF /* TapCardCheckOutKit.docc in Sources */ = {isa = PBXBuildFile; fileRef = E83262E527E88B6E005F3AAF /* TapCardCheckOutKit.docc */; };
 		E83262E727E88B6E005F3AAF /* TapCardCheckOutKit.h in Headers */ = {isa = PBXBuildFile; fileRef = E83262E427E88B6E005F3AAF /* TapCardCheckOutKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E83262F827E88C6F005F3AAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83262F727E88C6F005F3AAF /* AppDelegate.swift */; };
@@ -123,6 +131,10 @@
 		948F72CB1B0B868F900D896E /* Pods-TapCardCheckoutExampleObjc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TapCardCheckoutExampleObjc.release.xcconfig"; path = "Target Support Files/Pods-TapCardCheckoutExampleObjc/Pods-TapCardCheckoutExampleObjc.release.xcconfig"; sourceTree = "<group>"; };
 		95BD0FD8D531C7E28085527C /* Pods_TapCardCheckOutKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TapCardCheckOutKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2067D162FDFC067773A11B1 /* Pods-TapCardCheckoutExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TapCardCheckoutExample.release.xcconfig"; path = "Target Support Files/Pods-TapCardCheckoutExample/Pods-TapCardCheckoutExample.release.xcconfig"; sourceTree = "<group>"; };
+		D645882D2AA8EB9900DF390B /* WebCardSDKConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebCardSDKConfig.swift; sourceTree = "<group>"; };
+		D645882F2AA8EE8100DF390B /* TapCurrencyCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCurrencyCode.swift; sourceTree = "<group>"; };
+		D64588342AA8F62500DF390B /* CardWebSDKExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardWebSDKExample.swift; sourceTree = "<group>"; };
+		D64E8DE12AA9C04A0077E433 /* WebCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebCardView.swift; sourceTree = "<group>"; };
 		E83262E127E88B6E005F3AAF /* TapCardCheckOutKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TapCardCheckOutKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E83262E427E88B6E005F3AAF /* TapCardCheckOutKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TapCardCheckOutKit.h; sourceTree = "<group>"; };
 		E83262E527E88B6E005F3AAF /* TapCardCheckOutKit.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = TapCardCheckOutKit.docc; sourceTree = "<group>"; };
@@ -304,8 +316,11 @@
 			children = (
 				E858E293293737DA003234B4 /* TapCardView.swift */,
 				E832631127E89435005F3AAF /* TapCardInputView.swift */,
+				D645882F2AA8EE8100DF390B /* TapCurrencyCode.swift */,
+				D645882D2AA8EB9900DF390B /* WebCardSDKConfig.swift */,
 				E832644E27EA20F3005F3AAF /* TapCardForumConfiguration.swift */,
 				E86217BF28F0102D00EAAFA6 /* TapCardKit.swift */,
+				D64E8DE12AA9C04A0077E433 /* WebCardView.swift */,
 			);
 			path = public;
 			sourceTree = "<group>";
@@ -324,6 +339,7 @@
 				E832630527E88C71005F3AAF /* Info.plist */,
 				E874F805288586C50067DB3E /* ConfigurationSharedManager.swift */,
 				E8DAF46D2A75095F00BD6FE7 /* DirectViewController.swift */,
+				D64588342AA8F62500DF390B /* CardWebSDKExample.swift */,
 			);
 			path = TapCardCheckoutExample;
 			sourceTree = "<group>";
@@ -529,6 +545,7 @@
 					};
 					E8A5AF7028BCC15800620427 = {
 						CreatedOnToolsVersion = 13.4.1;
+						LastSwiftMigration = 1420;
 					};
 				};
 			};
@@ -703,6 +720,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E832640627E9DB05005F3AAF /* NetworkManager.swift in Sources */,
+				D64E8DE42AA9C3F80077E433 /* WebCardSDKConfig.swift in Sources */,
+				D64E8DE22AA9C04A0077E433 /* WebCardView.swift in Sources */,
 				E83262E627E88B6E005F3AAF /* TapCardCheckOutKit.docc in Sources */,
 				E86217C028F0102D00EAAFA6 /* TapCardKit.swift in Sources */,
 				E832640827E9DBE0005F3AAF /* NetworkManagerExtension.swift in Sources */,
@@ -710,6 +729,7 @@
 				E832643F27E9EBBC005F3AAF /* TapCardDataConfiguration.swift in Sources */,
 				E8D0CAE7293B1B1C003B9BD8 /* ThreeDSConfiguration.swift in Sources */,
 				E892848529CAF85C007CE43E /* UIViewEffectViewiOS14.swift in Sources */,
+				D64588302AA8EE8100DF390B /* TapCurrencyCode.swift in Sources */,
 				E89B997B2893AD2300B03726 /* TapCheckout+WebPaymentHandler.swift in Sources */,
 				E89B99772892818600B03726 /* TapCallsResponseGenerator.swift in Sources */,
 				E832644927EA0EE8005F3AAF /* TapCardForumLocalisation.swift in Sources */,
@@ -736,12 +756,16 @@
 				E8ABA68F28EEA724000A9F73 /* TapCardViewController.swift in Sources */,
 				E85090B82939C426007048A8 /* SimpleParallax.swift in Sources */,
 				E85090D6293A1718007048A8 /* EKColors+Additions.swift in Sources */,
+				D64588352AA8F62500DF390B /* CardWebSDKExample.swift in Sources */,
 				E85090EC293A4993007048A8 /* CardSettingsViewController.swift in Sources */,
 				E85090D8293A1A28007048A8 /* EKAttributes+Additions.swift in Sources */,
 				E85090DD293A23EF007048A8 /* CustomCollectionCell.swift in Sources */,
 				E89B998128940B0900B03726 /* CreateCustomerViewController.swift in Sources */,
 				E83262FA27E88C6F005F3AAF /* SceneDelegate.swift in Sources */,
+				D64588312AA8EE8100DF390B /* TapCurrencyCode.swift in Sources */,
 				E8DAF46E2A75095F00BD6FE7 /* DirectViewController.swift in Sources */,
+				D64588332AA8EE8400DF390B /* WebCardSDKConfig.swift in Sources */,
+				D64E8DE32AA9C2AC0077E433 /* WebCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -750,6 +774,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8A5AF7B28BCC15900620427 /* ViewController.m in Sources */,
+				D64588322AA8EE8100DF390B /* TapCurrencyCode.swift in Sources */,
 				E8A5AF7528BCC15900620427 /* AppDelegate.m in Sources */,
 				E8A5AF8628BCC15B00620427 /* main.m in Sources */,
 				E8A5AF9128BCC67D00620427 /* CardInputDemoViewController.m in Sources */,
@@ -1069,6 +1094,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = G46S76PUH4;
@@ -1088,6 +1114,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = tap.company.TapCardCheckoutExampleObjc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1099,6 +1127,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = G46S76PUH4;
@@ -1118,6 +1147,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = tap.company.TapCardCheckoutExampleObjc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

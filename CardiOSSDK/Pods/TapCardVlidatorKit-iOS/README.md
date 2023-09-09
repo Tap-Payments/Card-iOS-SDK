@@ -1,2 +1,0 @@
-# TapCardVlidatorKit-iOS
-TapCardVlidatorKit-iOS

@@ -1,2 +1,0 @@
-# LocalisationManagerKit-iOS
-Localisation Manager

@@ -1,65 +1,24 @@
 PODS:
-  - CollectionViewSlantedLayout (3.1.1)
-  - CommonDataModelsKit-iOS (1.0.143):
-    - SwiftyRSA
-    - TapAdditionsKitV2
-    - TapCardVlidatorKit-iOS
-    - TapKeychainV2
-  - LocalisationManagerKit-iOS (1.0.5)
+  - lottie-ios (4.2.0)
   - SnapKit (5.6.0)
   - SwiftEntryKit (2.0.0)
-  - SwiftyGif (5.4.4)
-  - SwiftyRSA (1.7.0):
-    - SwiftyRSA/ObjC (= 1.7.0)
-  - SwiftyRSA/ObjC (1.7.0)
-  - TapAdditionsKitV2 (0.0.17):
-    - TapSwiftFixesV2
-  - TapCardVlidatorKit-iOS (1.0.21)
-  - TapKeychainV2 (1.0.2)
-  - TapSwiftFixesV2 (1.0.3):
-    - TapSwiftFixesV2/CoreGraphics (= 1.0.3)
-    - TapSwiftFixesV2/Exceptions (= 1.0.3)
-    - TapSwiftFixesV2/Threading (= 1.0.3)
-  - TapSwiftFixesV2/CoreGraphics (1.0.3)
-  - TapSwiftFixesV2/Exceptions (1.0.3)
-  - TapSwiftFixesV2/Threading (1.0.3)
 
 DEPENDENCIES:
-  - CollectionViewSlantedLayout
-  - CommonDataModelsKit-iOS
-  - LocalisationManagerKit-iOS
+  - lottie-ios
   - SnapKit
   - SwiftEntryKit
-  - SwiftyGif
-  - TapCardVlidatorKit-iOS
 
 SPEC REPOS:
   trunk:
-    - CollectionViewSlantedLayout
-    - CommonDataModelsKit-iOS
-    - LocalisationManagerKit-iOS
+    - lottie-ios
     - SnapKit
     - SwiftEntryKit
-    - SwiftyGif
-    - SwiftyRSA
-    - TapAdditionsKitV2
-    - TapCardVlidatorKit-iOS
-    - TapKeychainV2
-    - TapSwiftFixesV2
 
 SPEC CHECKSUMS:
-  CollectionViewSlantedLayout: 24397455acd2461960bc45d394e0ef99c17d03ce
-  CommonDataModelsKit-iOS: 62a6a4120b9a59cc4e76cb949f3070c4aad4012c
-  LocalisationManagerKit-iOS: 4c140a36e66d34af69424a311659df3bd6cc793a
+  lottie-ios: 809ecf2d460ed650a6aed7aa88b2ec45fab4779c
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SwiftEntryKit: 61b5fa36f34a97dd8013e48a7345bc4c4720be9a
-  SwiftyGif: 93a1cc87bf3a51916001cf8f3d63835fb64c819f
-  SwiftyRSA: 8c6dd1ea7db1b8dc4fb517a202f88bb1354bc2c6
-  TapAdditionsKitV2: 0bb217062d4df1db86b339e7693283b293b0ccff
-  TapCardVlidatorKit-iOS: c7be3b2831dd7f327ae8c4df328eb625653b4232
-  TapKeychainV2: aaa08a208f3e7aea042e2caf1b6b5abb39baecdc
-  TapSwiftFixesV2: ea726f752b6259d9e44624039fd6bad94b2a8633
 
-PODFILE CHECKSUM: a051a75880a6b2c1198f0e1cac19d901e0ae6469
+PODFILE CHECKSUM: b947f41a4a534a4d5bb794530b1b9d1a2acc1903
 
 COCOAPODS: 1.12.1

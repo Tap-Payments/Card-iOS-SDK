@@ -111,9 +111,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "533"
-            endingLineNumber = "533"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            endingLineNumber = "533">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -127,9 +125,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "478"
-            endingLineNumber = "478"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            endingLineNumber = "478">
             <Locations>
                <Location
                   uuid = "78549874-DBFA-41B3-8CAE-A431632BF30E - 6d3eda2ab2684b1f"

@@ -1,6 +1,0 @@
-framework module CollectionViewSlantedLayout {
-  umbrella header "CollectionViewSlantedLayout-umbrella.h"
-
-  export *
-  module * { export * }
-}

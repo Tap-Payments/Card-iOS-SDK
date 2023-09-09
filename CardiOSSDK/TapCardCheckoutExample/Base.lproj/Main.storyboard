@@ -9,15 +9,15 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Card WebSDK Example-->
+        <!--Tap CardSDK Example-->
         <scene sceneID="ISF-rv-PjC">
             <objects>
-                <viewController storyboardIdentifier="CardWebSDKExample" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Wc9-69-Lyo" customClass="CardWebSDKExample" customModule="TapCardCheckoutExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CardWebSDKExample" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Wc9-69-Lyo" customClass="TapCardSDKExample" customModule="TapCardCheckoutExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EAl-mR-uam">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bod-Wc-AmF" customClass="WebCardView" customModule="TapCardCheckOutKit">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bod-Wc-AmF" customClass="TapCardView" customModule="TapCardCheckOutKit">
                                 <rect key="frame" x="10" y="58" width="394" height="95"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -25,39 +25,78 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9S-bt-d4B">
-                                <rect key="frame" x="0.0" y="173" width="414" height="50"/>
+                                <rect key="frame" x="135" y="173" width="144" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="MN3-bJ-EKX"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Generate Token"/>
                                 <connections>
                                     <action selector="generateToken:" destination="Wc9-69-Lyo" eventType="touchUpInside" id="djI-ip-ppQ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frV-NJ-spG">
+                                <rect key="frame" x="170" y="231" width="74.5" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Config"/>
+                                <connections>
+                                    <action selector="configClicked:" destination="Wc9-69-Lyo" eventType="touchUpInside" id="wAH-IU-utK"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brp-Wm-6UT">
+                                <rect key="frame" x="20" y="274" width="374" height="588"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BWH-QC-izc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="m9S-bt-d4B" firstAttribute="leading" secondItem="BWH-QC-izc" secondAttribute="leading" id="1aP-5a-E1y"/>
+                            <constraint firstItem="brp-Wm-6UT" firstAttribute="leading" secondItem="BWH-QC-izc" secondAttribute="leading" constant="20" id="FZs-u4-BP4"/>
+                            <constraint firstItem="frV-NJ-spG" firstAttribute="centerX" secondItem="EAl-mR-uam" secondAttribute="centerX" id="GUb-2h-o9a"/>
                             <constraint firstItem="Bod-Wc-AmF" firstAttribute="leading" secondItem="BWH-QC-izc" secondAttribute="leading" constant="10" id="IBU-ux-wSb"/>
                             <constraint firstItem="Bod-Wc-AmF" firstAttribute="top" secondItem="BWH-QC-izc" secondAttribute="top" constant="10" id="KTD-WE-d7d"/>
                             <constraint firstItem="m9S-bt-d4B" firstAttribute="top" secondItem="Bod-Wc-AmF" secondAttribute="bottom" constant="20" id="UZG-Yn-wSf"/>
-                            <constraint firstItem="BWH-QC-izc" firstAttribute="trailing" secondItem="m9S-bt-d4B" secondAttribute="trailing" id="qvw-oE-yXN"/>
+                            <constraint firstItem="brp-Wm-6UT" firstAttribute="bottom" secondItem="BWH-QC-izc" secondAttribute="bottom" id="dsr-xZ-nkY"/>
+                            <constraint firstItem="frV-NJ-spG" firstAttribute="top" secondItem="m9S-bt-d4B" secondAttribute="bottom" constant="8" symbolic="YES" id="ecE-T8-ZuP"/>
+                            <constraint firstItem="BWH-QC-izc" firstAttribute="trailing" secondItem="brp-Wm-6UT" secondAttribute="trailing" constant="20" id="rgY-UY-dib"/>
                             <constraint firstItem="BWH-QC-izc" firstAttribute="trailing" secondItem="Bod-Wc-AmF" secondAttribute="trailing" constant="10" id="sM6-j2-0Sz"/>
+                            <constraint firstItem="m9S-bt-d4B" firstAttribute="centerX" secondItem="EAl-mR-uam" secondAttribute="centerX" id="uvp-dv-Hdq"/>
+                            <constraint firstItem="brp-Wm-6UT" firstAttribute="top" secondItem="frV-NJ-spG" secondAttribute="bottom" constant="8" symbolic="YES" id="zAB-IN-SwA"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="button" destination="m9S-bt-d4B" id="Spb-n4-qwx"/>
-                        <outlet property="webView" destination="Bod-Wc-AmF" id="xWp-db-A8B"/>
+                        <outlet property="eventsTextView" destination="brp-Wm-6UT" id="mZv-WZ-I6z"/>
+                        <outlet property="tapCardView" destination="Bod-Wc-AmF" id="xWp-db-A8B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="acH-Qg-8yB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3862" y="810"/>
+            <point key="canvasLocation" x="3860.8695652173915" y="809.59821428571422"/>
+        </scene>
+        <!--Card Settings View Controller-->
+        <scene sceneID="hvI-BD-qAz">
+            <objects>
+                <viewController storyboardIdentifier="CardSettingsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="b6S-yA-IJE" customClass="CardSettingsViewController" customModule="TapCardCheckoutExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1DD-2C-pTX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ifE-1V-myt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pw7-1s-aF6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4837" y="832"/>
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

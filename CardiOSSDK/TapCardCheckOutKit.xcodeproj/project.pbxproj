@@ -10,13 +10,9 @@
 		3B1A474E67114984F29F43AB /* Pods_TapCardCheckoutExampleObjc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5945403C82C768649B6AE384 /* Pods_TapCardCheckoutExampleObjc.framework */; };
 		4630C9E98983B0A1A514926A /* Pods_TapCardCheckOutKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95BD0FD8D531C7E28085527C /* Pods_TapCardCheckOutKit.framework */; };
 		BBADB5ABAA6C652F7D3A3BCB /* Pods_TapCardCheckoutExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93326734CE10E55531CF012C /* Pods_TapCardCheckoutExample.framework */; };
-		D64588302AA8EE8100DF390B /* TapCurrencyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D645882F2AA8EE8100DF390B /* TapCurrencyCode.swift */; };
-		D64588312AA8EE8100DF390B /* TapCurrencyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D645882F2AA8EE8100DF390B /* TapCurrencyCode.swift */; };
-		D64588322AA8EE8100DF390B /* TapCurrencyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D645882F2AA8EE8100DF390B /* TapCurrencyCode.swift */; };
-		D64588332AA8EE8400DF390B /* WebCardSDKConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D645882D2AA8EB9900DF390B /* WebCardSDKConfig.swift */; };
-		D64588352AA8F62500DF390B /* CardWebSDKExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64588342AA8F62500DF390B /* CardWebSDKExample.swift */; };
-		D64E8DE22AA9C04A0077E433 /* WebCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64E8DE12AA9C04A0077E433 /* WebCardView.swift */; };
-		D64E8DE42AA9C3F80077E433 /* WebCardSDKConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D645882D2AA8EB9900DF390B /* WebCardSDKConfig.swift */; };
+		D64588352AA8F62500DF390B /* TapCardSDKExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64588342AA8F62500DF390B /* TapCardSDKExample.swift */; };
+		D64E8DE22AA9C04A0077E433 /* TapCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64E8DE12AA9C04A0077E433 /* TapCardView.swift */; };
+		D64E8DE42AA9C3F80077E433 /* TapCardSDKConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D645882D2AA8EB9900DF390B /* TapCardSDKConfig.swift */; };
 		E83262E627E88B6E005F3AAF /* TapCardCheckOutKit.docc in Sources */ = {isa = PBXBuildFile; fileRef = E83262E527E88B6E005F3AAF /* TapCardCheckOutKit.docc */; };
 		E83262E727E88B6E005F3AAF /* TapCardCheckOutKit.h in Headers */ = {isa = PBXBuildFile; fileRef = E83262E427E88B6E005F3AAF /* TapCardCheckOutKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E83262F827E88C6F005F3AAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83262F727E88C6F005F3AAF /* AppDelegate.swift */; };
@@ -26,13 +22,13 @@
 		E832630427E88C71005F3AAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E832630227E88C71005F3AAF /* LaunchScreen.storyboard */; };
 		E832630A27E88C91005F3AAF /* TapCardCheckOutKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E83262E127E88B6E005F3AAF /* TapCardCheckOutKit.framework */; platformFilter = ios; };
 		E832630B27E88C91005F3AAF /* TapCardCheckOutKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E83262E127E88B6E005F3AAF /* TapCardCheckOutKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E832631227E89435005F3AAF /* TapCardInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832631127E89435005F3AAF /* TapCardInputView.swift */; };
-		E832644F27EA20F3005F3AAF /* TapCardForumConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832644E27EA20F3005F3AAF /* TapCardForumConfiguration.swift */; };
 		E8503AA72896512200D1B8B0 /* CardKitGoogle.plist in Resources */ = {isa = PBXBuildFile; fileRef = E8503AA62896512200D1B8B0 /* CardKitGoogle.plist */; };
 		E85090D4293A14BD007048A8 /* tap_logo.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E85090D3293A14BC007048A8 /* tap_logo.pdf */; };
 		E85090EF293A4B02007048A8 /* Eureka in Frameworks */ = {isa = PBXBuildFile; productRef = E85090EE293A4B02007048A8 /* Eureka */; };
-		E858E294293737DA003234B4 /* TapCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858E293293737DA003234B4 /* TapCardView.swift */; };
-		E86217C028F0102D00EAAFA6 /* TapCardKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86217BF28F0102D00EAAFA6 /* TapCardKit.swift */; };
+		E85552D92AAA352700362174 /* Light_Mode_Button_Loader.json in Resources */ = {isa = PBXBuildFile; fileRef = E85552D72AAA352700362174 /* Light_Mode_Button_Loader.json */; };
+		E85552DA2AAA352700362174 /* Dark_Mode_Button_Loader.json in Resources */ = {isa = PBXBuildFile; fileRef = E85552D82AAA352700362174 /* Dark_Mode_Button_Loader.json */; };
+		E85552DC2AAA38F800362174 /* CardSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85552DB2AAA38F800362174 /* CardSettingsViewController.swift */; };
+		E85552DF2AAB362700362174 /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85552DE2AAB362700362174 /* utils.swift */; };
 		E8A5AF7528BCC15900620427 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A5AF7428BCC15900620427 /* AppDelegate.m */; };
 		E8A5AF7828BCC15900620427 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A5AF7728BCC15900620427 /* SceneDelegate.m */; };
 		E8A5AF7B28BCC15900620427 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A5AF7A28BCC15900620427 /* ViewController.m */; };
@@ -97,10 +93,9 @@
 		948F72CB1B0B868F900D896E /* Pods-TapCardCheckoutExampleObjc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TapCardCheckoutExampleObjc.release.xcconfig"; path = "Target Support Files/Pods-TapCardCheckoutExampleObjc/Pods-TapCardCheckoutExampleObjc.release.xcconfig"; sourceTree = "<group>"; };
 		95BD0FD8D531C7E28085527C /* Pods_TapCardCheckOutKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TapCardCheckOutKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2067D162FDFC067773A11B1 /* Pods-TapCardCheckoutExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TapCardCheckoutExample.release.xcconfig"; path = "Target Support Files/Pods-TapCardCheckoutExample/Pods-TapCardCheckoutExample.release.xcconfig"; sourceTree = "<group>"; };
-		D645882D2AA8EB9900DF390B /* WebCardSDKConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebCardSDKConfig.swift; sourceTree = "<group>"; };
-		D645882F2AA8EE8100DF390B /* TapCurrencyCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCurrencyCode.swift; sourceTree = "<group>"; };
-		D64588342AA8F62500DF390B /* CardWebSDKExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardWebSDKExample.swift; sourceTree = "<group>"; };
-		D64E8DE12AA9C04A0077E433 /* WebCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebCardView.swift; sourceTree = "<group>"; };
+		D645882D2AA8EB9900DF390B /* TapCardSDKConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCardSDKConfig.swift; sourceTree = "<group>"; };
+		D64588342AA8F62500DF390B /* TapCardSDKExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCardSDKExample.swift; sourceTree = "<group>"; };
+		D64E8DE12AA9C04A0077E433 /* TapCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCardView.swift; sourceTree = "<group>"; };
 		E83262E127E88B6E005F3AAF /* TapCardCheckOutKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TapCardCheckOutKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E83262E427E88B6E005F3AAF /* TapCardCheckOutKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TapCardCheckOutKit.h; sourceTree = "<group>"; };
 		E83262E527E88B6E005F3AAF /* TapCardCheckOutKit.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = TapCardCheckOutKit.docc; sourceTree = "<group>"; };
@@ -111,12 +106,12 @@
 		E832630027E88C71005F3AAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E832630327E88C71005F3AAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E832630527E88C71005F3AAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E832631127E89435005F3AAF /* TapCardInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCardInputView.swift; sourceTree = "<group>"; };
-		E832644E27EA20F3005F3AAF /* TapCardForumConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCardForumConfiguration.swift; sourceTree = "<group>"; };
 		E8503AA62896512200D1B8B0 /* CardKitGoogle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CardKitGoogle.plist; sourceTree = "<group>"; };
 		E85090D3293A14BC007048A8 /* tap_logo.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = tap_logo.pdf; sourceTree = "<group>"; };
-		E858E293293737DA003234B4 /* TapCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCardView.swift; sourceTree = "<group>"; };
-		E86217BF28F0102D00EAAFA6 /* TapCardKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapCardKit.swift; sourceTree = "<group>"; };
+		E85552D72AAA352700362174 /* Light_Mode_Button_Loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Light_Mode_Button_Loader.json; sourceTree = "<group>"; };
+		E85552D82AAA352700362174 /* Dark_Mode_Button_Loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Dark_Mode_Button_Loader.json; sourceTree = "<group>"; };
+		E85552DB2AAA38F800362174 /* CardSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSettingsViewController.swift; sourceTree = "<group>"; };
+		E85552DE2AAB362700362174 /* utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
 		E8A5AF7128BCC15800620427 /* TapCardCheckoutExampleObjc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TapCardCheckoutExampleObjc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8A5AF7328BCC15900620427 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E8A5AF7428BCC15900620427 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -221,6 +216,8 @@
 		E83262EE27E88BE7005F3AAF /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				E85552D82AAA352700362174 /* Dark_Mode_Button_Loader.json */,
+				E85552D72AAA352700362174 /* Light_Mode_Button_Loader.json */,
 				E8503AA62896512200D1B8B0 /* CardKitGoogle.plist */,
 			);
 			path = Assets;
@@ -229,13 +226,8 @@
 		E83262F027E88BF2005F3AAF /* public */ = {
 			isa = PBXGroup;
 			children = (
-				E858E293293737DA003234B4 /* TapCardView.swift */,
-				E832631127E89435005F3AAF /* TapCardInputView.swift */,
-				D645882F2AA8EE8100DF390B /* TapCurrencyCode.swift */,
-				E832644E27EA20F3005F3AAF /* TapCardForumConfiguration.swift */,
-				E86217BF28F0102D00EAAFA6 /* TapCardKit.swift */,
-				D645882D2AA8EB9900DF390B /* WebCardSDKConfig.swift */,
-				D64E8DE12AA9C04A0077E433 /* WebCardView.swift */,
+				D645882D2AA8EB9900DF390B /* TapCardSDKConfig.swift */,
+				D64E8DE12AA9C04A0077E433 /* TapCardView.swift */,
 			);
 			path = public;
 			sourceTree = "<group>";
@@ -250,7 +242,8 @@
 				E85090D3293A14BC007048A8 /* tap_logo.pdf */,
 				E832630227E88C71005F3AAF /* LaunchScreen.storyboard */,
 				E832630527E88C71005F3AAF /* Info.plist */,
-				D64588342AA8F62500DF390B /* CardWebSDKExample.swift */,
+				D64588342AA8F62500DF390B /* TapCardSDKExample.swift */,
+				E85552DB2AAA38F800362174 /* CardSettingsViewController.swift */,
 			);
 			path = TapCardCheckoutExample;
 			sourceTree = "<group>";
@@ -263,6 +256,14 @@
 				5945403C82C768649B6AE384 /* Pods_TapCardCheckoutExampleObjc.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E85552DD2AAB361D00362174 /* private */ = {
+			isa = PBXGroup;
+			children = (
+				E85552DE2AAB362700362174 /* utils.swift */,
+			);
+			path = private;
 			sourceTree = "<group>";
 		};
 		E8A5AF7228BCC15900620427 /* TapCardCheckoutExampleObjc */ = {
@@ -288,6 +289,7 @@
 		E8ED36EA27EAFC900050589E /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				E85552DD2AAB361D00362174 /* private */,
 				E83262F027E88BF2005F3AAF /* public */,
 			);
 			path = Logic;
@@ -322,6 +324,8 @@
 			dependencies = (
 			);
 			name = TapCardCheckOutKit;
+			packageProductDependencies = (
+			);
 			productName = TapCardCheckOutKit;
 			productReference = E83262E127E88B6E005F3AAF /* TapCardCheckOutKit.framework */;
 			productType = "com.apple.product-type.framework";
@@ -421,7 +425,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E85552DA2AAA352700362174 /* Dark_Mode_Button_Loader.json in Resources */,
 				E8503AA72896512200D1B8B0 /* CardKitGoogle.plist in Resources */,
+				E85552D92AAA352700362174 /* Light_Mode_Button_Loader.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,14 +562,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D64E8DE42AA9C3F80077E433 /* WebCardSDKConfig.swift in Sources */,
-				D64E8DE22AA9C04A0077E433 /* WebCardView.swift in Sources */,
+				D64E8DE42AA9C3F80077E433 /* TapCardSDKConfig.swift in Sources */,
+				D64E8DE22AA9C04A0077E433 /* TapCardView.swift in Sources */,
 				E83262E627E88B6E005F3AAF /* TapCardCheckOutKit.docc in Sources */,
-				E86217C028F0102D00EAAFA6 /* TapCardKit.swift in Sources */,
-				D64588302AA8EE8100DF390B /* TapCurrencyCode.swift in Sources */,
-				E858E294293737DA003234B4 /* TapCardView.swift in Sources */,
-				E832644F27EA20F3005F3AAF /* TapCardForumConfiguration.swift in Sources */,
-				E832631227E89435005F3AAF /* TapCardInputView.swift in Sources */,
+				E85552DF2AAB362700362174 /* utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,10 +574,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E83262F827E88C6F005F3AAF /* AppDelegate.swift in Sources */,
-				D64588352AA8F62500DF390B /* CardWebSDKExample.swift in Sources */,
+				E85552DC2AAA38F800362174 /* CardSettingsViewController.swift in Sources */,
+				D64588352AA8F62500DF390B /* TapCardSDKExample.swift in Sources */,
 				E83262FA27E88C6F005F3AAF /* SceneDelegate.swift in Sources */,
-				D64588312AA8EE8100DF390B /* TapCurrencyCode.swift in Sources */,
-				D64588332AA8EE8400DF390B /* WebCardSDKConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,7 +585,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8A5AF7B28BCC15900620427 /* ViewController.m in Sources */,
-				D64588322AA8EE8100DF390B /* TapCurrencyCode.swift in Sources */,
 				E8A5AF7528BCC15900620427 /* AppDelegate.m in Sources */,
 				E8A5AF8628BCC15B00620427 /* main.m in Sources */,
 				E8A5AF9128BCC67D00620427 /* CardInputDemoViewController.m in Sources */,

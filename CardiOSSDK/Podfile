@@ -29,5 +29,6 @@ target 'TapCardCheckOutKit' do
   pod 'SwiftEntryKit'
   pod 'SnapKit'
   pod 'lottie-ios'
+  pod 'SharedDataModels-iOS'
   # pod 'TapCardVlidatorKit-iOS'
 end

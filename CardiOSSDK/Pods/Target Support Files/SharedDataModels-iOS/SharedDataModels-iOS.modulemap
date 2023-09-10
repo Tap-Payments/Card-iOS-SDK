@@ -1,0 +1,6 @@
+framework module SharedDataModels_iOS {
+  umbrella header "SharedDataModels-iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

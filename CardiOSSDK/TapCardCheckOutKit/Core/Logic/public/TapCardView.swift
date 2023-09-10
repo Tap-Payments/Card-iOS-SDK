@@ -9,7 +9,8 @@ import UIKit
 import WebKit
 import SnapKit
 import Lottie
-
+import SharedDataModels_iOS
+import Foundation
 /// A protocol that allows integrators to get notified from events fired from Tap card sdk
 @objc public protocol TapCardViewDelegate {
     /// Will be fired whenever the card is rendered and loaded
@@ -287,21 +288,21 @@ extension TapCardView:WKNavigationDelegate {
             delegate?.onFocus?()
             break
         case _ where url.absoluteString.contains("onBinIdentification"):
-            delegate?.onBinIdentification?(data: extractDataFromUrl(url.absoluteURL))
+            delegate?.onBinIdentification?(data: tap_extractDataFromUrl(url.absoluteURL))
             break
         case _ where url.absoluteString.contains("onInvalidInput"):
-            delegate?.onInvalidInput?(invalid: extractDataFromUrl(url.absoluteURL).boolValue ?? false)
+            delegate?.onInvalidInput?(invalid: Bool(tap_extractDataFromUrl(url.absoluteURL).lowercased()) ?? false)
             break
         case _ where url.absoluteString.contains("onError"):
-            delegate?.onError?(data: extractDataFromUrl(url.absoluteURL))
+            delegate?.onError?(data: tap_extractDataFromUrl(url.absoluteURL))
             break
         case _ where url.absoluteString.contains("onSuccess"):
-            delegate?.onSuccess?(data: extractDataFromUrl(url.absoluteURL))
+            delegate?.onSuccess?(data: tap_extractDataFromUrl(url.absoluteURL))
             break
             
         case _ where url.absoluteString.contains("onHeightChange"):
             
-            let height = Double(extractDataFromUrl(url,shouldBase64Decode: false))
+            let height = Double(tap_extractDataFromUrl(url,shouldBase64Decode: false))
             self.changeHeight(to: height)
             break
         default:

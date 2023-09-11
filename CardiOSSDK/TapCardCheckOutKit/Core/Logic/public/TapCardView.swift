@@ -11,6 +11,9 @@ import SnapKit
 import Lottie
 import SharedDataModels_iOS
 import Foundation
+import TapCardScannerWebWrapper_iOS
+import AVFoundation
+import SwiftEntryKit
 /// A protocol that allows integrators to get notified from events fired from Tap card sdk
 @objc public protocol TapCardViewDelegate {
     /// Will be fired whenever the card is rendered and loaded
@@ -90,6 +93,10 @@ import Foundation
     internal var animationView: LottieAnimationView?
     /// Defines the base url for the Tap card sdk
     internal static let tapCardBaseUrl:String = "https://demo.dev.tap.company/v2/sdk/checkout?type=card-iframe&configurations="
+    /// Defines the scanner object to be called whenever needed
+    internal var fullScanner:TapFullScreenScannerViewController?
+    /// Defines the UIViewController passed from the parent app to present the scanner controller within
+    internal var presentScannerIn:UIViewController? = nil
     
     //MARK: - Init methods
     override init(frame: CGRect) {
@@ -212,12 +219,36 @@ import Foundation
         }
     }
     
+    /// Starts the scanning process if all requirements are met
+    public func scanCard() {
+        //Make sure we have something to present within
+        guard let presentScannerIn = presentScannerIn else { return }
+        let scannerController:TapScannerViewController = .init()
+        scannerController.modalPresentationStyle = .overCurrentContext
+        // Second grant the authorization to use the camera
+        AVCaptureDevice.requestAccess(for: AVMediaType.video) { [weak self] response in
+            if response {
+                //access granted
+                DispatchQueue.main.async {[weak self] in
+                    //self?.fullScanner = TapFullScreenScannerViewController(dataSource: self!)
+                    //self?.fullScanner?.delegate = self
+                    //presentScannerIn.present((self?.fullScanner)!, animated: true)
+                    presentScannerIn.present(scannerController, animated: true)
+                }
+            }else {
+                
+            }
+        }
+    }
+    
     //MARK: - Public init methods
     ///  configures the tap card sdk with the needed configurations for it to work
     ///  - Parameter config: The configurations model
     ///  - Parameter delegate:A protocol that allows integrators to get notified from events fired from Tap card sdk
-    @objc public func initTapCardSDK(config: TapCardConfiguration, delegate: TapCardViewDelegate? = nil) {
+    ///  - Parameter presentScannerIn: We will need a reference to the controller that we can present from the card scanner feature
+    @objc public func initTapCardSDK(config: TapCardConfiguration, delegate: TapCardViewDelegate? = nil, presentScannerIn:UIViewController? = nil) {
         self.delegate = delegate
+        self.presentScannerIn = presentScannerIn
         do {
             try openUrl(url: URL(string: generateTapCardSdkURL(from: config)))
         }catch {
@@ -228,8 +259,10 @@ import Foundation
     ///  configures the tap card sdk with the needed configurations for it to work
     ///  - Parameter config: The configurations dctionary. Recommended, as it will make you able to customly add models without updating
     ///  - Parameter delegate:A protocol that allows integrators to get notified from events fired from Tap card sdk
-    @objc public func initTapCardSDK(configDict: [String : Any], delegate: TapCardViewDelegate? = nil) {
+    ///  - Parameter presentScannerIn: We will need a reference to the controller that we can present from the card scanner feature
+    @objc public func initTapCardSDK(configDict: [String : Any], delegate: TapCardViewDelegate? = nil, presentScannerIn:UIViewController? = nil) {
         self.delegate = delegate
+        self.presentScannerIn = presentScannerIn
         do {
             try openUrl(url: URL(string: generateTapCardSdkURL(from: configDict)))
         }
@@ -241,8 +274,10 @@ import Foundation
     ///  configures the tap card sdk with the needed configurations for it to work
     ///  - Parameter config: The configurations string json format. Recommended, as it will make you able to customly add models without updating
     ///  - Parameter delegate:A protocol that allows integrators to get notified from events fired from Tap card sdk
-    @objc public func initTapCardSDK(configString: String, delegate: TapCardViewDelegate? = nil) {
+    ///  - Parameter presentScannerIn: We will need a reference to the controller that we can present from the card scanner feature
+    @objc public func initTapCardSDK(configString: String, delegate: TapCardViewDelegate? = nil, presentScannerIn:UIViewController? = nil) {
         self.delegate = delegate
+        self.presentScannerIn = presentScannerIn
         openUrl(url: URL(string: generateTapCardSdkURL(from: configString))!)
     }
     

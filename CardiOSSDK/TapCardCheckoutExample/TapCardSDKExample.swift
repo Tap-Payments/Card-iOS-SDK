@@ -88,7 +88,7 @@ class TapCardSDKExample: UIViewController {
     }
 
     func setupTapCardSDK() {
-        tapCardView.initTapCardSDK(config: self.config, delegate: self)
+        tapCardView.initTapCardSDK(config: self.config, delegate: self, presentScannerIn: self)
     }
     
     @IBAction func generateToken(_ sender: Any) {
@@ -99,7 +99,9 @@ class TapCardSDKExample: UIViewController {
         let configCtrl:CardSettingsViewController = storyboard?.instantiateViewController(withIdentifier: "CardSettingsViewController") as! CardSettingsViewController
         configCtrl.config = config
         configCtrl.delegate = self
-        present(configCtrl, animated: true)
+        //present(configCtrl, animated: true)
+        tapCardView?.scanCard()
+        
     }
     
     /*func setConfig(config: CardWebSDKConfig) {

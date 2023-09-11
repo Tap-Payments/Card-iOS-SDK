@@ -6,13 +6,6 @@
 	<array/>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-		<key>NSAllowsArbitraryLoadsUsageDescription</key>
-		<dict/>
-	</dict>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -37,5 +30,7 @@
 		<string>fetch</string>
 		<string>processing</string>
 	</array>
+    <key>Privacy - Camera Usage Description</key>
+    <string>Requires access to your phone’s camera to scan a card.</string>
 </dict>
 </plist>

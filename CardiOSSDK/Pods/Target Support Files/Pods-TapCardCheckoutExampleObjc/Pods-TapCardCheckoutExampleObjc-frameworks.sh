@@ -179,12 +179,16 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SharedDataModels-iOS/SharedDataModels_iOS.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftEntryKit/SwiftEntryKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/TapCardScannerWebWrapper-iOS/TapCardScannerWebWrapper_iOS.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/TapCardVlidatorKit-iOS/TapCardVlidatorKit_iOS.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SharedDataModels-iOS/SharedDataModels_iOS.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftEntryKit/SwiftEntryKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/TapCardScannerWebWrapper-iOS/TapCardScannerWebWrapper_iOS.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/TapCardVlidatorKit-iOS/TapCardVlidatorKit_iOS.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

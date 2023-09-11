@@ -30,5 +30,6 @@ target 'TapCardCheckOutKit' do
   pod 'SnapKit'
   pod 'lottie-ios'
   pod 'SharedDataModels-iOS'
+  pod 'TapCardScannerWebWrapper-iOS'
   # pod 'TapCardVlidatorKit-iOS'
 end

@@ -168,7 +168,6 @@ public struct EKProperty {
                     makesRound: Bool = false,
                     accessibilityIdentifier: String? = nil) {
             let image = UIImage(named: imageName)!
-
             self.init(image: image,
                       displayMode: displayMode,
                       size: size,

@@ -7,189 +7,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "03BF7A6D-A845-44D1-A9AE-661DE1F31FFC"
+            uuid = "F406FD1B-1041-4071-9D18-0C7C7C2790BD"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pods/TapCardInputKit-iOS/TapCardInputKit-iOS/Core/Private/TextFields/CardNumberTextField.swift"
+            filePath = "TapCardCheckOutKit/Core/Logic/private/TapScannerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
-            landmarkName = "textFieldStatus(cardNumber:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C42D7E0F-2044-4644-87D2-4A548FEC6B5E"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pods/TapCardInputKit-iOS/TapCardInputKit-iOS/Core/Private/TextFields/CardNumberTextField.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
-            landmarkName = "textFieldStatus(cardNumber:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FB02858D-CC17-408C-B403-6DC5149EAEDF"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pods/TapCardInputKit-iOS/TapCardInputKit-iOS/Core/Private/TextFields/CardNumberTextField.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "textFieldStatus(cardNumber:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CF3BD10D-2E3C-46C2-AD14-5D6C98FF40EB"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pods/TapCardVlidatorKit-iOS/TapCardVlidatorKit-iOS/TapCardVlidatorKit-iOS/Core/public/CardValidator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "validate(cardNumber:preferredBrands:)"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "CF3BD10D-2E3C-46C2-AD14-5D6C98FF40EB - 3a2872828ffda897"
+                  uuid = "F406FD1B-1041-4071-9D18-0C7C7C2790BD - 4b987aa0f2ef8eab"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "static TapCardVlidatorKit_iOS.CardValidator.validate(cardNumber: Swift.Optional&lt;Swift.String&gt;, preferredBrands: Swift.Optional&lt;Swift.Array&lt;TapCardVlidatorKit_iOS.CardBrand&gt;&gt;) -&gt; TapCardVlidatorKit_iOS.DefinedCardBrand"
-                  moduleName = "TapCardVlidatorKit_iOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/osamarabie/desktop/Tap/TapCardCheckOutKit/CardiOSSDK/Pods/TapCardVlidatorKit-iOS/TapCardVlidatorKit-iOS/TapCardVlidatorKit-iOS/Core/public/CardValidator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "192">
-               </Location>
-               <Location
-                  uuid = "CF3BD10D-2E3C-46C2-AD14-5D6C98FF40EB - 3a2872828ffda897"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static TapCardVlidatorKit_iOS.CardValidator.validate(cardNumber: Swift.Optional&lt;Swift.String&gt;, preferredBrands: Swift.Optional&lt;Swift.Array&lt;TapCardVlidatorKit_iOS.CardBrand&gt;&gt;) -&gt; TapCardVlidatorKit_iOS.DefinedCardBrand"
-                  moduleName = "TapCardVlidatorKit_iOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/osamarabie/desktop/Tap/TapCardCheckOutKit/CardiOSSDK/Pods/TapCardVlidatorKit-iOS/TapCardVlidatorKit-iOS/TapCardVlidatorKit-iOS/Core/public/CardValidator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "481">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "282ED14F-5445-42C7-ACE3-9A5A5AAF7837"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TapCardCheckOutKit/Core/Logic/public/TapCardView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "533"
-            endingLineNumber = "533">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "78549874-DBFA-41B3-8CAE-A431632BF30E"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TapCardCheckOutKit/Core/Logic/public/TapCardView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "478"
-            endingLineNumber = "478">
-            <Locations>
-               <Location
-                  uuid = "78549874-DBFA-41B3-8CAE-A431632BF30E - 6d3eda2ab2684b1f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TapCardCheckOutKit.TapCardView.fetchSupportedCardSchemes(for: Swift.Optional&lt;TapCardVlidatorKit_iOS.CardBrand&gt;, and: TapCardVlidatorKit_iOS.CardBrand) -&gt; Swift.Optional&lt;TapCardVlidatorKit_iOS.CardBrandWithSchemes&gt;"
+                  symbolName = "TapCardCheckOutKit.TapScannerViewController.viewWillAppear(Swift.Bool) -&gt; ()"
                   moduleName = "TapCardCheckOutKit"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/osamarabie/desktop/Tap/TapCardCheckOutKit/CardiOSSDK/TapCardCheckOutKit/Core/Logic/public/TapCardView.swift"
+                  urlString = "file:///Users/osamarabie/desktop/Tap/TapCardCheckOutKit/CardiOSSDK/TapCardCheckOutKit/Core/Logic/private/TapScannerViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "473"
-                  endingLineNumber = "473"
-                  offsetFromSymbolStart = "222">
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "435">
                </Location>
                <Location
-                  uuid = "78549874-DBFA-41B3-8CAE-A431632BF30E - 6d3eda2ab2684b1f"
+                  uuid = "F406FD1B-1041-4071-9D18-0C7C7C2790BD - 4b987aa0f2ef8eab"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "TapCardCheckOutKit.TapCardView.fetchSupportedCardSchemes(for: Swift.Optional&lt;TapCardVlidatorKit_iOS.CardBrand&gt;, and: TapCardVlidatorKit_iOS.CardBrand) -&gt; Swift.Optional&lt;TapCardVlidatorKit_iOS.CardBrandWithSchemes&gt;"
+                  symbolName = "TapCardCheckOutKit.TapScannerViewController.viewWillAppear(Swift.Bool) -&gt; ()"
                   moduleName = "TapCardCheckOutKit"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/osamarabie/desktop/Tap/TapCardCheckOutKit/CardiOSSDK/TapCardCheckOutKit/Core/Logic/public/TapCardView.swift"
+                  urlString = "file:///Users/osamarabie/desktop/Tap/TapCardCheckOutKit/CardiOSSDK/TapCardCheckOutKit/Core/Logic/private/TapScannerViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "473"
-                  endingLineNumber = "473"
-                  offsetFromSymbolStart = "242">
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "565">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "53AFE437-6727-4C01-A444-6ACC673C83E7"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pods/TapCardVlidatorKit-iOS/TapCardVlidatorKit-iOS/TapCardVlidatorKit-iOS/Core/public/CardValidator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "validate(cardNumber:preferredBrands:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8B8D5D63-2AE1-4F2D-992D-1D51BE78F4D6"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TapCardCheckOutKit/Core/Logic/Network/ApiCalls/NetworkManager+HandlingResponses.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "handleInitResponse(initModel:)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

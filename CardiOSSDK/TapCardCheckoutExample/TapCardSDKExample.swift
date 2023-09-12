@@ -7,6 +7,7 @@
 
 import UIKit
 import TapCardCheckOutKit
+import SharedDataModels_iOS
 
 class TapCardSDKExample: UIViewController {
     @IBOutlet weak var tapCardView: TapCardView!
@@ -14,8 +15,10 @@ class TapCardSDKExample: UIViewController {
     @IBOutlet weak var eventsTextView: UITextView!
     
     var config: TapCardConfiguration = .init(publicKey: "pk_test_YhUjg9PNT8oDlKJ1aE2fMRz7",
+                                             scope: .Authenticate,
                                              merchant: Merchant(id: ""),
                                              transaction: Transaction(amount: 1, currency: "SAR"),
+                                             authentication: Authentication(description: "Authentication description", metadata: ["utf1":"data"], reference: Reference(transaction: TapCardSDKExample.generateRandomTransactionId(), order: TapCardSDKExample.generateRandomOrderId()), invoice: nil, authentication: AuthenticationClass(), post: nil),
                                              customer: Customer(id: nil, name: [.init(lang: "en", first: "Tap", last: "Payments", middle: "")], nameOnCard: "Tap Payments", contact: .init(email: "tappayments@tap.company", phone: .init(countryCode: "+965", number: "88888888"))),
                                              acceptance: Acceptance(supportedBrands: ["AMEX","VISA","MASTERCARD","OMANNET","MADA"], supportedCards: ["CREDIT","DEBIT"]),
                                              fields: Fields(cardHolder: true),
@@ -99,8 +102,7 @@ class TapCardSDKExample: UIViewController {
         let configCtrl:CardSettingsViewController = storyboard?.instantiateViewController(withIdentifier: "CardSettingsViewController") as! CardSettingsViewController
         configCtrl.config = config
         configCtrl.delegate = self
-        //present(configCtrl, animated: true)
-        tapCardView?.scanCard()
+        present(configCtrl, animated: true)
         
     }
     
@@ -162,3 +164,18 @@ extension TapCardSDKExample: TapCardViewDelegate {
     }
 }
 
+
+
+extension TapCardSDKExample {
+    
+    static func generateRandomTransactionId() -> String {
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let randomString = "tck_LV\((0..<23).map{ _ in String(letters.randomElement()!) }.reduce("", +))"
+        return randomString
+    }
+    static func generateRandomOrderId() -> String {
+        let letters = "0123456789"
+        let randomString = (0..<17).map{ _ in String(letters.randomElement()!) }.reduce("", +)
+        return randomString
+    }
+}

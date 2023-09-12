@@ -1,6 +1,6 @@
 PODS:
   - lottie-ios (4.2.0)
-  - SharedDataModels-iOS (0.0.5)
+  - SharedDataModels-iOS (0.0.7)
   - SnapKit (5.6.0)
   - SwiftEntryKit (2.0.0)
   - TapCardScannerWebWrapper-iOS (0.0.1):
@@ -26,7 +26,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   lottie-ios: 809ecf2d460ed650a6aed7aa88b2ec45fab4779c
-  SharedDataModels-iOS: 1e91b311e14b4f7a14e24a3c431692918be6c164
+  SharedDataModels-iOS: b5b6363f5c493ffc4f8128c4148067cfbc52a281
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SwiftEntryKit: 61b5fa36f34a97dd8013e48a7345bc4c4720be9a
   TapCardScannerWebWrapper-iOS: 8050e67e34597e535dfa15f4c472cce43adc8eee

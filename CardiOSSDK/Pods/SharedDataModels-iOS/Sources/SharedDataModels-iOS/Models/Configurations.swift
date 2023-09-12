@@ -6,6 +6,44 @@
 //
 
 import Foundation
+
+//MARK: - Scope
+/// The scope of the intended sdk integration
+@objc public enum Scope: Int, RawRepresentable, Codable {
+    /// Will generate an authenticated token that can be used to perform charges afterwards
+    case Authenticate
+    /// Will generate a tap token to be used in charges api afterwards
+    case Token
+    
+    
+    public typealias RawValue = String
+    
+    public var rawValue: RawValue {
+        switch self {
+        case .Authenticate:
+            return "Authenticate"
+        case .Token:
+            return "Token"
+        }
+    }
+    
+    public init?(rawValue: RawValue) {
+        switch rawValue.lowercased() {
+        case "authenticate":
+            self = .Authenticate
+        case "token":
+            self = .Token
+        default:
+            return nil
+        }
+    }
+    
+    public init(from decoder: Decoder) throws {
+        self = try Scope(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? .Token
+    }
+}
+
+
 // MARK: - Acceptance
 /// The acceptance details for the transaction
 @objcMembers public class Acceptance: NSObject, Codable {
@@ -526,6 +564,292 @@ extension Merchant {
     @objc public init(amount: Int = 1, currency: String?) {
         self.amount = amount
         self.currency = currency
+    }
+}
+
+
+
+// MARK: - Authentication
+/// A model for the Authentication model to be passed to create an authenticated token
+@objcMembers public class Authentication: NSObject, Codable {
+    /// The description you want to add to the authentication
+    var authenticationDescription: String?
+    /// Any optional dictionary of data you want to attach to the authentication process for your own processing
+    var metadata: [String:String]?
+    /// Important data to identify this authentication process is related to which transaction & order
+    var reference: Reference?
+    /// Will link this authentication process to a certain invoice
+    var invoice: Invoice?
+    /// Some data related to identify the shape of the Authentication process itself
+    var authentication: AuthenticationClass?
+    /// The url you want to post the result of the authentication to (webhook)
+    var post: Post?
+    
+    /// A model for the Authentication model to be passed to create an authenticated token
+    /// - Parameters:
+    ///     -  description: The description you want to add to the authentication
+    ///     - metadata:  Any optional dictionary of data you want to attach to the authentication process for your own processing
+    ///     - reference:  Important data to identify this authentication process is related to which transaction & order
+    ///     - invoice:  Will link this authentication process to a certain invoice
+    ///     - authentication: Some data related to identify the shape of the Authentication process itself
+    ///     - post:  The url you want to post the result of the authentication to (webhook)
+    @objc public init(description: String?, metadata: [String:String]?, reference: Reference?, invoice: Invoice?, authentication: AuthenticationClass?, post: Post?) {
+        self.authenticationDescription = description
+        self.metadata = metadata
+        self.reference = reference
+        self.invoice = invoice
+        self.authentication = authentication
+        self.post = post
+    }
+    
+    private enum CodingKeys : String, CodingKey {
+        case authenticationDescription = "description"
+        case metadata, reference, invoice, authentication, post
+    }
+}
+
+// MARK: Authentication convenience initializers and mutators
+
+extension Authentication {
+    convenience init(data: Data) throws {
+        let me = try newJSONDecoder().decode(Authentication.self, from: data)
+        self.init(description: me.description, metadata: me.metadata, reference: me.reference, invoice: me.invoice, authentication: me.authentication, post: me.post)
+    }
+    
+    convenience init(_ json: String, using encoding: String.Encoding = .utf8) throws {
+        guard let data = json.data(using: encoding) else {
+            throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
+        }
+        try self.init(data: data)
+    }
+    
+    convenience init(fromURL url: URL) throws {
+        try self.init(data: try Data(contentsOf: url))
+    }
+    
+    func with(
+        description: String?? = nil,
+        metadata: [String:String]?? = nil,
+        reference: Reference?? = nil,
+        invoice: Invoice?? = nil,
+        authentication: AuthenticationClass?? = nil,
+        post: Post?? = nil
+    ) -> Authentication {
+        return Authentication(
+            description: description ?? self.authenticationDescription,
+            metadata: metadata ?? self.metadata,
+            reference: reference ?? self.reference,
+            invoice: invoice ?? self.invoice,
+            authentication: authentication ?? self.authentication,
+            post: post ?? self.post
+        )
+    }
+    
+    func jsonData() throws -> Data {
+        return try newJSONEncoder().encode(self)
+    }
+    
+    func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
+        return String(data: try self.jsonData(), encoding: encoding)
+    }
+}
+
+// MARK: - AuthenticationClass
+/// Some data related to identify the shape of the Authentication process itself
+@objcMembers public class AuthenticationClass: NSObject, Codable {
+    var channel,purpose: String?
+    
+    /// Some data related to identify the shape of the Authentication process itself
+    /// - Parameters:
+    ///     -  channel: The channel which the authentication process is going throug
+    ///     - purpose: WHat is the final usage of this authentication process
+    @objc public init(channel: String? = "PAYER_BROWSER", purpose: String? = "PAYMENT_TRANSACTION") {
+        self.channel = channel
+        self.purpose = purpose
+    }
+}
+
+// MARK: AuthenticationClass convenience initializers and mutators
+
+extension AuthenticationClass {
+    convenience init(data: Data) throws {
+        let me = try newJSONDecoder().decode(AuthenticationClass.self, from: data)
+        self.init(channel: me.channel, purpose: me.purpose)
+    }
+    
+    convenience init(_ json: String, using encoding: String.Encoding = .utf8) throws {
+        guard let data = json.data(using: encoding) else {
+            throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
+        }
+        try self.init(data: data)
+    }
+    
+    convenience init(fromURL url: URL) throws {
+        try self.init(data: try Data(contentsOf: url))
+    }
+    
+    func with(
+        channel: String?? = nil,
+        purpose: String?? = nil
+    ) -> AuthenticationClass {
+        return AuthenticationClass(
+            channel: channel ?? self.channel,
+            purpose: purpose ?? self.purpose
+        )
+    }
+    
+    func jsonData() throws -> Data {
+        return try newJSONEncoder().encode(self)
+    }
+    
+    func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
+        return String(data: try self.jsonData(), encoding: encoding)
+    }
+}
+
+// MARK: - Invoice
+/// A model to identify an invoice to link to any process afterwards
+@objcMembers public class Invoice: NSObject, Codable {
+    var id: String?
+    
+    /// A model to identify an invoice to link to any process afterwards
+    /// - Parameter id: The id of the needed invoice
+    @objc public init(id: String?) {
+        self.id = id
+    }
+}
+
+// MARK: Invoice convenience initializers and mutators
+
+extension Invoice {
+    convenience init(data: Data) throws {
+        let me = try newJSONDecoder().decode(Invoice.self, from: data)
+        self.init(id: me.id)
+    }
+    
+    convenience init(_ json: String, using encoding: String.Encoding = .utf8) throws {
+        guard let data = json.data(using: encoding) else {
+            throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
+        }
+        try self.init(data: data)
+    }
+    
+    convenience init(fromURL url: URL) throws {
+        try self.init(data: try Data(contentsOf: url))
+    }
+    
+    func with(
+        id: String?? = nil
+    ) -> Invoice {
+        return Invoice(
+            id: id ?? self.id
+        )
+    }
+    
+    func jsonData() throws -> Data {
+        return try newJSONEncoder().encode(self)
+    }
+    
+    func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
+        return String(data: try self.jsonData(), encoding: encoding)
+    }
+}
+
+// MARK: - Post
+/// The url you want to post the result of the authentication to (webhook)
+@objcMembers public class Post: NSObject, Codable {
+    var url: String?
+    /// The url you want to post the result of the authentication to (webhook)
+    /// - Parameter url: The url of your server
+    @objc public init(url: String?) {
+        self.url = url
+    }
+}
+
+// MARK: Post convenience initializers and mutators
+
+extension Post {
+    convenience init(data: Data) throws {
+        let me = try newJSONDecoder().decode(Post.self, from: data)
+        self.init(url: me.url)
+    }
+    
+    convenience init(_ json: String, using encoding: String.Encoding = .utf8) throws {
+        guard let data = json.data(using: encoding) else {
+            throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
+        }
+        try self.init(data: data)
+    }
+    
+    convenience init(fromURL url: URL) throws {
+        try self.init(data: try Data(contentsOf: url))
+    }
+    
+    func with(
+        url: String?? = nil
+    ) -> Post {
+        return Post(
+            url: url ?? self.url
+        )
+    }
+    
+    func jsonData() throws -> Data {
+        return try newJSONEncoder().encode(self)
+    }
+    
+    func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
+        return String(data: try self.jsonData(), encoding: encoding)
+    }
+}
+
+// MARK: - Reference
+/// Important data to identify this authentication process is related to which transaction & order
+@objcMembers public class Reference: NSObject, Codable {
+    var transaction, order: String?
+    /// Important data to identify this authentication process is related to which transaction & order
+    /// - Parameter transaction: The transaction id generated by Tap
+    /// - Parameter order: The order id generated by Tap
+    @objc public init(transaction: String?, order: String?) {
+        self.transaction = transaction
+        self.order = order
+    }
+}
+
+// MARK: Reference convenience initializers and mutators
+
+extension Reference {
+    convenience init(data: Data) throws {
+        let me = try newJSONDecoder().decode(Reference.self, from: data)
+        self.init(transaction: me.transaction, order: me.order)
+    }
+    
+    convenience init(_ json: String, using encoding: String.Encoding = .utf8) throws {
+        guard let data = json.data(using: encoding) else {
+            throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
+        }
+        try self.init(data: data)
+    }
+    
+    convenience init(fromURL url: URL) throws {
+        try self.init(data: try Data(contentsOf: url))
+    }
+    
+    func with(
+        transaction: String?? = nil,
+        order: String?? = nil
+    ) -> Reference {
+        return Reference(
+            transaction: transaction ?? self.transaction,
+            order: order ?? self.order
+        )
+    }
+    
+    func jsonData() throws -> Data {
+        return try newJSONEncoder().encode(self)
+    }
+    
+    func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
+        return String(data: try self.jsonData(), encoding: encoding)
     }
 }
 

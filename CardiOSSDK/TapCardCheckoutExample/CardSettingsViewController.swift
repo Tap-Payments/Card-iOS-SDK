@@ -30,6 +30,17 @@ class CardSettingsViewController: FormViewController {
                 self.config?.publicKey = row.value ?? "pk_test_YhUjg9PNT8oDlKJ1aE2fMRz7"
             }
         }
+        
+        form +++ Section("scope")
+        <<< AlertRow<String>("scope"){ row in
+            row.title = "Card scope"
+            row.options = ["Token","Authenticate"]
+            row.value = config?.scope.rawValue ?? "Token"
+            row.onChange { row in
+                self.config?.scope = .init(rawValue: row.value ?? "Token") ?? .Token
+            }
+        }
+        
         form +++ Section("merchant")
         <<< TextRow("merchant.id"){ row in
             row.title = "Tap merchant id"

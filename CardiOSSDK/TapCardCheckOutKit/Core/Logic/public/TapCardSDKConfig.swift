@@ -23,10 +23,14 @@ import Foundation
 @objcMembers public class TapCardConfiguration: NSObject, Codable {
     /// The Tap public key
     public var publicKey: String?
+    /// The scope of the card sdk. Default is generating a tap token
+    public var scope: Scope = .Token
     /// The Tap merchant details
     public var merchant: Merchant?
     /// The transaction details
     public var transaction: Transaction?
+    /// The authentication data, needed only if scope is set to Authenticate
+    public var authentication: Authentication?
     /// The Tap customer details
     public var customer: Customer?
     /// The acceptance details for the transaction
@@ -42,18 +46,22 @@ import Foundation
      Creates a configuration model to be passed to the SDK
      - Parameters:
         - publicKey: The Tap public key
+        - scope: The scope of the card sdk. Default is generating a tap token
         - merchant: The Tap merchant details
         - transaction: The transaction details
+        - authenticate: The authentication data, needed only if scope is set to Authenticate
         - customer: The Tap customer details
         - acceptance: The acceptance details for the transaction
         - fields: Defines the fields visibility
         - addons: Defines some UI/UX addons enablement
         - interface: Defines some UI related configurations
      */
-    @objc public init(publicKey: String?, merchant: Merchant?, transaction: Transaction?, customer: Customer?, acceptance: Acceptance?, fields: Fields?, addons: Addons?, interface: Interface?) {
+    @objc public init(publicKey: String?, scope: Scope = .Token, merchant: Merchant?, transaction: Transaction?, authentication: Authentication?, customer: Customer?, acceptance: Acceptance?, fields: Fields?, addons: Addons?, interface: Interface?) {
         self.publicKey = publicKey
+        self.scope = scope
         self.merchant = merchant
         self.transaction = transaction
+        self.authentication = authentication
         self.customer = customer
         self.acceptance = acceptance
         self.fields = fields
@@ -67,7 +75,7 @@ import Foundation
 extension TapCardConfiguration {
     convenience init(data: Data) throws {
         let me = try newJSONDecoder().decode(TapCardConfiguration.self, from: data)
-        self.init(publicKey: me.publicKey, merchant: me.merchant, transaction: me.transaction, customer: me.customer, acceptance: me.acceptance, fields: me.fields, addons: me.addons, interface: me.interface)
+        self.init(publicKey: me.publicKey, scope: me.scope, merchant: me.merchant, transaction: me.transaction, authentication: me.authentication, customer: me.customer, acceptance: me.acceptance, fields: me.fields, addons: me.addons, interface: me.interface)
     }
     
     convenience init(_ json: String, using encoding: String.Encoding = .utf8) throws {
@@ -83,8 +91,10 @@ extension TapCardConfiguration {
     
     func with(
         publicKey: String?? = nil,
+        scope: Scope = .Token,
         merchant: Merchant?? = nil,
         transaction: Transaction?? = nil,
+        authentication: Authentication?? = nil,
         customer: Customer?? = nil,
         acceptance: Acceptance?? = nil,
         fields: Fields?? = nil,
@@ -93,8 +103,10 @@ extension TapCardConfiguration {
     ) -> TapCardConfiguration {
         return TapCardConfiguration(
             publicKey: publicKey ?? self.publicKey,
+            scope: scope,
             merchant: merchant ?? self.merchant,
             transaction: transaction ?? self.transaction,
+            authentication: authentication ?? self.authentication,
             customer: customer ?? self.customer,
             acceptance: acceptance ?? self.acceptance,
             fields: fields ?? self.fields,
@@ -109,22 +121,6 @@ extension TapCardConfiguration {
     
     func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
         return String(data: try self.jsonData(), encoding: encoding)
-    }
-}
-
-// MARK: - Acceptance
-/// The acceptance details for the transaction
-@objcMembers public class Acceptance: NSObject, Codable {
-    public var supportedBrands, supportedCards: [String]?
-    /**
-     The acceptance details for the transaction
-     - Parameters:
-        - supportedBrands: The supported card brands for the customer to pay with. [AMEX,VISA,MADA,OMANNET,MEEZA,MASTERCARD]
-        - supportedCards: The funding source for the cards the customer can pay with. [CREDIT,DEBIT]
-     */
-    @objc public init(supportedBrands: [String]?, supportedCards: [String]?) {
-        self.supportedBrands = supportedBrands
-        self.supportedCards = supportedCards
     }
 }
 

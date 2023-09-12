@@ -219,8 +219,25 @@ import SwiftEntryKit
         }
     }
     
+    /// Will handle & starte the redirection process when called
+    /// - Parameter data: The data string fetched from the url parameter
+    internal func handleRedirection(data:String) {
+        // let us make sure we have the data we need to start such a process
+        guard let cardRedirection:CardRedirection = try? CardRedirection(data),
+              let threeDsUrl:String = cardRedirection.threeDsUrl,
+              let redirectUrl:String = cardRedirection.redirectUrl else {
+            // This means, there is such an error from the integration with web sdk
+            delegate?.onError?(data: "Failed to start authentication process")
+            return
+        }
+        
+        // This means we are ok to start the authentication process
+        print(threeDsUrl)
+        print(redirectUrl)
+    }
+    
     /// Starts the scanning process if all requirements are met
-    public func scanCard() {
+    @objc public func scanCard() {
         //Make sure we have something to present within
         guard let presentScannerIn = presentScannerIn else { return }
         let scannerController:TapScannerViewController = .init()
@@ -293,59 +310,6 @@ import SwiftEntryKit
     public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         // Trait collection has already changed
         setAnimationLoader()
-    }
-}
-
-
-extension TapCardView:WKNavigationDelegate {
-    public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        var action: WKNavigationActionPolicy?
-        
-        defer {
-            decisionHandler(action ?? .allow)
-        }
-        
-        guard let url = navigationAction.request.url else { return }
-        
-        if url.absoluteString.hasPrefix("tapcardwebsdk") {
-            action = .cancel
-        }else{
-            print("navigationAction", url.absoluteString)
-        }
-        
-        switch url.absoluteString {
-        case _ where url.absoluteString.contains("onReady"):
-            self.animationView?.isHidden = true
-            self.webView?.isHidden = false
-            delegate?.onReady?()
-            break
-        case _ where url.absoluteString.contains("onFocus"):
-            delegate?.onFocus?()
-            break
-        case _ where url.absoluteString.contains("onBinIdentification"):
-            delegate?.onBinIdentification?(data: tap_extractDataFromUrl(url.absoluteURL))
-            break
-        case _ where url.absoluteString.contains("onInvalidInput"):
-            delegate?.onInvalidInput?(invalid: Bool(tap_extractDataFromUrl(url.absoluteURL).lowercased()) ?? false)
-            break
-        case _ where url.absoluteString.contains("onError"):
-            delegate?.onError?(data: tap_extractDataFromUrl(url.absoluteURL))
-            break
-        case _ where url.absoluteString.contains("onSuccess"):
-            delegate?.onSuccess?(data: tap_extractDataFromUrl(url.absoluteURL))
-            break
-        case _ where url.absoluteString.contains("on3dsRedirect"):
-            print("3ds : \(tap_extractDataFromUrl(url.absoluteURL))")
-            break
-            
-        case _ where url.absoluteString.contains("onHeightChange"):
-            
-            let height = Double(tap_extractDataFromUrl(url,shouldBase64Decode: false))
-            self.changeHeight(to: height)
-            break
-        default:
-            break
-        }
     }
 }
 

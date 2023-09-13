@@ -21,6 +21,7 @@ extension TapCardView:WKNavigationDelegate {
         guard let url = navigationAction.request.url else { return }
         
         if url.absoluteString.hasPrefix("tapcardwebsdk") {
+            print("navigationAction", url.absoluteString)
             action = .cancel
         }else{
             print("navigationAction", url.absoluteString)

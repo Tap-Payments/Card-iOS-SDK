@@ -18,14 +18,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bod-Wc-AmF" customClass="TapCardView" customModule="TapCardCheckOutKit">
-                                <rect key="frame" x="10" y="58" width="394" height="95"/>
+                                <rect key="frame" x="10" y="248" width="394" height="95"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" priority="250" constant="95" id="VbA-Me-H6o"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9S-bt-d4B">
-                                <rect key="frame" x="135" y="173" width="144" height="50"/>
+                                <rect key="frame" x="135" y="363" width="144" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="MN3-bJ-EKX"/>
                                 </constraints>
@@ -36,7 +36,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frV-NJ-spG">
-                                <rect key="frame" x="170" y="231" width="74.5" height="35"/>
+                                <rect key="frame" x="170" y="421" width="74.5" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Config"/>
                                 <connections>
@@ -44,7 +44,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brp-Wm-6UT">
-                                <rect key="frame" x="20" y="274" width="374" height="588"/>
+                                <rect key="frame" x="20" y="464" width="374" height="398"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -57,7 +57,7 @@
                             <constraint firstItem="brp-Wm-6UT" firstAttribute="leading" secondItem="BWH-QC-izc" secondAttribute="leading" constant="20" id="FZs-u4-BP4"/>
                             <constraint firstItem="frV-NJ-spG" firstAttribute="centerX" secondItem="EAl-mR-uam" secondAttribute="centerX" id="GUb-2h-o9a"/>
                             <constraint firstItem="Bod-Wc-AmF" firstAttribute="leading" secondItem="BWH-QC-izc" secondAttribute="leading" constant="10" id="IBU-ux-wSb"/>
-                            <constraint firstItem="Bod-Wc-AmF" firstAttribute="top" secondItem="BWH-QC-izc" secondAttribute="top" constant="10" id="KTD-WE-d7d"/>
+                            <constraint firstItem="Bod-Wc-AmF" firstAttribute="top" secondItem="BWH-QC-izc" secondAttribute="top" constant="200" id="KTD-WE-d7d"/>
                             <constraint firstItem="m9S-bt-d4B" firstAttribute="top" secondItem="Bod-Wc-AmF" secondAttribute="bottom" constant="20" id="UZG-Yn-wSf"/>
                             <constraint firstItem="brp-Wm-6UT" firstAttribute="bottom" secondItem="BWH-QC-izc" secondAttribute="bottom" id="dsr-xZ-nkY"/>
                             <constraint firstItem="frV-NJ-spG" firstAttribute="top" secondItem="m9S-bt-d4B" secondAttribute="bottom" constant="8" symbolic="YES" id="ecE-T8-ZuP"/>

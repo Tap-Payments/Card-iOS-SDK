@@ -19,7 +19,7 @@ class TapCardSDKExample: UIViewController {
                                              merchant: Merchant(id: ""),
                                              transaction: Transaction(amount: 1, currency: "SAR"),
                                              authentication: Authentication(description: "Authentication description", metadata: ["utf1":"data"], reference: Reference(transaction: TapCardSDKExample.generateRandomTransactionId(), order: TapCardSDKExample.generateRandomOrderId()), invoice: nil, authentication: AuthenticationClass(), post: nil),
-                                             customer: Customer(id: nil, name: [.init(lang: "en", first: "Tap", last: "Payments", middle: "")], nameOnCard: "Tap Payments", contact: .init(email: "tappayments@tap.company", phone: .init(countryCode: "+965", number: "88888888"))),
+                                             customer: Customer(id: nil, name: [.init(lang: "en", first: "Tap", last: "Payments", middle: "")], nameOnCard: "Tap Payments", editable: true, contact: .init(email: "tappayments@tap.company", phone: .init(countryCode: "+965", number: "88888888"))),
                                              acceptance: Acceptance(supportedBrands: ["AMEX","VISA","MASTERCARD","OMANNET","MADA"], supportedCards: ["CREDIT","DEBIT"]),
                                              fields: Fields(cardHolder: true),
                                              addons: Addons(displayPaymentBrands: true, loader: true, saveCard: false),
@@ -95,6 +95,7 @@ class TapCardSDKExample: UIViewController {
     }
     
     @IBAction func generateToken(_ sender: Any) {
+        button.isEnabled = false
         tapCardView?.generateTapToken()
     }
 

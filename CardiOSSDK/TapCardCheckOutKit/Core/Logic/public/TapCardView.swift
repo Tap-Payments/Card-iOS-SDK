@@ -97,6 +97,8 @@ import SwiftEntryKit
     internal var fullScanner:TapFullScreenScannerViewController?
     /// Defines the UIViewController passed from the parent app to present the scanner controller within
     internal var presentScannerIn:UIViewController? = nil
+    /// keeps a hold of the loaded web sdk configurations url
+    internal var currentlyLoadedCardConfigurations:URL?
     
     //MARK: - Init methods
     override init(frame: CGRect) {
@@ -121,8 +123,11 @@ import SwiftEntryKit
     /// Used to open a url inside the Tap card web sdk.
     /// - Parameter url: The url needed to load.
     private func openUrl(url: URL?) {
+        // Store it for further usages
+        currentlyLoadedCardConfigurations = url
         // First let us hide the web view and show the loading view
         webView?.isHidden = true
+        reAdjustShimmeringView(with: url)
         animationView?.isHidden = false
         // Second, instruct the web view to load the needed url
         let request = URLRequest(url: url!)
@@ -150,7 +155,7 @@ import SwiftEntryKit
     private func setupShimmeringView() {
         // let us load the correct shimmerling lottie json file
         animationView = .init(name: "Light_Mode_Button_Loader", bundle: Bundle(for: TapCardView.self))
-        setAnimationLoader()
+        
         // let us set the needed configuratons for the shimmering view
         animationView!.frame = .zero
         animationView!.contentMode = .scaleAspectFill
@@ -159,6 +164,22 @@ import SwiftEntryKit
         // Add it to the view
         self.addSubview(animationView!)
         animationView!.play()
+    }
+    
+    /// Will recolor and adjust the corners of teh shimmerig view basde on the configurations
+    /// - Parameters url; The url that contains the configurations passed to the web card sdk
+    private func reAdjustShimmeringView(with url:URL?) {
+        // fetch the correct shimmering animation file
+        guard let urlString:String = url?.absoluteString.lowercased() else { return }
+        
+        // First set the light/dark based on the card theme
+        animationView?.animation = .named(urlString.contains("dark") ? "Dark_Mode_Button_Loader" : "Light_Mode_Button_Loader", bundle: Bundle(for: TapCardView.self))
+            
+        // Second set the curves based on the card edges
+        animationView?.layer.cornerRadius = urlString.contains("curved") ? 8 : 0
+        animationView?.clipsToBounds = true
+        
+        animationView?.play()
     }
     
     
@@ -224,16 +245,71 @@ import SwiftEntryKit
     internal func handleRedirection(data:String) {
         // let us make sure we have the data we need to start such a process
         guard let cardRedirection:CardRedirection = try? CardRedirection(data),
-              let threeDsUrl:String = cardRedirection.threeDsUrl,
-              let redirectUrl:String = cardRedirection.redirectUrl else {
+              let _:String = cardRedirection.threeDsUrl,
+              let _:String = cardRedirection.redirectUrl else {
             // This means, there is such an error from the integration with web sdk
             delegate?.onError?(data: "Failed to start authentication process")
             return
         }
         
         // This means we are ok to start the authentication process
-        print(threeDsUrl)
-        print(redirectUrl)
+        let threeDsView:ThreeDSView = .init(frame: .zero)
+        // Set to web view the needed urls
+        threeDsView.cardRedirectionData = cardRedirection
+        // Set the selected card locale for correct semantic rendering
+        threeDsView.selectedLocale = getCardLocale()
+        // Set to web view what should it when the process is canceled by the user
+        threeDsView.threeDSCanceled = {
+            // reload the card data
+            self.openUrl(url: self.currentlyLoadedCardConfigurations)
+            // inform the merchant
+            self.delegate?.onError?(data: "Payer canceled three ds process")
+            // dismiss the threeds page
+            SwiftEntryKit.dismiss()
+        }
+        // Set to web view what should it when the process is completed by the user
+        threeDsView.authDetected = { authID in
+            SwiftEntryKit.dismiss {
+                DispatchQueue.main.async {
+                    self.passAuthToCardSdk(authID: authID)
+                }
+            }
+        }
+        // Set to web view what should it do when the content is loaded in the background
+        threeDsView.idleForWhile = {
+            DispatchQueue.main.async {
+                SwiftEntryKit.display(entry: threeDsView, using: threeDsView.swiftEntryAttributes())
+            }
+        }
+        // Tell it to start rendering 3ds content in background
+        threeDsView.startLoading()
+        
+    }
+    
+    /// Calls the retrieve authentication after getting a completion event from the three ds page
+    /// - Parameter authID: The fetched auth id from the backend
+    internal func passAuthToCardSdk(authID:String) {
+        //webView?.evaluateJavaScript("window.loadAuthentication('\(authID)')")
+        generateTapToken()
+    }
+    
+    /// Fetch the localisation selected by the parent app for the card sdk
+    internal func getCardLocale() -> String {
+        /// Let us make sure we can get a correctly passed locale from the configurations
+        if let configurationUrl:URL = currentlyLoadedCardConfigurations {
+            // Is it a correct json
+            let configurationsString:String = tap_extractDataFromUrl(configurationUrl,for: "configurations", shouldBase64Decode: false).lowercased()
+            if let configurationData = configurationsString.data(using: .utf8),
+               let configurationDictionary: [String:Any] = try? JSONSerialization.jsonObject(with: configurationData, options: []) as? [String: Any],
+               // Did the merchant pass an interface
+               let interfaceDictionary:[String:Any] = configurationDictionary["interface"] as? [String:Any],
+               // Did the merchant pass a locale
+               let selectedLocale:String = interfaceDictionary["locale"] as? String {
+                return selectedLocale
+            }
+        }
+        // The default case
+        return "en"
     }
     
     /// Starts the scanning process if all requirements are met

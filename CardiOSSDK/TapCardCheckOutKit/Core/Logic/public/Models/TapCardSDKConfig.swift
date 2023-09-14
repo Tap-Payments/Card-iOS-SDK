@@ -23,6 +23,8 @@ import Foundation
 @objcMembers public class TapCardConfiguration: NSObject, Codable {
     /// The Tap public key
     public var publicKey: String?
+    /// The encrypted headers
+    internal var operatorModel:Operator?
     /// The scope of the card sdk. Default is generating a tap token
     public var scope: Scope = .Token
     /// The Tap merchant details
@@ -67,6 +69,12 @@ import Foundation
         self.fields = fields
         self.addons = addons
         self.interface = interface
+    }
+    
+    private enum CodingKeys: String, CodingKey {
+        
+        case operatorModel  = "operator"
+        case publicKey, scope, merchant, transaction, authentication, customer, acceptance, fields, addons, interface
     }
 }
 

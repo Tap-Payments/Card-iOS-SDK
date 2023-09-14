@@ -31,5 +31,6 @@ target 'TapCardCheckOutKit' do
   pod 'lottie-ios'
   pod 'SharedDataModels-iOS'
   pod 'TapCardScannerWebWrapper-iOS'
+  pod 'SwiftyRSA'
   # pod 'TapCardVlidatorKit-iOS'
 end

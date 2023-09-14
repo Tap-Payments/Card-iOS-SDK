@@ -3,6 +3,9 @@ PODS:
   - SharedDataModels-iOS (0.0.7)
   - SnapKit (5.6.0)
   - SwiftEntryKit (2.0.0)
+  - SwiftyRSA (1.7.0):
+    - SwiftyRSA/ObjC (= 1.7.0)
+  - SwiftyRSA/ObjC (1.7.0)
   - TapCardScannerWebWrapper-iOS (0.0.1):
     - SharedDataModels-iOS
     - TapCardVlidatorKit-iOS
@@ -13,6 +16,7 @@ DEPENDENCIES:
   - SharedDataModels-iOS
   - SnapKit
   - SwiftEntryKit
+  - SwiftyRSA
   - TapCardScannerWebWrapper-iOS
 
 SPEC REPOS:
@@ -21,6 +25,7 @@ SPEC REPOS:
     - SharedDataModels-iOS
     - SnapKit
     - SwiftEntryKit
+    - SwiftyRSA
     - TapCardScannerWebWrapper-iOS
     - TapCardVlidatorKit-iOS
 
@@ -29,9 +34,10 @@ SPEC CHECKSUMS:
   SharedDataModels-iOS: b5b6363f5c493ffc4f8128c4148067cfbc52a281
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SwiftEntryKit: 61b5fa36f34a97dd8013e48a7345bc4c4720be9a
+  SwiftyRSA: 8c6dd1ea7db1b8dc4fb517a202f88bb1354bc2c6
   TapCardScannerWebWrapper-iOS: 8050e67e34597e535dfa15f4c472cce43adc8eee
   TapCardVlidatorKit-iOS: 05d3e644dddd6aa52dd95cc85a2c41f7ce0ba2f9
 
-PODFILE CHECKSUM: af54f0f4a59f3e6c5fe6ea1a97b9a4495ee999cb
+PODFILE CHECKSUM: 2e1671fec8aaddf554b6904d8adcf8ed3c588808
 
 COCOAPODS: 1.12.1

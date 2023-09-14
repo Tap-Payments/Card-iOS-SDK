@@ -35,36 +35,36 @@
                                     <action selector="generateToken:" destination="Wc9-69-Lyo" eventType="touchUpInside" id="djI-ip-ppQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frV-NJ-spG">
-                                <rect key="frame" x="170" y="421" width="74.5" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Config"/>
-                                <connections>
-                                    <action selector="configClicked:" destination="Wc9-69-Lyo" eventType="touchUpInside" id="wAH-IU-utK"/>
-                                </connections>
-                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brp-Wm-6UT">
-                                <rect key="frame" x="20" y="464" width="374" height="398"/>
+                                <rect key="frame" x="20" y="421" width="374" height="441"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sR5-9U-Iri">
+                                <rect key="frame" x="310" y="48" width="84" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Options"/>
+                                <connections>
+                                    <action selector="optionsClicked:" destination="Wc9-69-Lyo" eventType="touchUpInside" id="v5S-h5-8og"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BWH-QC-izc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="brp-Wm-6UT" firstAttribute="leading" secondItem="BWH-QC-izc" secondAttribute="leading" constant="20" id="FZs-u4-BP4"/>
-                            <constraint firstItem="frV-NJ-spG" firstAttribute="centerX" secondItem="EAl-mR-uam" secondAttribute="centerX" id="GUb-2h-o9a"/>
                             <constraint firstItem="Bod-Wc-AmF" firstAttribute="leading" secondItem="BWH-QC-izc" secondAttribute="leading" constant="10" id="IBU-ux-wSb"/>
                             <constraint firstItem="Bod-Wc-AmF" firstAttribute="top" secondItem="BWH-QC-izc" secondAttribute="top" constant="200" id="KTD-WE-d7d"/>
                             <constraint firstItem="m9S-bt-d4B" firstAttribute="top" secondItem="Bod-Wc-AmF" secondAttribute="bottom" constant="20" id="UZG-Yn-wSf"/>
+                            <constraint firstItem="brp-Wm-6UT" firstAttribute="top" secondItem="m9S-bt-d4B" secondAttribute="bottom" constant="8" id="UuB-LS-VDV"/>
+                            <constraint firstItem="sR5-9U-Iri" firstAttribute="top" secondItem="BWH-QC-izc" secondAttribute="top" id="YIL-HS-Ew8"/>
+                            <constraint firstItem="BWH-QC-izc" firstAttribute="trailing" secondItem="sR5-9U-Iri" secondAttribute="trailing" constant="20" id="cDw-f3-4EF"/>
                             <constraint firstItem="brp-Wm-6UT" firstAttribute="bottom" secondItem="BWH-QC-izc" secondAttribute="bottom" id="dsr-xZ-nkY"/>
-                            <constraint firstItem="frV-NJ-spG" firstAttribute="top" secondItem="m9S-bt-d4B" secondAttribute="bottom" constant="8" symbolic="YES" id="ecE-T8-ZuP"/>
                             <constraint firstItem="BWH-QC-izc" firstAttribute="trailing" secondItem="brp-Wm-6UT" secondAttribute="trailing" constant="20" id="rgY-UY-dib"/>
                             <constraint firstItem="BWH-QC-izc" firstAttribute="trailing" secondItem="Bod-Wc-AmF" secondAttribute="trailing" constant="10" id="sM6-j2-0Sz"/>
                             <constraint firstItem="m9S-bt-d4B" firstAttribute="centerX" secondItem="EAl-mR-uam" secondAttribute="centerX" id="uvp-dv-Hdq"/>
-                            <constraint firstItem="brp-Wm-6UT" firstAttribute="top" secondItem="frV-NJ-spG" secondAttribute="bottom" constant="8" symbolic="YES" id="zAB-IN-SwA"/>
                         </constraints>
                     </view>
                     <connections>

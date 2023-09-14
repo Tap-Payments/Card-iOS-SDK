@@ -14,6 +14,8 @@ struct CardRedirection: Codable {
     var threeDsUrl: String?
     /// The url that we need to listen to, to detect the end of the authentication process
     var redirectUrl: String?
+    /// The keyword we need to listen to know that this is the desired url that has the data post the current process
+    var keyword:String?
 }
 
 // MARK: CardRedirection convenience initializers and mutators
@@ -36,11 +38,13 @@ extension CardRedirection {
     
     func with(
         threeDsUrl: String?? = nil,
-        redirectUrl: String?? = nil
+        redirectUrl: String?? = nil,
+        keyword: String?? = nil
     ) -> CardRedirection {
         return CardRedirection(
             threeDsUrl: threeDsUrl ?? self.threeDsUrl,
-            redirectUrl: redirectUrl ?? self.redirectUrl
+            redirectUrl: redirectUrl ?? self.redirectUrl,
+            keyword: keyword ?? self.keyword
         )
     }
     

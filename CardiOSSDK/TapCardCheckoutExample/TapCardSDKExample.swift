@@ -98,8 +98,32 @@ class TapCardSDKExample: UIViewController {
         button.isEnabled = false
         tapCardView?.generateTapToken()
     }
-
-    @IBAction func configClicked(_ sender: Any) {
+    
+    @IBAction func optionsClicked(_ sender: Any) {
+        let alertController:UIAlertController = .init(title: "Options", message: "Select one please", preferredStyle: .actionSheet)
+        alertController.addAction(.init(title: "Copy logs", style: .default, handler: { _ in
+            UIPasteboard.general.string = self.eventsTextView.text
+        }))
+        
+        alertController.addAction(.init(title: "Clear logs", style: .default, handler: { _ in
+            self.eventsTextView.text = ""
+        }))
+        
+        alertController.addAction(.init(title: "Card config", style: .default, handler: { _ in
+            self.configClicked()
+        }))
+        
+        
+        alertController.addAction(.init(title: "Random Trx", style: .default, handler: { _ in
+            self.config.authentication = Authentication(description: "Authentication description", metadata: ["utf1":"data"], reference: Reference(transaction: TapCardSDKExample.generateRandomTransactionId(), order: TapCardSDKExample.generateRandomOrderId()), invoice: nil, authentication: AuthenticationClass(), post: nil)
+            self.updateConfig(config: self.config)
+        }))
+        
+        alertController.addAction(.init(title: "Cancel", style: .cancel))
+        present(alertController, animated: true)
+    }
+    
+    func configClicked() {
         let configCtrl:CardSettingsViewController = storyboard?.instantiateViewController(withIdentifier: "CardSettingsViewController") as! CardSettingsViewController
         configCtrl.config = config
         configCtrl.delegate = self

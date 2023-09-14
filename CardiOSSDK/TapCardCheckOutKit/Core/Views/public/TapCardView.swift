@@ -99,7 +99,28 @@ import SwiftEntryKit
     internal var presentScannerIn:UIViewController? = nil
     /// keeps a hold of the loaded web sdk configurations url
     internal var currentlyLoadedCardConfigurations:URL?
-    
+    /// The headers encryption key
+    internal var headersEncryptionPublicKey:String {
+        if getCardKey().contains("test") {
+            return """
+-----BEGIN PUBLIC KEY-----
+MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC8AX++RtxPZFtns4XzXFlDIxPB
+h0umN4qRXZaKDIlb6a3MknaB7psJWmf2l+e4Cfh9b5tey/+rZqpQ065eXTZfGCAu
+BLt+fYLQBhLfjRpk8S6hlIzc1Kdjg65uqzMwcTd0p7I4KLwHk1I0oXzuEu53fU1L
+SZhWp4Mnd6wjVgXAsQIDAQAB
+-----END PUBLIC KEY-----
+"""
+        }else{
+            return """
+-----BEGIN PUBLIC KEY-----
+MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC8AX++RtxPZFtns4XzXFlDIxPB
+h0umN4qRXZaKDIlb6a3MknaB7psJWmf2l+e4Cfh9b5tey/+rZqpQ065eXTZfGCAu
+BLt+fYLQBhLfjRpk8S6hlIzc1Kdjg65uqzMwcTd0p7I4KLwHk1I0oXzuEu53fU1L
+SZhWp4Mnd6wjVgXAsQIDAQAB
+-----END PUBLIC KEY-----
+"""
+        }
+    }
     //MARK: - Init methods
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -169,14 +190,11 @@ import SwiftEntryKit
     /// Will recolor and adjust the corners of teh shimmerig view basde on the configurations
     /// - Parameters url; The url that contains the configurations passed to the web card sdk
     private func reAdjustShimmeringView(with url:URL?) {
-        // fetch the correct shimmering animation file
-        guard let urlString:String = url?.absoluteString.lowercased() else { return }
-        
         // First set the light/dark based on the card theme
-        animationView?.animation = .named(urlString.contains("dark") ? "Dark_Mode_Button_Loader" : "Light_Mode_Button_Loader", bundle: Bundle(for: TapCardView.self))
+        animationView?.animation = .named(getCardTheme() == "dark" ? "Dark_Mode_Button_Loader" : "Light_Mode_Button_Loader", bundle: Bundle(for: TapCardView.self))
             
         // Second set the curves based on the card edges
-        animationView?.layer.cornerRadius = urlString.contains("curved") ? 8 : 0
+        animationView?.layer.cornerRadius = getCardEdges() == "curved" ? 8 : 0
         animationView?.clipsToBounds = true
         
         animationView?.play()
@@ -268,10 +286,10 @@ import SwiftEntryKit
             SwiftEntryKit.dismiss()
         }
         // Set to web view what should it when the process is completed by the user
-        threeDsView.authDetected = { authID in
+        threeDsView.redirectionReached = { redirectionUrl in
             SwiftEntryKit.dismiss {
                 DispatchQueue.main.async {
-                    self.passAuthToCardSdk(authID: authID)
+                    self.passRedirectionDataToSDK(rediectionUrl: redirectionUrl)
                 }
             }
         }
@@ -286,31 +304,13 @@ import SwiftEntryKit
         
     }
     
-    /// Calls the retrieve authentication after getting a completion event from the three ds page
-    /// - Parameter authID: The fetched auth id from the backend
-    internal func passAuthToCardSdk(authID:String) {
-        //webView?.evaluateJavaScript("window.loadAuthentication('\(authID)')")
+    /// Tells the web sdk the process is finished with the data from backend
+    /// - Parameter rediectionUrl: The url with the needed data coming from back end at the end of the currently running process
+    internal func passRedirectionDataToSDK(rediectionUrl:String) {
+        //webView?.evaluateJavaScript("window.loadAuthentication('\(rediectionUrl)')")
         generateTapToken()
     }
     
-    /// Fetch the localisation selected by the parent app for the card sdk
-    internal func getCardLocale() -> String {
-        /// Let us make sure we can get a correctly passed locale from the configurations
-        if let configurationUrl:URL = currentlyLoadedCardConfigurations {
-            // Is it a correct json
-            let configurationsString:String = tap_extractDataFromUrl(configurationUrl,for: "configurations", shouldBase64Decode: false).lowercased()
-            if let configurationData = configurationsString.data(using: .utf8),
-               let configurationDictionary: [String:Any] = try? JSONSerialization.jsonObject(with: configurationData, options: []) as? [String: Any],
-               // Did the merchant pass an interface
-               let interfaceDictionary:[String:Any] = configurationDictionary["interface"] as? [String:Any],
-               // Did the merchant pass a locale
-               let selectedLocale:String = interfaceDictionary["locale"] as? String {
-                return selectedLocale
-            }
-        }
-        // The default case
-        return "en"
-    }
     
     /// Starts the scanning process if all requirements are met
     @objc public func scanCard() {
@@ -341,6 +341,8 @@ import SwiftEntryKit
     ///  - Parameter presentScannerIn: We will need a reference to the controller that we can present from the card scanner feature
     @objc public func initTapCardSDK(config: TapCardConfiguration, delegate: TapCardViewDelegate? = nil, presentScannerIn:UIViewController? = nil) {
         self.delegate = delegate
+        config.operatorModel = .init(publicKey: config.publicKey, metadata: generateApplicationHeader())
+        
         self.presentScannerIn = presentScannerIn
         do {
             try openUrl(url: URL(string: generateTapCardSdkURL(from: config)))
@@ -356,8 +358,12 @@ import SwiftEntryKit
     @objc public func initTapCardSDK(configDict: [String : Any], delegate: TapCardViewDelegate? = nil, presentScannerIn:UIViewController? = nil) {
         self.delegate = delegate
         self.presentScannerIn = presentScannerIn
+        let operatorModel:Operator = .init(publicKey: configDict["publicKey"] as? String ?? "", metadata: generateApplicationHeader())
+        var updatedConfigurations:[String:Any] = configDict
+        updatedConfigurations["operator"] = operatorModel
+        
         do {
-            try openUrl(url: URL(string: generateTapCardSdkURL(from: configDict)))
+            try openUrl(url: URL(string: generateTapCardSdkURL(from: updatedConfigurations)))
         }
         catch {
             self.delegate?.onError?(data: "{error:\(error.localizedDescription)}")
@@ -380,6 +386,7 @@ import SwiftEntryKit
     /// Wil start the process of generating a `TapToken` with the current card data
     @objc public func generateTapToken() {
         // Let us instruct the card sdk to start the tokenizaion process
+        endEditing(true)
         webView?.evaluateJavaScript("window.generateTapToken()")
     }
     

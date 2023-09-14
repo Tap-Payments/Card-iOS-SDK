@@ -2,6 +2,7 @@ ${PODS_ROOT}/Target Support Files/Pods-TapCardCheckoutExample/Pods-TapCardChecko
 ${BUILT_PRODUCTS_DIR}/SharedDataModels-iOS/SharedDataModels_iOS.framework
 ${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
 ${BUILT_PRODUCTS_DIR}/SwiftEntryKit/SwiftEntryKit.framework
+${BUILT_PRODUCTS_DIR}/SwiftyRSA/SwiftyRSA.framework
 ${BUILT_PRODUCTS_DIR}/TapCardScannerWebWrapper-iOS/TapCardScannerWebWrapper_iOS.framework
 ${BUILT_PRODUCTS_DIR}/TapCardVlidatorKit-iOS/TapCardVlidatorKit_iOS.framework
 ${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework

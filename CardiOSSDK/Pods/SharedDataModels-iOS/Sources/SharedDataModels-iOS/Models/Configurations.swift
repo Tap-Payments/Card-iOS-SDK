@@ -1,11 +1,67 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by Osama Rabie on 09/09/2023.
 //
 
 import Foundation
+
+
+// MARK: - Operator
+/// Represents the operator model which contains app identification
+@objcMembers public class Operator: NSObject, Codable {
+    /// The tap public key
+    public var publicKey: String?
+    /// Any meta data for further usages
+    public var metadata: [String:String]?
+    
+    /// Represents the operator model which contains app identification
+    /// - PArameter publicKey: The tap public key
+    /// - Parameter metadata: Any meta data for further usages
+    @objc public init(publicKey: String?, metadata: [String:String]?) {
+        self.publicKey = publicKey
+        self.metadata = metadata
+    }
+}
+
+// MARK: - Operator convenience initializers and mutators
+
+extension Operator {
+    convenience init(data: Data) throws {
+        let me = try newJSONDecoder().decode(Operator.self, from: data)
+        self.init(publicKey: me.publicKey, metadata: me.metadata)
+    }
+    
+    convenience init(_ json: String, using encoding: String.Encoding = .utf8) throws {
+        guard let data = json.data(using: encoding) else {
+            throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
+        }
+        try self.init(data: data)
+    }
+    
+    convenience init(fromURL url: URL) throws {
+        try self.init(data: try Data(contentsOf: url))
+    }
+    
+    func with(
+        publicKey: String?? = nil,
+        metadata: [String:String]?? = nil
+    ) -> Operator {
+        return Operator(
+            publicKey: publicKey ?? self.publicKey,
+            metadata: metadata ?? self.metadata
+        )
+    }
+    
+    func jsonData() throws -> Data {
+        return try newJSONEncoder().encode(self)
+    }
+    
+    func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
+        return String(data: try self.jsonData(), encoding: encoding)
+    }
+}
 
 //MARK: - Scope
 /// The scope of the intended sdk integration

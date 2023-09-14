@@ -29,7 +29,6 @@
 		E842A70E2AB0525100A2EC54 /* ThreeDSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E842A70D2AB0525100A2EC54 /* ThreeDSViewController.swift */; };
 		E842A7142AB09F9800A2EC54 /* PoweredByTapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E842A7132AB09F9800A2EC54 /* PoweredByTapView.swift */; };
 		E842A71A2AB1612E00A2EC54 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E842A7192AB1612E00A2EC54 /* Media.xcassets */; };
-		E8503AA72896512200D1B8B0 /* CardKitGoogle.plist in Resources */ = {isa = PBXBuildFile; fileRef = E8503AA62896512200D1B8B0 /* CardKitGoogle.plist */; };
 		E85090D4293A14BD007048A8 /* tap_logo.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E85090D3293A14BC007048A8 /* tap_logo.pdf */; };
 		E85090EF293A4B02007048A8 /* Eureka in Frameworks */ = {isa = PBXBuildFile; productRef = E85090EE293A4B02007048A8 /* Eureka */; };
 		E85552D92AAA352700362174 /* Light_Mode_Button_Loader.json in Resources */ = {isa = PBXBuildFile; fileRef = E85552D72AAA352700362174 /* Light_Mode_Button_Loader.json */; };
@@ -37,6 +36,9 @@
 		E85552DC2AAA38F800362174 /* CardSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85552DB2AAA38F800362174 /* CardSettingsViewController.swift */; };
 		E85552DF2AAB362700362174 /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85552DE2AAB362700362174 /* utils.swift */; };
 		E868ABC82AB1995D009CB4BF /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = E868ABC72AB1995D009CB4BF /* bg.png */; };
+		E868ABCC2AB1D7B3009CB4BF /* TapCard+VisualEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = E868ABCB2AB1D7B3009CB4BF /* TapCard+VisualEffect.swift */; };
+		E868ABCE2AB1D934009CB4BF /* Crypter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E868ABCD2AB1D934009CB4BF /* Crypter.swift */; };
+		E868ABD62AB2437F009CB4BF /* TapCard+ConfigurationUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E868ABD52AB2437F009CB4BF /* TapCard+ConfigurationUrl.swift */; };
 		E8A5AF7528BCC15900620427 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A5AF7428BCC15900620427 /* AppDelegate.m */; };
 		E8A5AF7828BCC15900620427 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A5AF7728BCC15900620427 /* SceneDelegate.m */; };
 		E8A5AF7B28BCC15900620427 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A5AF7A28BCC15900620427 /* ViewController.m */; };
@@ -121,13 +123,15 @@
 		E842A70D2AB0525100A2EC54 /* ThreeDSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeDSViewController.swift; sourceTree = "<group>"; };
 		E842A7132AB09F9800A2EC54 /* PoweredByTapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoweredByTapView.swift; sourceTree = "<group>"; };
 		E842A7192AB1612E00A2EC54 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
-		E8503AA62896512200D1B8B0 /* CardKitGoogle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CardKitGoogle.plist; sourceTree = "<group>"; };
 		E85090D3293A14BC007048A8 /* tap_logo.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = tap_logo.pdf; sourceTree = "<group>"; };
 		E85552D72AAA352700362174 /* Light_Mode_Button_Loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Light_Mode_Button_Loader.json; sourceTree = "<group>"; };
 		E85552D82AAA352700362174 /* Dark_Mode_Button_Loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Dark_Mode_Button_Loader.json; sourceTree = "<group>"; };
 		E85552DB2AAA38F800362174 /* CardSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSettingsViewController.swift; sourceTree = "<group>"; };
 		E85552DE2AAB362700362174 /* utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
 		E868ABC72AB1995D009CB4BF /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		E868ABCB2AB1D7B3009CB4BF /* TapCard+VisualEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TapCard+VisualEffect.swift"; sourceTree = "<group>"; };
+		E868ABCD2AB1D934009CB4BF /* Crypter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypter.swift; sourceTree = "<group>"; };
+		E868ABD52AB2437F009CB4BF /* TapCard+ConfigurationUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TapCard+ConfigurationUrl.swift"; sourceTree = "<group>"; };
 		E8A5AF7128BCC15800620427 /* TapCardCheckoutExampleObjc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TapCardCheckoutExampleObjc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8A5AF7328BCC15900620427 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E8A5AF7428BCC15900620427 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -223,6 +227,7 @@
 		E83262ED27E88BCF005F3AAF /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				E84AD9082AB2DAB3006842E9 /* Views */,
 				E8ED36EA27EAFC900050589E /* Logic */,
 				E83262EE27E88BE7005F3AAF /* Assets */,
 			);
@@ -234,7 +239,6 @@
 			children = (
 				E85552D82AAA352700362174 /* Dark_Mode_Button_Loader.json */,
 				E85552D72AAA352700362174 /* Light_Mode_Button_Loader.json */,
-				E8503AA62896512200D1B8B0 /* CardKitGoogle.plist */,
 				E842A7192AB1612E00A2EC54 /* Media.xcassets */,
 			);
 			path = Assets;
@@ -243,8 +247,7 @@
 		E83262F027E88BF2005F3AAF /* public */ = {
 			isa = PBXGroup;
 			children = (
-				D645882D2AA8EB9900DF390B /* TapCardSDKConfig.swift */,
-				D64E8DE12AA9C04A0077E433 /* TapCardView.swift */,
+				E84AD9052AB2DA56006842E9 /* Models */,
 			);
 			path = public;
 			sourceTree = "<group>";
@@ -276,16 +279,67 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E85552DD2AAB361D00362174 /* private */ = {
+		E84AD9022AB2DA23006842E9 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E842A7092AB04D8600A2EC54 /* TapCardView+Scanner.swift */,
+				E842A70B2AB04D9800A2EC54 /* TapCardView+WebDelegate.swift */,
+				E868ABCB2AB1D7B3009CB4BF /* TapCard+VisualEffect.swift */,
+				E868ABD52AB2437F009CB4BF /* TapCard+ConfigurationUrl.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		E84AD9042AB2DA41006842E9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				E85552DE2AAB362700362174 /* utils.swift */,
-				E842A7052AAE025800A2EC54 /* TapScannerViewController.swift */,
 				E842A7072AB04C5600A2EC54 /* Models.swift */,
-				E842A7092AB04D8600A2EC54 /* TapCardView+Scanner.swift */,
-				E842A70B2AB04D9800A2EC54 /* TapCardView+WebDelegate.swift */,
+				E868ABCD2AB1D934009CB4BF /* Crypter.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E84AD9052AB2DA56006842E9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D645882D2AA8EB9900DF390B /* TapCardSDKConfig.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E84AD9082AB2DAB3006842E9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E84AD90A2AB2DABB006842E9 /* internal */,
+				E84AD9092AB2DAB7006842E9 /* public */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E84AD9092AB2DAB7006842E9 /* public */ = {
+			isa = PBXGroup;
+			children = (
+				D64E8DE12AA9C04A0077E433 /* TapCardView.swift */,
+			);
+			path = public;
+			sourceTree = "<group>";
+		};
+		E84AD90A2AB2DABB006842E9 /* internal */ = {
+			isa = PBXGroup;
+			children = (
+				E842A7052AAE025800A2EC54 /* TapScannerViewController.swift */,
 				E842A70D2AB0525100A2EC54 /* ThreeDSViewController.swift */,
 				E842A7132AB09F9800A2EC54 /* PoweredByTapView.swift */,
+			);
+			path = internal;
+			sourceTree = "<group>";
+		};
+		E85552DD2AAB361D00362174 /* private */ = {
+			isa = PBXGroup;
+			children = (
+				E84AD9042AB2DA41006842E9 /* Utils */,
+				E84AD9022AB2DA23006842E9 /* extensions */,
 			);
 			path = private;
 			sourceTree = "<group>";
@@ -451,7 +505,6 @@
 			files = (
 				E85552DA2AAA352700362174 /* Dark_Mode_Button_Loader.json in Resources */,
 				E842A71A2AB1612E00A2EC54 /* Media.xcassets in Resources */,
-				E8503AA72896512200D1B8B0 /* CardKitGoogle.plist in Resources */,
 				E85552D92AAA352700362174 /* Light_Mode_Button_Loader.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -588,13 +641,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E868ABCC2AB1D7B3009CB4BF /* TapCard+VisualEffect.swift in Sources */,
 				D64E8DE42AA9C3F80077E433 /* TapCardSDKConfig.swift in Sources */,
 				D64E8DE22AA9C04A0077E433 /* TapCardView.swift in Sources */,
+				E868ABCE2AB1D934009CB4BF /* Crypter.swift in Sources */,
 				E842A70E2AB0525100A2EC54 /* ThreeDSViewController.swift in Sources */,
 				E83262E627E88B6E005F3AAF /* TapCardCheckOutKit.docc in Sources */,
 				E842A70A2AB04D8600A2EC54 /* TapCardView+Scanner.swift in Sources */,
 				E85552DF2AAB362700362174 /* utils.swift in Sources */,
 				E842A70C2AB04D9800A2EC54 /* TapCardView+WebDelegate.swift in Sources */,
+				E868ABD62AB2437F009CB4BF /* TapCard+ConfigurationUrl.swift in Sources */,
 				E842A7062AAE025800A2EC54 /* TapScannerViewController.swift in Sources */,
 				E842A7142AB09F9800A2EC54 /* PoweredByTapView.swift in Sources */,
 				E842A7082AB04C5600A2EC54 /* Models.swift in Sources */,

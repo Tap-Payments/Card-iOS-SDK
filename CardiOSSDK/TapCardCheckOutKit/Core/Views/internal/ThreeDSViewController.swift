@@ -24,7 +24,7 @@ class ThreeDSView: UIView {
     /// A custom action block to execute when nothing else being loaded for a while
     var idleForWhile:()->() = {}
     /// A custom action block to execute when nothing else being loaded for a while
-    var authDetected:(String)->() = { _ in }
+    var redirectionReached:(String)->() = { _ in }
     /// A custom action block to execute when the user cancels the authentication
     var threeDSCanceled:()->() = {}
     /// The powered by tap view
@@ -130,9 +130,10 @@ extension ThreeDSView: WKNavigationDelegate {
         // Check if it is the return url
         
         if let requestURL:URL = navigationAction.request.url,
-           let authPayerID:String = authID(from: requestURL),
-           !authPayerID.isEmpty {
-            self.authDetected(authPayerID)
+           let triggerKeyword:String = cardRedirectionData.keyword,
+           let waitedKeyword:String = triggeringValue(from: requestURL, with: triggerKeyword),
+           !waitedKeyword.isEmpty {
+            self.redirectionReached(requestURL.absoluteString)
             decisionHandler(.cancel)
             return
         }
@@ -151,8 +152,8 @@ extension ThreeDSView: WKNavigationDelegate {
     
     
     
-    func authID(from url:URL) -> String? {
-        return tap_extractDataFromUrl(url,for: "auth_payer", shouldBase64Decode: false)
+    func triggeringValue(from url:URL, with triggeringKeyword:String) -> String? {
+        return tap_extractDataFromUrl(url,for:triggeringKeyword, shouldBase64Decode: false)
     }
 }
 

@@ -24,7 +24,11 @@ import Foundation
     /// The Tap public key
     public var publicKey: String?
     /// The encrypted headers
-    internal var operatorModel:Operator?
+    internal var operatorModel:Operator? {
+        didSet{
+            headers = operatorModel?.metadata
+        }
+    }
     /// The scope of the card sdk. Default is generating a tap token
     public var scope: Scope = .Token
     /// The Tap merchant details
@@ -43,6 +47,8 @@ import Foundation
     public var addons: Addons?
     /// Defines some UI related configurations
     public var interface: Interface?
+    /// headers values to share unqieu device and bundle data to the card web sdk
+    internal var headers:[String:String]?
     
     /**
      Creates a configuration model to be passed to the SDK
@@ -74,7 +80,7 @@ import Foundation
     private enum CodingKeys: String, CodingKey {
         
         case operatorModel  = "operator"
-        case publicKey, scope, merchant, transaction, authentication, customer, acceptance, fields, addons, interface
+        case publicKey, scope, merchant, transaction, authentication, customer, acceptance, fields, addons, interface, headers
     }
 }
 

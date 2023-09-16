@@ -7,13 +7,13 @@
 
 #import "ViewController.h"
 @import TapCardCheckOutKit;
-@import CommonDataModelsKit_iOS;
-@import TapCardVlidatorKit_iOS;
-@import TapCardScanner_iOS;
+@import SharedDataModels_iOS;
 
-@interface ViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UIButton *startButton;
+@interface ViewController ()<TapCardViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextView *eventsTextView;
+@property (weak, nonatomic) IBOutlet UIButton *tokenButton;
+@property (weak, nonatomic) IBOutlet TapCardView *tapCardView;
 @end
 
 @implementation ViewController
@@ -22,45 +22,61 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [_startButton setEnabled:NO];
-    CheckoutSecretKey* publicKey = [[CheckoutSecretKey alloc]initWithSandbox:@"pk_test_YhUjg9PNT8oDlKJ1aE2fMRz7" production:@"sk_live_V4UDhitI0r7sFwHCfNB6xMKp"];
-    Scope scope = ScopeTapToken;
-    CheckoutOrder* order = [[CheckoutOrder alloc]initWithIdentifier:@""];
-    Features* features = [[Features alloc]initWithAcceptanceBadge:YES];
-    
-    Transaction* transaction = [[Transaction alloc]initWithAmount:1 currency:TapCurrencyCodeKWD];
-    Merchant* merchant = [[Merchant alloc]initWithId:@"ID"];
-    TapCustomer* customer = [[TapCustomer alloc]initWithEmailAddress:[[TapEmailAddress alloc] initWithEmailAddressString:@"tap@company.com"]
-                                                         phoneNumber:[[TapPhone alloc]initWithIsdNumber:@"" phoneNumber:@"" error:nil]
-                                                           firstName:@"First Name"
-                                                          middleName:@"Not Needed"
-                                                            lastName:@"Last Name"
-                                                             address:nil
-                                                          nameOnCard:@"Customer's card holder name"
-                                                            editable:YES];
-    CardBrand brand = CardBrandMada;
-    
-    Acceptance* acceptance = [[Acceptance alloc]
-                              initWithSupportedBrands:@[@(CardBrandMada),@(CardBrandMasterCard)]
-                              supportedFundSource:All
-                              supportedPaymentAuthentications:@[@(SupportedPaymentAuthenticationsThreeDS),@(SupportedPaymentAuthenticationsEMV)]
-                              sdkMode:Sandbox];
-    
-    Fields* fields = [[Fields alloc] initWithCardHolder:YES];
-    Addons* addons = [[Addons alloc]initWithLoader:YES
-                               displayCardScanning:YES];
-    Interface* interface = [[Interface alloc]initWithLocale:@"en" direction:CardDirectionDynamic edges:CardEdgesCurved tapScannerUICustomization:Nil powered:YES];
-    
-    TapCardDataConfiguration* cardDataConfig = [[TapCardDataConfiguration alloc]initWithPublicKey:publicKey scope:scope transcation:transaction order:order merchant:merchant customer:customer features:features acceptance:acceptance fields:fields addons:addons interface:interface];
+    TapCardConfiguration* config = [[TapCardConfiguration alloc]initWithPublicKey:@"pk_test_YhUjg9PNT8oDlKJ1aE2fMRz7" scope:ScopeToken merchant:[[Merchant alloc]initWithId:@""] transaction:[[Transaction alloc]initWithAmount:1 currency:@"SAR"] authentication:[[Authentication alloc]initWithDescription:@"Authentication description" metadata:nil reference:[[Reference alloc]initWithTransaction:[self generateRandomTransactionId] order:[self generateRandomOrderId]] invoice:nil authentication:[[AuthenticationClass alloc]initWithChannel:@"PAYER_BROWSER" purpose:@"PAYMENT_TRANSACTION"] post:nil] customer:[[Customer alloc]initWithId:@"" name:@[[[Name alloc]initWithLang:@"en" first:@"Tap" last:@"Payments" middle:@""]] nameOnCard:@"TAP PAYMENTS" editable:YES contact:[[Contact alloc]initWithEmail:@"tap@tap.company" phone:[[Phone alloc]initWithCountryCode:@"965" number:@"88888888"]]] acceptance:[[Acceptance alloc]initWithSupportedBrands:@[@"MADA",@"MASTERCARD",@"MEEZA",@"VISA",@"OMANNET",@"AMERICAN_EXPRESS"] supportedCards:@[@"DEBIT",@"CREDIT"]] fields:[[Fields alloc]initWithCardHolder:YES] addons:[[Addons alloc]initWithDisplayPaymentBrands:YES loader:YES saveCard:NO] interface:[[Interface alloc]initWithLocale:@"en" theme:@"light" edges:@"curved" direction:@"ltr"]];
     
     
-    [TapCardForumConfiguration.shared configureWithDataConfig:cardDataConfig onCardSdkReady:^{
-        NSLog(@"%@",@"Checkout is ready");
-        [self.startButton setEnabled:YES];
-    } onErrorOccured:^(NSError * error) {
-        NSLog(@"%@ %@",@"Error :",error.localizedDescription);
-    }];
+    [_tapCardView initTapCardSDKWithConfig:config delegate:self presentScannerIn:self];
+    
+    
 }
+
+-(NSString*)generateRandomTransactionId {
+    int len = 23;
+    NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    NSMutableString *randomString = [NSMutableString stringWithCapacity: len];
+    
+    for (int i=0; i<len; i++) {
+        [randomString appendFormat: @"%C", [letters characterAtIndex: arc4random_uniform([letters length])]];
+    }
+
+    return [NSString stringWithFormat:@"tck_LV%@",randomString];
+}
+
+
+-(NSString*)generateRandomOrderId {
+    int len = 18;
+    NSString *letters = @"0123456789";
+    NSMutableString *randomString = [NSMutableString stringWithCapacity: len];
+    
+    for (int i=0; i<len; i++) {
+        [randomString appendFormat: @"%C", [letters characterAtIndex: arc4random_uniform([letters length])]];
+    }
+    
+    return [NSString stringWithFormat:@"%@",randomString];
+}
+
+- (IBAction)generateToken:(id)sender {
+    [_tapCardView generateTapToken];
+}
+
+
+- (void)onBinIdentificationWithData:(NSString *)data {
+    [_eventsTextView setText: [NSString stringWithFormat: @"\n\n========\n\nonBinIdentificationWithData %@%@",data,_eventsTextView.text]];
+}
+
+- (void)onSuccessWithData:(NSString *)data {
+    [_eventsTextView setText: [NSString stringWithFormat: @"\n\n========\n\nonSuccess %@%@",data,_eventsTextView.text]];
+}
+
+- (void)onReady {
+    [_eventsTextView setText: [NSString stringWithFormat: @"\n\n========\n\nonReady"]];
+}
+
+- (void)onInvalidInputWithInvalid:(BOOL)invalid {
+    [_eventsTextView setText: [NSString stringWithFormat: @"\n\n========\n\nonInvalidInputWithInvalid %i%@",invalid,_eventsTextView.text]];
+}
+
+
 
 
 @end

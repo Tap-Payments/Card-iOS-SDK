@@ -157,7 +157,7 @@ extension Acceptance {
 // MARK: - Addons
 /// Defines some UI/UX addons enablement
 @objcMembers public class Addons: NSObject, Codable {
-    public var displayPaymentBrands, loader, saveCard: Bool?
+    public var displayPaymentBrands, loader, saveCard, nfc, scanner: Bool?
     /**
      Defines some UI/UX addons enablement
      - Parameters:
@@ -165,10 +165,12 @@ extension Acceptance {
      - loader: Defines to show a loader on top of the card when it is in a processing state
      - saveCard: Defines it is required to show save card option to the customer
      */
-    @objc public init(displayPaymentBrands: Bool = false, loader: Bool = false, saveCard: Bool = false) {
+    @objc public init(displayPaymentBrands: Bool = false, loader: Bool = false, saveCard: Bool = false, scanner: Bool = false ) {
         self.displayPaymentBrands = displayPaymentBrands
         self.loader = loader
         self.saveCard = saveCard
+        self.scanner = scanner
+        self.nfc = false
     }
 }
 
@@ -177,7 +179,7 @@ extension Acceptance {
 extension Addons {
     convenience init(data: Data) throws {
         let me = try newJSONDecoder().decode(Addons.self, from: data)
-        self.init(displayPaymentBrands: me.displayPaymentBrands ?? false, loader: me.loader ?? false, saveCard: me.saveCard ?? false)
+        self.init(displayPaymentBrands: me.displayPaymentBrands ?? false, loader: me.loader ?? false, saveCard: me.saveCard ?? false, scanner: me.scanner ?? false)
     }
     
     convenience init(_ json: String, using encoding: String.Encoding = .utf8) throws {
@@ -194,12 +196,14 @@ extension Addons {
     func with(
         displayPaymentBrands: Bool = false,
         loader: Bool = false,
-        saveCard: Bool = false
+        saveCard: Bool = false,
+        scanner: Bool = false
     ) -> Addons {
         return Addons(
             displayPaymentBrands: displayPaymentBrands,
             loader: loader,
-            saveCard: saveCard
+            saveCard: saveCard,
+            scanner: scanner
         )
     }
     
@@ -229,7 +233,7 @@ extension Addons {
      - editable: If the customer can edit the card holder name field
      - contact: The customer's contact details
      */
-    @objc public init(id: String?, name: [Name]?, nameOnCard: String?, editable: Bool = false, contact: Contact?) {
+    @objc public init(id: String?, name: [Name]?, nameOnCard: String? = "", editable: Bool = true, contact: Contact?) {
         self.id = id
         self.name = name
         self.nameOnCard = nameOnCard
@@ -649,7 +653,7 @@ extension Merchant {
     ///     - invoice:  Will link this authentication process to a certain invoice
     ///     - authentication: Some data related to identify the shape of the Authentication process itself
     ///     - post:  The url you want to post the result of the authentication to (webhook)
-    @objc public init(description: String?, metadata: [String:String]?, reference: Reference?, invoice: Invoice?, authentication: AuthenticationClass?, post: Post?) {
+    @objc public init(description: String? = "", metadata: [String:String]? = [:], reference: Reference?, invoice: Invoice? = nil, authentication: AuthenticationClass? = .init(), post: Post? = nil) {
         self.authenticationDescription = description
         self.metadata = metadata
         self.reference = reference

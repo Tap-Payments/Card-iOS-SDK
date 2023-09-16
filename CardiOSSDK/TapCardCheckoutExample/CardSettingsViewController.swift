@@ -145,10 +145,10 @@ class CardSettingsViewController: FormViewController {
         form +++ Section("acceptance")
         <<< MultipleSelectorRow<String>("acceptance.supportedBrands"){ row in
             row.title = "supportedBrands"
-            row.options = ["AMEX","MADA","MASTERCARD","VISA","OMANNET","MEEZA"]
-            row.value = Set(config?.acceptance?.supportedBrands ?? ["AMEX","MADA","MASTERCARD","VISA","OMANNET","MEEZA"])
+            row.options = ["AMERICAN_EXPRESS","MADA","MASTERCARD","VISA","OMANNET","MEEZA"]
+            row.value = Set(config?.acceptance?.supportedBrands ?? ["AMERICAN_EXPRESS","MADA","MASTERCARD","VISA","OMANNET","MEEZA"])
             row.onChange { row in
-                self.config?.acceptance?.supportedBrands = Array(row.value ?? ["AMEX","MADA","MASTERCARD","VISA","OMANNET","MEEZA"])
+                self.config?.acceptance?.supportedBrands = Array(row.value ?? ["AMERICAN_EXPRESS","MADA","MASTERCARD","VISA","OMANNET","MEEZA"])
             }
         }
         <<< MultipleSelectorRow<String>("acceptance.supportedCards"){ row in
@@ -219,7 +219,7 @@ class CardSettingsViewController: FormViewController {
         }
         <<< AlertRow<String>("interface.direction"){ row in
             row.title = "direction"
-            row.options = ["ltr","rtl"]
+            row.options = ["ltr","rtl","dynamic"]
             row.value = config?.interface?.direction ?? "ltr"
             row.onChange { row in
                 self.config?.interface?.direction = row.value ?? "ltr"

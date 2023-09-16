@@ -1,100 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Tl2-2j-t4b">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="zQH-w8-JLD">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Tl2-2j-t4b" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="S9C-2J-Uan">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0J-gM-H0b">
-                                <rect key="frame" x="186" y="68" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kaE-cL-87U">
-                                <rect key="frame" x="119" y="431" width="176" height="34.5"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Start the card demo"/>
-                                <connections>
-                                    <segue destination="YjH-K5-psO" kind="presentation" id="sNN-jF-Omf"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="kaE-cL-87U" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2Oo-W6-Fgf"/>
-                            <constraint firstItem="kaE-cL-87U" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="2qE-Re-YVN"/>
-                            <constraint firstItem="w0J-gM-H0b" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="62I-9v-ekU"/>
-                            <constraint firstItem="w0J-gM-H0b" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BKy-3F-o5k"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="startButton" destination="kaE-cL-87U" id="5U8-cZ-akJ"/>
-                        <outlet property="titleLabel" destination="w0J-gM-H0b" id="PtK-WU-Qsg"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="133" y="7"/>
-        </scene>
-        <!--Card Input Demo View Controller-->
-        <scene sceneID="YbG-xm-DOl">
-            <objects>
-                <viewController id="YjH-K5-psO" customClass="CardInputDemoViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="zOb-LB-hDo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JnI-GR-7bd" customClass="TapCardView" customModule="TapCardCheckOutKit">
-                                <rect key="frame" x="0.0" y="68" width="414" height="200"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P6H-Ex-EXK" customClass="TapCardView" customModule="TapCardCheckOutKit">
+                                <rect key="frame" x="10" y="248" width="394" height="95"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="NKM-Sf-9sD"/>
+                                    <constraint firstAttribute="height" priority="250" constant="95" id="2VX-Jd-4j3"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxx-jR-VYP">
-                                <rect key="frame" x="161.5" y="278" width="91" height="34.5"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PrG-HL-Xlb">
+                                <rect key="frame" x="135" y="363" width="144" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="g6F-IX-sDq"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Tokenize"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Generate Token"/>
                                 <connections>
-                                    <action selector="tokenizeClicked:" destination="YjH-K5-psO" eventType="touchUpInside" id="kvd-DZ-6rW"/>
+                                    <action selector="generateToken:" destination="Tl2-2j-t4b" eventType="touchUpInside" id="ApW-FT-TM6"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6z-pO-Y69">
+                                <rect key="frame" x="20" y="421" width="374" height="441"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="g7W-cr-ffo"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <viewLayoutGuide key="safeArea" id="O7r-v0-p0R"/>
+                        <color key="backgroundColor" name="bgColor"/>
                         <constraints>
-                            <constraint firstItem="vxx-jR-VYP" firstAttribute="top" secondItem="JnI-GR-7bd" secondAttribute="bottom" constant="10" id="207-ok-exy"/>
-                            <constraint firstItem="JnI-GR-7bd" firstAttribute="leading" secondItem="g7W-cr-ffo" secondAttribute="leading" id="3wX-JE-qDy"/>
-                            <constraint firstItem="vxx-jR-VYP" firstAttribute="centerX" secondItem="zOb-LB-hDo" secondAttribute="centerX" id="A91-Db-rou"/>
-                            <constraint firstItem="JnI-GR-7bd" firstAttribute="top" secondItem="g7W-cr-ffo" secondAttribute="top" constant="20" id="e4H-91-k0s"/>
-                            <constraint firstItem="g7W-cr-ffo" firstAttribute="trailing" secondItem="JnI-GR-7bd" secondAttribute="trailing" id="tYz-ln-4Lv"/>
+                            <constraint firstItem="PrG-HL-Xlb" firstAttribute="top" secondItem="P6H-Ex-EXK" secondAttribute="bottom" constant="20" id="5Lu-z5-bDc"/>
+                            <constraint firstItem="r6z-pO-Y69" firstAttribute="leading" secondItem="O7r-v0-p0R" secondAttribute="leading" constant="20" id="9uE-95-KUN"/>
+                            <constraint firstItem="r6z-pO-Y69" firstAttribute="bottom" secondItem="O7r-v0-p0R" secondAttribute="bottom" id="GXQ-AB-mp8"/>
+                            <constraint firstItem="O7r-v0-p0R" firstAttribute="trailing" secondItem="r6z-pO-Y69" secondAttribute="trailing" constant="20" id="LGd-t1-8VO"/>
+                            <constraint firstItem="P6H-Ex-EXK" firstAttribute="leading" secondItem="O7r-v0-p0R" secondAttribute="leading" constant="10" id="SKd-bk-Wnx"/>
+                            <constraint firstItem="P6H-Ex-EXK" firstAttribute="top" secondItem="O7r-v0-p0R" secondAttribute="top" constant="200" id="WvP-hg-VZy"/>
+                            <constraint firstItem="O7r-v0-p0R" firstAttribute="trailing" secondItem="P6H-Ex-EXK" secondAttribute="trailing" constant="10" id="elO-rf-ZrG"/>
+                            <constraint firstItem="r6z-pO-Y69" firstAttribute="top" secondItem="PrG-HL-Xlb" secondAttribute="bottom" constant="8" id="sld-2l-EKA"/>
+                            <constraint firstItem="PrG-HL-Xlb" firstAttribute="centerX" secondItem="S9C-2J-Uan" secondAttribute="centerX" id="uOV-uY-ikl"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tapCardInput" destination="JnI-GR-7bd" id="dtK-uB-AQm"/>
-                        <outlet property="tokenizeButton" destination="vxx-jR-VYP" id="AIB-A0-87d"/>
+                        <outlet property="eventsTextView" destination="r6z-pO-Y69" id="b1L-10-bzv"/>
+                        <outlet property="tapCardView" destination="P6H-Ex-EXK" id="C8j-cC-b2d"/>
+                        <outlet property="tokenButton" destination="PrG-HL-Xlb" id="uUh-r1-2zK"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="j2u-44-9ok" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j3h-ad-j7U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="890" y="7"/>
+            <point key="canvasLocation" x="3860.8695652173915" y="809.59821428571422"/>
         </scene>
     </scenes>
     <resources>
+        <namedColor name="bgColor">
+            <color red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -27,6 +27,7 @@ import Foundation
     internal var operatorModel:Operator? {
         didSet{
             headers = operatorModel?.metadata
+            operatorModel?.metadata = [:]
         }
     }
     /// The scope of the card sdk. Default is generating a tap token
@@ -64,7 +65,7 @@ import Foundation
         - addons: Defines some UI/UX addons enablement
         - interface: Defines some UI related configurations
      */
-    @objc public init(publicKey: String?, scope: Scope = .Token, merchant: Merchant?, transaction: Transaction?, authentication: Authentication?, customer: Customer?, acceptance: Acceptance?, fields: Fields?, addons: Addons?, interface: Interface?) {
+    @objc public init(publicKey: String?, scope: Scope = .Token, merchant: Merchant? = .init(id: ""), transaction: Transaction?, authentication: Authentication?, customer: Customer?, acceptance: Acceptance? = .init(supportedBrands: [], supportedCards: ["DEBIT","CREDIT"]), fields: Fields? = .init(cardHolder: true), addons: Addons? = .init(displayPaymentBrands: true, loader: true, saveCard: false), interface: Interface? = .init(locale: "dynamic", theme: "dynamic", edges: "curved", direction: "dynamic")) {
         self.publicKey = publicKey
         self.scope = scope
         self.merchant = merchant

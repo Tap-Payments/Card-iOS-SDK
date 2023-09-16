@@ -147,9 +147,10 @@ SZhWp4Mnd6wjVgXAsQIDAQAB
         // Store it for further usages
         currentlyLoadedCardConfigurations = url
         // First let us hide the web view and show the loading view
-        webView?.isHidden = true
+        //webView?.isHidden = true
         reAdjustShimmeringView(with: url)
-        animationView?.isHidden = false
+        //animationView?.isHidden = false
+        self.updateShimmerView(with: true)
         // Second, instruct the web view to load the needed url
         let request = URLRequest(url: url!)
         webView?.navigationDelegate = self
@@ -258,6 +259,60 @@ SZhWp4Mnd6wjVgXAsQIDAQAB
         }
     }
     
+    
+    internal func updateShimmerView(with visibility:Bool) {
+        var originalAnimationViewAlpha:CGFloat = 0
+        var finalAnimationViewAlpha:CGFloat = 0
+        
+        var originalCardViewAlpha:CGFloat = 0
+        var finalCardViewAlpha:CGFloat = 0
+        
+        if visibility {
+            originalAnimationViewAlpha = 0
+            finalAnimationViewAlpha = 1
+            
+            originalCardViewAlpha = 1
+            finalCardViewAlpha = 0
+        }else {
+            originalAnimationViewAlpha = 1
+            finalAnimationViewAlpha = 0
+            
+            originalCardViewAlpha = 0
+            finalCardViewAlpha = 1
+        }
+        
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.25) {
+                self.animationView?.alpha = finalAnimationViewAlpha
+                self.webView?.alpha = finalCardViewAlpha
+            } completion: { _ in
+                self.animationView?.isHidden = !visibility
+                self.webView?.isHidden = visibility
+            }
+        } 
+        
+    }
+    
+    /// Will handle start scanner click
+    internal func handleScanner() {
+        scanCard()
+    }
+    
+    /// Will do needed logic post getting a message from the web sdk that it is ready to be displayd
+    internal func handleOnReady() {
+        // Give a moment for the iFrame to be fully rendered
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
+            self.animationView?.alpha = 1
+            self.webView?.alpha = 0
+            
+            self.animationView?.isHidden = false
+            self.webView?.isHidden = false
+            
+            self.updateShimmerView(with: false)
+            self.delegate?.onReady?()
+        }
+    }
+    
     /// Will handle & starte the redirection process when called
     /// - Parameter data: The data string fetched from the url parameter
     internal func handleRedirection(data:String) {
@@ -307,17 +362,22 @@ SZhWp4Mnd6wjVgXAsQIDAQAB
     /// Tells the web sdk the process is finished with the data from backend
     /// - Parameter rediectionUrl: The url with the needed data coming from back end at the end of the currently running process
     internal func passRedirectionDataToSDK(rediectionUrl:String) {
-        //webView?.evaluateJavaScript("window.loadAuthentication('\(rediectionUrl)')")
-        generateTapToken()
+        webView?.evaluateJavaScript("window.loadAuthentication('\(rediectionUrl)')")
+        //generateTapToken()
     }
     
     
     /// Starts the scanning process if all requirements are met
     @objc public func scanCard() {
         //Make sure we have something to present within
-        guard let presentScannerIn = presentScannerIn else { return }
+        guard let presentScannerIn = presentScannerIn else {
+            let error:[String:String] = ["error":"In order to be able to use the scanner, you need to reconfigure the card and pass presentScannerIn"]
+            delegate?.onError?(data: String(data: try! JSONSerialization.data(
+                withJSONObject: error,
+                options: []), encoding: .utf8) ?? "In order to be able to use the scanner, you need to reconfigure the card and pass presentScannerIn")
+            return }
         let scannerController:TapScannerViewController = .init()
-        scannerController.modalPresentationStyle = .overCurrentContext
+        //scannerController.modalPresentationStyle = .overCurrentContext
         // Second grant the authorization to use the camera
         AVCaptureDevice.requestAccess(for: AVMediaType.video) { [weak self] response in
             if response {

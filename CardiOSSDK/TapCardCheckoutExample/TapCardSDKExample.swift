@@ -8,22 +8,29 @@
 import UIKit
 import TapCardCheckOutKit
 import SharedDataModels_iOS
+import Toast
 
 class TapCardSDKExample: UIViewController {
     @IBOutlet weak var tapCardView: TapCardView!
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var eventsTextView: UITextView!
-    
-    var config: TapCardConfiguration = .init(publicKey: "pk_test_YhUjg9PNT8oDlKJ1aE2fMRz7",
+    // minimum
+    /*var config: TapCardConfiguration = .init(publicKey: "pk_test_YhUjg9PNT8oDlKJ1aE2fMRz7",
                                              scope: .Authenticate,
+                                             transaction: Transaction(amount: 1, currency: "SAR"),
+                                             authentication: .init(reference: Reference(transaction: TapCardSDKExample.generateRandomTransactionId(), order: TapCardSDKExample.generateRandomOrderId())),
+                                             customer: Customer(id: nil, name: [.init(lang: "en", first: "Tap", last: "Payments", middle: "")], nameOnCard: "Tap Payments", editable: true, contact: .init(email: "tappayments@tap.company", phone: .init(countryCode: "+965", number: "88888888"))))*/
+    // full
+    var config: TapCardConfiguration = .init(publicKey: "pk_test_YhUjg9PNT8oDlKJ1aE2fMRz7",
+                                             scope: .Token,
                                              merchant: Merchant(id: ""),
                                              transaction: Transaction(amount: 1, currency: "SAR"),
                                              authentication: Authentication(description: "Authentication description", metadata: ["utf1":"data"], reference: Reference(transaction: TapCardSDKExample.generateRandomTransactionId(), order: TapCardSDKExample.generateRandomOrderId()), invoice: nil, authentication: AuthenticationClass(), post: nil),
                                              customer: Customer(id: nil, name: [.init(lang: "en", first: "Tap", last: "Payments", middle: "")], nameOnCard: "Tap Payments", editable: true, contact: .init(email: "tappayments@tap.company", phone: .init(countryCode: "+965", number: "88888888"))),
-                                             acceptance: Acceptance(supportedBrands: ["AMEX","VISA","MASTERCARD","OMANNET","MADA"], supportedCards: ["CREDIT","DEBIT"]),
+                                             acceptance: Acceptance(supportedBrands: ["AMERICAN_EXPRESS","VISA","MASTERCARD","OMANNET","MADA"], supportedCards: ["CREDIT","DEBIT"]),
                                              fields: Fields(cardHolder: true),
-                                             addons: Addons(displayPaymentBrands: true, loader: true, saveCard: false),
-                                             interface: Interface(locale: "en", theme: "light", edges: "curved", direction: "ltr"))
+                                             addons: Addons(displayPaymentBrands: true, loader: true, saveCard: false, scanner: false),
+                                             interface: Interface(locale: "en", theme: UIView().traitCollection.userInterfaceStyle == .dark ? "dark" : "light", edges: "curved", direction: "dynamic"))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +68,7 @@ class TapCardSDKExample: UIViewController {
     },
     "acceptance": {
         "supportedBrands": [
-            "AMEX",
+            "AMERICAN_EXPRESS",
             "VISA",
             "MASTERCARD",
             "MADA"
@@ -141,6 +148,7 @@ extension TapCardSDKExample: CardSettingsViewControllerDelegate {
     
     func updateConfig(config: TapCardConfiguration) {
         self.config = config
+        self.config.authentication = Authentication(description: "Authentication description", metadata: ["utf1":"data"], reference: Reference(transaction: TapCardSDKExample.generateRandomTransactionId(), order: TapCardSDKExample.generateRandomOrderId()), invoice: nil, authentication: AuthenticationClass(), post: nil)
         setupTapCardSDK()
     }
     
@@ -170,6 +178,18 @@ extension TapCardSDKExample: TapCardViewDelegate {
     func onSuccess(data: String) {
         //print("CardWebSDKExample onSuccess \(data)")
         eventsTextView.text = "\n\n========\n\nonSuccess \(data)\(eventsTextView.text ?? "")"
+        
+        let config = ToastConfiguration(
+            direction: .top,
+            autoHide: true,
+            enablePanToClose: true,
+            displayTime: 5,
+            animationTime: 0.2
+        )
+        
+        let toast = Toast.text("For another 3ds create a new Order#", subtitle: "From the options, select Random Trx", config: config)
+        toast.enableTapToClose()
+        toast.show()
 
     }
     

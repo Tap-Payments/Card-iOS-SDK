@@ -29,6 +29,7 @@
 		E842A70E2AB0525100A2EC54 /* ThreeDSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E842A70D2AB0525100A2EC54 /* ThreeDSViewController.swift */; };
 		E842A7142AB09F9800A2EC54 /* PoweredByTapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E842A7132AB09F9800A2EC54 /* PoweredByTapView.swift */; };
 		E842A71A2AB1612E00A2EC54 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E842A7192AB1612E00A2EC54 /* Media.xcassets */; };
+		E84AD90D2AB377B8006842E9 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = E84AD90C2AB377B8006842E9 /* Toast */; };
 		E85090D4293A14BD007048A8 /* tap_logo.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E85090D3293A14BC007048A8 /* tap_logo.pdf */; };
 		E85090EF293A4B02007048A8 /* Eureka in Frameworks */ = {isa = PBXBuildFile; productRef = E85090EE293A4B02007048A8 /* Eureka */; };
 		E85552D92AAA352700362174 /* Light_Mode_Button_Loader.json in Resources */ = {isa = PBXBuildFile; fileRef = E85552D72AAA352700362174 /* Light_Mode_Button_Loader.json */; };
@@ -48,7 +49,6 @@
 		E8A5AF8628BCC15B00620427 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A5AF8528BCC15B00620427 /* main.m */; };
 		E8A5AF8A28BCC17B00620427 /* TapCardCheckOutKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E83262E127E88B6E005F3AAF /* TapCardCheckOutKit.framework */; platformFilter = ios; };
 		E8A5AF8B28BCC17B00620427 /* TapCardCheckOutKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E83262E127E88B6E005F3AAF /* TapCardCheckOutKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E8A5AF9128BCC67D00620427 /* CardInputDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A5AF9028BCC67D00620427 /* CardInputDemoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,8 +144,6 @@
 		E8A5AF8228BCC15B00620427 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E8A5AF8428BCC15B00620427 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8A5AF8528BCC15B00620427 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E8A5AF8F28BCC67D00620427 /* CardInputDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardInputDemoViewController.h; sourceTree = "<group>"; };
-		E8A5AF9028BCC67D00620427 /* CardInputDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardInputDemoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +151,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E84AD90D2AB377B8006842E9 /* Toast in Frameworks */,
 				4630C9E98983B0A1A514926A /* Pods_TapCardCheckOutKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,8 +357,6 @@
 				E8A5AF8128BCC15B00620427 /* LaunchScreen.storyboard */,
 				E8A5AF8428BCC15B00620427 /* Info.plist */,
 				E8A5AF8528BCC15B00620427 /* main.m */,
-				E8A5AF8F28BCC67D00620427 /* CardInputDemoViewController.h */,
-				E8A5AF9028BCC67D00620427 /* CardInputDemoViewController.m */,
 			);
 			path = TapCardCheckoutExampleObjc;
 			sourceTree = "<group>";
@@ -403,6 +400,7 @@
 			);
 			name = TapCardCheckOutKit;
 			packageProductDependencies = (
+				E84AD90C2AB377B8006842E9 /* Toast */,
 			);
 			productName = TapCardCheckOutKit;
 			productReference = E83262E127E88B6E005F3AAF /* TapCardCheckOutKit.framework */;
@@ -486,6 +484,7 @@
 			mainGroup = E83262D727E88B6E005F3AAF;
 			packageReferences = (
 				E85090ED293A4B02007048A8 /* XCRemoteSwiftPackageReference "Eureka" */,
+				E84AD90B2AB377B8006842E9 /* XCRemoteSwiftPackageReference "toast-swift" */,
 			);
 			productRefGroup = E83262E227E88B6E005F3AAF /* Products */;
 			projectDirPath = "";
@@ -675,7 +674,6 @@
 				E8A5AF7B28BCC15900620427 /* ViewController.m in Sources */,
 				E8A5AF7528BCC15900620427 /* AppDelegate.m in Sources */,
 				E8A5AF8628BCC15B00620427 /* main.m in Sources */,
-				E8A5AF9128BCC67D00620427 /* CardInputDemoViewController.m in Sources */,
 				E8A5AF7828BCC15900620427 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -924,7 +922,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 44;
+				CURRENT_PROJECT_VERSION = 52;
 				DEVELOPMENT_TEAM = G46S76PUH4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TapCardCheckoutExample/Info.plist;
@@ -932,9 +930,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -959,7 +956,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 44;
+				CURRENT_PROJECT_VERSION = 52;
 				DEVELOPMENT_TEAM = G46S76PUH4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TapCardCheckoutExample/Info.plist;
@@ -967,9 +964,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1092,6 +1088,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E84AD90B2AB377B8006842E9 /* XCRemoteSwiftPackageReference "toast-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/BastiaanJansen/toast-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		E85090ED293A4B02007048A8 /* XCRemoteSwiftPackageReference "Eureka" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/xmartlabs/Eureka.git";
@@ -1103,6 +1107,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E84AD90C2AB377B8006842E9 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E84AD90B2AB377B8006842E9 /* XCRemoteSwiftPackageReference "toast-swift" */;
+			productName = Toast;
+		};
 		E85090EE293A4B02007048A8 /* Eureka */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E85090ED293A4B02007048A8 /* XCRemoteSwiftPackageReference "Eureka" */;

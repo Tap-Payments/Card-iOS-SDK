@@ -11,6 +11,7 @@ import WebKit
 import SharedDataModels_iOS
 
 extension TapCardView:WKNavigationDelegate {
+    
     public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         var action: WKNavigationActionPolicy?
         
@@ -29,11 +30,10 @@ extension TapCardView:WKNavigationDelegate {
         
         switch url.absoluteString {
         case _ where url.absoluteString.contains("onReady"):
-            self.animationView?.isHidden = true
-            self.webView?.isHidden = false
-            delegate?.onReady?()
+            handleOnReady()
             break
         case _ where url.absoluteString.contains("onFocus"):
+        //handleRedirection(data: "{\"threeDsUrl\":\"https://www.google.com/?client=safari\", \"redirectUrl\":\"https://sdk.dev.tap.company\",\"keyword\":\"auth_payer\"}")
             delegate?.onFocus?()
             break
         case _ where url.absoluteString.contains("onBinIdentification"):
@@ -51,7 +51,9 @@ extension TapCardView:WKNavigationDelegate {
         case _ where url.absoluteString.contains("on3dsRedirect"):
             handleRedirection(data: tap_extractDataFromUrl(url.absoluteURL))
             break
-            
+        case _ where url.absoluteString.contains("onScannerClick"):
+            handleScanner()
+            break
         case _ where url.absoluteString.contains("onHeightChange"):
             
             let height = Double(tap_extractDataFromUrl(url,shouldBase64Decode: false))
